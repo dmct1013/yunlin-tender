@@ -447,6 +447,105 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
   border: 1px solid var(--border);
   color: var(--text3);
 }
+
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text2);
+  border-radius: 2px;
+  transition: all .2s;
+}
+
+/* ── Sidebar Backdrop ── */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+  z-index: 140;
+  cursor: pointer;
+}
+.sidebar-backdrop.active { display: block; }
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .sidebar { width: 190px; min-width: 190px; }
+}
+
+@media (max-width: 768px) {
+  /* Sidebar → 全螢幕 overlay */
+  .hamburger { display: flex; }
+
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    z-index: 150;
+    width: 260px;
+    min-width: 260px;
+    transform: translateX(-100%);
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+    box-shadow: 4px 0 20px rgba(0,0,0,.12);
+  }
+  .sidebar.mobile-open { transform: none; }
+
+  /* Stats → 2×2 */
+  .stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Topbar */
+  .topbar { padding: 10px 14px; gap: 8px; flex-wrap: wrap; }
+  .topbar-info { min-width: 0; }
+  .topbar-title { font-size: 14px; }
+  .topbar-sub { font-size: 11px; }
+
+  /* Content */
+  .content { padding: 12px 14px; }
+
+  /* Filter bar → 垂直排列 */
+  .filter-bar { flex-direction: column; align-items: stretch; gap: 8px; }
+  .filter-bar input[type=text] { min-width: unset; width: 100%; }
+  .filter-bar select { width: 100%; }
+  .filter-sep { display: none; }
+
+  /* Table → 水平捲動 */
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 560px; }
+
+  /* Panel → 全寬 */
+  .panel { width: 100%; max-width: 100%; }
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  /* 隱藏次要欄位，保留名稱、預算、AI分析、查看 */
+  table thead th:nth-child(3),
+  table tbody td:nth-child(3),
+  table thead th:nth-child(5),
+  table tbody td:nth-child(5),
+  table thead th:nth-child(6),
+  table tbody td:nth-child(6) { display: none; }
+
+  table { min-width: 360px; }
+
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat .val { font-size: 18px; }
+
+  .sel-bar { flex-wrap: wrap; gap: 6px; }
+  .sel-bar .sp { display: none; }
+}
 </style>
 </head>
 <body>
@@ -546,6 +645,9 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
   <!-- Main -->
   <div class="main">
     <div class="topbar">
+      <button class="hamburger" id="hamburger-btn" onclick="toggleSidebar()" aria-label="開啟選單">
+        <span></span><span></span><span></span>
+      </button>
       <div class="topbar-info">
         <div class="topbar-title" id="view-title">全部勞務標案</div>
         <div class="topbar-sub" id="view-sub"></div>
@@ -605,6 +707,9 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
     </div>
   </div>
 </div>
+
+<!-- Sidebar Backdrop (mobile) -->
+<div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
 
 <!-- Panel -->
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
@@ -959,6 +1064,32 @@ async function analyzeSelected() {
   document.getElementById('btn-bulk').disabled = false;
   document.getElementById('btn-bulk').textContent = '批次 AI 分析 ↗';
 }
+
+// ── Mobile Sidebar ──
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  const isOpen = sidebar.classList.contains('mobile-open');
+  if (isOpen) {
+    sidebar.classList.remove('mobile-open');
+    backdrop.classList.remove('active');
+  } else {
+    sidebar.classList.add('mobile-open');
+    backdrop.classList.add('active');
+  }
+}
+function closeSidebar() {
+  document.querySelector('.sidebar').classList.remove('mobile-open');
+  document.getElementById('sidebar-backdrop').classList.remove('active');
+}
+// 點擊側欄的導航項目後，在手機上自動關閉側欄
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('.sidebar').addEventListener('click', (e) => {
+    if (window.innerWidth <= 768 && e.target.closest('.nav-item')) {
+      closeSidebar();
+    }
+  });
+});
 
 // ── API Key ──
 function saveKey() {
