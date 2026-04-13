@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雲林縣採購監控</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f2f0eb;
+  --surface: #ffffff;
+  --surface2: #f8f7f4;
+  --border: #e4e0d8;
+  --border2: #ccc8be;
+  --text: #1a1816;
+  --text2: #5c5750;
+  --text3: #9c9890;
+  --accent: #b84c1a;
+  --accent2: #d4611f;
+  --accent-bg: #fdf1eb;
+  --accent-border: #e8b89a;
+  --blue: #1a5fa8;
+  --blue-bg: #eef4fc;
+  --green: #1a7a3e;
+  --green-bg: #edf7f1;
+  --amber: #a06010;
+  --amber-bg: #fdf6e3;
+  --red: #b52020;
+  --red-bg: #fef2f2;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Layout ── */
+.layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 220px;
+  min-width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.main { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
+
+/* ── Sidebar ── */
+.logo {
+  padding: 20px 18px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.logo-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+}
+.logo-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
+
+.nav-group { padding: 14px 10px 6px; }
+.nav-group-label {
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 0 8px;
+  margin-bottom: 4px;
+}
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text2);
+  transition: all .12s;
+  margin-bottom: 1px;
+  user-select: none;
+}
+.nav-item:hover { background: var(--surface2); color: var(--text); }
+.nav-item.active { background: var(--accent-bg); color: var(--accent); font-weight: 500; }
+.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .5; flex-shrink: 0; }
+.nav-item.active .nav-dot { opacity: 1; }
+.nav-count {
+  margin-left: auto;
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 20px;
+  background: var(--border);
+  color: var(--text3);
+}
+.nav-item.active .nav-count { background: var(--accent-border); color: var(--accent); }
+
+.sidebar-footer {
+  margin-top: auto;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+.sidebar-footer label { font-size: 11px; color: var(--text3); display: block; margin-bottom: 5px; }
+.api-input {
+  width: 100%;
+  padding: 6px 9px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 11px;
+  font-family: monospace;
+  background: var(--surface2);
+  color: var(--text);
+}
+.api-input:focus { outline: none; border-color: var(--accent-border); }
+.api-status { font-size: 11px; margin-top: 4px; min-height: 16px; }
+
+/* ── Topbar ── */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.topbar-info { flex: 1; }
+.topbar-title { font-size: 15px; font-weight: 500; }
+.topbar-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid var(--border2);
+  background: var(--surface);
+  color: var(--text2);
+  transition: all .12s;
+}
+.btn:hover { background: var(--surface2); color: var(--text); }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: white; font-weight: 500; }
+.btn-primary:hover { background: var(--accent2); border-color: var(--accent2); }
+.btn-primary:disabled { opacity: .4; pointer-events: none; }
+.btn-sm { padding: 5px 11px; font-size: 12px; }
+
+/* ── Content ── */
+.content { flex: 1; overflow-y: auto; padding: 20px 24px; }
+
+/* ── Stats ── */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 12px 14px;
+}
+.stat .lbl { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+.stat .val { font-size: 22px; font-weight: 700; color: var(--text); }
+.stat .sub { font-size: 11px; color: var(--text3); margin-top: 1px; }
+
+/* ── Filter ── */
+.filter-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.filter-bar input[type=text] {
+  flex: 1;
+  min-width: 150px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  background: var(--surface2);
+  color: var(--text);
+  font-family: inherit;
+}
+.filter-bar input[type=text]:focus { outline: none; border-color: var(--accent-border); }
+.filter-bar select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  background: var(--surface2);
+  color: var(--text);
+  font-family: inherit;
+  height: 34px;
+}
+.filter-sep { width: 1px; background: var(--border); height: 20px; }
+
+/* ── Sel bar ── */
+.sel-bar {
+  background: var(--amber-bg);
+  border: 1px solid #e8c870;
+  border-radius: 9px;
+  padding: 9px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.sel-bar .sp { flex: 1; }
+
+/* ── Table ── */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text3);
+  letter-spacing: .04em;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+tbody tr { transition: background .1s; cursor: pointer; }
+tbody tr:hover { background: var(--surface2); }
+tbody tr + tr { border-top: 1px solid var(--border); }
+tbody td { padding: 11px 12px; vertical-align: middle; }
+
+.td-title .name { font-weight: 500; font-size: 13px; line-height: 1.4; }
+.td-title .org { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.town-tag { font-size: 12px; color: var(--text2); white-space: nowrap; }
+.budget { font-size: 13px; white-space: nowrap; font-weight: 500; }
+.date-cell { font-size: 12px; color: var(--text3); white-space: nowrap; }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.badge-activity { background: var(--accent-bg); color: var(--accent); }
+.badge-other { background: var(--surface2); color: var(--text3); }
+.badge-yes { background: var(--green-bg); color: var(--green); }
+.badge-no { background: var(--red-bg); color: var(--red); }
+.badge-maybe { background: var(--amber-bg); color: var(--amber); }
+
+.btn-view {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-border);
+  color: var(--accent);
+  background: var(--accent-bg);
+  cursor: pointer;
+  font-family: inherit;
+  transition: all .12s;
+  white-space: nowrap;
+}
+.btn-view:hover { background: var(--accent); color: white; }
+
+.chk { width: 15px; height: 15px; cursor: pointer; accent-color: var(--accent); }
+
+.empty-state {
+  padding: 48px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 14px;
+}
+
+/* ── Panel ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.2);
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.overlay.open { opacity: 1; pointer-events: auto; }
+
+.panel {
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: 540px;
+  max-width: 95vw;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: -4px 0 20px rgba(0,0,0,.1);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .25s cubic-bezier(.4,0,.2,1);
+}
+.panel.open { transform: none; }
+
+.panel-head {
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.panel-head .close {
+  float: right;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text3);
+  line-height: 1;
+}
+.panel-head .close:hover { color: var(--text); }
+.panel-head h2 { font-size: 14px; font-weight: 500; padding-right: 24px; line-height: 1.5; }
+.panel-head .meta { font-size: 12px; color: var(--text3); margin-top: 4px; }
+
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.panel-tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text2);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all .12s;
+}
+.panel-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+.panel-body { flex: 1; overflow-y: auto; padding: 18px 20px; }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.info-item {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 9px 12px;
+}
+.info-item .lbl { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
+.info-item .val { font-size: 13px; font-weight: 500; }
+
+.section-lbl {
+  font-size: 10px;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 8px;
+}
+
+.analysis-block {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 13px;
+  line-height: 1.85;
+  white-space: pre-wrap;
+  color: var(--text);
+}
+
+.verdict-banner {
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.verdict-yes { background: var(--green-bg); color: var(--green); }
+.verdict-no { background: var(--red-bg); color: var(--red); }
+.verdict-maybe { background: var(--amber-bg); color: var(--amber); }
+
+.spinner {
+  width: 18px; height: 18px;
+  border: 2px solid var(--border2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-row { display: flex; align-items: center; gap: 10px; padding: 16px 0; font-size: 13px; color: var(--text3); }
+
+.ext-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--blue);
+  text-decoration: none;
+  margin-top: 10px;
+}
+.ext-link:hover { text-decoration: underline; }
+
+/* ── Loading ── */
+.page-loading {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 200;
+}
+.page-loading .sp { width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
+.page-loading p { font-size: 14px; color: var(--text3); }
+
+.token-pill {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text3);
+}
+</style>
+</head>
+<body>
+
+<div id="lock-screen" style="position:fixed;inset:0;background:#f2f0eb;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px;">
+  <div style="background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:36px 40px;width:320px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)">
+    <div style="font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;color:#1a1816;margin-bottom:6px">雲林縣採購監控</div>
+    <div style="font-size:13px;color:#9c9890;margin-bottom:24px">請輸入密碼</div>
+    <input id="pw-input" type="password" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()"
+      style="width:100%;padding:10px 14px;border:1px solid #e4e0d8;border-radius:8px;font-size:14px;font-family:inherit;background:#f8f7f4;color:#1a1816;outline:none;box-sizing:border-box;margin-bottom:10px">
+    <div id="pw-error" style="font-size:12px;color:#b52020;margin-bottom:10px;min-height:16px"></div>
+    <button onclick="checkPw()"
+      style="width:100%;padding:10px;background:#b84c1a;border:none;border-radius:8px;color:white;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer">
+      進入
+    </button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const HASH = '56116e9ca720684c714b68f1420dde3bc1a492e9b61f58c1a036d4d2d1c12df1';
+  function sha256(str) {
+    const buf = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', buf).then(h =>
+      Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('')
+    );
+  }
+  function checkPw() {
+    const pw = document.getElementById('pw-input').value;
+    sha256(pw).then(hash => {
+      if (hash === HASH) {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('lock-screen').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').textContent = '密碼錯誤，請再試一次';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+      }
+    });
+  }
+  window.checkPw = checkPw;
+  if (sessionStorage.getItem('auth') !== '1') {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('pw-input').focus();
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('lock-screen').style.display = 'none';
+    });
+  }
+})();
+</script>
+
+
+<div class="page-loading" id="pg-loading">
+  <div class="sp"></div>
+  <p>載入標案資料中...</p>
+</div>
+
+<div class="layout" id="app" style="display:none">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-title">雲林縣<br>採購監控</div>
+      <div class="logo-sub" id="updated-at">載入中...</div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">篩選</div>
+      <div class="nav-item active" id="nav-all" onclick="setView('all')">
+        <span class="nav-dot"></span> 全部標案
+        <span class="nav-count" id="nc-all">0</span>
+      </div>
+      <div class="nav-item" id="nav-activity" onclick="setView('activity')">
+        <span class="nav-dot"></span> 活動相關
+        <span class="nav-count" id="nc-activity">0</span>
+      </div>
+      <div class="nav-item" id="nav-analyzed" onclick="setView('analyzed')">
+        <span class="nav-dot"></span> 已分析
+        <span class="nav-count" id="nc-analyzed">0</span>
+      </div>
+    </div>
+
+    <div class="nav-group">
+      <div class="nav-group-label">鄉鎮</div>
+      <div id="town-nav"></div>
+    </div>
+
+    <div class="sidebar-footer">
+      <label>Claude API Key（選填，用於深度分析）</label>
+      <input class="api-input" type="password" id="api-key" placeholder="sk-ant-..." oninput="saveKey()">
+      <div class="api-status" id="api-status"></div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <div class="topbar-info">
+        <div class="topbar-title" id="view-title">全部勞務標案</div>
+        <div class="topbar-sub" id="view-sub"></div>
+      </div>
+      <span class="token-pill" id="token-pill" style="display:none">Token：0</span>
+      <button class="btn btn-sm" onclick="loadData()">↺ 重新載入</button>
+    </div>
+
+    <div class="content">
+      <div class="stats">
+        <div class="stat"><div class="lbl">勞務標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
+        <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div></div>
+        <div class="stat"><div class="lbl">已勾選</div><div class="val" id="s-sel">0</div></div>
+        <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div></div>
+      </div>
+
+      <div class="filter-bar">
+        <input type="text" id="kw" placeholder="搜尋標案名稱或機關..." oninput="renderTable()">
+        <div class="filter-sep"></div>
+        <select id="f-town" onchange="renderTable()">
+          <option value="">所有鄉鎮</option>
+        </select>
+        <select id="f-budget" onchange="renderTable()">
+          <option value="">所有預算</option>
+          <option value="100">100萬以下</option>
+          <option value="500">100–500萬</option>
+          <option value="1000">500萬–1000萬</option>
+          <option value="9999">1000萬以上</option>
+        </select>
+      </div>
+
+      <div class="sel-bar" id="sel-bar" style="display:none">
+        <strong id="sel-label">已選 0 筆</strong>
+        <button class="btn btn-sm" onclick="selectAll()">全選</button>
+        <button class="btn btn-sm" onclick="clearSel()">清除</button>
+        <span class="sp"></span>
+        <button class="btn btn-primary btn-sm" id="btn-bulk" onclick="analyzeSelected()" disabled>批次 AI 分析 ↗</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:32px"><input type="checkbox" class="chk" id="chk-all" onchange="toggleAll(this.checked)"></th>
+              <th>標案名稱</th>
+              <th>鄉鎮</th>
+              <th>預算金額</th>
+              <th>截止投標</th>
+              <th>類型</th>
+              <th>AI 分析</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Panel -->
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<div class="panel" id="panel">
+  <div class="panel-head">
+    <button class="close" onclick="closePanel()">✕</button>
+    <h2 id="p-title"></h2>
+    <div class="meta" id="p-meta"></div>
+  </div>
+  <div class="panel-tabs">
+    <div class="panel-tab active" onclick="switchTab(0)">標案資訊</div>
+    <div class="panel-tab" onclick="switchTab(1)">AI 分析</div>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</div>
+
+<script>
+let ALL = [];
+let selected = new Set();
+let aiResults = {};
+let tokenTotal = 0;
+let currentView = 'all';
+let currentTown = '';
+let currentTender = null;
+let currentTab = 0;
+
+// ── Boot ──
+window.addEventListener('DOMContentLoaded', () => {
+  const k = localStorage.getItem('claude_api_key') || '';
+  if (k) { document.getElementById('api-key').value = k; updateApiStatus(); }
+  loadData();
+});
+
+async function loadData() {
+  document.getElementById('pg-loading').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  try {
+    const data = {"updated_at": "2026-04-13T09:25:13.427599", "total": 44, "activity_total": 13, "tenders": [{"id": "1152A40006", "title": "115年度雲林縣新虎尾溪防汛道路維護案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "11,500,000", "date": "115/04/13", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTM2MDE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152R10024", "title": "雲林縣政府115年度iTaiwan無線上網熱點", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "248,000", "date": "115/04/13", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTM0NDg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10016", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份) 」-山線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,942,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMzMzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10005", "title": "115年度借問站創新旅遊服務推廣計畫執行委託案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,300,000", "date": "115/04/13", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMxODI=", "history": [], "analysis": "好的，身為台灣政府採購顧問，針對您提供的「115年度借問站創新旅遊服務推廣計畫執行委託案」標案，我將進行分析並提供投標建議如下：\n\n**【競標建議】建議審慎評估**\n\n**【預算合理性】**\n\n預算新台幣130萬元，對於創新旅遊服務推廣計畫而言，整體規模偏小。若計畫內容包含內容創作、行銷宣傳、活動執行、人員成本等，可能需要精打細算、效率提升，才能符合預算限制。\n\n**【得標廠商分析】**\n\n由於前兩年得標記錄查無紀錄，代表本次標案競爭相對開放，也意味著雲林縣政府對於得標廠商的特定要求可能較少。 但同時也可能表示，過去的得標廠商可能因其他因素（例如：成本、資源、內部調整）而未繼續參與。\n\n**【優點】**\n\n*   **創新空間大：** 由於前幾年沒有得標紀錄可參考，雲林縣政府對於計畫內容可能較為開放，提供廠商較大的創新空間，能嘗試更具體的服務內容與行銷手法。\n*   **雲林在地經驗累積：** 成功執行本標案，能有機會深入了解雲林在地旅遊資源與生態，未來有機會參與雲林縣政府其他旅遊相關標案。\n\n**【風險】**\n\n*   **預算有限：**  130萬的預算需要精打細算，執行內容可能受限，需要有成本控制和資源整合的能力。\n*   **競爭激烈：** 由於無歷史得標紀錄，將可能吸引較多廠商投標，競爭壓力較大，需要有獨特的提案才能脫穎而出。\n\n**投標建議補充說明：**\n\n*   **提案重點：** 提案時應著重於「創新性」、「在地連結」、「可量化的效益」，並明確說明如何利用有限的預算達成雲林縣政府的目標。\n*   **成本規劃：** 仔細規劃成本結構，避免低價競標導致後續執行困難。 也可以考慮是否可以導入有助於成本控制的技術或工具。\n*   **雲林在地資源：** 針對雲林縣的特色產業、文化景點、在地居民等，提出具體的合作或推廣方案，展現對雲林在地旅遊生態的了解。\n*   **與雲林縣政府溝通：** 若有疑問或想法，可主動與雲林縣政府相關單位聯繫，了解標案細節和期望，有助於提案更符合需求。\n\n\n\n**聲明：** 以上建議僅為初步分析，實際投標決策仍需您公司/團隊綜合考量自身實力、資源、策略等因素，並自行判斷風險。", "is_activity": true}, {"id": "1152F10015", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份)」-海線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,058,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMwNTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10027", "title": "2026西螺大橋藝陣文化祭", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "4,500,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMwMzI=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對「2026西螺大橋藝陣文化祭」標案進行分析，並提供投標建議。\n\n**【競標建議】審慎評估**\n\n**【預算合理性】** NT$4,500,000的預算對於藝陣文化祭活動來說，是否足夠取決於活動規模、藝陣團體參與人數、舞台設備、宣傳推廣等細節。若活動力求創新、內容豐富，且藝陣團體數量較多，此預算可能稍嫌不足，需仔細評估成本效益。\n\n**【得標廠商分析】** 由於前兩年得標紀錄查無，這意味著本次標案競爭較為激烈，沒有明顯的既有優勢可依賴。所有廠商需憑藉自身的專業能力和具競爭力的提案來爭取。\n\n**【優點】**\n\n*   **地方文化連結:** 西螺大橋具有歷史文化意義，結合藝陣文化祭能有效提升地方文化認同感，活動的參與度可能較高。\n*   **潛在媒體曝光:** 藝陣文化祭若能吸引足夠的媒體關注，將為雲林縣帶來額外宣傳效益，提升地方知名度。\n\n**【風險】**\n\n*   **成本控制壓力:**  預算有限，可能需要在活動內容、舞台設備、藝陣團體數量等方面做出妥協，影響活動的品質與亮點。\n*   **藝陣團體整合難度:**  如何吸引多樣化的藝陣團體參與、整合各方資源、確保表演品質，是標案執行過程中可能面臨的挑戰。\n\n\n\n**投標建議詳解 (針對\"審慎評估\"的建議，提供更詳細的行動方向):**\n\n1.  **詳細研究標案內容:** 雲林縣政府的標案內容，包含活動主題、目標受眾、預期成果、評分標準等，務必仔細研讀。\n2.  **深入了解西螺大橋與藝陣文化:** 了解西螺大橋的歷史意義與當地藝陣文化特色，將能提出更具在地連結性的提案，增加得標機會。\n3.  **成本效益分析:** 仔細評估活動內容、舞台設備、藝陣團體費用、宣傳費用等各項成本，並規劃彈性的預算分配方案。\n4.  **提案重點:**\n    *   **創新亮點:**  在活動內容上加入創新元素，例如結合現代科技、互動體驗等，提升活動的吸引力。\n    *   **藝陣多元性:**  鼓勵不同風格、不同地區的藝陣團體參與，呈現多元的藝陣文化。\n    *   **行銷宣傳:**  擬定完善的行銷宣傳計畫，包含線上線下宣傳、媒體合作等，提高活動曝光率。\n    *   **風險管理:**  在提案中列出可能的風險，並提出應對措施。\n5.  **團隊配置:** 建立專業且具經驗的團隊，包含活動企劃、舞台執行、行銷宣傳等。\n6.  **參考其他藝陣文化祭的成功案例:**  學習其他藝陣文化祭的成功經驗，並加以應用於本次標案。\n7.  **詢問縣政府相關單位:** 如果對標案內容有疑問，可以直接與雲林縣政府相關單位聯繫，尋求協助。\n\n\n\n總之，本次標案競爭激烈，需謹慎評估自身能力與資源，並提出一份具競爭力、兼顧品質與成本的提案，才有可能脫穎而出。希望這些分析與建議對您有所幫助！\n", "is_activity": true}, {"id": "1152F10014", "title": "2026農產宣導品設計與製作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/04/10", "deadline": "115/04/17", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTI0MzQ=", "history": [], "analysis": "好的，以下針對「2026農產宣導品設計與製作」標案進行分析與投標建議，請參考：\n\n**【競標建議】** 建議審慎評估\n\n**【預算合理性】** 預算新台幣 148 萬，若包含設計、文案、製作及運送等全體項目，價格算是不錯的，但需仔細檢視雲林縣政府對宣導品的規格與數量，避免超出預算範圍。低預算可能限制設計的彈性及品質。\n\n**【得標廠商分析】** 由於前兩年得標紀錄查無，表示競爭者不具優勢，或者前幾年標準與今年有差異。因此，無法判斷目前得標廠商的組成，需更詳細分析評審標準。\n\n**【優點】**\n・**雲林縣農產品行銷潛力:** 雲林縣農產品具代表性，宣導品設計及製作的成效將有助於提升行銷效益。\n・**創意空間:** 由於沒有前例可循，有機會提出具創意且符合雲林縣特色的宣導品設計。\n\n**【風險】**\n・**規格不明確:** 雲林縣政府可能對宣導品種類、規格、數量、材質、包裝等未有明確規定，導致在投標階段難以掌握需求。\n・**評選標準不明:** 無法得知評選標準，可能需要投入額外資源研究評審傾向，增加提案風險。\n\n**投標建議細節：**\n\n1. **詳細研究雲林縣政府的農產品特色與宣傳需求：** 雲林縣的農產品以哪些聞名？目標受眾是誰？他們的需求是什麼？ 將這些資訊納入設計概念中，可以提高提案的吸引力。\n2. **盡早與雲林縣政府聯繫：** 主動聯繫評估部門，了解更詳細的規格要求及評選標準，避免投標後因規格不符而被取消。\n3. **提案內容需多元且具創意：** 針對宣導品類型 (例如文宣品、實用贈品、紀念品等) 多提出選項，並在設計上融入雲林縣的特色文化及農產品形象。\n4. **成本估算需精確：** 仔細計算設計、文案、製作、運送等各項成本，避免超支，並在提案中清楚說明成本細節。\n5. **強調環保及永續概念：** 雲林縣政府可能重視環保議題，建議在宣導品材質、包裝等方面，採納環保及永續的設計理念。\n6. **準備作品集與相關經驗證明：** 準備具農產品行銷宣傳經驗的作品集，並提供相關的成功案例，增加提案的可信度。\n\n**總結：**\n\n標案預算並不好不壞，但需要充分的準備和了解雲林縣政府的需求才能提高得標機會。建議在投標前先評估自身實力與風險承受能力，若對雲林縣的農產品行銷有深入的了解，且能提出具創意且符合需求的提案，則值得一試。\n", "is_activity": true}, {"id": "1152H10031", "title": "115年雲林縣政府推動培育台語家庭計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,000,000", "date": "115/04/10", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTIxMDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B10014", "title": "雲林縣公園綠地無障礙環境督導計畫委託專業服務", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,495,000", "date": "115/04/10", "deadline": "115/04/17", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTA5NDg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B20012", "title": "(更正公告) 115年度雲林縣轄內橋梁安全檢測評估及委託設計監造服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "11,631,450", "date": "115/04/10", "deadline": "115/04/24", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExNzczNDc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10013", "title": "臺灣咖啡產業國際交流暨拓展論壇", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,000,000", "date": "115/04/09", "deadline": "115/04/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODk3NDM=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對此標案進行分析並提供投標建議如下：\n\n**【競標建議】建議審慎評估**\n\n**【預算合理性】**\nNT$3,000,000 的預算看似充足，但要包含國際交流論壇的各項費用（場地、餐飲、翻譯、邀請貴賓、行銷宣傳、議程規劃等）並確保效益，仍需詳細評估，若缺乏經驗或規模較小的廠商可能難以控制成本。\n\n**【得標廠商分析】**\n由於過去兩年得標廠商資訊查無記錄，表示目前得標廠商的競爭格局不明朗，有機會讓新廠商殺出。然而，雲林縣政府可能偏好有相關經驗或與其有良好關係的廠商。\n\n**【優點】**\n*   **商機龐大：** 臺灣咖啡產業具備發展潛力，透過國際交流可拓展市場、提升品牌知名度，論壇內容將影響產業發展，若能成功執行，將有機會建立長期合作關係。\n*   **雲林縣政府支持：** 雲林縣政府積極推動地方產業發展，若能與縣政府建立良好合作關係，能獲得其支持與協助，提升得標機會。\n\n**【風險】**\n*   **經驗要求高：** 舉辦國際交流論壇涉及複雜的後勤、行銷、議程規劃等，經驗不足將難以勝任，甚至影響論壇品質。\n*   **競爭激烈：** 除了其他廠商的競爭外，雲林縣政府可能也會自行組織團隊辦理，或找尋具有良好口碑和經驗的顧問公司，競爭相當激烈。\n\n**投標建議：**\n\n1.  **深入了解標案需求：** 仔細研讀投標須知，明確雲林縣政府對論壇的期望與目標，包含主題、議程、邀請對象、預期效益等。\n2.  **強化提案內容：** 提案需具體說明論壇主題、議程規劃、邀請貴賓、行銷宣傳策略、預算規劃等，並展現執行經驗與專業能力。\n3.  **展現創新力：**  論壇的亮點在於「國際交流暨拓展」，提案應著重如何創造差異化、吸引參與者、提升論壇價值。例如：\n    *   結合線上與線下，擴大參與範圍\n    *   邀請具有影響力的人物擔任發言人\n    *   舉辦創新性的活動，例如咖啡品嚐、產地參訪等\n4.  **組建專業團隊：** 具備活動企劃、行銷宣傳、翻譯、議程規劃、咖啡產業知識等專業人才。\n5.  **與雲林縣政府建立聯繫：** 參加投標說明會，積極與縣政府聯繫，了解其需求與期望，展現誠意與合作意願。\n6.  **風險管控：** 針對預算、人力、時間等風險，提出應對措施，確保論壇順利執行。\n\n**總結：**\n\n此標案具有一定的商機，但競爭也相當激烈。若公司具備相關經驗、資源與團隊，且能提出具競爭力的提案，仍可審慎評估投標。若經驗不足或資源有限，建議評估風險後再做決定。\n\n\n\n**免責聲明：** 以上分析僅為初步評估，實際投標決策仍需考量公司自身條件與風險承受能力。", "is_activity": true}, {"id": "1152D10010", "title": "115年雲林縣跨域整合及環境景觀輔導計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,000,000", "date": "115/04/09", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODk1ODI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10019", "title": "115年度搭乘雲林縣身心障礙者復康巴士服務滿意度調查計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "300,000", "date": "115/04/09", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODk1MjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152G10028", "title": "低收入戶或中低收入戶有工作能力者就業協助計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "404,936", "date": "115/04/09", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODkxMTk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152Q10018", "title": "「115年雲林農業轉型魅力城市行銷宣傳案」", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,300,000", "date": "115/04/07", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODY4OTE=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對「115年雲林農業轉型魅力城市行銷宣傳案」進行分析，並給出投標建議。\n\n**【競標建議】審慎評估**\n\n**【預算合理性】**\nNT$ 1,300,000 的預算，針對雲林農業轉型魅力城市行銷宣傳案，整體來說並不算低，但相較於內容規模，可能偏緊。需要仔細評估，看是否能以合理的資源提供可觀的效果。\n\n**【得標廠商分析】**\n由於前兩年得標記錄查無，這表示競爭者可能較為廣泛，且沒有特定廠商的優勢。 但也意味著新人有機會，只要策略得當，仍有機會脫穎而出。\n\n**【優點】**\n\n*   **新策略發揮空間：** 由於沒有前例可循，有機會提出具創新性的行銷策略，並在提案中強調差異化。\n*   **雲林農業獨特魅力：** 雲林農業有其獨特的文化與風景，可以透過行銷宣傳，創造出有吸引力的品牌形象。\n\n**【風險】**\n\n*   **預算限制：** 預算有限可能限制行銷活動的規模和形式，例如無法進行大型的活動或媒體投放。需要更精準地規劃資源運用，確保效益最大化。\n*   **評選標準不明：** 由於沒有前例，評選標準可能較為模糊，需要更細緻地揣摩評選委員的意圖，並在提案中充分展現雲林縣的價值。\n\n\n\n**投標建議：**\n\n1.  **詳細研讀標案內容：** 了解雲林縣政府對本次行銷宣傳案的具體目標、預期成果以及希望呈現的形象。\n2.  **聚焦雲林農業特色：** 深入了解雲林農業的文化、生態、產業等面向，將其轉化為有吸引力的行銷故事。\n3.  **提案內容創新：** 提案內容應具備新意，提出創新的行銷策略和宣傳手法，以吸引評選委員的目光。\n4.  **預算規劃務實：** 預算規劃需精準、務實，並清楚說明每一筆費用的用途和預期效益。\n5.  **團隊組成完整：** 提案團隊需具備完整的行銷、公關、文案、設計等專業能力，以確保提案的品質。\n6.  **強調效益與評估：** 說明行銷宣傳案的預期效益，並提出可量化的評估指標，以證明提案的可行性和價值。\n7.  **針對目標受眾：** 精準鎖定雲林農業轉型想要吸引的目標受眾，並規劃針對性且有效的行銷傳播內容。\n\n**總結：** 投標此標案需謹慎評估，在充分了解標案需求和自身能力的前提下，提出具備競爭力的提案。\n", "is_activity": true}, {"id": "1152H10023", "title": "《雲林縣志》套書及專書編印出版採購案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "9,870,000", "date": "115/04/07", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODY2NjA=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10036", "title": "雲林縣志特展規劃設置案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,489,500", "date": "115/04/02", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODU5MzI=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對雲林縣志特展規劃設置案進行分析，並給出投標建議。\n\n**【競標建議】審慎評估**\n\n**【預算合理性】**\n預算 NT$1,489,500 屬於小型標案，若包含設計、展覽場地搭建、設備租借、文宣製作、以及執行人員費用等，需仔細評估細項成本是否能涵蓋。若僅限於展覽內容規劃，預算可能較充足，但若包含硬體部分，則可能需精打細算。\n\n**【得標廠商分析】**\n由於前兩年得標記錄查無，這表示競爭者可能較為廣泛，甚至有較多小型設計公司或地方廠商可能投標，得標機會不明朗，需要更全面的評估。新的標案機會也代表雲林縣政府可能對評選標準有新的考量，需密切關注。\n\n**【優點】**\n*   **地方政府經驗累積機會：** 即使未能得標，也能了解雲林縣政府的採購流程、偏好與需求，為未來標案投標做準備。\n*   **小型標案，降低資金壓力：** 相較於大型標案，小型標案所需投入的資源較少，較能降低資金壓力與操作風險。\n\n**【風險】**\n*   **價格競爭激烈：** 由於無前例可循，可能面臨其他廠商的低價競爭，影響獲利。\n*   **評選標準不明：** 若標案文件未詳細說明評選標準，則難以有效準備，增加投標失敗的風險。\n\n**詳細投標建議：**\n\n1.  **標案文件研讀：** 務必仔細研讀標案文件，了解雲林縣政府對志特展的期望、設計主題、內容方向、執行時程與預期成果。\n2.  **成本分析：** 詳細計算各項成本，包含設計費、場地搭建費、設備租借費、文宣製作費、執行人員費、交通費等，確保投標價格具有競爭力與獲利空間。\n3.  **設計理念與方案：** 提出具創新性、符合雲林縣文化特色、且能吸引目標受眾的設計理念與方案。\n4.  **團隊經驗與能力：** 清楚展現團隊在展覽設計、規劃、執行方面的經驗與能力，特別是在地方文化展覽或類似主題的經驗。\n5.  **風險管理：** 在標案文件中說明可能遇到的風險與應對措施，展現專業與負責。\n6. **關注地方政府動向：** 雲林縣政府可能對在地文化有特別的重視，投標提案可以納入在地特色，增加得標機會。\n7. **考量與地方廠商合作的可能性:** 共同投標可以分享風險並提升競爭力。\n\n**總結：**\n建議謹慎評估，若對雲林縣的文化特色、志特展的內容方向有深入了解，且能提出具競爭力的方案，仍可考慮投標。但若對標案需求不清楚或缺乏相關經驗，則建議放棄，避免不必要的損失。\n", "is_activity": true}, {"id": "1152A30008", "title": "115年度雲林縣污泥及廢棄物委託清運處理案(開口契約)", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "6,564,000", "date": "115/04/02", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODU5Mzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10029", "title": "雲林縣文化創意產業成果策展規劃執行案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "8,500,000", "date": "115/04/02", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODU5MjM=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對此標案進行分析並提出投標建議如下：\n\n**【標案資訊】**\n名稱：雲林縣文化創意產業成果策展規劃執行案\n機關：雲林縣政府（雲林縣）\n預算：NT$ 8,500,000\n截止投標：115/04/16\n\n**【競標建議】建議審慎評估**\n\n**【預算合理性】**\nNT$8,500,000的預算對於一個文化創意產業成果策展來說，並非非常高，但若包含策展規劃、執行、場地搭建、展覽營運、宣傳行銷等全方位服務，仍需仔細評估工作量與成本。 雲林縣地方經濟發展較為挑戰，預算可能受限於此。\n\n**【得標廠商分析】**\n由於前兩年得標記錄查無記錄，表示競爭者可能較多，也代表雲林縣政府對於得標廠商的標準相對開放，或是之前可能調整了甄選流程與標準。 沒有過往紀錄也意味著我們缺乏先前的成功經驗可供參考，增加不確定性。\n\n**【優點】**\n*   **文化創意產業發展契機：** 雲林縣近年來積極發展文化創意產業，此標案是參與地方創生的重要機會，能建立品牌形象，爭取未來更多合作機會。\n*   **成果展示平台：** 提供雲林縣文化創意產業成果展示的平台，能建立良好口碑，並與地方產業建立連結。\n\n**【風險】**\n*   **競爭激烈：** 沒有前例可循，可能會有許多潛在競爭者，需要投入更多資源來提高勝算。\n*   **地方經驗要求：** 雲林縣政府可能偏好具有地方經驗、能與地方社群互動的廠商，必須評估自身在雲林縣的連結與了解程度。\n*   **合約內容不確定性：**由於無先例可參考，合約條款可能存在一些不確定性，需要審慎檢視，避免日後產生爭議。\n*   **預算控管壓力：** 預算有限，需要謹慎規劃，並在內容與成本之間取得平衡，確保標案能順利執行。\n\n**投標建議細節：**\n\n1.  **充分了解雲林縣文化特色與發展方向：** 深入研究雲林縣的文化產業現況、發展目標、以及政府的政策方向，展現對雲林縣的重視與了解。\n2.  **提出具體可行的策展方案：** 策展方案必須有創新性、吸引力，且與雲林縣的文化特色結合。\n3.  **強調團隊專業與經驗：** 簡潔明瞭地展示團隊在文化創意產業策展、展覽執行、行銷推廣等方面的專業知識與豐富經驗。\n4.  **制定詳盡的執行計畫與預算：** 確保執行計畫可行性，並在預算編列上精打細算，避免超支風險。\n5.  **建立地方連結：** 積極與雲林縣的文化產業相關單位、地方社群建立聯繫，展現合作意願。\n6.  **留意採購規範：** 嚴格遵守雲林縣政府的採購規範，確保投標文件的合法性與完整性。\n\n總而言之，此標案存在機會但也伴隨著風險，建議您在評估自身實力與資源後，再決定是否投標。 如果決定投標，務必做好充分的準備，以提高勝算。", "is_activity": true}, {"id": "1152H10025", "title": "雲林縣115-116年度湖山水庫人文生態暨遺址教育展示館營運管理暨場域整備計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,800,000", "date": "115/04/01", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODQ3NjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10015", "title": "(更正公告) 115年雲林縣兒童及少年生活狀況及福利需求調查", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "900,000", "date": "115/04/01", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExNzg1NTI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10012", "title": "2026雲林縣農產整合行銷案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,200,000", "date": "115/03/31", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODMxMDg=", "history": [], "analysis": "好的，以下針對「2026雲林縣農產整合行銷案」標案進行分析，並提供投標建議：\n\n**【競標建議】審慎評估**\n\n**【預算合理性】** NT$2,200,000 的預算在農產整合行銷案中，需考量雲林縣的農產品種類、產量、以及行銷目標市場的規模與深度，可能偏低。行銷活動包含文宣製作、媒體投放、展覽活動、網路行銷等多項成本，需仔細評估預算是否足夠涵蓋。\n\n**【得標廠商分析】** 由於前兩年記錄查無，這意味著競爭者可能較為廣泛，沒有明顯的得標勢力可參考。新規業者有機會，但需要更具競爭力，且必須能有效說明行銷策略和預算運用。\n\n**【優點】**\n\n*   **雲林縣農產品行銷機會：** 雲林縣以農業為主，本次標案提供了一個接觸當地農產品，並協助雲林農民拓展市場的機會。\n*   **相對自由度高：**  由於是全新標案，對行銷策略的創意和執行方式可能有較大彈性空間，可嘗試更具創新性的行銷手法。\n\n**【風險】**\n\n*   **預算壓力：**  預算限制可能迫使業者縮減行銷範圍或降低行銷品質，影響行銷效果，甚至可能因成本控制壓力導致執行困難。\n*   **缺乏歷史經驗：** 沒有前例可循，增加標案理解與策略擬定的困難，也讓業者難以預測實際執行中的挑戰。\n\n**投標建議細節:**\n\n*   **詳細研究雲林縣農產品特性：** 了解雲林縣的主要農產品種類、產期、特色與優勢，將其納入行銷策略中，更能打動評選委員。\n*   **提出具體可量化的行銷策略：** 除了羅列行銷活動，更要提供明確的目標 (例如：提升品牌知名度、增加銷售量、開拓新市場) 以及評估指標，讓評選委員了解如何衡量行銷效果。\n*   **詳細的成本預算說明：**  針對各項行銷活動，提供詳細的成本預算，並說明預算分配的合理性。 可以在成本預算中，建議採用一些成本效益較高的行銷方式，以最大化有限的預算。\n*   **展示團隊的行銷專業：**  強調團隊的相關經驗和專業能力，特別是在農產品行銷、網路行銷、以及活動策劃方面的經驗。\n*   **考慮整合數位行銷：** 在有限的預算下，數位行銷通常是成本效益較高的選擇，建議重視社群媒體經營、內容行銷、網紅合作等。\n\n**總結：**\n\n若有足夠的資源、行銷經驗，且能針對雲林縣農產品特性提出創新且具體可行的行銷策略，可以考慮投標。但務必仔細評估預算是否足夠，並做好風險控管，以確保標案成功執行。 若資源有限或對雲林縣農產品行銷不熟悉，則建議避免投標。", "is_activity": true}, {"id": "1142H10105", "title": "北港1911好庫文化產業園區裝置藝術設置案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "19,300,000", "date": "115/03/26", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODAwMTg=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我會針對「北港1911好庫文化產業園區裝置藝術設置案」標案進行分析，並提供投標建議如下：\n\n【競標建議】**審慎評估**\n\n【預算合理性】預算1930萬，雖然聽起來不少，但要涵蓋裝置藝術的設計、製作、運送、設置、以及後續維護，單價未必高。若作品體積龐大、材質特殊、或需要高科技運用，可能會有成本壓力。\n\n【得標廠商分析】由於前兩年得標紀錄查無，代表這是一個新的起點，競爭者可能較難預測，需要多方了解是否有特定雲林縣內廠商的優勢。得標廠商可能將會是具備文化藝術相關背景且擅長與地方政府合作的團隊。\n\n【優點】\n・**文化連結機會：**北港是重要的廟宇文化中心，與好庫文化產業園區的結合，提供廠商深度挖掘地方文化、結合在地特色的機會，作品更有可能引起共鳴。\n・**雲林縣政府支持：**雲林縣政府積極發展文化觀光，對裝置藝術的投入意願高，有機會得到更全面的協助和宣傳。\n\n【風險】\n・**文化詮釋風險：** 若對北港文化理解不夠深入，作品可能與在地精神不協調，影響評分。需要投入時間與資源進行文化研究與訪談。\n・**施工複雜度風險：** 文化產業園區可能存在歷史建物或特殊環境限制，施工過程可能面臨技術挑戰與時間壓力，需要具備足夠的實力與應變能力。\n\n**投標建議補充說明:**\n\n*   **深入了解北港文化:**  除了官方資料，多方與地方居民、文化工作者交流，了解北港的歷史、神話、民俗，並將這些元素巧妙融入作品概念中。\n*   **注重在地連結:**  在提案中強調作品與北港文化產業園區的契合度，以及能為當地帶來經濟效益與觀光價值。\n*   **強化團隊實力:**  展現設計、製作、工程、以及文化研究等多方面的專業能力，以及與地方政府合作的經驗。\n*   **預先評估施工難度:**  在設計階段就考量到可能的施工限制，並提出可行的解決方案。\n*   **降低成本:** 在預算規劃時，仔細評估每個環節的成本，並尋找更經濟的材料或製作方法。\n\n希望以上分析與建議對您有幫助！", "is_activity": true}, {"id": "1142H10118", "title": "雲林縣立圖書館總館興建工程委託專案管理技術服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "26,496,268", "date": "115/03/20", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExNzUyMzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150428-2", "title": "斗六市115年度及116年度營建廢棄物委託清除(開口契約)", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "公開招標", "budget": "3,000,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMzNDY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150421-1", "title": "(更正公告) 斗六市第二公有零售市場（西市場）現代化轉型與重建先期規劃委託專業服務", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "4,500,000", "date": "115/04/10", "deadline": "115/04/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODk3NTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150331-1", "title": "斗六市115年長青食堂志工研習觀摩宣導活動", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,100,000", "date": "115/04/08", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODc0MzQ=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對斗六市115年長青食堂志工研習觀摩宣導活動標案進行分析，並提出投標建議。\n\n**【競標建議】審慎評估**\n\n**【預算合理性】** 研習觀摩宣導活動，預算210萬新台幣，整體上來說略高，但考量到包含活動場地、講師費、餐飲、宣導品製作等各項費用，仍有合理可能性。 主要風險在於，若廠商能將成本有效控制，有機會在價格上取得優勢。\n\n**【得標廠商分析】**  由於查無前兩年得標紀錄，本次標案競爭較不明朗，有利新廠商進入。 但仍需留意，雲林縣政府體系可能對特定廠商較為熟悉，若有在地廠商可能較具優勢。\n\n**【優點】**\n*   **市場潛力：** 針對長青食堂志工的研習活動，具備一定的市場需求，且活動性質相對穩定，可建立長期合作關係。\n*   **經驗累積：** 成功執行此類活動，有助於累積政府採購經驗，提升未來標案得標機會。\n\n**【風險】**\n*   **成本控制：**  研習活動涉及多項費用，成本控制壓力大，若預算編列過低，可能影響活動品質。\n*   **執行細節：**  志工研習活動需要細膩的安排與執行，例如講師選擇、課程內容編排、活動場地規劃、餐飲品質等，若處理不當，容易產生負面評價。\n\n**詳細投標建議：**\n\n1.  **成本分析與精算：** 需詳細分析各項活動費用，精算出合理的成本預算，並確保價格具競爭力。\n2.  **提案內容強化：** 提案內容應詳細說明研習主題、課程內容、講師簡歷、活動流程、宣導方式等，盡可能提供更具體的方案。\n3.  **在地化優勢：** 若有在地資源或聯繫，可強調在地化優勢，提升得標機會。\n4.  **品質保證：** 提案中需詳細說明如何確保活動品質，例如提供過往類似活動案例、品質控制措施等。\n5.  **風險管理：** 針對可能發生的風險，提出應對措施，展現負責態度。\n6.  **考察往例：** 雖然查無前兩年紀錄，但建議上網搜尋類似研習活動的投標文件或公開資訊，作為參考。\n7.  **詢問標管人員：** 投標前可與斗六市公所的標管人員聯繫，釐清標案細節及重點。\n\n**總結：**\n\n本次標案競爭較不明朗，但仍存在一定的風險。建議企業仔細評估自身資源與能力，並進行充分的成本分析與風險評估後，再決定是否投標。 若決定投標，務必強化提案內容，強調在地優勢，並提供完善的品質保證。\n\n**重要聲明：** 以上分析僅為初步評估，實際投標決策仍需依據企業自身狀況及更詳細的標案資訊判斷。\n", "is_activity": true}, {"id": "115010", "title": "「斗南鎮東明里及田頭里轄內道路日光燈改LED燈照明設備工程」委託設計監造技術服務", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "352,054", "date": "115/04/09", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODkzMzE=", "history": [], "analysis": "", "is_activity": false}, {"id": "115014", "title": "(更正公告) 「115年度雲林縣斗南鎮中央廚房委外經營管理」採購案", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "11,382,300", "date": "115/04/09", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODA4NDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150402", "title": "雲林縣虎尾鎮公所「115年度清潔隊環保業務暨環境教育活動(3天2夜)」", "org": "雲林縣虎尾鎮公所", "town": "虎尾鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,417,500", "date": "115/04/07", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODY2OTg=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對此標案提供分析與建議：\n\n**【標案資訊】雲林縣虎尾鎮公所「115年度清潔隊環保業務暨環境教育活動(3天2夜)」**\n\n【競標建議】 **審慎評估**\n\n【預算合理性】預算新台幣141萬7千5百元，包含3天2夜活動的住宿、交通、餐飲、環境教育活動設計及執行，需仔細評估各項成本細節，若活動規模較大、或選擇較高品質的住宿及餐飲，可能超出預算。\n\n【得標廠商分析】由於查無前兩年得標廠商記錄，表示競爭者較難判斷，可能有多家業者會投入競爭，也增加了不確定性。虎尾鎮公所可能對於環境教育活動的內容及執行方式有特定偏好，因此需深入了解公所需求。\n\n【優點】\n*   **環境教育活動設計彈性:** 標案內容涵蓋環境教育活動，提供設計與創新的空間，可針對虎尾鎮的在地特色及清潔隊的實際需求，設計吸引人的活動內容，增加得標機會。\n*   **區域性優勢:** 若公司位於雲林地區或虎尾鎮附近，可降低交通及住宿成本，並更容易與公所溝通協調，建立良好關係。\n\n【風險】\n*   **預算壓力:** 預算相對有限，需要嚴格控制成本，且必須提供具有競爭力的報價，如果活動內容需要高額成本 (例如聘請知名講師、高品質住宿等)，可能難以在預算內完成。\n*   **缺乏歷史資料:** 沒有前兩年得標資訊，難以預測評選標準及競爭對手，需要花費更多時間與資源進行市場調查及報價策略規劃。\n\n**更詳細的投標建議：**\n\n1.  **深入了解公所需求：** 積極聯繫虎尾鎮公所，了解他們對於環境教育活動的具體期望、希望涵蓋的主題、對象、以及活動的目標。\n2.  **成本細節分析：** 詳細分析每一項成本，包括住宿、交通、餐飲、活動材料、講師費、保險等，並確保預算足夠且具競爭力。\n3.  **報價策略：** 考慮提供分級報價或不同方案，讓公所可以根據自身需求及預算進行選擇，增加彈性。\n4.  **環境教育活動設計：** 展現創意與專業，設計具有吸引力、寓教於樂的環境教育活動，並與虎尾鎮的在地文化、生態資源結合。\n5.  **風險管理：** 預先評估可能發生的風險，例如天氣不佳、活動參與人數不足、疫情影響等，並制定應對措施。\n6.  **團隊經驗：** 強調團隊在環境教育、活動規劃及執行方面的經驗，並提供相關案例。\n7.  **提案完整性：** 提案內容要完整、清晰，並符合標案要求，可增加評分機會。\n\n**總結:** 由於缺乏得標紀錄，此標案的競標風險較高，建議在投入資源前，先進行更深入的市場調查與成本分析，並評估自身公司是否有足夠的資源與競爭力。如果公司對於環境教育活動具備獨特的優勢，且能提供具有競爭力的報價，則可考慮投標。\n", "is_activity": true}, {"id": "115-12", "title": "(更正公告) 雲林縣西螺鎮中山路公有停車場委外經營管理", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開招標", "budget": "0", "date": "115/04/10", "deadline": "115/04/22", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODc2MDI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-09", "title": "115年度救災搶修(險)機械勞務採購開口契約", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開招標", "budget": "4,000,000", "date": "115/04/09", "deadline": "115/04/13", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODg4NjM=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-08", "title": "「漢光公園兒童遊戲場環境設施改善計畫」設計監造", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "925,000", "date": "115/03/26", "deadline": "115/04/13", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExNzkzMjQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152CA19", "title": "「北港鎮府番公墓第三納骨塔櫃位增設納骨灰(骸)櫃、神主牌位工程」委託規劃設計監造", "org": "雲林縣北港鎮公所", "town": "北港鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,100,000", "date": "115/04/09", "deadline": "115/04/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODg1MjE=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-0205-01", "title": "115年度村鄰長文康活動暨村里業務參訪", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "952,000", "date": "115/04/10", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTE4MTA=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對此標案進行分析，並提供投標建議：\n\n**【標案資訊摘要】**\n*   **名稱：** 115年度村鄰長文康活動暨村里業務參訪\n*   **機關：** 雲林縣林內鄉公所\n*   **預算：** NT$ 952,000\n*   **截止投標：** 115/04/14\n*   **歷史得標：** 無記錄\n\n**【競標建議】審慎評估**\n\n**【預算合理性】**\n95萬元的預算用於村鄰長文康活動暨村里業務參訪，看似不少，但實際執行包含活動設計、場地租借、餐飲、交通、講師費、文宣品、保險、行政作業等各項費用，需要仔細評估各項成本，確保投標價格具有競爭力。\n由於無前例，實際執行內容及所需成本較難預測。\n\n**【得標廠商分析】**\n由於沒有前兩年得標記錄，我們無法得知林內鄉公所偏好哪種類型的廠商（例如：在地廠商、經驗豐富的活動公司、價格低廉的團隊等）。因此，競標成功機會可能較為不確定。\n\n**【優點】**\n*   **市場潛力：** 林內鄉公所願意投入預算舉辦此類活動，顯示對村鄰長文康與村里業務參訪的重視，未來若能成功得標，有機會建立與公所的長期合作關係。\n*   **差異化空間：** 由於沒有前例可循，有機會在活動內容、參訪主題、服務方式等方面提出創新方案，展現自身特色，增加得標機會。\n\n**【風險】**\n*   **價格競爭：** 雖然沒有前例，但仍有可能面臨其他廠商的價格競爭，若僅憑價格取勝，可能壓縮利潤空間，甚至虧損。\n*   **活動內容要求：** 林內鄉公所對活動內容的具體要求可能較為嚴格，若無法完全符合，則難以得標。需要主動與公所溝通，確認活動目標及預期成果。\n\n\n\n**投標建議細節：**\n\n1.  **深入了解需求：** 務必主動與林內鄉公所聯繫，清楚了解活動的具體目標、預期成果、參訪地點、村鄰長的需求等。\n2.  **提供具體方案：** 除了基本的活動內容外，應在方案中詳細說明活動流程、預期效益、創新特色、風險應對措施等，力求周全。\n3.  **成本精算：** 仔細計算各項成本，確保投標價格具有競爭力，同時確保能有足夠的利潤空間。\n4.  **強調在地優勢：** 如果公司有在地經營或與林內鄉有一定淵源，可在投標文件中加以強調，增加親和力。\n5.  **提案內容：**\n    *   **活動主題：** 建議能與時事、鄉內特色結合，例如「林內鄉文化巡禮」、「村鄰長生命經驗分享」、「社區韌性培訓」等。\n    *   **參訪對象：** 確定參與對象，例如：村長、鄰長、村幹部、社區志工，並針對不同對象設計不同程度的參訪內容。\n    *   **活動評估：** 建議在提案中加入活動評估機制，例如：問卷調查、訪談等，以評估活動成效，並作為未來改進的參考。\n\n總而言之，此標案的競爭力預估中等。 建議先了解公所的需求，若評估後認為自身具備競爭力，再決定是否投標。\n", "is_activity": true}, {"id": "115-051-06", "title": "林內鄉115年度災害搶修工程（開口契約）委託設計監造服務", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "286,650", "date": "115/04/08", "deadline": "115/04/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODc5Mzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "11511", "title": "115年度二崙鄉大華等五村零星工程(開口契約)設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "641,000", "date": "115/04/02", "deadline": "115/04/13", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODUxMTk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115011", "title": "崙背鄉歷史建築舊警察宿舍景觀空間規劃設計暨工程施作案委託技術及監造技術服務", "org": "雲林縣崙背鄉公所", "town": "崙背鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "652,837", "date": "115/04/10", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTEzMDA=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-24", "title": "麥寮鄉示範公墓墓基廢棄物清運開口契約", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "650,000", "date": "115/04/07", "deadline": "115/04/13", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODY1ODk=", "history": [], "analysis": "", "is_activity": false}, {"id": "114A016", "title": "雲林縣褒忠鄉中正路人行道及周邊環境改善工程設計監造", "org": "雲林縣褒忠鄉公所", "town": "褒忠鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "830,000", "date": "115/04/10", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTI0ODE=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-A11", "title": "元長鄉潭西村產業道路路側擋土牆及綠美化改善工程委託規劃設計及監造技術服務", "org": "雲林縣元長鄉公所", "town": "元長鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "252,000", "date": "115/04/10", "deadline": "115/04/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTE4Mjk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-A09", "title": "(更正公告) 元長鄉下寮村鎮興宮廟前綠美化改善工程委託規劃設計監造工作", "org": "雲林縣元長鄉公所", "town": "元長鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "279,825", "date": "115/04/07", "deadline": "115/04/13", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODI5OTI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115ZA03", "title": "115年度第1809號保安林廢棄物清運處理委託勞務案(預估)", "org": "雲林縣四湖鄉公所", "town": "四湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "650,000", "date": "115/04/07", "deadline": "115/04/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExODY5MDc=", "history": [], "analysis": "", "is_activity": false}, {"id": "11503-10", "title": "雲林縣口湖鄉115年度村鄰長文康活動", "org": "雲林縣口湖鄉公所", "town": "口湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "930,000", "date": "115/04/10", "deadline": "115/04/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTIxMTg=", "history": [], "analysis": "好的，身為台灣政府採購顧問，我將針對您提供的雲林縣口湖鄉115年度村鄰長文康活動標案進行分析，並給出投標建議。\n\n**【競標建議】審慎評估**\n\n**【預算合理性】**\n預算新台幣93萬元，用於村鄰長文康活動，整體而言並非過於龐大，但考量需包含活動內容規劃、場地租借、講師費、餐飲、物資、宣傳等各項費用，且口湖鄉屬於農村地區，若活動規模較大或包含特殊需求，可能較為緊迫。\n\n**【得標廠商分析】**\n由於標案前兩年得標記錄查無，代表競爭環境較不明朗，可能會有多家廠商投入，也可能會有地方社團或非營利組織的競標機會。 需留意口湖鄉公所可能對於得標廠商有在地性或相關經驗的偏好。\n\n**【優點】**\n*   **標案新興：** 前兩年記錄查無，表示缺乏既定的得標廠商慣例，有機會突圍。\n*   **公所支持：** 村鄰長文康活動是地方政府重視的議題，公所通常會給予較高程度的支持與配合。\n\n**【風險】**\n*   **競爭激烈：** 無前年得標紀錄，無法得知市場競爭狀況，有可能面臨多家廠商的競爭。\n*   **地方慣例：** 鄉公所可能偏好在地或有相關經驗的廠商，外地廠商可能較難取得優勢。\n*   **預算限制：** 預算新台幣93萬元，活動內容規劃需謹慎評估，避免成本超支，若活動規模較大，將需精打細算。\n*   **無得標紀錄：** 無法根據過往經驗調整提案策略，需要深入了解口湖鄉公所對於文康活動的需求和偏好。\n\n**投標建議補充說明：**\n\n*   **深入了解需求：** 務必積極向口湖鄉公所詢問標案詳細需求、評分標準及重點。\n*   **針對性提案：** 提案內容需切合口湖鄉的在地文化特色與村鄰長的需求，展現專業能力與創意。\n*   **成本效益分析：** 在提案中清晰呈現活動內容、預算分配、效益分析等，提高提案的說服力。\n*   **在地合作：** 若有機會，可與口湖鄉在地社團或廠商合作，增加在地連結。\n*   **注意時程：** 務必在截止投標日之前完成所有準備工作，避免錯過標案機會。\n\n**重要提醒：** 本分析僅基於您提供的資訊進行，實際投標前請務必查閱完整的標案公告內容，並自行評估風險與效益。若有任何疑問，建議直接向口湖鄉公所洽詢。", "is_activity": true}]};
+    ALL = data.tenders || [];
+    ALL.forEach(t => {
+      if (t.analysis) aiResults[t.id] = parseAnalysis(t.analysis);
+    });
+    const dt = new Date(data.updated_at);
+    document.getElementById('updated-at').textContent =
+      dt.toLocaleDateString('zh-TW') + ' ' + dt.toLocaleTimeString('zh-TW', {hour:'2-digit', minute:'2-digit'});
+    buildTownFilter();
+    updateStats();
+    renderTable();
+  } catch(e) {
+    ALL = [];
+    document.getElementById('updated-at').textContent = '⚠ 載入失敗';
+  }
+  document.getElementById('pg-loading').style.display = 'none';
+  document.getElementById('app').style.display = 'flex';
+}
+
+function parseAnalysis(text) {
+  if (!text) return null;
+  const m = text.match(/【競標建議】\s*(.+)/);
+  const label = m ? m[1].trim() : '審慎評估';
+  const verdict = label.includes('不建議') ? 'no' : label.includes('建議投標') ? 'yes' : 'maybe';
+  return { text, label, verdict };
+}
+
+// ── Filter ──
+function getFiltered() {
+  const kw = document.getElementById('kw').value.trim().toLowerCase();
+  const ft = document.getElementById('f-town').value;
+  const fb = document.getElementById('f-budget').value;
+
+  return ALL.filter(t => {
+    if (currentView === 'activity' && !t.is_activity) return false;
+    if (currentView === 'analyzed' && !aiResults[t.id]) return false;
+    if (currentTown && t.town !== currentTown) return false;
+    if (ft && t.town !== ft) return false;
+    if (kw && !t.title.toLowerCase().includes(kw) && !t.org.includes(kw)) return false;
+    if (fb) {
+      const b = parseBudget(t.budget);
+      if (fb === '100' && b > 1000000) return false;
+      if (fb === '500' && (b <= 1000000 || b > 5000000)) return false;
+      if (fb === '1000' && (b <= 5000000 || b > 10000000)) return false;
+      if (fb === '9999' && b <= 10000000) return false;
+    }
+    return true;
+  });
+}
+
+function parseBudget(s) {
+  if (!s) return 0;
+  return parseInt(s.replace(/[^0-9]/g, '')) || 0;
+}
+
+function setView(v) {
+  currentView = v;
+  currentTown = '';
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('nav-' + v)?.classList.add('active');
+  document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
+  updateViewTitle();
+  renderTable();
+}
+
+function filterTown(town) {
+  currentTown = town;
+  currentView = 'all';
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById('nav-town-' + town)?.classList.add('active');
+  updateViewTitle();
+  renderTable();
+}
+
+function updateViewTitle() {
+  const titles = { all: '全部勞務標案', activity: '活動相關標案', analyzed: '已 AI 分析' };
+  document.getElementById('view-title').textContent = currentTown
+    ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
+}
+
+// ── Table ──
+function renderTable() {
+  const rows = getFiltered();
+  const tbody = document.getElementById('tbody');
+  document.getElementById('sel-bar').style.display = ALL.length ? 'flex' : 'none';
+  document.getElementById('view-sub').textContent = `顯示 ${rows.length} 筆`;
+
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state">${ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py'}</div></td></tr>`;
+    return;
+  }
+
+  tbody.innerHTML = rows.map(t => {
+    const ai = aiResults[t.id];
+    const isChk = selected.has(t.id);
+    const actBadge = t.is_activity
+      ? '<span class="badge badge-activity">活動</span>'
+      : '<span class="badge badge-other">一般</span>';
+    const aiBadge = ai
+      ? `<span class="badge badge-${ai.verdict}">${ai.label}</span>`
+      : '—';
+
+    return `<tr onclick="openPanel('${t.id}')">
+      <td onclick="event.stopPropagation()"><input type="checkbox" class="chk" ${isChk?'checked':''} onchange="toggleSel('${t.id}',this.checked)"></td>
+      <td class="td-title">
+        <div class="name">${t.title}</div>
+        <div class="org">${t.org}</div>
+      </td>
+      <td class="town-tag">${t.town}</td>
+      <td class="budget">NT$ ${t.budget}</td>
+      <td class="date-cell">${t.deadline || t.date}</td>
+      <td>${actBadge}</td>
+      <td>${aiBadge}</td>
+      <td onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
+    </tr>`;
+  }).join('');
+
+  updateSelCount();
+}
+
+// ── Selection ──
+function toggleSel(id, checked) {
+  if (checked) selected.add(id); else selected.delete(id);
+  updateSelCount();
+}
+function toggleAll(checked) {
+  getFiltered().forEach(t => checked ? selected.add(t.id) : selected.delete(t.id));
+  renderTable();
+}
+function selectAll() {
+  getFiltered().forEach(t => selected.add(t.id));
+  document.getElementById('chk-all').checked = true;
+  renderTable();
+}
+function clearSel() {
+  selected.clear();
+  document.getElementById('chk-all').checked = false;
+  renderTable();
+}
+function updateSelCount() {
+  const n = selected.size;
+  document.getElementById('s-sel').textContent = n;
+  document.getElementById('sel-label').textContent = `已選 ${n} 筆`;
+  document.getElementById('btn-bulk').disabled = n === 0;
+}
+
+// ── Stats ──
+function updateStats() {
+  document.getElementById('s-total').textContent = ALL.length;
+  document.getElementById('s-activity').textContent = ALL.filter(t => t.is_activity).length;
+  document.getElementById('s-done').textContent = Object.keys(aiResults).length;
+  document.getElementById('nc-all').textContent = ALL.length;
+  document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
+  document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
+}
+
+function buildTownFilter() {
+  const towns = [...new Set(ALL.map(t => t.town))].sort();
+  const counts = {};
+  ALL.forEach(t => counts[t.town] = (counts[t.town] || 0) + 1);
+
+  // sidebar
+  document.getElementById('town-nav').innerHTML = towns.map(town => `
+    <div class="nav-item town-nav-item" id="nav-town-${town}" onclick="filterTown('${town}')">
+      <span class="nav-dot"></span> ${town}
+      <span class="nav-count">${counts[town]}</span>
+    </div>`).join('');
+
+  // filter dropdown
+  const sel = document.getElementById('f-town');
+  towns.forEach(t => {
+    const o = document.createElement('option');
+    o.value = t; o.textContent = t;
+    sel.appendChild(o);
+  });
+}
+
+// ── Panel ──
+function openPanel(id) {
+  currentTender = ALL.find(t => t.id === id);
+  if (!currentTender) return;
+  document.getElementById('p-title').textContent = currentTender.title;
+  document.getElementById('p-meta').textContent = currentTender.org + '　|　截止：' + (currentTender.deadline || currentTender.date);
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('panel').classList.add('open');
+  switchTab(0);
+}
+
+function closePanel() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('panel').classList.remove('open');
+}
+
+function switchTab(idx) {
+  currentTab = idx;
+  document.querySelectorAll('.panel-tab').forEach((el, i) => el.classList.toggle('active', i === idx));
+  if (!currentTender) return;
+  idx === 0 ? renderTabInfo() : renderTabAI();
+}
+
+function renderTabInfo() {
+  const t = currentTender;
+  const ai = aiResults[t.id];
+  document.getElementById('panel-body').innerHTML = `
+    ${ai ? `<div class="verdict-banner verdict-${ai.verdict}">${ai.label}</div>` : ''}
+    <div class="info-grid">
+      <div class="info-item"><div class="lbl">機關</div><div class="val">${t.org}</div></div>
+      <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${t.town}</div></div>
+      <div class="info-item"><div class="lbl">預算金額</div><div class="val">NT$ ${t.budget}</div></div>
+      <div class="info-item"><div class="lbl">截止投標</div><div class="val">${t.deadline || '—'}</div></div>
+      <div class="info-item"><div class="lbl">公告日期</div><div class="val">${t.date || '—'}</div></div>
+      <div class="info-item"><div class="lbl">類型</div><div class="val">${t.is_activity ? '活動相關' : '一般勞務'}</div></div>
+      <div class="info-item" style="grid-column:1/-1"><div class="lbl">招標方式</div><div class="val">${t.recruit_type || '—'}</div></div>
+    </div>
+    <a class="ext-link" href="${t.url}" target="_blank">↗ 在採購網查看原始標案</a>
+    <div style="margin-top:14px">
+      <button class="btn btn-primary" style="width:100%" onclick="switchTab(1)">
+        ${ai ? '查看 AI 分析報告' : '進行 AI 分析'}
+      </button>
+    </div>`;
+}
+
+function renderTabAI() {
+  const t = currentTender;
+  const ai = aiResults[t.id];
+
+  if (ai) {
+    document.getElementById('panel-body').innerHTML = `
+      <div class="verdict-banner verdict-${ai.verdict}">${ai.label}</div>
+      <div class="section-lbl">分析報告</div>
+      <div class="analysis-block">${ai.text}</div>`;
+    return;
+  }
+
+  const apiKey = document.getElementById('api-key').value.trim();
+  if (!apiKey || !apiKey.startsWith('sk-ant-')) {
+    document.getElementById('panel-body').innerHTML = `
+      <div class="analysis-block" style="color:var(--text3)">
+        本標案尚未由爬蟲分析，或分析結果不存在。\n\n若要使用 Claude API 深度分析，請在左側輸入 API Key。\n\nGemma 3 本地分析已在爬蟲執行時自動完成，請重新載入資料。
+      </div>`;
+    return;
+  }
+
+  document.getElementById('panel-body').innerHTML = `<div class="loading-row"><div class="spinner"></div> AI 分析中...</div>`;
+  doAnalyze(t).then(() => {
+    if (currentTender?.id === t.id && currentTab === 1) renderTabAI();
+    updateStats();
+    renderTable();
+  });
+}
+
+// ── Claude API Analysis ──
+async function doAnalyze(t) {
+  const apiKey = document.getElementById('api-key').value.trim();
+  const prompt = `你是台灣政府採購顧問，請用繁體中文分析以下活動標案並給出投標建議。
+
+【標案資訊】
+名稱：${t.title}
+機關：${t.org}（${t.town}）
+類型：${t.recruit_type || '勞務'}
+預算金額：NT$ ${t.budget}
+截止投標：${t.deadline || '—'}
+公告日期：${t.date || '—'}
+
+請依格式回覆：
+【競標建議】建議投標 / 不建議投標 / 審慎評估
+【預算合理性】（1-2句）
+【得標廠商分析】（1-2句）
+【優點】・第1點 ・第2點
+【風險】・第1點 ・第2點`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 700,
+        messages: [{ role: 'user', content: prompt }]
+      })
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error.message);
+    const text = data.content?.[0]?.text || '（回覆為空）';
+    tokenTotal += (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
+    document.getElementById('token-pill').style.display = '';
+    document.getElementById('token-pill').textContent = `Token：${tokenTotal.toLocaleString()}`;
+    aiResults[t.id] = parseAnalysis(text);
+    document.getElementById('s-done').textContent = Object.keys(aiResults).length;
+    document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
+  } catch(e) {
+    aiResults[t.id] = { text: `分析失敗：${e.message}`, label: '無法判斷', verdict: 'maybe' };
+  }
+}
+
+async function analyzeSelected() {
+  const toAnalyze = [...selected].filter(id => !aiResults[id]);
+  if (!toAnalyze.length) { alert('所選標案皆已分析完成'); return; }
+  const apiKey = document.getElementById('api-key').value.trim();
+  if (!apiKey || !apiKey.startsWith('sk-ant-')) { alert('請先輸入 Claude API Key'); return; }
+  document.getElementById('btn-bulk').disabled = true;
+  document.getElementById('btn-bulk').textContent = '分析中...';
+  for (const id of toAnalyze) {
+    const t = ALL.find(x => x.id === id);
+    if (t) await doAnalyze(t);
+  }
+  updateStats();
+  renderTable();
+  document.getElementById('btn-bulk').disabled = false;
+  document.getElementById('btn-bulk').textContent = '批次 AI 分析 ↗';
+}
+
+// ── API Key ──
+function saveKey() {
+  const v = document.getElementById('api-key').value.trim();
+  if (v) localStorage.setItem('claude_api_key', v);
+  updateApiStatus();
+}
+function updateApiStatus() {
+  const v = document.getElementById('api-key').value.trim();
+  const el = document.getElementById('api-status');
+  if (!v) { el.textContent = ''; return; }
+  if (v.startsWith('sk-ant-')) {
+    el.style.color = 'var(--green)'; el.textContent = '✓ Key 格式正確';
+  } else {
+    el.style.color = 'var(--red)'; el.textContent = '⚠ 格式有誤';
+  }
+}
+</script>
+</body>
+</html>
