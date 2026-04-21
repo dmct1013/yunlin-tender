@@ -139,52 +139,64 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
 .hamburger span { display: block; width: 18px; height: 2px; background: var(--text2); border-radius: 2px; transition: all .2s; }
 .sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 140; cursor: pointer; }
 .sidebar-backdrop.active { display: block; }
+/* ── 卡片元件（預設隱藏，手機才顯示）── */
+.card-list { display: none; }
+.tender-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+  cursor: pointer; transition: background .12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.tender-card:active { background: var(--surface2); }
+.tender-card.card-urgent { border-left: 4px solid var(--red); }
+.tender-card.card-warn   { border-left: 4px solid #e8c050; }
+.tender-card.card-ok     { border-left: 4px solid var(--green); }
+.card-top  { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.card-title { flex: 1; font-size: 14px; font-weight: 600; line-height: 1.5; color: var(--text); }
+.card-ai-badge { flex-shrink: 0; padding-top: 2px; }
+.card-meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); margin-bottom: 10px; flex-wrap: wrap; }
+.card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border2); flex-shrink: 0; }
+.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card-budget { font-size: 14px; font-weight: 700; color: var(--text); }
+.card-deadline { display: flex; align-items: center; gap: 5px; }
+.card-deadline-date { font-size: 12px; color: var(--text3); }
+
+/* ── 手機版（≤768px）── */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-  .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 150; width: 260px; min-width: 260px; transform: translateX(-100%); transition: transform .25s cubic-bezier(.4,0,.2,1); box-shadow: 4px 0 20px rgba(0,0,0,.12); }
+  .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0; z-index: 150;
+    width: 260px; min-width: 260px;
+    transform: translateX(-100%);
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+    box-shadow: 4px 0 20px rgba(0,0,0,.12);
+  }
   .sidebar.mobile-open { transform: none; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .topbar { padding: 10px 14px; gap: 8px; }
   .content { padding: 10px 12px; }
-  .filter-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; gap: 8px; }
-  .filter-bar input[type=text] { min-width: unset; width: 100%; font-size: 16px; /* 防止 iOS 自動放大 */ }
-  .filter-bar select { width: 100%; font-size: 16px; }
+  .filter-bar {
+    padding: 10px 12px; flex-direction: column;
+    align-items: stretch; gap: 8px;
+  }
+  .filter-bar input[type=text],
+  .filter-bar select { width: 100%; font-size: 16px; } /* 防 iOS 自動縮放 */
   .filter-sep { display: none; }
-  /* 手機版隱藏表格，改用卡片 */
+  /* 隱藏 sel-bar（手機不用批次選取） */
+  .sel-bar { display: none !important; }
+  /* 隱藏表格，改用卡片 */
   .table-wrap { background: transparent; border: none; box-shadow: none; overflow: visible; }
-  .table-wrap table { display: none; }
+  .table-wrap > table { display: none; }
   .card-list { display: flex; flex-direction: column; gap: 10px; }
-  .panel { width: 100%; max-width: 100%; border-radius: 16px 16px 0 0; top: auto; height: 92dvh; }
-  .panel.open { transform: none; }
+  /* 面板從底部彈出 */
+  .panel {
+    width: 100%; max-width: 100%;
+    top: auto; height: 92dvh;
+    border-radius: 16px 16px 0 0;
+  }
   .info-grid { grid-template-columns: 1fr 1fr; }
 }
-/* 手機卡片樣式 */
-.card-list { display: none; }
-.tender-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 14px 16px;
-  cursor: pointer;
-  transition: box-shadow .15s;
-  -webkit-tap-highlight-color: transparent;
-}
-.tender-card:active { box-shadow: var(--shadow); background: var(--surface2); }
-.tender-card.card-urgent { border-left: 4px solid var(--red); }
-.tender-card.card-warn   { border-left: 4px solid #e8c050; }
-.tender-card.card-ok     { border-left: 4px solid var(--green); }
-.card-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
-.card-title { flex: 1; font-size: 14px; font-weight: 600; line-height: 1.45; color: var(--text); }
-.card-ai-badge { flex-shrink: 0; margin-top: 1px; }
-.card-meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); margin-bottom: 8px; flex-wrap: wrap; }
-.card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border2); }
-.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.card-budget { font-size: 13px; font-weight: 600; color: var(--text); }
-.card-deadline { display: flex; align-items: center; gap: 5px; }
-.card-deadline-date { font-size: 12px; color: var(--text3); }
-@media (max-width: 768px) {
-  .card-list { display: flex; flex-direction: column; gap: 10px; }
-}
+
 @media (max-width: 480px) {
   .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .stat .val { font-size: 18px; }
