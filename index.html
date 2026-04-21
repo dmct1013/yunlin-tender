@@ -529,8 +529,15 @@ function renderCards(rows, emptyMsg) {
   }).join('');
 }
 
-// 視窗大小改變時重新渲染
-window.addEventListener('resize', () => renderTable());
+// 只在跨越手機/桌機臨界點時才重繪（避免 iOS Safari 滾動時工具列高度變化誤觸）
+let _wasMobile = isMobile();
+window.addEventListener('resize', () => {
+  const nowMobile = isMobile();
+  if (nowMobile !== _wasMobile) {
+    _wasMobile = nowMobile;
+    renderTable();
+  }
+});
 
 function toggleSel(id, checked) { if (checked) selected.add(id); else selected.delete(id); updateSelCount(); }
 function toggleAll(checked) { getFiltered().forEach(t => checked ? selected.add(t.id) : selected.delete(t.id)); renderTable(); }
