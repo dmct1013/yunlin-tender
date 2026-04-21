@@ -30,6 +30,9 @@ tbody tr.row-urgent { box-shadow: inset 3px 0 0 var(--red); }
 tbody tr.row-warn   { box-shadow: inset 3px 0 0 #e8c050; }
 .stat.s-alert .val  { color: var(--red); }
 .stat.s-alert .lbl  { color: var(--red); }
+.stat-btn { cursor: pointer; transition: box-shadow .12s, transform .1s; user-select: none; -webkit-tap-highlight-color: transparent; }
+.stat-btn:hover { box-shadow: var(--shadow); }
+.stat-btn:active { transform: scale(.97); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; min-height: 100vh; }
 .layout { display: flex; min-height: 100vh; }
@@ -232,6 +235,8 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
       if (hash === HASH) {
         sessionStorage.setItem('auth', '1');
         document.getElementById('lock-screen').style.display = 'none';
+        // 確保密碼驗證後畫面有正確渲染
+        if (typeof renderTable === 'function') renderTable();
       } else {
         document.getElementById('pw-error').textContent = '密碼錯誤，請再試一次';
         document.getElementById('pw-input').value = '';
@@ -286,10 +291,10 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
 
     <div class="content">
       <div class="stats">
-        <div class="stat"><div class="lbl">勞務標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
-        <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div></div>
-        <div class="stat" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">3 天內</div></div>
-        <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div></div>
+        <div class="stat stat-btn" onclick="setView('all')"   title="點擊查看全部"><div class="lbl">勞務標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
+        <div class="stat stat-btn" onclick="setView('activity')" title="點擊篩選活動標案"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div></div>
+        <div class="stat stat-btn" id="stat-urgent" onclick="setView('urgent')" title="點擊查看緊急截止"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">3 天內</div></div>
+        <div class="stat stat-btn" onclick="setView('analyzed')" title="點擊查看已分析"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div></div>
       </div>
 
       <div class="filter-bar">
@@ -402,15 +407,20 @@ function parseAnalysis(text) {
 }
 
 function getFiltered() {
-  const kw = document.getElementById('kw').value.trim().toLowerCase();
-  const ft = document.getElementById('f-town').value;
-  const fb = document.getElementById('f-budget').value;
+  if (!ALL || !ALL.length) return [];
+  const kw  = (document.getElementById('kw')?.value  || '').trim().toLowerCase();
+  const ft  = document.getElementById('f-town')?.value  || '';
+  const fb  = document.getElementById('f-budget')?.value || '';
   return ALL.filter(t => {
     if (currentView === 'activity' && !t.is_activity) return false;
     if (currentView === 'analyzed' && !aiResults[t.id]) return false;
+    if (currentView === 'urgent') {
+      const d = rocToDays(t.deadline);
+      if (d === null || d < 0 || d > 3) return false;
+    }
     if (currentTown && t.town !== currentTown) return false;
     if (ft && t.town !== ft) return false;
-    if (kw && !t.title.toLowerCase().includes(kw) && !t.org.includes(kw)) return false;
+    if (kw && !t.title.toLowerCase().includes(kw) && !(t.org||'').toLowerCase().includes(kw)) return false;
     if (fb) {
       const b = parseBudget(t.budget);
       if (fb === '100' && b > 1000000) return false;
@@ -429,6 +439,7 @@ function setView(v) {
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
   document.getElementById('nav-' + v)?.classList.add('active');
   document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
+  if (window.innerWidth <= 768) closeSidebar();
   updateViewTitle(); renderTable();
 }
 
@@ -441,7 +452,7 @@ function filterTown(town) {
 }
 
 function updateViewTitle() {
-  const titles = { all: '全部勞務標案', activity: '活動相關標案', analyzed: '已 AI 分析' };
+  const titles = { all: '全部勞務標案', activity: '活動相關標案', analyzed: '已 AI 分析', urgent: '緊急截止標案' };
   document.getElementById('view-title').textContent = currentTown ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
 }
 
@@ -507,7 +518,7 @@ function renderCards(rows, emptyMsg) {
     const budgetStr = budgetNum >= 10000000 ? `${(budgetNum/10000000).toFixed(1)}千萬`
                     : budgetNum >= 1000000  ? `${(budgetNum/10000).toFixed(0)}萬`
                     : `NT$ ${t.budget}`;
-    return `<div class="tender-card ${cardCls}" onclick="openPanel('${t.id}')">
+    return `<div class="tender-card ${cardCls}" data-id="${t.id}" role="button" tabindex="0">
       <div class="card-top">
         <div class="card-title">${t.title}</div>
         <div class="card-ai-badge">${aiBadge}</div>
@@ -729,9 +740,12 @@ function closeSidebar() {
   document.getElementById('sidebar-backdrop').classList.remove('active');
 }
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.sidebar').addEventListener('click', (e) => {
-    if (window.innerWidth <= 768 && e.target.closest('.nav-item')) closeSidebar();
+  // Event delegation：卡片點擊開詳細面板（iOS Safari 更可靠）
+  document.getElementById('card-list').addEventListener('click', e => {
+    const card = e.target.closest('[data-id]');
+    if (card) openPanel(card.dataset.id);
   });
+  // 側欄的 nav-item 點擊已在 setView() 裡呼叫 closeSidebar()，不需額外監聽
 });
 
 function saveKey() {
