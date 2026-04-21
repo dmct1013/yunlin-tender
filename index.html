@@ -19,6 +19,17 @@
   --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
   --shadow: 0 2px 8px rgba(0,0,0,.08);
 }
+/* 截止倒數 urgency */
+.days-pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 4px; margin-left: 5px; vertical-align: middle; }
+.days-urgent { background: var(--red-bg); color: var(--red); }
+.days-warn   { background: var(--amber-bg); color: var(--amber); }
+.days-ok     { background: var(--green-bg); color: var(--green); }
+.date-cell.urgent { color: var(--red); font-weight: 600; }
+.date-cell.warn   { color: var(--amber); font-weight: 500; }
+tbody tr.row-urgent { box-shadow: inset 3px 0 0 var(--red); }
+tbody tr.row-warn   { box-shadow: inset 3px 0 0 #e8c050; }
+.stat.s-alert .val  { color: var(--red); }
+.stat.s-alert .lbl  { color: var(--red); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; min-height: 100vh; }
 .layout { display: flex; min-height: 100vh; }
@@ -133,24 +144,51 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
   .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 150; width: 260px; min-width: 260px; transform: translateX(-100%); transition: transform .25s cubic-bezier(.4,0,.2,1); box-shadow: 4px 0 20px rgba(0,0,0,.12); }
   .sidebar.mobile-open { transform: none; }
   .stats { grid-template-columns: repeat(2, 1fr); }
-  .topbar { padding: 10px 14px; gap: 8px; flex-wrap: wrap; }
-  .content { padding: 12px 14px; }
-  .filter-bar { flex-direction: column; align-items: stretch; gap: 8px; }
-  .filter-bar input[type=text] { min-width: unset; width: 100%; }
-  .filter-bar select { width: 100%; }
+  .topbar { padding: 10px 14px; gap: 8px; }
+  .content { padding: 10px 12px; }
+  .filter-bar { padding: 10px 12px; flex-direction: column; align-items: stretch; gap: 8px; }
+  .filter-bar input[type=text] { min-width: unset; width: 100%; font-size: 16px; /* 防止 iOS 自動放大 */ }
+  .filter-bar select { width: 100%; font-size: 16px; }
   .filter-sep { display: none; }
-  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { min-width: 620px; }
-  .panel { width: 100%; max-width: 100%; }
-  .info-grid { grid-template-columns: 1fr; }
+  /* 手機版隱藏表格，改用卡片 */
+  .table-wrap { background: transparent; border: none; box-shadow: none; overflow: visible; }
+  .table-wrap table { display: none; }
+  .card-list { display: flex; flex-direction: column; gap: 10px; }
+  .panel { width: 100%; max-width: 100%; border-radius: 16px 16px 0 0; top: auto; height: 92dvh; }
+  .panel.open { transform: none; }
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
+/* 手機卡片樣式 */
+.card-list { display: none; }
+.tender-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: box-shadow .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.tender-card:active { box-shadow: var(--shadow); background: var(--surface2); }
+.tender-card.card-urgent { border-left: 4px solid var(--red); }
+.tender-card.card-warn   { border-left: 4px solid #e8c050; }
+.tender-card.card-ok     { border-left: 4px solid var(--green); }
+.card-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; }
+.card-title { flex: 1; font-size: 14px; font-weight: 600; line-height: 1.45; color: var(--text); }
+.card-ai-badge { flex-shrink: 0; margin-top: 1px; }
+.card-meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); margin-bottom: 8px; flex-wrap: wrap; }
+.card-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--border2); }
+.card-bottom { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.card-budget { font-size: 13px; font-weight: 600; color: var(--text); }
+.card-deadline { display: flex; align-items: center; gap: 5px; }
+.card-deadline-date { font-size: 12px; color: var(--text3); }
+@media (max-width: 768px) {
+  .card-list { display: flex; flex-direction: column; gap: 10px; }
 }
 @media (max-width: 480px) {
-  table thead th:nth-child(3), table tbody td:nth-child(3),
-  table thead th:nth-child(6), table tbody td:nth-child(6),
-  table thead th:nth-child(7), table tbody td:nth-child(7) { display: none; }
-  table { min-width: 380px; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .stat .val { font-size: 18px; }
+  .topbar-title { font-size: 14px; }
 }
 </style>
 </head>
@@ -238,7 +276,7 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
       <div class="stats">
         <div class="stat"><div class="lbl">勞務標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
         <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div></div>
-        <div class="stat"><div class="lbl">已勾選</div><div class="val" id="s-sel">0</div></div>
+        <div class="stat" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">3 天內</div></div>
         <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div></div>
       </div>
 
@@ -280,6 +318,7 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
           </thead>
           <tbody id="tbody"></tbody>
         </table>
+        <div class="card-list" id="card-list"></div>
       </div>
     </div>
   </div>
@@ -303,6 +342,23 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
 
 <script>
 let ALL=[], selected=new Set(), aiResults={}, tokenTotal=0, currentView='all', currentTown='', currentTender=null, currentTab=0;
+
+function rocToDays(rocStr) {
+  if (!rocStr) return null;
+  const p = rocStr.split('/');
+  if (p.length !== 3) return null;
+  const d = new Date(parseInt(p[0]) + 1911, parseInt(p[1]) - 1, parseInt(p[2]));
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.floor((d - today) / 86400000);
+}
+function daysPill(days) {
+  if (days === null) return '';
+  if (days < 0)  return `<span class="days-pill days-urgent">已截止</span>`;
+  if (days === 0) return `<span class="days-pill days-urgent">今天截止</span>`;
+  if (days <= 3)  return `<span class="days-pill days-urgent">剩 ${days} 天</span>`;
+  if (days <= 7)  return `<span class="days-pill days-warn">剩 ${days} 天</span>`;
+  return `<span class="days-pill days-ok">剩 ${days} 天</span>`;
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   const k = localStorage.getItem('claude_api_key') || '';
@@ -377,35 +433,92 @@ function updateViewTitle() {
   document.getElementById('view-title').textContent = currentTown ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
 }
 
+function isMobile() { return window.innerWidth <= 768; }
+
 function renderTable() {
   const rows = getFiltered();
-  const tbody = document.getElementById('tbody');
-  document.getElementById('sel-bar').style.display = ALL.length ? 'flex' : 'none';
+  const emptyMsg = ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py';
+  document.getElementById('sel-bar').style.display = ALL.length && !isMobile() ? 'flex' : 'none';
   document.getElementById('view-sub').textContent = `顯示 ${rows.length} 筆`;
+
+  if (isMobile()) {
+    renderCards(rows, emptyMsg);
+  } else {
+    renderTableRows(rows, emptyMsg);
+  }
+  updateSelCount();
+}
+
+function renderTableRows(rows, emptyMsg) {
+  const tbody = document.getElementById('tbody');
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state">${ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py'}</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state">${emptyMsg}</div></td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map(t => {
     const ai = aiResults[t.id];
     const isChk = selected.has(t.id);
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
-    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}">${ai.label}</span>` : '—';
+    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}" style="font-size:12px;padding:3px 10px">${ai.label}</span>` : '—';
     const histBadge = (t.history && t.history.length > 0) ? `<span style="font-size:10px;color:var(--blue);margin-left:4px">●${t.history.length}年記錄</span>` : '';
-    return `<tr onclick="openPanel('${t.id}')">
+    const days = rocToDays(t.deadline);
+    const urgClass = days !== null && days <= 3 ? 'row-urgent' : days !== null && days <= 7 ? 'row-warn' : '';
+    const dateCls = days !== null && days <= 3 ? 'date-cell urgent' : days !== null && days <= 7 ? 'date-cell warn' : 'date-cell';
+    return `<tr class="${urgClass}" onclick="openPanel('${t.id}')">
       <td onclick="event.stopPropagation()"><input type="checkbox" class="chk" ${isChk?'checked':''} onchange="toggleSel('${t.id}',this.checked)"></td>
       <td class="td-title"><div class="name">${t.title}${histBadge}</div><div class="org">${t.org}</div></td>
       <td class="town-tag">${t.town}</td>
       <td class="budget">NT$ ${t.budget}</td>
       <td class="date-cell">${t.date || '—'}</td>
-      <td class="date-cell">${t.deadline || '—'}</td>
+      <td class="${dateCls}">${t.deadline || '—'}${daysPill(days)}</td>
       <td>${actBadge}</td>
       <td>${aiBadge}</td>
       <td onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
     </tr>`;
   }).join('');
-  updateSelCount();
 }
+
+function renderCards(rows, emptyMsg) {
+  const cardList = document.getElementById('card-list');
+  if (!rows.length) {
+    cardList.innerHTML = `<div class="empty-state">${emptyMsg}</div>`;
+    return;
+  }
+  cardList.innerHTML = rows.map(t => {
+    const ai = aiResults[t.id];
+    const days = rocToDays(t.deadline);
+    const cardCls = days !== null && days <= 3 ? 'card-urgent' : days !== null && days <= 7 ? 'card-warn' : 'card-ok';
+    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}" style="font-size:11px;padding:2px 8px">${ai.label}</span>` : '';
+    const actTag = t.is_activity ? `<span class="badge badge-activity" style="font-size:10px;padding:1px 6px">活動</span>` : '';
+    const histTag = (t.history && t.history.length > 0) ? `<span style="font-size:10px;color:var(--blue)">●${t.history.length}年記錄</span>` : '';
+    const budgetNum = parseInt((t.budget||'').replace(/[^0-9]/g,'')) || 0;
+    const budgetStr = budgetNum >= 10000000 ? `${(budgetNum/10000000).toFixed(1)}千萬`
+                    : budgetNum >= 1000000  ? `${(budgetNum/10000).toFixed(0)}萬`
+                    : `NT$ ${t.budget}`;
+    return `<div class="tender-card ${cardCls}" onclick="openPanel('${t.id}')">
+      <div class="card-top">
+        <div class="card-title">${t.title}</div>
+        <div class="card-ai-badge">${aiBadge}</div>
+      </div>
+      <div class="card-meta">
+        <span>${t.org}</span>
+        ${t.town !== '雲林縣' ? `<span class="dot"></span><span>${t.town}</span>` : ''}
+        ${actTag ? `<span class="dot"></span>${actTag}` : ''}
+        ${histTag ? `<span class="dot"></span>${histTag}` : ''}
+      </div>
+      <div class="card-bottom">
+        <div class="card-budget">${budgetStr}</div>
+        <div class="card-deadline">
+          <span class="card-deadline-date">${t.deadline || '—'}</span>
+          ${daysPill(days)}
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// 視窗大小改變時重新渲染
+window.addEventListener('resize', () => renderTable());
 
 function toggleSel(id, checked) { if (checked) selected.add(id); else selected.delete(id); updateSelCount(); }
 function toggleAll(checked) { getFiltered().forEach(t => checked ? selected.add(t.id) : selected.delete(t.id)); renderTable(); }
@@ -425,6 +538,9 @@ function updateStats() {
   document.getElementById('nc-all').textContent = ALL.length;
   document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
   document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
+  const urgentCount = ALL.filter(t => { const d = rocToDays(t.deadline); return d !== null && d >= 0 && d <= 3; }).length;
+  document.getElementById('s-urgent').textContent = urgentCount;
+  document.getElementById('stat-urgent').classList.toggle('s-alert', urgentCount > 0);
 }
 
 function buildTownFilter() {
