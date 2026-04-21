@@ -448,6 +448,7 @@ function filterTown(town) {
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
   document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
   document.getElementById('nav-town-' + town)?.classList.add('active');
+  closeSidebar();
   updateViewTitle(); renderTable();
 }
 
@@ -456,19 +457,15 @@ function updateViewTitle() {
   document.getElementById('view-title').textContent = currentTown ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
 }
 
-function isMobile() { return window.innerWidth <= 768; }
-
 function renderTable() {
   const rows = getFiltered();
   const emptyMsg = ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py';
-  document.getElementById('sel-bar').style.display = ALL.length && !isMobile() ? 'flex' : 'none';
+  // sel-bar 手機上已用 CSS display:none!important 隱藏，桌機才顯示
+  document.getElementById('sel-bar').style.display = ALL.length ? 'flex' : 'none';
   document.getElementById('view-sub').textContent = `顯示 ${rows.length} 筆`;
-
-  if (isMobile()) {
-    renderCards(rows, emptyMsg);
-  } else {
-    renderTableRows(rows, emptyMsg);
-  }
+  // 永遠同時渲染 table 和 cards，讓 CSS 決定哪個顯示（不依賴 JS 偵測裝置寬度）
+  renderTableRows(rows, emptyMsg);
+  renderCards(rows, emptyMsg);
   updateSelCount();
 }
 
@@ -540,15 +537,8 @@ function renderCards(rows, emptyMsg) {
   }).join('');
 }
 
-// 只在跨越手機/桌機臨界點時才重繪（避免 iOS Safari 滾動時工具列高度變化誤觸）
-let _wasMobile = isMobile();
-window.addEventListener('resize', () => {
-  const nowMobile = isMobile();
-  if (nowMobile !== _wasMobile) {
-    _wasMobile = nowMobile;
-    renderTable();
-  }
-});
+// resize 時重繪（因為 table 和 cards 都永遠渲染，成本低）
+window.addEventListener('resize', () => renderTable());
 
 function toggleSel(id, checked) { if (checked) selected.add(id); else selected.delete(id); updateSelCount(); }
 function toggleAll(checked) { getFiltered().forEach(t => checked ? selected.add(t.id) : selected.delete(t.id)); renderTable(); }
@@ -740,12 +730,22 @@ function closeSidebar() {
   document.getElementById('sidebar-backdrop').classList.remove('active');
 }
 document.addEventListener('DOMContentLoaded', () => {
-  // Event delegation：卡片點擊開詳細面板（iOS Safari 更可靠）
-  document.getElementById('card-list').addEventListener('click', e => {
-    const card = e.target.closest('[data-id]');
-    if (card) openPanel(card.dataset.id);
-  });
-  // 側欄的 nav-item 點擊已在 setView() 裡呼叫 closeSidebar()，不需額外監聽
+  // 卡片點擊：click + touchend 雙保險（iOS Safari）
+  const cardList = document.getElementById('card-list');
+  if (cardList) {
+    let touchMoved = false;
+    cardList.addEventListener('touchstart', () => { touchMoved = false; }, { passive: true });
+    cardList.addEventListener('touchmove',  () => { touchMoved = true;  }, { passive: true });
+    cardList.addEventListener('touchend', e => {
+      if (touchMoved) return; // 滑動不算點擊
+      const card = e.target.closest('[data-id]');
+      if (card) { e.preventDefault(); openPanel(card.dataset.id); }
+    });
+    cardList.addEventListener('click', e => {
+      const card = e.target.closest('[data-id]');
+      if (card) openPanel(card.dataset.id);
+    });
+  }
 });
 
 function saveKey() {
