@@ -3,167 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雲林縣採購監控</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
+<title>雲林縣採購監控 v2</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #f2f0eb; --surface: #ffffff; --surface2: #f8f7f4;
-  --border: #e4e0d8; --border2: #ccc8be;
-  --text: #1a1816; --text2: #5c5750; --text3: #9c9890;
-  --accent: #b84c1a; --accent2: #d4611f;
-  --accent-bg: #fdf1eb; --accent-border: #e8b89a;
-  --blue: #1a5fa8; --blue-bg: #eef4fc;
-  --green: #1a7a3e; --green-bg: #edf7f1;
-  --amber: #a06010; --amber-bg: #fdf6e3;
-  --red: #b52020; --red-bg: #fef2f2;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
-  --shadow: 0 2px 8px rgba(0,0,0,.08);
+  --bg: #0d1117;
+  --sidebar: #131923;
+  --surface: #161d2b;
+  --surface2: #1c2537;
+  --surface3: #232e44;
+  --border: #263040;
+  --border2: #334055;
+  --text: #dce6f4;
+  --text2: #7a90a8;
+  --text3: #3f5060;
+  --blue: #4f8ef7;
+  --blue-bg: rgba(79,142,247,.12);
+  --green: #28d87c;
+  --green-bg: rgba(40,216,124,.11);
+  --amber: #f0a830;
+  --amber-bg: rgba(240,168,48,.11);
+  --red: #f04860;
+  --red-bg: rgba(240,72,96,.11);
+  --shadow: 0 4px 24px rgba(0,0,0,.5);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; min-height: 100vh; }
+body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background: var(--bg); color: var(--text); font-size: 13px; line-height: 1.5; min-height: 100vh; }
+
+/* === Layout === */
 .layout { display: flex; min-height: 100vh; }
-.sidebar { width: 220px; min-width: 220px; background: var(--surface); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
-.main { flex: 1; overflow: hidden; display: flex; flex-direction: column; }
-.logo { padding: 20px 18px 16px; border-bottom: 1px solid var(--border); }
-.logo-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; color: var(--text); line-height: 1.4; }
-.logo-sub { font-size: 11px; color: var(--text3); margin-top: 4px; }
-.nav-group { padding: 14px 10px 6px; }
-.nav-group-label { font-size: 10px; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; padding: 0 8px; margin-bottom: 4px; }
-.nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; cursor: pointer; font-size: 13px; color: var(--text2); transition: all .12s; margin-bottom: 1px; user-select: none; }
+.sidebar { width: 200px; min-width: 200px; background: var(--sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+.main { flex: 1; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+
+/* === Sidebar === */
+.logo { padding: 18px 14px 14px; border-bottom: 1px solid var(--border); }
+.logo-badge { display: inline-block; background: var(--blue); color: #fff; font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 4px; letter-spacing: .08em; margin-bottom: 8px; }
+.logo-title { font-size: 14px; font-weight: 600; color: var(--text); letter-spacing: -.01em; }
+.logo-sub { font-size: 10px; color: var(--text3); margin-top: 3px; }
+.nav-group { padding: 12px 8px 4px; }
+.nav-group-label { font-size: 9px; color: var(--text3); letter-spacing: .1em; text-transform: uppercase; padding: 0 8px; margin-bottom: 6px; font-weight: 600; }
+.nav-item { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 7px; cursor: pointer; font-size: 12px; color: var(--text2); transition: background .12s, color .12s; margin-bottom: 1px; user-select: none; }
 .nav-item:hover { background: var(--surface2); color: var(--text); }
-.nav-item.active { background: var(--accent-bg); color: var(--accent); font-weight: 500; }
-.nav-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .5; flex-shrink: 0; }
-.nav-item.active .nav-dot { opacity: 1; }
-.nav-count { margin-left: auto; font-size: 11px; padding: 1px 7px; border-radius: 20px; background: var(--border); color: var(--text3); }
-.nav-item.active .nav-count { background: var(--accent-border); color: var(--accent); }
-.sidebar-footer { margin-top: auto; padding: 14px 16px; border-top: 1px solid var(--border); }
-.sidebar-footer label { font-size: 11px; color: var(--text3); display: block; margin-bottom: 5px; }
-.api-input { width: 100%; padding: 6px 9px; border: 1px solid var(--border); border-radius: 6px; font-size: 11px; font-family: monospace; background: var(--surface2); color: var(--text); }
-.api-input:focus { outline: none; border-color: var(--accent-border); }
-.api-status { font-size: 11px; margin-top: 4px; min-height: 16px; }
-.topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 12px 24px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.nav-item.active { background: var(--blue-bg); color: var(--blue); font-weight: 500; }
+.nav-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.nav-count { margin-left: auto; font-size: 10px; padding: 1px 6px; border-radius: 10px; background: var(--surface3); color: var(--text3); }
+.nav-item.active .nav-count { background: rgba(79,142,247,.22); color: var(--blue); }
+.sidebar-footer { margin-top: auto; padding: 12px 13px; border-top: 1px solid var(--border); }
+.sidebar-footer label { font-size: 10px; color: var(--text3); display: block; margin-bottom: 5px; }
+.api-input { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 10px; font-family: 'SF Mono', monospace; background: var(--bg); color: var(--text); }
+.api-input:focus { outline: none; border-color: var(--blue); }
+.api-status { font-size: 10px; margin-top: 4px; min-height: 14px; }
+
+/* === Topbar === */
+.topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 11px 20px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
 .topbar-info { flex: 1; }
-.topbar-title { font-size: 15px; font-weight: 500; }
-.topbar-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
-.btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 7px; font-size: 13px; font-family: inherit; cursor: pointer; border: 1px solid var(--border2); background: var(--surface); color: var(--text2); transition: all .12s; }
-.btn:hover { background: var(--surface2); color: var(--text); }
-.btn-primary { background: var(--accent); border-color: var(--accent); color: white; font-weight: 500; }
-.btn-primary:hover { background: var(--accent2); border-color: var(--accent2); }
-.btn-primary:disabled { opacity: .4; pointer-events: none; }
-.btn-sm { padding: 5px 11px; font-size: 12px; }
-.content { flex: 1; overflow-y: auto; padding: 20px 24px; }
-.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
-.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 12px 14px; }
-.stat .lbl { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
-.stat .val { font-size: 22px; font-weight: 700; color: var(--text); }
-.stat .sub { font-size: 11px; color: var(--text3); margin-top: 1px; }
-.filter-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 12px 14px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
-.filter-bar input[type=text] { flex: 1; min-width: 150px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; background: var(--surface2); color: var(--text); font-family: inherit; }
-.filter-bar input[type=text]:focus { outline: none; border-color: var(--accent-border); }
-.filter-bar select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; background: var(--surface2); color: var(--text); font-family: inherit; height: 34px; }
-.filter-sep { width: 1px; background: var(--border); height: 20px; }
-.sel-bar { background: var(--amber-bg); border: 1px solid #e8c870; border-radius: 9px; padding: 9px 14px; display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--amber); margin-bottom: 10px; }
+.topbar-title { font-size: 14px; font-weight: 600; color: var(--text); }
+.topbar-sub { font-size: 11px; color: var(--text3); margin-top: 1px; }
+.btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 7px; font-size: 12px; font-family: inherit; cursor: pointer; border: 1px solid var(--border2); background: var(--surface2); color: var(--text2); transition: all .12s; white-space: nowrap; }
+.btn:hover { background: var(--surface3); color: var(--text); }
+.btn-primary { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 500; }
+.btn-primary:hover { opacity: .85; }
+.btn-primary:disabled { opacity: .3; pointer-events: none; }
+.btn-sm { padding: 4px 10px; font-size: 11px; }
+.token-pill { font-size: 10px; padding: 3px 8px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text3); }
+
+/* === Content area === */
+.content { flex: 1; overflow-y: auto; padding: 16px 20px 24px; }
+
+/* === Stats === */
+.stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 14px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 10px 14px; }
+.stat .lbl { font-size: 9px; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 5px; font-weight: 600; }
+.stat .val { font-size: 26px; font-weight: 700; color: var(--text); line-height: 1; }
+.stat .sub { font-size: 10px; color: var(--text3); margin-top: 3px; }
+.stat.stat-urgent .lbl { color: var(--red); }
+.stat.stat-urgent.has-urgent { background: var(--red-bg); border-color: rgba(240,72,96,.28); }
+.stat.stat-urgent.has-urgent .val { color: var(--red); }
+
+/* === Spotlight === */
+.spotlight { margin-bottom: 14px; }
+.spotlight-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.spotlight-label { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; font-weight: 700; white-space: nowrap; }
+.spotlight-rule { flex: 1; height: 1px; background: var(--border); }
+.spotlight-cards { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scroll-snap-type: x mandatory; }
+.spotlight-cards::-webkit-scrollbar { height: 3px; }
+.spotlight-cards::-webkit-scrollbar-track { background: transparent; }
+.spotlight-cards::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+.scard { flex-shrink: 0; width: 216px; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 11px 13px 11px 16px; cursor: pointer; transition: background .14s, transform .14s, box-shadow .14s; scroll-snap-align: start; position: relative; overflow: hidden; }
+.scard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; border-radius: 9px 0 0 9px; }
+.scard.v-yes::before { background: var(--green); }
+.scard.v-no::before { background: var(--red); }
+.scard.v-maybe::before { background: var(--amber); }
+.scard.v-none::before { background: var(--border2); }
+.scard:hover { background: var(--surface2); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.35); }
+.scard-verdict { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 5px; }
+.scard.v-yes .scard-verdict { color: var(--green); }
+.scard.v-no .scard-verdict { color: var(--red); }
+.scard.v-maybe .scard-verdict { color: var(--amber); }
+.scard.v-none .scard-verdict { color: var(--text3); }
+.scard-title { font-size: 12px; color: var(--text); font-weight: 500; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 8px; }
+.scard-meta { display: flex; justify-content: space-between; align-items: center; gap: 6px; }
+.scard-budget { font-size: 10px; color: var(--text2); }
+.scard-dl { font-size: 10px; font-weight: 700; padding: 2px 6px; border-radius: 4px; white-space: nowrap; }
+.scard-dl.d-urgent { background: var(--red-bg); color: var(--red); }
+.scard-dl.d-warning { background: var(--amber-bg); color: var(--amber); }
+.scard-dl.d-safe { background: var(--green-bg); color: var(--green); }
+.scard-dl.d-expired { background: var(--surface3); color: var(--text3); }
+
+/* === Filter bar === */
+.filter-bar { background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 9px 12px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+.filter-bar input[type=text] { flex: 1; min-width: 140px; padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; background: var(--bg); color: var(--text); font-family: inherit; }
+.filter-bar input[type=text]::placeholder { color: var(--text3); }
+.filter-bar input[type=text]:focus { outline: none; border-color: var(--blue); }
+.filter-bar select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; background: var(--bg); color: var(--text); font-family: inherit; cursor: pointer; }
+.filter-bar select:focus { outline: none; border-color: var(--blue); }
+.filter-sep { width: 1px; background: var(--border); height: 18px; flex-shrink: 0; }
+
+/* === Sel bar === */
+.sel-bar { background: rgba(240,168,48,.07); border: 1px solid rgba(240,168,48,.22); border-radius: 9px; padding: 8px 13px; display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--amber); margin-bottom: 10px; }
 .sel-bar .sp { flex: 1; }
-.table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow-sm); }
-table { width: 100%; border-collapse: collapse; }
-thead th { padding: 10px 12px; text-align: left; font-size: 11px; font-weight: 500; color: var(--text3); letter-spacing: .04em; background: var(--surface2); border-bottom: 1px solid var(--border); white-space: nowrap; }
+
+/* === Table === */
+.table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+thead th { padding: 9px 12px; text-align: left; font-size: 9px; font-weight: 700; color: var(--text3); letter-spacing: .08em; text-transform: uppercase; background: var(--surface2); border-bottom: 1px solid var(--border); white-space: nowrap; }
 tbody tr { transition: background .1s; cursor: pointer; }
 tbody tr:hover { background: var(--surface2); }
-tbody tr + tr { border-top: 1px solid var(--border); }
-tbody td { padding: 11px 12px; vertical-align: middle; }
-.td-title .name { font-weight: 500; font-size: 13px; line-height: 1.4; }
-.td-title .org { font-size: 11px; color: var(--text3); margin-top: 2px; }
-.town-tag { font-size: 12px; color: var(--text2); white-space: nowrap; }
-.budget { font-size: 13px; white-space: nowrap; font-weight: 500; }
-.date-cell { font-size: 12px; color: var(--text3); white-space: nowrap; }
-.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 20px; white-space: nowrap; font-weight: 500; }
-.badge-activity { background: var(--accent-bg); color: var(--accent); }
-.badge-other { background: var(--surface2); color: var(--text3); }
+tbody tr + tr td { border-top: 1px solid var(--border); }
+
+/* Urgency left border */
+tbody td:first-child { padding-left: 0; }
+.urge-bar { display: block; width: 3px; height: 100%; min-height: 44px; border-radius: 0; flex-shrink: 0; }
+tbody td.td-urge { padding: 0; width: 3px; }
+.urge-urgent { background: var(--red); }
+.urge-warning { background: var(--amber); }
+.urge-safe { background: var(--green); }
+.urge-expired { background: var(--border); opacity: .5; }
+tbody tr.u-expired { opacity: .5; }
+
+tbody td { padding: 10px 12px; vertical-align: middle; }
+tbody td.td-urge { padding: 0; }
+
+.td-name .name { font-size: 12px; font-weight: 500; color: var(--text); line-height: 1.4; }
+.td-name .name.is-activity { color: #85b8ff; }
+.td-name .org { font-size: 10px; color: var(--text3); margin-top: 2px; }
+.hist-tag { display: inline-block; font-size: 9px; color: var(--blue); background: var(--blue-bg); padding: 1px 4px; border-radius: 3px; margin-left: 5px; vertical-align: middle; font-weight: 600; }
+
+.td-town { font-size: 11px; color: var(--text2); white-space: nowrap; }
+
+.td-budget { white-space: nowrap; }
+.budget-val { font-size: 12px; font-weight: 600; color: var(--text); }
+.budget-bar-wrap { margin-top: 3px; height: 2px; background: var(--surface3); border-radius: 1px; width: 72px; overflow: hidden; }
+.budget-bar-fill { height: 100%; background: var(--blue); border-radius: 1px; opacity: .45; }
+
+.td-dl { white-space: nowrap; }
+.dl-days { font-size: 12px; font-weight: 700; line-height: 1; }
+.dl-days.d-urgent { color: var(--red); }
+.dl-days.d-warning { color: var(--amber); }
+.dl-days.d-safe { color: var(--green); }
+.dl-days.d-expired { color: var(--text3); }
+.dl-date { font-size: 10px; color: var(--text3); margin-top: 3px; }
+
+.badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 600; letter-spacing: .02em; white-space: nowrap; }
+.badge-activity { background: var(--blue-bg); color: var(--blue); }
+.badge-other { background: var(--surface3); color: var(--text3); }
 .badge-yes { background: var(--green-bg); color: var(--green); }
 .badge-no { background: var(--red-bg); color: var(--red); }
 .badge-maybe { background: var(--amber-bg); color: var(--amber); }
-.btn-view { font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--accent-border); color: var(--accent); background: var(--accent-bg); cursor: pointer; font-family: inherit; transition: all .12s; white-space: nowrap; }
-.btn-view:hover { background: var(--accent); color: white; }
-.chk { width: 15px; height: 15px; cursor: pointer; accent-color: var(--accent); }
-.empty-state { padding: 48px; text-align: center; color: var(--text3); font-size: 14px; }
-.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.2); z-index: 100; opacity: 0; pointer-events: none; transition: opacity .2s; }
+
+.btn-view { font-size: 10px; padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border2); color: var(--text2); background: transparent; cursor: pointer; font-family: inherit; transition: all .12s; }
+.btn-view:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+.chk { width: 14px; height: 14px; cursor: pointer; accent-color: var(--blue); }
+.empty-state { padding: 48px; text-align: center; color: var(--text3); font-size: 13px; }
+
+/* === Panel === */
+.overlay { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 100; opacity: 0; pointer-events: none; transition: opacity .2s; backdrop-filter: blur(3px); }
 .overlay.open { opacity: 1; pointer-events: auto; }
-.panel { position: fixed; top: 0; right: 0; bottom: 0; width: 560px; max-width: 95vw; background: var(--surface); border-left: 1px solid var(--border); box-shadow: -4px 0 20px rgba(0,0,0,.1); z-index: 101; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .25s cubic-bezier(.4,0,.2,1); }
+.panel { position: fixed; top: 0; right: 0; bottom: 0; width: 540px; max-width: 95vw; background: var(--sidebar); border-left: 1px solid var(--border); box-shadow: -8px 0 48px rgba(0,0,0,.55); z-index: 101; display: flex; flex-direction: column; transform: translateX(100%); transition: transform .25s cubic-bezier(.4,0,.2,1); }
 .panel.open { transform: none; }
-.panel-head { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
-.panel-head .close { float: right; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--text3); line-height: 1; }
-.panel-head .close:hover { color: var(--text); }
-.panel-head h2 { font-size: 14px; font-weight: 500; padding-right: 24px; line-height: 1.5; }
-.panel-head .meta { font-size: 12px; color: var(--text3); margin-top: 4px; }
+.panel-head { padding: 15px 18px 11px; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+.panel-head .close { float: right; background: var(--surface2); border: 1px solid var(--border); font-size: 12px; cursor: pointer; color: var(--text2); padding: 4px 9px; border-radius: 6px; }
+.panel-head .close:hover { color: var(--text); background: var(--surface3); }
+.panel-head h2 { font-size: 13px; font-weight: 500; padding-right: 44px; line-height: 1.5; color: var(--text); }
+.panel-head .meta { font-size: 10px; color: var(--text3); margin-top: 5px; }
 .panel-tabs { display: flex; border-bottom: 1px solid var(--border); flex-shrink: 0; }
-.panel-tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .12s; }
-.panel-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
-.panel-body { flex: 1; overflow-y: auto; padding: 18px 20px; }
-.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.panel-tab { flex: 1; padding: 9px; text-align: center; font-size: 11px; color: var(--text2); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all .12s; }
+.panel-tab.active { color: var(--blue); border-bottom-color: var(--blue); font-weight: 600; }
+.panel-body { flex: 1; overflow-y: auto; padding: 16px 18px; }
+
+.verdict-banner { border-radius: 9px; padding: 11px 15px; margin-bottom: 14px; font-size: 13px; font-weight: 600; }
+.verdict-yes { background: var(--green-bg); color: var(--green); border: 1px solid rgba(40,216,124,.22); }
+.verdict-no { background: var(--red-bg); color: var(--red); border: 1px solid rgba(240,72,96,.22); }
+.verdict-maybe { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(240,168,48,.22); }
+
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
 .info-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 9px 12px; }
-.info-item .lbl { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
-.info-item .val { font-size: 13px; font-weight: 500; }
-.section-lbl { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 8px; margin-top: 14px; }
-.history-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-bottom: 4px; }
-.history-table th { background: var(--surface2); padding: 6px 10px; text-align: left; font-size: 11px; color: var(--text3); border-bottom: 1px solid var(--border); }
-.history-table td { padding: 7px 10px; border-bottom: 1px solid var(--border); color: var(--text); }
-.history-table tr:last-child td { border-bottom: none; }
+.info-item .lbl { font-size: 9px; color: var(--text3); margin-bottom: 3px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+.info-item .val { font-size: 12px; font-weight: 500; color: var(--text); }
+.section-lbl { font-size: 9px; color: var(--text3); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; margin-top: 14px; font-weight: 700; }
+
 .history-wrap { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 14px; }
-.history-empty { padding: 10px 12px; font-size: 12px; color: var(--text3); font-style: italic; }
-.analysis-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.85; white-space: pre-wrap; color: var(--text); }
-.verdict-banner { border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; font-weight: 500; }
-.verdict-yes { background: var(--green-bg); color: var(--green); }
-.verdict-no { background: var(--red-bg); color: var(--red); }
-.verdict-maybe { background: var(--amber-bg); color: var(--amber); }
-.spinner { width: 18px; height: 18px; border: 2px solid var(--border2); border-top-color: var(--accent); border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.loading-row { display: flex; align-items: center; gap: 10px; padding: 16px 0; font-size: 13px; color: var(--text3); }
-.ext-link { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; color: var(--blue); text-decoration: none; margin-top: 10px; }
+.history-table { width: 100%; border-collapse: collapse; }
+.history-table th { background: var(--surface3); padding: 7px 10px; text-align: left; font-size: 9px; color: var(--text3); border-bottom: 1px solid var(--border); text-transform: uppercase; letter-spacing: .05em; font-weight: 700; }
+.history-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text); font-size: 11px; }
+.history-table tr:last-child td { border-bottom: none; }
+.history-empty { padding: 12px 14px; font-size: 12px; color: var(--text3); font-style: italic; }
+
+.analysis-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; font-size: 12px; line-height: 1.9; white-space: pre-wrap; color: var(--text); }
+.ext-link { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--blue); text-decoration: none; margin-top: 10px; }
 .ext-link:hover { text-decoration: underline; }
+
+.spinner { width: 16px; height: 16px; border: 2px solid var(--border2); border-top-color: var(--blue); border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-row { display: flex; align-items: center; gap: 10px; padding: 16px 0; font-size: 12px; color: var(--text3); }
+
 .page-loading { position: fixed; inset: 0; background: var(--bg); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 14px; z-index: 200; }
-.page-loading .sp { width: 28px; height: 28px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
-.page-loading p { font-size: 14px; color: var(--text3); }
-.token-pill { font-size: 11px; padding: 3px 9px; border-radius: 20px; background: var(--surface2); border: 1px solid var(--border); color: var(--text3); }
-.hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; cursor: pointer; padding: 6px 8px; border: 1px solid var(--border); background: var(--surface); border-radius: 7px; flex-shrink: 0; }
-.hamburger span { display: block; width: 18px; height: 2px; background: var(--text2); border-radius: 2px; transition: all .2s; }
-.sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 140; cursor: pointer; }
+.page-loading .sp { width: 22px; height: 22px; border: 2px solid var(--border); border-top-color: var(--blue); border-radius: 50%; animation: spin .8s linear infinite; }
+.page-loading p { font-size: 13px; color: var(--text3); }
+
+/* === Mobile === */
+.hamburger { display: none; flex-direction: column; justify-content: center; gap: 4px; cursor: pointer; padding: 6px; border: 1px solid var(--border); background: var(--surface2); border-radius: 7px; flex-shrink: 0; }
+.hamburger span { display: block; width: 16px; height: 2px; background: var(--text2); border-radius: 1px; }
+.sidebar-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.65); z-index: 140; cursor: pointer; }
 .sidebar-backdrop.active { display: block; }
+
+@media (max-width: 960px) { .stats { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 768px) {
   .hamburger { display: flex; }
-  .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 150; width: 260px; min-width: 260px; transform: translateX(-100%); transition: transform .25s cubic-bezier(.4,0,.2,1); box-shadow: 4px 0 20px rgba(0,0,0,.12); }
+  .sidebar { position: fixed; left: 0; top: 0; bottom: 0; z-index: 150; transform: translateX(-100%); transition: transform .25s cubic-bezier(.4,0,.2,1); box-shadow: 4px 0 24px rgba(0,0,0,.5); }
   .sidebar.mobile-open { transform: none; }
   .stats { grid-template-columns: repeat(2, 1fr); }
-  .topbar { padding: 10px 14px; gap: 8px; flex-wrap: wrap; }
-  .content { padding: 12px 14px; }
-  .filter-bar { flex-direction: column; align-items: stretch; gap: 8px; }
-  .filter-bar input[type=text] { min-width: unset; width: 100%; }
-  .filter-bar select { width: 100%; }
-  .filter-sep { display: none; }
-  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-  table { min-width: 620px; }
+  .topbar, .content { padding: 10px 14px; }
   .panel { width: 100%; max-width: 100%; }
   .info-grid { grid-template-columns: 1fr; }
+  .filter-bar { flex-direction: column; align-items: stretch; }
+  .filter-bar input[type=text] { width: 100%; }
+  .filter-sep { display: none; }
+  .table-wrap { overflow-x: auto; }
+  table { min-width: 580px; }
 }
 @media (max-width: 480px) {
-  table thead th:nth-child(3), table tbody td:nth-child(3),
-  table thead th:nth-child(6), table tbody td:nth-child(6),
-  table thead th:nth-child(7), table tbody td:nth-child(7) { display: none; }
-  table { min-width: 380px; }
-  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .stat .val { font-size: 18px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  table { min-width: 400px; }
+  thead th:nth-child(3), tbody td:nth-child(3),
+  thead th:nth-child(8), tbody td:nth-child(8) { display: none; }
 }
+
+/* === Toast === */
+#toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface2); border: 1px solid var(--border2); color: var(--text); padding: 12px 18px; border-radius: 10px; font-size: 13px; z-index: 9999; max-width: 340px; line-height: 1.6; box-shadow: 0 4px 24px rgba(0,0,0,.5); white-space: pre-wrap; opacity: 0; transition: opacity .3s; pointer-events: none; }
+#toast.show { opacity: 1; }
+
+/* === Progress Panel === */
+#progress-panel {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--surface); border-top: 1px solid var(--border);
+  padding: 10px 20px 12px; z-index: 500;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.4);
+}
+#progress-panel.visible { display: block; }
+.pp-bar-track {
+  width: 100%; height: 4px; background: var(--surface3);
+  border-radius: 2px; overflow: hidden; margin-bottom: 7px;
+}
+.pp-bar-fill {
+  height: 100%; background: var(--blue);
+  border-radius: 2px;
+  transition: width .6s cubic-bezier(.4,0,.2,1);
+  box-shadow: 0 0 8px rgba(79,142,247,.5);
+}
+.pp-bar-fill.pp-done { background: var(--green); box-shadow: 0 0 8px rgba(40,216,124,.5); }
+.pp-bar-fill.pp-error { background: var(--red); box-shadow: none; }
+.pp-info { display: flex; align-items: center; gap: 10px; font-size: 11px; }
+.pp-pct { font-size: 13px; font-weight: 700; color: var(--blue); min-width: 36px; }
+.pp-pct.pp-done { color: var(--green); }
+.pp-pct.pp-error { color: var(--red); }
+.pp-msg { color: var(--text2); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pp-time { color: var(--text3); white-space: nowrap; font-size: 10px; }
 </style>
 </head>
 <body>
 
-<div id="lock-screen" style="position:fixed;inset:0;background:#f2f0eb;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;gap:16px;">
-  <div style="background:#fff;border:1px solid #e4e0d8;border-radius:14px;padding:36px 40px;width:320px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08)">
-    <div style="font-family:'Noto Serif TC',serif;font-size:20px;font-weight:700;color:#1a1816;margin-bottom:6px">雲林縣採購監控</div>
-    <div style="font-size:13px;color:#9c9890;margin-bottom:24px">請輸入密碼</div>
+<!-- Lock screen -->
+<div id="lock-screen" style="position:fixed;inset:0;background:#0d1117;display:flex;align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#161d2b;border:1px solid #263040;border-radius:14px;padding:36px 40px;width:320px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.6)">
+    <div style="display:inline-block;background:#4f8ef7;color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.08em;margin-bottom:12px">PROCUREMENT MONITOR</div>
+    <div style="font-size:20px;font-weight:700;color:#dce6f4;margin-bottom:4px">雲林縣採購監控</div>
+    <div style="font-size:12px;color:#3f5060;margin-bottom:24px">請輸入密碼</div>
     <input id="pw-input" type="password" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()"
-      style="width:100%;padding:10px 14px;border:1px solid #e4e0d8;border-radius:8px;font-size:14px;font-family:inherit;background:#f8f7f4;color:#1a1816;outline:none;box-sizing:border-box;margin-bottom:10px">
-    <div id="pw-error" style="font-size:12px;color:#b52020;margin-bottom:10px;min-height:16px"></div>
-    <button onclick="checkPw()" style="width:100%;padding:10px;background:#b84c1a;border:none;border-radius:8px;color:white;font-size:14px;font-family:inherit;font-weight:500;cursor:pointer">進入</button>
+      style="width:100%;padding:10px 14px;border:1px solid #263040;border-radius:8px;font-size:14px;font-family:inherit;background:#0d1117;color:#dce6f4;outline:none;box-sizing:border-box;margin-bottom:8px">
+    <div id="pw-error" style="font-size:12px;color:#f04860;margin-bottom:10px;min-height:16px"></div>
+    <button onclick="checkPw()" style="width:100%;padding:10px;background:#4f8ef7;border:none;border-radius:8px;color:#fff;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer;letter-spacing:.02em">進入</button>
   </div>
 </div>
 
@@ -203,21 +333,22 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
 <div class="layout" id="app" style="display:none">
   <aside class="sidebar">
     <div class="logo">
-      <div class="logo-title">雲林縣<br>採購監控</div>
+      <div class="logo-badge">雲林縣</div>
+      <div class="logo-title">採購監控</div>
       <div class="logo-sub" id="updated-at">載入中...</div>
     </div>
     <div class="nav-group">
-      <div class="nav-group-label">篩選</div>
-      <div class="nav-item active" id="nav-all" onclick="setView('all')"><span class="nav-dot"></span> 全部標案 <span class="nav-count" id="nc-all">0</span></div>
-      <div class="nav-item" id="nav-activity" onclick="setView('activity')"><span class="nav-dot"></span> 活動相關 <span class="nav-count" id="nc-activity">0</span></div>
-      <div class="nav-item" id="nav-analyzed" onclick="setView('analyzed')"><span class="nav-dot"></span> 已分析 <span class="nav-count" id="nc-analyzed">0</span></div>
+      <div class="nav-group-label">檢視</div>
+      <div class="nav-item active" id="nav-all" onclick="setView('all')"><span class="nav-dot"></span>全部標案<span class="nav-count" id="nc-all">0</span></div>
+      <div class="nav-item" id="nav-activity" onclick="setView('activity')"><span class="nav-dot"></span>活動相關<span class="nav-count" id="nc-activity">0</span></div>
+      <div class="nav-item" id="nav-analyzed" onclick="setView('analyzed')"><span class="nav-dot"></span>已分析<span class="nav-count" id="nc-analyzed">0</span></div>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">鄉鎮</div>
       <div id="town-nav"></div>
     </div>
     <div class="sidebar-footer">
-      <label>Claude API Key（選填，用於深度分析）</label>
+      <label>Claude API Key（選填，深度分析用）</label>
       <input class="api-input" type="password" id="api-key" placeholder="sk-ant-..." oninput="saveKey()">
       <div class="api-status" id="api-status"></div>
     </div>
@@ -231,17 +362,29 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
         <div class="topbar-sub" id="view-sub"></div>
       </div>
       <span class="token-pill" id="token-pill" style="display:none">Token：0</span>
-      <button class="btn btn-sm" onclick="loadData()">↺ 重新載入</button>
+      <button class="btn btn-sm" id="btn-refresh" onclick="triggerRefresh()">↺ 重新獲取最新標案</button>
     </div>
 
     <div class="content">
+      <!-- Stats -->
       <div class="stats">
-        <div class="stat"><div class="lbl">勞務標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
-        <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div></div>
-        <div class="stat"><div class="lbl">已勾選</div><div class="val" id="s-sel">0</div></div>
-        <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div></div>
+        <div class="stat"><div class="lbl">標案總數</div><div class="val" id="s-total">0</div><div class="sub">等標期內</div></div>
+        <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div><div class="sub">可投標</div></div>
+        <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">≤ 3 天</div></div>
+        <div class="stat"><div class="lbl">已勾選</div><div class="val" id="s-sel">0</div><div class="sub">筆</div></div>
+        <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div><div class="sub">筆</div></div>
       </div>
 
+      <!-- Spotlight: 活動相關標案 -->
+      <div class="spotlight" id="spotlight-wrap" style="display:none">
+        <div class="spotlight-header">
+          <span class="spotlight-label">活動相關標案</span>
+          <span class="spotlight-rule"></span>
+        </div>
+        <div class="spotlight-cards" id="spotlight-cards"></div>
+      </div>
+
+      <!-- Filter bar -->
       <div class="filter-bar">
         <input type="text" id="kw" placeholder="搜尋標案名稱或機關..." oninput="renderTable()">
         <div class="filter-sep"></div>
@@ -255,6 +398,7 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
         </select>
       </div>
 
+      <!-- Selection bar -->
       <div class="sel-bar" id="sel-bar" style="display:none">
         <strong id="sel-label">已選 0 筆</strong>
         <button class="btn btn-sm" onclick="selectAll()">全選</button>
@@ -263,16 +407,17 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
         <button class="btn btn-primary btn-sm" id="btn-bulk" onclick="analyzeSelected()" disabled>批次 AI 分析 ↗</button>
       </div>
 
+      <!-- Table -->
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
+              <th style="width:3px;padding:0"></th>
               <th style="width:32px"><input type="checkbox" class="chk" id="chk-all" onchange="toggleAll(this.checked)"></th>
               <th>標案名稱</th>
               <th>鄉鎮</th>
               <th>預算金額</th>
-              <th>公告日期</th>
-              <th>截止投標</th>
+              <th>截止倒數</th>
               <th>類型</th>
               <th>AI 分析</th>
               <th></th>
@@ -282,6 +427,15 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
         </table>
       </div>
     </div>
+  </div>
+</div>
+
+<div id="progress-panel">
+  <div class="pp-bar-track"><div class="pp-bar-fill" id="pp-bar"></div></div>
+  <div class="pp-info">
+    <span class="pp-pct" id="pp-pct">0%</span>
+    <span class="pp-msg" id="pp-msg">準備中...</span>
+    <span class="pp-time" id="pp-time"></span>
   </div>
 </div>
 
@@ -303,7 +457,43 @@ tbody td { padding: 11px 12px; vertical-align: middle; }
 
 <script>
 let ALL=[], selected=new Set(), aiResults={}, tokenTotal=0, currentView='all', currentTown='', currentTender=null, currentTab=0;
+let MAX_BUDGET = 1;
 
+/* === Urgency helpers === */
+function parseMinguoDate(str) {
+  if (!str) return null;
+  const p = str.split('/');
+  if (p.length !== 3) return null;
+  return new Date(parseInt(p[0]) + 1911, parseInt(p[1]) - 1, parseInt(p[2]));
+}
+function daysUntil(dateStr) {
+  const d = parseMinguoDate(dateStr);
+  if (!d) return null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.floor((d - today) / 86400000);
+}
+function urgencyKey(days) {
+  if (days === null) return 'none';
+  if (days < 0) return 'expired';
+  if (days <= 3) return 'urgent';
+  if (days <= 7) return 'warning';
+  return 'safe';
+}
+function deadlineLabel(days) {
+  if (days === null) return '—';
+  if (days < 0) return `已截止 ${Math.abs(days)}天前`;
+  if (days === 0) return '今天截止';
+  if (days === 1) return '明天截止';
+  return `${days} 天後`;
+}
+function formatMDDate(str) {
+  if (!str) return '—';
+  const p = str.split('/');
+  if (p.length !== 3) return str;
+  return `${p[1]}/${p[2]}`;
+}
+
+/* === Data loading === */
 window.addEventListener('DOMContentLoaded', () => {
   const k = localStorage.getItem('claude_api_key') || '';
   if (k) { document.getElementById('api-key').value = k; updateApiStatus(); }
@@ -314,12 +504,13 @@ async function loadData() {
   document.getElementById('pg-loading').style.display = 'flex';
   document.getElementById('app').style.display = 'none';
   try {
-    const data = {"updated_at": "2026-04-24T09:12:38.776378", "total": 41, "activity_total": 8, "tenders": [{"id": "1152H10046", "title": "《雲林縣志》影片製作及巡迴展整合推廣計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,500,000", "date": "115/04/24", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQyMjU=", "history": [], "analysis": "【投標建議】審慎評估\n\n【預算評估】250 萬做「影片製作 + 巡迴展整合」偏緊，得確認拍攝規格與場租細節才合理。\n\n【得標廠商觀察】查無前兩年紀錄，可能是新規劃專案，新廠商有機會搶先入場。\n\n【值得投的理由】\n・新標案競爭者少，容易建立雲林縣文化媒體合作關係。\n・整合推廣計畫若能掌握行銷主軸，後續轉單機會高。\n\n【要小心的地方】\n・預算未明確區分製作與巡迴成本，極易在驗收時被砍價。\n・無歷史標案資料，機關對新廠商流程熟悉度存疑，需多花時間溝通。", "is_activity": true, "reviews_summary": ""}, {"id": "1152E10023", "title": "雲林縣115年社區防暴宣講員培力計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "681,800", "date": "115/04/24", "deadline": "115/04/30", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQxNjE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152Q10017", "title": "2026雲林縣電競派對", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "4,500,000", "date": "115/04/24", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQxMzA=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10037", "title": "雲林縣台西海口故事屋(歷史建築台西海口庄長官舍)委託經營管理", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,300,000", "date": "115/04/24", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM5Mjk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10044", "title": "2026臺灣竹博覽會雲林展區暨森林療癒季", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,500,000", "date": "115/04/24", "deadline": "115/05/06", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM2ODU=", "history": [{"year": 2025, "title": "FANCAK-1140426 「2026臺灣竹博覽會活動影音記錄」", "winner": "財團法人台灣經濟研究院", "award_price": "1,415,230元", "bidder_count": "5", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標\n本標案為大型專案且預算充足，適合有影音製作經驗的廠商進場。\n\n【預算評估】預算很合理，涵蓋製作與後製足夠。\n\n【得標廠商觀察】目前得標為公家研究單位，民間廠商仍有機會切入。\n\n【值得投的理由】\n・預算高達 550 萬，足以支撐高品質製作。\n・屬大型展區專案，後續合作機會大。\n\n【要小心的地方】\n・機關為縣府，評審可能傾向公家或在地廠商。\n・需確認是否有在地媒合或在地化作業要求。\n\n【歷史得標分析】\n114 年\n  ★ 優點：・標案名稱明確・決標金額合理\n  ▲ 缺點：・僅 5 家投標競爭激烈・得標為公家單位排他性高\n\n【民眾評價摘要】\n・找到幾筆相關報導：0 筆（查無 2025 年相關新聞）\n・主要評語：暫無公開媒體報導或民眾評價資料。\n・優點：・無資料可列\n・缺點或待改善：・查無負面報導", "is_activity": true, "reviews_summary": "・找到幾筆相關報導：0 筆（查無 2025 年相關新聞）\n・主要評語：暫無公開媒體報導或民眾評價資料。\n・優點：・無資料可列\n・缺點或待改善：・查無負面報導"}, {"id": "1152E10022", "title": "115年社區造咖聯盟-深化雲林縣「社區安全守護站」計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "892,080", "date": "115/04/24", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM0MTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152G10030", "title": "特定對象與弱勢青少年就業協助計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "503,327", "date": "115/04/23", "deadline": "115/04/30", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDI2MDI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10021", "title": "雲林縣115年「讓沉默有聲」性別暴力防治行動計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "555,000", "date": "115/04/23", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDIxNzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152D10014", "title": "115年雲林縣農村再生總體計畫(規劃階段)案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,362,400", "date": "115/04/23", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDE5ODQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10016", "title": "115年度布建雲林縣身心障礙者社區式日間照顧服務-古坑據點", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,574,012", "date": "115/04/22", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDE3Mzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152R10024", "title": "雲林縣政府115年度iTaiwan無線上網熱點", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "248,000", "date": "115/04/22", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDEzODk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10017", "title": "115年度雲林縣身心障礙者多元社區居住與生活服務(新增據點)", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,032,000", "date": "115/04/21", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDAzOTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10049", "title": "115-116年古笨港考古遺址出土陶瓷修護與數位保存計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "800,000", "date": "115/04/21", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTk1OTg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10038", "title": "2026雲林國際偶戲節行銷宣傳暨活動硬體設備租借專業委託服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,600,000", "date": "115/04/20", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTk0MDI=", "history": [{"year": 2025, "title": "1142H10064 2025雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,800,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10076 2024雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,500,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】不建議投標\n去年連續兩年只有 1 家廠商投標，這案子大概率又是包給同一家，新進廠商幾乎無勝算。\n\n【預算評估】預算 360 萬對行銷宣傳與設備租借來說不算大，但考慮到偶戲節規模，金額尚可接受。\n\n【得標廠商觀察】「十分好創意策劃管理顧問股份有限公司」連續兩年得標，新廠商機會渺茫。\n\n【值得投的理由】\n・若你與現任廠商有深厚關係，可嘗試談取代價或分潤。\n・本案預算規模尚可，適合極少數想嘗試不同領域的熟手廠商。\n\n【要小心的地方】\n・競爭極度不激烈，評審可能直接指定同一家廠商。\n・機關對偶戲節行銷與硬體設備的規格可能已有既定採購清單。\n\n【歷史得標分析】\n2025 年\n  ★ 優點：・廠商專注度極高，連續兩年得標顯示服務穩定。・預算使用率佳，未出現流標或大幅刪減預算情況。\n  ▲ 缺點：・缺乏競爭機制，單一廠商壟斷易導致價格缺乏彈性。・投標家數僅 1 家，顯示市場對該類型專案興趣不高。\n\n2024 年\n  ★ 優點：・決標金額 250 萬合理，機關對預算控制有度。・廠商持續承接類似專案，具備相關經驗與資源。\n  ▲ 缺點：・同樣僅 1 家投標，顯示市場競爭不足。・廠商重複得標，可能缺乏創新動機。\n\n【民眾評價摘要】\n・找到零筆相關報導\n・主要評語：無媒體報導或公開民眾評價紀錄\n・優點：無\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到零筆相關報導\n・主要評語：無媒體報導或公開民眾評價紀錄\n・優點：無\n・缺點或待改善：查無負面報導"}, {"id": "1152H10034", "title": "雲林縣觀光宣傳虛擬影像製作案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,100,000", "date": "115/04/16", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTY5NTA=", "history": [], "analysis": "【投標建議】審慎評估\n\n【預算評估】兩百萬做虛擬影像製作略緊，需確認是否含高階渲染與多場景製作，否則利潤空間極小。\n\n【得標廠商觀察】查無前兩年紀錄，可能是新創專案，老手未必慣常得標，新廠商若技術強有機會。\n\n【值得投的理由】\n・雲林縣觀光推廣需求穩定，長期有製作預算。\n・新標案競爭者少，若技術門檻設得剛好，容易擠掉傳統業者。\n\n【要小心的地方】\n・虛擬影像技術門檻高，評選委員會可能偏重實作成果而非價格。\n・預算上限低，若廠商報價偏高或規格要求過高，容易流標或虧損。", "is_activity": true, "reviews_summary": ""}, {"id": "1152A40003", "title": "115年度雲林溪守護培力計畫委託專業服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,500,000", "date": "115/04/16", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTYzNTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152M10007", "title": "115年度雲林縣建築物公共安全檢查簽證及申報案件複查作業委託案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "520,000", "date": "115/04/15", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTUxOTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152Q10010", "title": "雲林縣116年日曆", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,100,000", "date": "115/04/14", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTQyMzE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B50002", "title": "斗南鎮仁惠橋、仁德橋及行長橋改建工程委託辦理用地取得作業及協助地上改良物查估作業", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,329,000", "date": "115/04/14", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTQwODg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40010", "title": "雲林芒果大道公車轉運站及貨櫃市集新建工程委託規劃設計監造等工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,569,200", "date": "115/04/14", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTQwNzQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1142H10118", "title": "(更正公告) 雲林縣立圖書館總館興建工程委託專案管理技術服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "26,496,268", "date": "115/04/14", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExNzUyMzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152A40006", "title": "115年度雲林縣新虎尾溪防汛道路維護案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "11,500,000", "date": "115/04/13", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTM2MDE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10016", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份) 」-山線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,942,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMzMzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10015", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份)」-海線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,058,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMwNTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10027", "title": "2026西螺大橋藝陣文化祭", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "4,500,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMwMzI=", "history": [{"year": 2025, "title": "1142H10070 114年西螺大橋藝陣文化祭", "winner": "上宏活動行銷有限公司", "award_price": "3,450,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10068 「2024年西螺大橋藝陣文化祭」委託執行案", "winner": "上宏活動行銷有限公司", "award_price": "3,400,000元", "bidder_count": "3", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】審慎評估\n\n【預算評估】預算 450 萬對大型藝陣祭典合理，但需確認是否包含周邊攤位與交通管制等隱形成本。\n\n【得標廠商觀察】上宏活動行銷連續兩年得標，新廠商入局難度極高，除非有獨特資源或極低報價。\n\n【值得投的理由】\n・西螺大橋為雲縣地標，活動曝光度高，品牌行銷效益佳。\n・若能在傳統藝陣上創新，易獲地方政府與媒體關注。\n\n【要小心的地方】\n・上宏公司長期壟斷，評審可能傾向現有廠商，競爭極度不公平。\n・投標家數極少，極易流標或陷入議價僵局，耗時費力。\n\n【歷史得標分析】\n2025 年\n  ★ 優點：・決標金額低於預算，顯示成本控制佳・連續兩年由同一廠商執行，品質穩定\n  ▲ 缺點：・僅 1 家投標，競爭機制失效・預算使用率達 101%，可能存在超支疑慮\n\n2024 年\n  ★ 優點：・有 3 家廠商參與，具備基本競爭性・決標金額合理，預算編列充分\n  ▲ 缺點：・仍由同一家廠商得標，市場缺乏多元性・廠商集中度過高，恐形成壟斷\n\n【民眾評價摘要】\n・找到零筆相關報導\n・主要評語：查無歷史活動評價資料\n・優點：查無正面報導\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到零筆相關報導\n・主要評語：查無歷史活動評價資料\n・優點：查無正面報導\n・缺點或待改善：查無負面報導"}, {"id": "1150428-3", "title": "115年度斗六市轄區天然災害行道樹搶修勞務開口契約採購案", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/04/20", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTg3OTM=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150224-2", "title": "斗六市轄區內草皮暨環境整理開口契約", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,700,000", "date": "115/04/20", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTg2Mzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150428-2", "title": "斗六市115年度及116年度營建廢棄物委託清除(開口契約)", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "公開招標", "budget": "3,000,000", "date": "115/04/13", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTMzNDY=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-22", "title": "「西螺鎮頂湳里活動中心旁排水改善工程」設計監造", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/04/17", "deadline": "115/04/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTg0MjY=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】100 萬對設計監造來說偏緊，需確認是否包含大量設計工作。\n\n【得標廠商觀察】前兩年無記錄，新標案通常對新廠商較友善，有機會拿下。\n\n【值得投的理由】\n・標案名稱明確，需求範圍清晰，風險相對可控。\n・鎮公所標案通常流程標準，若履約良好未來續約機會多。\n\n【要小心的地方】\n・預算偏低，可能導致設計費單價被壓得很低。\n・需仔細確認「設計監造」的範圍界定，避免被要求免費補足設計內容。", "is_activity": true, "reviews_summary": ""}, {"id": "115B004", "title": "115年度大埤鄉轄內自行車道維護管理工作", "org": "雲林縣大埤鄉公所", "town": "大埤鄉", "type": "勞務", "recruit_type": "公開招標", "budget": "700,000", "date": "115/04/22", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDE3MDY=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-04-03-05", "title": "(更正公告) 2026濁水溪紫金馬拉松-虎康林內站", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/04/20", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTg0MjI=", "history": [{"year": 2025, "title": "114-C11 2025濁水溪紫金馬拉松-高手名間站勞務採購案", "winner": "我的上班時間有限公司", "award_price": "1,300,000元", "bidder_count": "2", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】審慎評估\n\n【預算評估】一千萬對中型馬拉松活動偏緊，需確認是否含醫療與保險成本。\n\n【得標廠商觀察】查無前兩年記錄，可能是新開標案，新廠商有進場機會。\n\n【值得投的理由】\n・活動屬新啟動，競爭對手可能尚未鎖定。\n・虎康林內站位置特殊，易累積在地忠實跑者。\n\n【要小心的地方】\n・預算極可能不含大型醫療團隊與意外保險費用。\n・新標案常伴隨法規解讀空間大，履約風險高。", "is_activity": true, "reviews_summary": "・找到幾筆相關報導：0 筆（查無 2025 年相關新聞報導）\n・主要評語：因查無相關新聞報導，無法提供整體評價。\n・優點：查無相關報導\n・缺點或待改善：查無相關報導"}, {"id": "11512", "title": "115年度二崙鄉油車等七村零星工程(開口契約)設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "641,000", "date": "115/04/16", "deadline": "115/04/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTY3NDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "11515", "title": "雲林縣二崙鄉立壘球場照明設備施工計畫設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "196,560", "date": "115/04/16", "deadline": "115/04/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTYxODE=", "history": [], "analysis": "", "is_activity": false}, {"id": "11514", "title": "115年度二崙鄉湳仔等六村零星工程（開口契約）規劃設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "641,000", "date": "115/04/16", "deadline": "115/04/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTYxNzQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-29", "title": "麥寮鄉公所115年度出國考察", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "660,000", "date": "115/04/23", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDI3Mzg=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-27", "title": "115年度麥寮鄉轄內區域中小排水系統清除淤泥勞務採購案(預估)", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開招標", "budget": "6,808,000", "date": "115/04/15", "deadline": "115/04/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTU3MDY=", "history": [], "analysis": "", "is_activity": false}, {"id": "8672-1150416", "title": "115年度東勢鄉轄內市區道路改善工程", "org": "雲林縣東勢鄉公所", "town": "東勢鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "236,250", "date": "115/04/17", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTc2NDI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-F014", "title": "115年度雲林縣褒忠鄉公所出國考察", "org": "雲林縣褒忠鄉公所", "town": "褒忠鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "300,000", "date": "115/04/20", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTgyNTA=", "history": [], "analysis": "", "is_activity": false}, {"id": "11504232", "title": "臺西鄉重劃區農路路面改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "612,302", "date": "115/04/24", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM0MDc=", "history": [], "analysis": "", "is_activity": false}, {"id": "11504231", "title": "臺西鄉五港村五港段1280地號排水溝改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "452,917", "date": "115/04/24", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDMyOTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "11502-2", "title": "雲林縣口湖鄉115年度社區觀摩活動暨聯繫會報", "org": "雲林縣口湖鄉公所", "town": "口湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "500,000", "date": "115/04/15", "deadline": "115/04/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTQ4OTY=", "history": [], "analysis": "【投標建議】建議投標，因查無前年記錄，這明顯是新開標案，競爭壓力通常較小。\n\n【預算評估】NT$ 50 萬對於小型社區觀摩活動屬於合理且足夠的中型預算，利潤空間尚可操作。\n\n【得標廠商觀察】由於缺乏前兩年紀錄，現有得標廠商可能尚未介入，新廠商進入門檻低。\n\n【值得投的理由】\n・標案為新設項目，競爭對手尚未形成固定陣營。\n・社區活動類標案通常重質不重量，有利於有實力的廠商展現方案。\n\n【要小心的地方】\n・需確認鄉公所對活動細節（如場地、參與人數）是否有隱性限制。\n・新標案常伴隨需求不明確風險，務必在開標前釐清執行範圍。", "is_activity": true, "reviews_summary": ""}]};
+    const data = {"updated_at": "2026-04-30T16:30:38.169471", "total": 38, "activity_total": 13, "tenders": [{"id": "1152H10050", "title": "北港燈會策展設計與執行整合案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "6,000,000", "date": "115/04/30", "deadline": "115/05/14", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDg2MzE=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】大型燈會專案每坪成本通常需 1.5 萬起，600 萬預算對小型場域合理，但若是大型園區恐需精算。\n\n【得標廠商觀察】查無前兩年記錄代表新標案，新廠商只要作品亮點足夠，完全有機會取代傳統大廠。\n\n【值得投的理由】\n・雲林縣府近年極力推動觀光，政策風向明確支持地方特色燈會。\n・新標案競爭格局未定，若標價適中且提案創意強，勝算高於老牌廠商。\n\n【要小心的地方】\n・縣府可能隱藏前期勘驗或設計修改等額外成本，需詳讀補充資料。\n・大型活動常面臨天候與電力協調風險，務必在合約中明確界定責任歸屬。", "is_activity": true, "reviews_summary": ""}, {"id": "1152B40013", "title": "(更正公告) 古坑鄉親日-2026雲林健康嘉年華", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "598,000", "date": "115/04/30", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDc1NzE=", "history": [], "analysis": "【投標建議】不建議投標\n\n【預算評估】NT$59.8 萬對嘉年華活動太緊，風險高。\n\n【得標廠商觀察】查無前兩年記錄，可能是新標或預算重編。\n\n【值得投的理由】\n・無歷史紀錄代表競爭者可能少。\n・嘉年華主題較有話題性，易出效果。\n\n【要小心的地方】\n・預算金額偏小，廠商報價會很保守。\n・機關未公開前兩年紀錄，流程透明度存疑。", "is_activity": true, "reviews_summary": ""}, {"id": "1152H10037", "title": "(更正公告) 雲林縣台西海口故事屋(歷史建築台西海口庄長官舍)委託經營管理", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,300,000", "date": "115/04/30", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM5Mjk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10015", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份)」-海線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,058,000", "date": "115/04/29", "deadline": "115/05/06", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDY4Nzg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10016", "title": "115年度「雲林縣捕蜂捉蛇為民服務計畫開口契約勞務採購案(預估6月至12月份) 」-山線", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "3,942,000", "date": "115/04/29", "deadline": "115/05/06", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDY1NDM=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10024", "title": "雲齡大學計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,260,000", "date": "115/04/28", "deadline": "115/05/06", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDYwNTY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10043", "title": "北港1911好庫文化產業園區營運評估規劃及招商前置作業", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,000,000", "date": "115/04/28", "deadline": "115/05/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDU4Njg=", "history": [{"year": 2025, "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫", "winner": "北鄉營造有限公司", "award_price": "1,250,000元", "bidder_count": "3", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標\n\n【預算評估】500 萬對規劃招商案足夠，但需確認是否含後續營運成本。\n\n【得標廠商觀察】目前僅北鄉營造拿清潔案，新廠商若擅長招商規劃仍有機會切入。\n\n【值得投的理由】\n・北港 1911 為雲林重要文化地標，政策優先度高。\n・預算 500 萬屬大型標，適合有相關經驗的廠商承接。\n\n【要小心的地方】\n・機關為縣府，評分標準可能偏向在地廠商或過往合作紀錄。\n・招商前置作業專業性高，若團隊無實績恐難獲高分。\n\n【歷史得標分析】\n2025 年\n  ★ 優點：・投標家數僅 3 家，競爭相對單純。・預算 125 萬對清潔案屬合理，無明顯超支。\n  ▲ 缺點：・得標廠商單一，缺乏多元競爭。・僅涵蓋清潔，未見營運或招商類標案紀錄。\n\n【民眾評價摘要】\n・找到 0 筆相關報導\n・主要評語：查無負面報導\n・優點：查無負面報導\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到 0 筆相關報導\n・主要評語：查無負面報導\n・優點：查無負面報導\n・缺點或待改善：查無負面報導"}, {"id": "1152F10014", "title": "2026農產宣導品設計與製作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/04/28", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDUyODM=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】148 萬對中型設計案很寬鬆，包含製作與宣導成本。\n\n【得標廠商觀察】查無前兩年紀錄，可能是新專案，新廠商有機會。\n\n【值得投的理由】\n・雲林縣府長期重視農產推廣，需求穩定。\n・預算餘裕度高，可彈性調整設計規格。\n\n【要小心的地方】\n・需確認是否需配合地方節慶或農時進度。\n・設計風格若偏傳統，可能與年輕化宣導目標有落差。", "is_activity": true, "reviews_summary": ""}, {"id": "1152H10042", "title": "115年度劇場技術服務委託執行案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,370,000", "date": "115/04/27", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDUxNjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10046", "title": "《雲林縣志》影片製作及巡迴展整合推廣計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,500,000", "date": "115/04/24", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQyMjU=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】預算對中型影片製作偏緊，需嚴格控管成本。\n\n【得標廠商觀察】查無前兩年紀錄，顯示這是新開標，新廠商有機會。\n\n【值得投的理由】\n・縣志文化項目通常重視在地團隊，若你熟悉雲林歷史可加分。\n・整合推廣計畫若包含巡迴，執行期較長，後續維護機會多。\n\n【要小心的地方】\n・預算僅 250 萬，影片品質與展場製作容易因壓縮成本而受限。\n・新標案規格未明，開標前務必細讀附件確認隱藏需求。", "is_activity": true, "reviews_summary": ""}, {"id": "1152Q10017", "title": "2026雲林縣電競派對", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "4,500,000", "date": "115/04/24", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQxMzA=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10044", "title": "2026臺灣竹博覽會雲林展區暨森林療癒季", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,500,000", "date": "115/04/24", "deadline": "115/05/06", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM2ODU=", "history": [{"year": 2025, "title": "FANCAK-1140426 「2026臺灣竹博覽會活動影音記錄」", "winner": "財團法人台灣經濟研究院", "award_price": "1,415,230元", "bidder_count": "5", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標，預算規模大且屬大型活動，適合有媒體或活動執行經驗的廠商。\n\n【預算評估】550 萬對大型竹博覽會展區來說合理，但需確認是否包含設備租賃與人力成本。\n\n【得標廠商觀察】2025 年紀錄案由台經院得標，顯示機關偏好學術或大型研究機構，新廠商入場門檻較高。\n\n【值得投的理由】\n・預算達 550 萬，屬於大型標案，營收潛力高。\n・活動性質特殊，適合展示大型活動執行與整合能力。\n\n【要小心的地方】\n・機關偏好既有名氣廠商，新進廠商需強調過往大型案例。\n・期限緊迫，從公告到截止僅兩週，投標準備時間不足。\n\n【歷史得標分析】\n2025 年\n  ★ 優點：・預算近 150 萬對單項服務而言充足 ・競爭程度適中，有 5 家廠商投標\n  ▲ 缺點：・得標廠商為大型研究機構，新廠商難以切入 ・僅有影音記錄，未涵蓋整體活動執行經驗\n\n【民眾評價摘要】\n・找到零筆相關報導\n・主要評語：查無 2026 年相關新聞報導，活動評價資料不足。\n・優點：查無負面報導\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到零筆相關報導\n・主要評語：查無 2025 年相關新聞報導，活動評價資料不足。\n・優點：查無正面報導\n・缺點或待改善：查無負面報導"}, {"id": "1152D10014", "title": "115年雲林縣農村再生總體計畫(規劃階段)案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,362,400", "date": "115/04/23", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDE5ODQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10016", "title": "115年度布建雲林縣身心障礙者社區式日間照顧服務-古坑據點", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,574,012", "date": "115/04/22", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDE3Mzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10017", "title": "115年度雲林縣身心障礙者多元社區居住與生活服務(新增據點)", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,032,000", "date": "115/04/21", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDAzOTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10049", "title": "115-116年古笨港考古遺址出土陶瓷修護與數位保存計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "800,000", "date": "115/04/21", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTk1OTg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10038", "title": "2026雲林國際偶戲節行銷宣傳暨活動硬體設備租借專業委託服務案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,600,000", "date": "115/04/20", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTk0MDI=", "history": [{"year": 2025, "title": "1142H10064 2025雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,800,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10076 2024雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,500,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】審慎評估\n\n【預算評估】360 萬對行銷與硬體設備而言尚可，但需確認是否包含大量隱形成本，避免超支。\n\n【得標廠商觀察】連續兩年由「十分好創意」獨得標，新廠商幾乎無機會入局，除非能提出更強差異化方案。\n\n【值得投的理由】\n・預算規模屬大型採購，對有經驗者來說利潤空間尚可。\n・雲林國際偶戲節具地方特色，若掌握資源可建立長期合作關係。\n\n【要小心的地方】\n・連續單一廠商得標，顯示市場競爭極度不足，新進廠商難翻身。\n・需特別注意是否涉及排他性條款或既有合作關係，以免被質疑公平性。\n\n【歷史得標分析】\n2025 年\n  ★ 優點：・預算 280 萬能涵蓋頒獎典禮主要需求 ・廠商專業度穩定，執行風險低\n  ▲ 缺點：・僅一家投標，競爭機制失效 ・預算成長幅度大，可能缺乏比价優勢\n\n2024 年\n  ★ 優點：・廠商累積經驗後成本控管較佳 ・決標金額合理符合活動規模\n  ▲ 缺點：・單一廠商長期壟斷，抑制市場創新 ・預算偏低可能壓縮宣傳與硬體品質\n\n【民眾評價摘要】\n・找到相關報導：無（2024-2025 年查無新聞）\n・主要評語：目前無公開媒體報導或民眾評價資料可供整理。\n・優點：查無正面報導\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到相關報導：無（2024-2025 年查無新聞）\n・主要評語：目前無公開媒體報導或民眾評價資料可供整理。\n・優點：查無正面報導\n・缺點或待改善：查無負面報導"}, {"id": "1152H10034", "title": "雲林縣觀光宣傳虛擬影像製作案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,100,000", "date": "115/04/16", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTY5NTA=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】210 萬對虛擬影像製作案屬合理預算，但需確認是否含硬體建置成本。\n\n【得標廠商觀察】前兩年無紀錄，這可能是新設標案或舊案重招，新廠商機會很大。\n\n【值得投的理由】\n・雲林縣政府剛啟動觀光數位化，政策方向明確。\n・預算金額中等，競爭激烈程度通常低於大型專案。\n\n【要小心的地方】\n・查無歷年紀錄，需特別確認是否要求特定廠商經驗。\n・虛擬影像技術門檻高，若未準備好樣本恐易被質疑能力。", "is_activity": true, "reviews_summary": ""}, {"id": "1152B50002", "title": "斗南鎮仁惠橋、仁德橋及行長橋改建工程委託辦理用地取得作業及協助地上改良物查估作業", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,329,000", "date": "115/04/14", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTQwODg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152A40006", "title": "115年度雲林縣新虎尾溪防汛道路維護案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開招標", "budget": "11,500,000", "date": "115/04/13", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzExOTM2MDE=", "history": [], "analysis": "", "is_activity": false}, {"id": "115010", "title": "「斗南鎮東明里及田頭里轄內道路日光燈改LED燈照明設備工程」委託設計監造技術服務", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "352,054", "date": "115/04/30", "deadline": "115/05/07", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDg3MTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150502", "title": "「2026虎尾中元文化祭」系列活動委託專業服務", "org": "雲林縣虎尾鎮公所", "town": "虎尾鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,000,000", "date": "115/04/30", "deadline": "115/05/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDg1NzA=", "history": [{"year": 2025, "title": "1140601 「2025虎尾中元文化祭」系列活動委託專業服務", "winner": "棒棒堂顧問有限公司", "award_price": "4,300,000元", "bidder_count": "4", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1130513 「2024虎尾中元文化祭-開幕式活動」委託專業服務", "winner": "棒棒堂顧問有限公司", "award_price": "490,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標\n\n【預算評估】預算 500 萬對大型文化祭很寬鬆，空間很大。\n\n【得標廠商觀察】棒棒堂連續兩年拿標，新廠商進入門檻似乎不低。\n\n【值得投的理由】\n・虎尾中元祭是地方大節，曝光度極佳，適合累積品牌案例。\n・預算充足，若有創意方案，獲利空間與社會效益雙豐收。\n\n【要小心的地方】\n・棒棒堂壟斷市場，下次可能只有一家投標導致流標或議價弱勢。\n・文化祭活動複雜，需確認廠商資質，避免承接能力不足導致的執行風險。\n\n【歷史得標分析】\n114 年\n  ★ 優點：・預算 430 萬涵蓋全系列活動，規模完整 ・僅 4 家投標，競爭壓力相對可控\n  ▲ 缺點：・同一家廠商連標，新廠商難以切入 ・單一廠商長期主導，缺乏市場良性競爭\n\n113 年\n  ★ 優點：・僅 1 家投標直接決標，程序快速 ・預算 49 萬專注開幕式，需求明確\n  ▲ 缺點：・完全缺乏競爭，價格機制失效 ・僅一家廠商，顯示市場供給嚴重不足\n\n【民眾評價摘要】\n・找到 0 筆相關報導\n・主要評語：查無民眾評價與媒體報導\n・優點：無\n・缺點或待改善：查無負面報導", "is_activity": true, "reviews_summary": "・找到 0 筆相關報導\n・主要評語：查無民眾評價與媒體報導\n・優點：無\n・缺點或待改善：查無負面報導"}, {"id": "115-12", "title": "雲林縣西螺鎮中山路公有停車場委外經營管理", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開招標", "budget": "0", "date": "115/04/27", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQ1Mzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115C026", "title": "莿桐鄉饒平社區活動中心整修工程委託設計監造技術服務案", "org": "雲林縣莿桐鄉公所", "town": "莿桐鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "295,858", "date": "115/04/29", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDY3OTM=", "history": [], "analysis": "【投標建議】不建議投標\n預算僅 29 萬卻包含設計監造，小型工程利潤空間極低，不划算。\n\n【預算評估】預算嚴重不足，根本不合理\n這筆錢連基本人天都撐不住，更別說要涵蓋設計與監造成本了。\n\n【得標廠商觀察】目前無歷史得標紀錄，全是新標\n雖然查無前案，但這種小案子通常會被在地小包商或親友關係戶拿走，新廠商進場機會渺茫。\n\n【值得投的理由】\n・無競爭壓力，理論上誰來都中。\n・可累積雲林鄉鎮小型公部門履歷。\n\n【要小心的地方】\n・極可能發生議價壓低到虧本。\n・機關對設計監造需求不清，後續增修或爭議風險高。", "is_activity": true, "reviews_summary": ""}, {"id": "115C025", "title": "莿桐鄉五華村8號觀測站防空碉堡前道路護岸改善工程等二件工程委託規劃設計監造技術服務案", "org": "雲林縣莿桐鄉公所", "town": "莿桐鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "325,055", "date": "115/04/27", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQ4ODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-04-03-05", "title": "「2026濁水溪紫金馬拉松-虎康林內站」委託專業服務案", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/04/30", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDc5ODU=", "history": [{"year": 2025, "title": "114-C11 2025濁水溪紫金馬拉松-高手名間站勞務採購案", "winner": "我的上班時間有限公司", "award_price": "1,300,000元", "bidder_count": "2", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標\n\n【預算評估】一百万預算對專業服務案來說略緊，需精打細算控管成本。\n\n【得標廠商觀察】去年由「我的上班時間有限公司」得標，新廠商若想切入，必須在報價或企劃上顯著優於現任者。\n\n【值得投的理由】\n・標案名稱帶有「虎康」與在地特色，適合有在地行銷經驗的團隊發揮。\n・預算雖緊，但若能精準執行，仍有機會在中型預算案中脫穎而出。\n\n【要小心的地方】\n・去年投標家數僅兩家，顯示競爭可能激烈或門檻較高，需評估自身優勢。\n・預算金額低於去年決標金額，若作業範圍未同步縮減，容易造成虧損。\n\n【歷史得標分析】\n114 年\n  ★ 優點：・僅兩家廠商投標，競爭相對單純，得標機率對合格廠商較高。・決標金額達一百三十萬，顯示主辦單位對活動品質有明確期待。\n  ▲ 缺點：・預算空間較小，若實際執行需求超出預期，廠商利潤壓縮風險大。・廠商選擇集中，缺乏多元競爭可能導致議價空間不足。\n\n【民眾評價摘要】（根據網路新聞與報導）\n・找到 0 筆相關報導\n・主要評語：查無 2026 年相關新聞報導，無法提供歷史活動評價。\n・優點：・無相關正面報導\n・缺點或待改善：・查無負面報導", "is_activity": true, "reviews_summary": "・找到 0 筆相關報導\n・主要評語：查無 2025 年相關新聞報導，無法提供歷史活動評價。\n・優點：・無相關正面報導\n・缺點或待改善：・查無負面報導"}, {"id": "115-054-02", "title": "115年度林內鄉公所國外考察", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "397,000", "date": "115/04/28", "deadline": "115/05/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDU3NDk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-0324-01", "title": "林內鄉九芎示範公墓宗聖堂整修暨週邊設備工程委託設計監造服務", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "298,865", "date": "115/04/27", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQ1NTQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "11517", "title": "二崙鄉庄西村公舘社區北側排水改善工程規劃設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "262,116", "date": "115/04/30", "deadline": "115/05/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDg0NjQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-32", "title": "115年員工環境教育暨藝文觀摩活動", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,495,000", "date": "115/04/29", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDY5OTk=", "history": [{"year": 2025, "title": "13031141017 東港鎮公所114年員工環境教育研習暨文康活動", "winner": "蕎銘旅行社有限公司", "award_price": "624,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "13031130730 東港鎮公所113年員工環境教育研習暨文康活動", "winner": "台翊馨旅行社有限公司", "award_price": "670,200元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "【投標建議】建議投標\n\n【預算評估】預算約 149 萬對中型活動合理，足夠規劃藝文與教育課程。\n\n【得標廠商觀察】目前資料顯示同類標案常為單一廠商得標，新廠商切入機會在於主動爭取非慣常合作對象。\n\n【值得投的理由】\n・雲林麥寮鄉公所屬地方鄉鎮，決策流程相對單純，溝通成本低。\n・預算編列明確且金額寬裕，有利於廠商展現服務品質與利潤空間。\n\n【要小心的地方】\n・同類型標案常出現僅 1 家投標，未來可能面臨無競爭或議價空間受限。\n・需確認機關對「環境教育」與「藝文」的具體需求細節，避免方案不中意。\n\n【歷史得標分析】\n115 年（標案尚未決標，僅參考往年趨勢）\n  ★ 優點：・預算編列充足 ・機關規模適中易溝通\n  ▲ 缺點：・同類標案競爭激烈 ・過往多為單一廠商得標\n\n114 年\n  ★ 優點：・決標金額合理 ・廠商專業度穩定\n  ▲ 缺點：・投標家數僅 1 家 ・競爭機制不足\n\n113 年\n  ★ 優點：・預算使用有效率 ・活動執行順利\n  ▲ 缺點：・缺乏多元競爭 ・廠商選擇受限\n\n【民眾評價摘要】\n・找到零筆相關報導\n・主要評語：查無媒體報導與公開民眾評價紀錄。\n・優點：查無相關正面報導。\n・缺點或待改善：查無負面報導。", "is_activity": true, "reviews_summary": "・找到零筆相關報導\n・主要評語：查無媒體報導與公開民眾評價紀錄。\n・優點：查無相關正面報導。\n・缺點或待改善：查無負面報導。"}, {"id": "115-24", "title": "麥寮鄉示範公墓墓基廢棄物清運開口契約", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "650,000", "date": "115/04/29", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDY2OTg=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-30", "title": "115年度麥寮鄉災害緊急搶險（修）採購(預估)", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開招標", "budget": "5,658,000", "date": "115/04/27", "deadline": "115/05/07", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDQ3OTM=", "history": [], "analysis": "", "is_activity": false}, {"id": "8672-1150416", "title": "115年度東勢鄉轄內市區道路改善工程", "org": "雲林縣東勢鄉公所", "town": "東勢鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "236,250", "date": "115/04/29", "deadline": "115/05/05", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDczMTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "115A007", "title": "雲林縣褒忠鄉福安公園共融式遊具工程設計監造", "org": "雲林縣褒忠鄉公所", "town": "褒忠鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "585,000", "date": "115/04/30", "deadline": "115/05/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDgwMDg=", "history": [], "analysis": "", "is_activity": false}, {"id": "11504232", "title": "臺西鄉重劃區農路路面改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "612,302", "date": "115/04/24", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDM0MDc=", "history": [], "analysis": "", "is_activity": false}, {"id": "11504231", "title": "臺西鄉五港村五港段1280地號排水溝改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "452,917", "date": "115/04/24", "deadline": "115/05/04", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDMyOTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "11502-2", "title": "雲林縣口湖鄉115年度社區觀摩活動暨聯繫會報", "org": "雲林縣口湖鄉公所", "town": "口湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "500,000", "date": "115/04/29", "deadline": "115/05/07", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDcwNDM=", "history": [], "analysis": "【投標建議】建議投標\n\n【預算評估】50 萬對中型社區活動預算合理，但需精算以避免虧損。\n\n【得標廠商觀察】無前兩年紀錄，新廠商切入機會大。\n\n【值得投的理由】\n・口湖鄉公所長期辦理活動，需求穩定。\n・無歷史標案競爭壓力，容易建立合作關係。\n\n【要小心的地方】\n・預算上限較低，若現場臨時增加項目易超支。\n・社區觀摩活動常涉及不可預期的協調成本。", "is_activity": true, "reviews_summary": ""}, {"id": "115025", "title": "水林鄉通天府高齡友善無障礙廁所及設施修繕工程案委託規劃設計監造技術服務", "org": "雲林縣水林鄉公所", "town": "水林鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "175,585", "date": "115/04/30", "deadline": "115/05/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMDc5NjU=", "history": [], "analysis": "", "is_activity": false}]};
     ALL = data.tenders || [];
     ALL.forEach(t => { if (t.analysis) aiResults[t.id] = parseAnalysis(t.analysis); });
+    MAX_BUDGET = Math.max(1, ...ALL.map(t => parseBudget(t.budget)));
     const dt = new Date(data.updated_at);
     document.getElementById('updated-at').textContent = dt.toLocaleDateString('zh-TW') + ' ' + dt.toLocaleTimeString('zh-TW', {hour:'2-digit', minute:'2-digit'});
-    buildTownFilter(); updateStats(); renderTable();
+    buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
   } catch(e) { ALL = []; document.getElementById('updated-at').textContent = '⚠ 載入失敗'; }
   document.getElementById('pg-loading').style.display = 'none';
   document.getElementById('app').style.display = 'flex';
@@ -333,6 +524,38 @@ function parseAnalysis(text) {
   return { text, label, verdict };
 }
 
+function parseBudget(s) { if (!s) return 0; return parseInt(s.replace(/[^0-9]/g, '')) || 0; }
+
+/* === Spotlight === */
+function renderSpotlight() {
+  const actives = ALL.filter(t => t.is_activity);
+  const wrap = document.getElementById('spotlight-wrap');
+  if (!actives.length || (currentView === 'analyzed')) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  const cards = actives.map(t => {
+    const ai = aiResults[t.id];
+    const verdict = ai ? ai.verdict : 'none';
+    const verdictLabel = ai ? ai.label : '未分析';
+    const days = daysUntil(t.deadline);
+    const uk = urgencyKey(days);
+    const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
+    const dlLabel = deadlineLabel(days);
+    const budgetShort = parseBudget(t.budget) >= 1000000
+      ? (parseBudget(t.budget) / 1000000).toFixed(1) + '百萬'
+      : 'NT$ ' + t.budget;
+    return `<div class="scard v-${verdict}" onclick="openPanel('${t.id}')">
+      <div class="scard-verdict">${verdictLabel}</div>
+      <div class="scard-title">${t.title}</div>
+      <div class="scard-meta">
+        <span class="scard-budget">${budgetShort}</span>
+        <span class="scard-dl ${dlClass}">${dlLabel}</span>
+      </div>
+    </div>`;
+  }).join('');
+  document.getElementById('spotlight-cards').innerHTML = cards;
+}
+
+/* === Filters === */
 function getFiltered() {
   const kw = document.getElementById('kw').value.trim().toLowerCase();
   const ft = document.getElementById('f-town').value;
@@ -354,29 +577,25 @@ function getFiltered() {
   });
 }
 
-function parseBudget(s) { if (!s) return 0; return parseInt(s.replace(/[^0-9]/g, '')) || 0; }
-
 function setView(v) {
   currentView = v; currentTown = '';
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
   document.getElementById('nav-' + v)?.classList.add('active');
   document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
-  updateViewTitle(); renderTable();
+  renderSpotlight(); updateViewTitle(); renderTable();
 }
-
 function filterTown(town) {
   currentTown = town; currentView = 'all';
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.town-nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-item, .town-nav-item').forEach(el => el.classList.remove('active'));
   document.getElementById('nav-town-' + town)?.classList.add('active');
-  updateViewTitle(); renderTable();
+  renderSpotlight(); updateViewTitle(); renderTable();
 }
-
 function updateViewTitle() {
   const titles = { all: '全部勞務標案', activity: '活動相關標案', analyzed: '已 AI 分析' };
   document.getElementById('view-title').textContent = currentTown ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
 }
 
+/* === Table rendering === */
 function renderTable() {
   const rows = getFiltered();
   const tbody = document.getElementById('tbody');
@@ -389,16 +608,20 @@ function renderTable() {
   tbody.innerHTML = rows.map(t => {
     const ai = aiResults[t.id];
     const isChk = selected.has(t.id);
+    const days = daysUntil(t.deadline);
+    const uk = urgencyKey(days);
+    const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
+    const barW = Math.max(4, Math.round(parseBudget(t.budget) / MAX_BUDGET * 100));
+    const histTag = (t.history && t.history.length > 0) ? `<span class="hist-tag">${t.history.length}年記錄</span>` : '';
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
-    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}">${ai.label}</span>` : '—';
-    const histBadge = (t.history && t.history.length > 0) ? `<span style="font-size:10px;color:var(--blue);margin-left:4px">●${t.history.length}年記錄</span>` : '';
-    return `<tr onclick="openPanel('${t.id}')">
+    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}">${ai.label}</span>` : '<span style="color:var(--text3);font-size:11px">—</span>';
+    return `<tr class="u-${uk}" onclick="openPanel('${t.id}')">
+      <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
       <td onclick="event.stopPropagation()"><input type="checkbox" class="chk" ${isChk?'checked':''} onchange="toggleSel('${t.id}',this.checked)"></td>
-      <td class="td-title"><div class="name">${t.title}${histBadge}</div><div class="org">${t.org}</div></td>
-      <td class="town-tag">${t.town}</td>
-      <td class="budget">NT$ ${t.budget}</td>
-      <td class="date-cell">${t.date || '—'}</td>
-      <td class="date-cell">${t.deadline || '—'}</td>
+      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${t.title}${histTag}</div><div class="org">${t.org}</div></td>
+      <td class="td-town">${t.town}</td>
+      <td class="td-budget"><div class="budget-val">NT$ ${t.budget}</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:${barW}%"></div></div></td>
+      <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
       <td>${actBadge}</td>
       <td>${aiBadge}</td>
       <td onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
@@ -419,9 +642,13 @@ function updateSelCount() {
 }
 
 function updateStats() {
+  const urgentCount = ALL.filter(t => { const d = daysUntil(t.deadline); return d !== null && d >= 0 && d <= 3; }).length;
   document.getElementById('s-total').textContent = ALL.length;
   document.getElementById('s-activity').textContent = ALL.filter(t => t.is_activity).length;
+  document.getElementById('s-urgent').textContent = urgentCount;
   document.getElementById('s-done').textContent = Object.keys(aiResults).length;
+  const urgentCard = document.getElementById('stat-urgent');
+  urgentCard.classList.toggle('has-urgent', urgentCount > 0);
   document.getElementById('nc-all').textContent = ALL.length;
   document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
   document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
@@ -432,39 +659,42 @@ function buildTownFilter() {
   const counts = {};
   ALL.forEach(t => counts[t.town] = (counts[t.town] || 0) + 1);
   document.getElementById('town-nav').innerHTML = towns.map(town =>
-    `<div class="nav-item town-nav-item" id="nav-town-${town}" onclick="filterTown('${town}')"><span class="nav-dot"></span> ${town}<span class="nav-count">${counts[town]}</span></div>`
+    `<div class="nav-item town-nav-item" id="nav-town-${town}" onclick="filterTown('${town}')"><span class="nav-dot"></span>${town}<span class="nav-count">${counts[town]}</span></div>`
   ).join('');
   const sel = document.getElementById('f-town');
   towns.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; sel.appendChild(o); });
 }
 
+/* === Panel === */
 function openPanel(id) {
   currentTender = ALL.find(t => t.id === id);
   if (!currentTender) return;
   document.getElementById('p-title').textContent = currentTender.title;
-  document.getElementById('p-meta').textContent = currentTender.org + '　|　公告：' + (currentTender.date || '—') + '　截止：' + (currentTender.deadline || '—');
+  const days = daysUntil(currentTender.deadline);
+  const dlInfo = days !== null ? `　截止：${currentTender.deadline}（${deadlineLabel(days)}）` : '';
+  document.getElementById('p-meta').textContent = currentTender.org + dlInfo;
   document.getElementById('overlay').classList.add('open');
   document.getElementById('panel').classList.add('open');
   switchTab(0);
 }
-
 function closePanel() {
   document.getElementById('overlay').classList.remove('open');
   document.getElementById('panel').classList.remove('open');
 }
-
 function switchTab(idx) {
   currentTab = idx;
   document.querySelectorAll('.panel-tab').forEach((el, i) => el.classList.toggle('active', i === idx));
   if (!currentTender) return;
   if (idx === 0) renderTabInfo();
   else if (idx === 1) renderTabAI();
-  else if (idx === 2) renderTabHistory();
+  else renderTabHistory();
 }
-
 function renderTabInfo() {
   const t = currentTender;
   const ai = aiResults[t.id];
+  const days = daysUntil(t.deadline);
+  const uk = urgencyKey(days);
+  const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
   document.getElementById('panel-body').innerHTML = `
     ${ai ? `<div class="verdict-banner verdict-${ai.verdict}">${ai.label}</div>` : ''}
     <div class="info-grid">
@@ -472,8 +702,8 @@ function renderTabInfo() {
       <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${t.town}</div></div>
       <div class="info-item"><div class="lbl">預算金額</div><div class="val">NT$ ${t.budget}</div></div>
       <div class="info-item"><div class="lbl">公告日期</div><div class="val">${t.date || '—'}</div></div>
-      <div class="info-item"><div class="lbl">截止投標</div><div class="val">${t.deadline || '—'}</div></div>
-      <div class="info-item"><div class="lbl">類型</div><div class="val">${t.is_activity ? '活動相關' : '一般勞務'}</div></div>
+      <div class="info-item"><div class="lbl">截止投標</div><div class="val"><span class="${dlClass}" style="font-weight:600">${t.deadline || '—'}</span>${days !== null ? `　<span class="${dlClass}" style="font-size:11px">${deadlineLabel(days)}</span>` : ''}</div></div>
+      <div class="info-item"><div class="lbl">類型</div><div class="val">${t.is_activity ? '✦ 活動相關' : '一般勞務'}</div></div>
       <div class="info-item" style="grid-column:1/-1"><div class="lbl">招標方式</div><div class="val">${t.recruit_type || '—'}</div></div>
     </div>
     <a class="ext-link" href="${t.url}" target="_blank">↗ 在採購網查看原始標案</a>
@@ -482,7 +712,6 @@ function renderTabInfo() {
       <button class="btn" style="flex:1" onclick="switchTab(2)">查看歷史得標</button>
     </div>`;
 }
-
 function renderTabHistory() {
   const t = currentTender;
   const history = t.history || [];
@@ -501,9 +730,8 @@ function renderTabHistory() {
         <tbody>${rows}</tbody>
       </table>
     </div>
-    <p style="font-size:12px;color:var(--text3);margin-top:8px">資料來源：政府採購網決標公告</p>`;
+    <p style="font-size:11px;color:var(--text3);margin-top:8px">資料來源：政府採購網決標公告</p>`;
 }
-
 function renderTabAI() {
   const t = currentTender;
   const ai = aiResults[t.id];
@@ -548,7 +776,6 @@ async function doAnalyze(t) {
 公告：${t.date || '—'} 截止：${t.deadline || '—'}
 歷史得標：
 ${histText}`;
-
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -577,7 +804,7 @@ async function analyzeSelected() {
   document.getElementById('btn-bulk').disabled = true;
   document.getElementById('btn-bulk').textContent = '分析中...';
   for (const id of toAnalyze) { const t = ALL.find(x => x.id === id); if (t) await doAnalyze(t); }
-  updateStats(); renderTable();
+  updateStats(); renderSpotlight(); renderTable();
   document.getElementById('btn-bulk').disabled = false;
   document.getElementById('btn-bulk').textContent = '批次 AI 分析 ↗';
 }
@@ -598,7 +825,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth <= 768 && e.target.closest('.nav-item')) closeSidebar();
   });
 });
-
 function saveKey() {
   const v = document.getElementById('api-key').value.trim();
   if (v) localStorage.setItem('claude_api_key', v);
@@ -611,6 +837,108 @@ function updateApiStatus() {
   if (v.startsWith('sk-ant-')) { el.style.color = 'var(--green)'; el.textContent = '✓ Key 格式正確'; }
   else { el.style.color = 'var(--red)'; el.textContent = '⚠ 格式有誤'; }
 }
+/* === Refresh button === */
+let _refreshStart = 0;
+
+async function triggerRefresh() {
+  const btn = document.getElementById('btn-refresh');
+  const isServer = window.location.protocol === 'http:' && window.location.hostname === 'localhost';
+  if (!isServer) {
+    showToast('請先在終端機執行：\n  python3 server.py\n然後從 http://localhost:8080 開啟此頁面，\n就可以用此按鈕直接更新資料。', 8000);
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = '啟動中...';
+  try {
+    const r = await fetch('/api/refresh', { method: 'POST' });
+    if (!r.ok && r.status !== 409) throw new Error('HTTP ' + r.status);
+    _refreshStart = Date.now();
+    showProgress(2, '連線 PCC 中...');
+    pollStatus();
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = '↺ 重新獲取最新標案';
+    showToast('無法連接伺服器：' + e.message);
+  }
+}
+
+function pollStatus() {
+  const btn = document.getElementById('btn-refresh');
+  const iv = setInterval(async () => {
+    try {
+      const r = await fetch('/api/status');
+      const s = await r.json();
+      const pct = s.progress || 0;
+      const msg = s.message || '執行中...';
+      // 用伺服器給的 started_at 計算更精確的時間
+      if (s.started_at && s.started_at > 0) _refreshStart = s.started_at * 1000;
+      showProgress(pct, msg, s.state);
+      btn.textContent = pct > 0 ? `${pct}% 抓取中...` : '執行中...';
+
+      if (s.state === 'done') {
+        clearInterval(iv);
+        showProgress(100, s.message, 'done');
+        btn.textContent = '✓ 完成，重新載入中...';
+        setTimeout(() => window.location.reload(), 2000);
+      } else if (s.state === 'error') {
+        clearInterval(iv);
+        hideProgress();
+        btn.disabled = false;
+        btn.textContent = '↺ 重新獲取最新標案';
+        showToast('更新失敗：\n' + s.message, 8000);
+      }
+    } catch(e) { /* 繼續輪詢 */ }
+  }, 2000);
+}
+
+function showProgress(pct, msg, state) {
+  const panel = document.getElementById('progress-panel');
+  const bar   = document.getElementById('pp-bar');
+  const pctEl = document.getElementById('pp-pct');
+  const msgEl = document.getElementById('pp-msg');
+  const timeEl = document.getElementById('pp-time');
+  panel.classList.add('visible');
+  bar.style.width = pct + '%';
+  pctEl.textContent = pct + '%';
+  msgEl.textContent = msg;
+  // 顏色狀態
+  bar.className = 'pp-bar-fill' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
+  pctEl.className = 'pp-pct' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
+  // 預估剩餘時間
+  timeEl.textContent = estimateTime(pct, state);
+}
+
+function estimateTime(pct, state) {
+  if (state === 'done') return '已完成';
+  if (state === 'error') return '';
+  if (pct <= 0) return '估算中...';
+  const elapsed = (Date.now() - _refreshStart) / 1000;
+  if (elapsed < 5) return '估算中...';
+  const estimatedTotal = elapsed / (pct / 100);
+  const remaining = Math.max(0, estimatedTotal - elapsed);
+  if (remaining < 10) return '即將完成';
+  const m = Math.floor(remaining / 60);
+  const s = Math.round(remaining % 60);
+  return m > 0 ? `預計還需 ${m} 分 ${s} 秒` : `預計還需 ${s} 秒`;
+}
+
+function hideProgress() {
+  document.getElementById('progress-panel').classList.remove('visible');
+}
+
+function showToast(msg, duration=4000) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), duration);
+}
+
 </script>
 </body>
 </html>
