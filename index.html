@@ -49,10 +49,7 @@ body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background: var(-
 .nav-count { margin-left: auto; font-size: 10px; padding: 1px 6px; border-radius: 10px; background: var(--surface3); color: var(--text3); }
 .nav-item.active .nav-count { background: rgba(79,142,247,.22); color: var(--blue); }
 .sidebar-footer { margin-top: auto; padding: 12px 13px; border-top: 1px solid var(--border); }
-.sidebar-footer label { font-size: 10px; color: var(--text3); display: block; margin-bottom: 5px; }
-.api-input { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 10px; font-family: 'SF Mono', monospace; background: var(--bg); color: var(--text); }
-.api-input:focus { outline: none; border-color: var(--blue); }
-.api-status { font-size: 10px; margin-top: 4px; min-height: 14px; }
+.sidebar-footer p { font-size: 10px; line-height: 1.6; color: var(--text3); margin: 0; }
 
 /* === Topbar === */
 .topbar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 11px 20px; display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
@@ -65,7 +62,6 @@ body { font-family: 'Noto Sans TC', -apple-system, sans-serif; background: var(-
 .btn-primary:hover { opacity: .85; }
 .btn-primary:disabled { opacity: .3; pointer-events: none; }
 .btn-sm { padding: 4px 10px; font-size: 11px; }
-.token-pill { font-size: 10px; padding: 3px 8px; border-radius: 10px; background: var(--surface2); border: 1px solid var(--border); color: var(--text3); }
 
 /* === Content area === */
 .content { flex: 1; overflow-y: auto; padding: 16px 20px 24px; }
@@ -280,8 +276,6 @@ tbody td.td-urge { padding: 0; }
 .pp-pct.pp-error { color: var(--red); }
 .pp-msg { color: var(--text2); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pp-time { color: var(--text3); white-space: nowrap; font-size: 10px; }
-.pp-hint { font-size: 10px; color: var(--amber); margin-top: 4px; display: none; }
-.pp-hint.visible { display: block; }
 </style>
 </head>
 <body>
@@ -350,9 +344,7 @@ tbody td.td-urge { padding: 0; }
       <div id="town-nav"></div>
     </div>
     <div class="sidebar-footer">
-      <label>Claude API Key（選填，深度分析用）</label>
-      <input class="api-input" type="password" id="api-key" placeholder="sk-ant-..." oninput="saveKey()">
-      <div class="api-status" id="api-status"></div>
+      <p>AI 分析請交由 Claude Code 或 Codex 在本機執行。請勿在網頁中輸入 API Key。</p>
     </div>
   </aside>
 
@@ -363,7 +355,6 @@ tbody td.td-urge { padding: 0; }
         <div class="topbar-title" id="view-title">全部勞務標案</div>
         <div class="topbar-sub" id="view-sub"></div>
       </div>
-      <span class="token-pill" id="token-pill" style="display:none">Token：0</span>
       <button class="btn btn-sm" id="btn-refresh" onclick="triggerRefresh()">↺ 重新獲取最新標案</button>
     </div>
 
@@ -406,7 +397,6 @@ tbody td.td-urge { padding: 0; }
         <button class="btn btn-sm" onclick="selectAll()">全選</button>
         <button class="btn btn-sm" onclick="clearSel()">清除</button>
         <span class="sp"></span>
-        <button class="btn btn-primary btn-sm" id="btn-bulk" onclick="analyzeSelected()" disabled>批次 AI 分析 ↗</button>
       </div>
 
       <!-- Table -->
@@ -439,7 +429,6 @@ tbody td.td-urge { padding: 0; }
     <span class="pp-msg" id="pp-msg">準備中...</span>
     <span class="pp-time" id="pp-time"></span>
   </div>
-  <div class="pp-hint" id="pp-hint">⏳ Qwen3.5 本地 AI 分析中，每筆約需 1–2 分鐘，這段時間進度條會暫停，屬正常現象</div>
 </div>
 
 <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
@@ -459,7 +448,7 @@ tbody td.td-urge { padding: 0; }
 </div>
 
 <script>
-let ALL=[], selected=new Set(), aiResults={}, tokenTotal=0, currentView='all', currentTown='', currentTender=null, currentTab=0;
+let ALL=[], selected=new Set(), aiResults={}, currentView='all', currentTown='', currentTender=null, currentTab=0;
 let MAX_BUDGET = 1;
 
 /* === Urgency helpers === */
@@ -498,8 +487,7 @@ function formatMDDate(str) {
 
 /* === Data loading === */
 window.addEventListener('DOMContentLoaded', () => {
-  const k = localStorage.getItem('claude_api_key') || '';
-  if (k) { document.getElementById('api-key').value = k; updateApiStatus(); }
+  localStorage.removeItem('claude_api_key');
   loadData();
 });
 
@@ -507,7 +495,7 @@ async function loadData() {
   document.getElementById('pg-loading').style.display = 'flex';
   document.getElementById('app').style.display = 'none';
   try {
-    const data = {"updated_at": "2026-05-18T13:21:08.228875", "total": 28, "activity_total": 10, "tenders": [{"id": "1152E10025", "title": "雲林縣擴大獨居老人服務計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "87,040,000", "date": "115/05/18", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjM1NTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152C10014", "title": "褒忠鄉東馬鳴山農地重劃區馬鳴段1813地號給水改善工程委託設計監造", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "285,348", "date": "115/05/15", "deadline": "115/05/20", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjIxMzg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152M10009", "title": "115年度雲林縣5處工業區土壤及地下水檢測及申報", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/05/14", "deadline": "115/05/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjExMjI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152Q10020", "title": "「雲林縣政府教育出版品暨行銷委託案」", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,800,000", "date": "115/05/14", "deadline": "115/05/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjEwMjg=", "history": [{"year": 2025, "title": "khjh1142400156 「新竹縣114學年度國中學生生涯發展教育出版品印製」財物採購案", "winner": "九九創新設計有限公司", "award_price": "238,784元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "113B04 113學年度國民中學生涯發展教育出版品印製及配送採購案", "winner": "肯定實業股份有限公司", "award_price": "839,246元", "bidder_count": "2", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152B50003", "title": "2025路平志工聯盟表揚大會", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "600,000", "date": "115/05/12", "deadline": "115/05/19", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTgwMDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152Q10019", "title": "「115年雲林農業創新與永續競爭力」縣政宣傳案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,500,000", "date": "115/05/12", "deadline": "115/05/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTc4ODQ=", "history": [], "analysis": "", "is_activity": true}, {"id": "1152E10024", "title": "雲齡大學計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,260,000", "date": "115/05/11", "deadline": "115/05/19", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTU4NTM=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10054", "title": "「2026雲林國際偶戲節開幕系列活動暨金掌獎頒獎典禮」委託規劃執行", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "13,700,000", "date": "115/05/11", "deadline": "115/05/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTU3MDU=", "history": [{"year": 2025, "title": "1142H10064 2025雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,800,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10076 2024雲林國際偶戲節-金掌獎頒獎典禮", "winner": "十分好創意策劃管理顧問股份有限公司", "award_price": "2,500,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152F10017", "title": "2026第20屆雲林國際農業機械暨資材展", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "14,360,000", "date": "115/05/08", "deadline": "115/05/29", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTQ5MjI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10045", "title": "YCDC雲林創意設計中心委託營運管理", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,500,000", "date": "115/05/08", "deadline": "115/05/22", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTQwODQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152D10015", "title": "115年雲林縣社區農村再生輔導計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "8,500,000", "date": "115/05/06", "deadline": "115/05/20", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTE4NDM=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152D10005", "title": "雲林縣115年度景觀及旅遊環境改善工作委託規劃設計及監造開口契約", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,710,000", "date": "115/05/05", "deadline": "115/05/19", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTA1MDQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10052", "title": "雲林縣旅遊服務中心智慧導覽機器人服務試辦案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,650,000", "date": "115/05/04", "deadline": "115/05/19", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTAxMDI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115028", "title": "115年雲林縣斗南鎮後火車站文化創生環境營造計畫委託設計監造技術服務", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "440,067", "date": "115/05/15", "deadline": "115/05/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjE2MDU=", "history": [], "analysis": "", "is_activity": true}, {"id": "115031", "title": "斗南鎮隴西宮廁所修繕工程計畫委託設計監造技術服務案", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "176,027", "date": "115/05/14", "deadline": "115/05/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjA4NTQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "115029", "title": "雲林縣斗南鎮公所115年度清潔隊環保業務源頭減量暨環境清潔維護觀摩活動", "org": "雲林縣斗南鎮公所", "town": "斗南鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "760,000", "date": "115/05/13", "deadline": "115/05/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTk5NDU=", "history": [{"year": 2025, "title": "114048 雲林縣斗南鎮公所114年度清潔隊環保業務源頭減量暨環境清潔維護觀摩活動", "winner": "元發國際旅行社有限公司", "award_price": "820,000元", "bidder_count": "4", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1150506", "title": "115年度社群網站平台維運管理行銷案", "org": "雲林縣虎尾鎮公所", "town": "虎尾鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/05/14", "deadline": "115/05/21", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjA2NTE=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-21", "title": "「115年西螺鎮里鄰長及里幹事業務工作會報暨里鄰政令宣導研習活動餐會採購」", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "236,500", "date": "115/05/15", "deadline": "115/05/25", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjI0NzA=", "history": [], "analysis": "", "is_activity": true}, {"id": "1150528", "title": "「冷鏈物流專區營運設施設備第二期計畫通風設備暨冷鏈設施電力系統工程」委託規劃設計監造技術服務", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,536,580", "date": "115/05/14", "deadline": "115/05/27", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjEwNzI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152SA22", "title": "雲林縣北港鎮活動中心及公有建物環境改善工程委託規劃設計監造(開口契約)", "org": "雲林縣北港鎮公所", "town": "北港鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "5,000,000", "date": "115/05/14", "deadline": "115/05/28", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjA1ODA=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-0324-01", "title": "林內鄉九芎示範公墓宗聖堂整修暨週邊設備工程委託設計監造服務", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "298,865", "date": "115/05/13", "deadline": "115/05/20", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTkzOTA=", "history": [], "analysis": "", "is_activity": false}, {"id": "11518", "title": "115年度二崙鄉鄉民意外傷害保險", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "888,592", "date": "115/05/13", "deadline": "115/05/18", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTkwNDA=", "history": [], "analysis": "", "is_activity": false}, {"id": "11517", "title": "二崙鄉庄西村公舘社區北側排水改善工程規劃設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "262,116", "date": "115/05/13", "deadline": "115/05/18", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTkwMzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-F017", "title": "雲林縣褒忠鄉清潔隊115年度業務觀摩活動", "org": "雲林縣褒忠鄉公所", "town": "褒忠鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "300,000", "date": "115/05/15", "deadline": "115/05/22", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjE1ODE=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-F014", "title": "115年度雲林縣褒忠鄉公所出國考察", "org": "雲林縣褒忠鄉公所", "town": "褒忠鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "300,000", "date": "115/05/12", "deadline": "115/05/18", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTg0NTQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150505", "title": "舊有泉州社區活動中心拆除工程委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "470,833", "date": "115/05/06", "deadline": "115/05/18", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTE3ODU=", "history": [], "analysis": "", "is_activity": true}, {"id": "1150504", "title": "115年度臺西鄉第二期委託設計監造技術服務案(開口契約)", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "6,666,667", "date": "115/05/05", "deadline": "115/05/18", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTAyNjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "11504-7", "title": "115年度口湖鄉轄內公共建設及道路修復零星工程(開口契約)委託監造", "org": "雲林縣口湖鄉公所", "town": "口湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "495,228", "date": "115/05/07", "deadline": "115/05/19", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMTM2NTA=", "history": [], "analysis": "", "is_activity": false}]};
+    const data = {"updated_at": "2026-06-08T12:42:31.810393", "total": 42, "activity_total": 13, "tenders": [{"id": "1152B10023", "title": "雲林縣公園綠地無障礙環境督導計畫委託專業服務", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,495,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzk1ODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152M10010", "title": "建築使用執照存根掃描保存系統建置", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "800,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkyODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40010", "title": "雲林芒果大道公車轉運站及貨櫃市集新建工程委託規劃設計監造等工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,569,200", "date": "115/06/04", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkyNjc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40016", "title": "大義崙大排大義四號橋及大義崙橋改建工程規劃設計及監造工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "12,463,268", "date": "115/06/03", "deadline": "115/06/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgzNjc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40015", "title": "(更正公告) 雲198線(仁義路至縣道154乙線)拓寬工程委託可行性研究規劃設計等工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "10,106,777", "date": "115/06/03", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjcyNzE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10030", "title": "雲林縣2026年國際身心障礙者日傑出身心障礙人士暨模範身心障礙家庭照顧者、身心障礙服務人員表揚暨公彩盈餘運用情形成果展", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,138,800", "date": "115/06/02", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzYwNTQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10018", "title": "2026雲林滷肉飯節", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,500,000", "date": "115/06/01", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzU3MDk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10070", "title": "北港1911好庫文化產業園區景觀規劃設計監造", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "800,000", "date": "115/06/01", "deadline": "115/06/10", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzU2Mzg=", "history": [{"year": 2025, "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫", "winner": "北鄉營造有限公司", "award_price": "1,250,000元", "bidder_count": "3", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152H10056", "title": "「115年度台灣好行-雲林四線」行銷推廣案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,945,000", "date": "115/05/29", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzQ5MTY=", "history": [{"year": 2025, "title": "1142H10029 「114年度台灣好行-雲林四線」行銷推廣案", "winner": "喜丞創意股份有限公司", "award_price": "2,250,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10047 「113年度台灣好行-雲林三線」行銷推廣案", "winner": "喜丞創意股份有限公司", "award_price": "2,750,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152F10019", "title": "115年雲林縣永續食農教育扎根共學行動計畫委託案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,300,000", "date": "115/05/29", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzQ3MzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10026", "title": "雲林縣急難救助關懷暨自立支持服務計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,350,000", "date": "115/05/28", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzMzNDg=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10051", "title": "115-116年雲林縣平原區百年立案寺廟文物普查建檔計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,420,000", "date": "115/05/26", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzAzNDI=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10067", "title": "2027北港燈會策展規劃暨整合行銷案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/05/25", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjk0MDE=", "history": [], "analysis": "", "is_activity": true}, {"id": "1152F10020", "title": "2026中臺灣農業行銷展售會-雲林良品館", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,500,000", "date": "115/05/25", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjkyMDg=", "history": [{"year": 2025, "title": "1140196 2025中臺灣農業行銷展售會新竹館委託專業服務案", "winner": "瑋隼創意整合行銷有限公司", "award_price": "1,450,000元", "bidder_count": "2", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1130174 2024中臺灣農業行銷展售會新竹館委託專業服務案", "winner": "瑋隼創意整合行銷有限公司", "award_price": "940,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152E10025", "title": "雲林縣擴大獨居老人服務計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "87,040,000", "date": "115/05/18", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjM1NTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150609-3", "title": "斗六市115-116年度轄內建築物漏水､修繕整修及室內裝潢工程(開口契約)委託技術服務", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,300,000", "date": "115/06/01", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzQ5NjM=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150609-2", "title": "國家發展委員會與公務部門合作辦理「斗六百年文化友善雙語環境推動-雲林縣首創示範場域計畫」委託專業服務案", "org": "雲林縣斗六市公所", "town": "斗六市", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,085,000", "date": "115/05/25", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjk1NTk=", "history": [], "analysis": "", "is_activity": true}, {"id": "1150507", "title": "115年度雲林縣虎尾鎮公所國外考察", "org": "雲林縣虎尾鎮公所", "town": "虎尾鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,050,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgxMzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115--35", "title": "街長宿舍展覽暨藝文活動採購案", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,680,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDA3MDA=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-29", "title": "「115年度廁所清潔維護工作」委外勞務採購", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開招標", "budget": "300,000", "date": "115/06/05", "deadline": "115/06/10", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDA1NDA=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-34", "title": "「115年度輔導農村社區辦理在地食材推廣-2026西螺秋平安．四時里香傳」勞務採購案", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,300,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDAyMTY=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-32", "title": "西螺親水嘉年華規劃與執行招標案", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,980,000", "date": "115/05/29", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzM2NDg=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-31", "title": "「西螺鎮廣興大埔埔公墓擋土牆及排水設施新建工程」委託設計監造技術服務", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "393,750", "date": "115/05/27", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzE2MjE=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-0032", "title": "「115年土庫鎮歡慶中秋暨農畜產品推廣計畫」委託專業服務", "org": "雲林縣土庫鎮公所", "town": "土庫鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "650,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzAwNDg=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-0030", "title": "(更正公告) 「雲林縣土庫鎮馬公厝順安宮廁所暨周邊景觀改善工程」委託規劃設計監造技術服務", "org": "雲林縣土庫鎮公所", "town": "土庫鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,146,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzAwMzY=", "history": [], "analysis": "", "is_activity": false}, {"id": "115C030", "title": "莿桐鄉和平路47號旁8M計畫道路開闢工程委託規劃設計監造技術服務案", "org": "雲林縣莿桐鄉公所", "town": "莿桐鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "520,088", "date": "115/06/02", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzY0ODA=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-0301-01", "title": "115年林內鄉立幼兒園設施設備改善工程委託設計監造服務", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "980,105", "date": "115/06/01", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzUwMzQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "11523", "title": "雲林縣二崙鄉都市計畫內公共設施保留地4、9、10-11道路用地委託撤銷徵收作業", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "450,000", "date": "115/05/29", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzM4MDA=", "history": [], "analysis": "", "is_activity": false}, {"id": "11522", "title": "二崙鄉大同社區活動中心修繕及周邊環境改善工程規劃設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "157,657", "date": "115/05/27", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzA5NjU=", "history": [], "analysis": "", "is_activity": true}, {"id": "115016", "title": "崙背鄉鄉立游泳池基地整體發展先期規劃評估案", "org": "雲林縣崙背鄉公所", "town": "崙背鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/06/02", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzY0NzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-48", "title": "115年度環保業務觀摩活動（預估）", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,130,000", "date": "115/06/08", "deadline": "115/06/17", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDIxMTk=", "history": [{"year": 2025, "title": "114-67 114年度環保業務觀摩活動（預估）", "winner": "八川旅行社有限公司", "award_price": "1,130,000元", "bidder_count": "2", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "H113-3 113年資源回收及環保業務觀摩", "winner": "路元旅行社有限公司", "award_price": "349,832元", "bidder_count": "2", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "115-47", "title": "115年雲林縣麥寮鄉社教園區環境綠美化工程【委託設計及監造】", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "460,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDExMzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-42", "title": "115年度全鄉路燈更新設計及汰換工程(預估)委託設計監造", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "273,735", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDAwODI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-46", "title": "115年暑期特展設計暨製作委託服務", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkzODM=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-45", "title": "115年幼兒園環境教育暨藝文觀摩活動", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "325,000", "date": "115/06/03", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzcxNDE=", "history": [], "analysis": "", "is_activity": true}, {"id": "8672-1150526", "title": "東勢鄉程海村程南路口N58橋梁工程", "org": "雲林縣東勢鄉公所", "town": "東勢鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "463,050", "date": "115/06/03", "deadline": "115/06/10", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzcwMjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150602", "title": "臺西鄉普令厝段1621地號排水路改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "628,175", "date": "115/06/03", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzc0ODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-A16", "title": "雲林縣元長鄉日照中心周邊人行環境改善計畫委託規劃設計及監造技術服務", "org": "雲林縣元長鄉公所", "town": "元長鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "825,000", "date": "115/06/04", "deadline": "115/06/08", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzg1MDM=", "history": [], "analysis": "", "is_activity": false}, {"id": "115W05", "title": "四湖鄉轄內村里道路LED路燈燈泡汰換工程委託規劃設計監造服務", "org": "雲林縣四湖鄉公所", "town": "四湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,345,400", "date": "115/06/08", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDE1MDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "11503-12", "title": "雲林縣口湖鄉公所115年度轄內土木、水利及災損復建工程委託設計監造開口契約(甲案)", "org": "雲林縣口湖鄉公所", "town": "口湖鄉", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "990,000", "date": "115/05/20", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjQ5MDM=", "history": [], "analysis": "", "is_activity": false}, {"id": "115031", "title": "水林鄉蘇秦村豐德宮廁所及周邊設施修繕工程委託規劃設計監造技術服務", "org": "雲林縣水林鄉公所", "town": "水林鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "304,640", "date": "115/06/03", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzczOTc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115029", "title": "水林鄉立幼兒園充實及改善教學環境設施設備補助計畫工程委託規劃設計監造技術服務", "org": "雲林縣水林鄉公所", "town": "水林鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "511,849", "date": "115/05/29", "deadline": "115/06/09", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzM4MzY=", "history": [{"year": 2025, "title": "114048 雲林縣斗南鎮公所114年度清潔隊環保業務源頭減量暨環境清潔維護觀摩活動", "winner": "元發國際旅行社有限公司", "award_price": "820,000元", "bidder_count": "4", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": false}]};
     ALL = data.tenders || [];
     ALL.forEach(t => { if (t.analysis) aiResults[t.id] = parseAnalysis(t.analysis); });
     MAX_BUDGET = Math.max(1, ...ALL.map(t => parseBudget(t.budget)));
@@ -641,7 +629,6 @@ function updateSelCount() {
   const n = selected.size;
   document.getElementById('s-sel').textContent = n;
   document.getElementById('sel-label').textContent = `已選 ${n} 筆`;
-  document.getElementById('btn-bulk').disabled = n === 0;
 }
 
 function updateStats() {
@@ -711,7 +698,7 @@ function renderTabInfo() {
     </div>
     <a class="ext-link" href="${t.url}" target="_blank">↗ 在採購網查看原始標案</a>
     <div style="margin-top:14px;display:flex;gap:8px">
-      <button class="btn btn-primary" style="flex:1" onclick="switchTab(1)">${ai ? '查看 AI 分析報告' : '進行 AI 分析'}</button>
+      <button class="btn btn-primary" style="flex:1" onclick="switchTab(1)">${ai ? '查看 AI 分析報告' : '查看分析狀態'}</button>
       <button class="btn" style="flex:1" onclick="switchTab(2)">查看歷史得標</button>
     </div>`;
 }
@@ -745,71 +732,7 @@ function renderTabAI() {
       <div class="analysis-block">${ai.text}</div>`;
     return;
   }
-  const apiKey = document.getElementById('api-key').value.trim();
-  if (!apiKey || !apiKey.startsWith('sk-ant-')) {
-    document.getElementById('panel-body').innerHTML = `<div class="analysis-block" style="color:var(--text3)">本標案尚未分析。\n\nGemma 3 本地分析已在爬蟲執行時自動完成，請重新載入資料。\n\n若要使用 Claude API 深度分析，請在左側輸入 API Key。</div>`;
-    return;
-  }
-  document.getElementById('panel-body').innerHTML = `<div class="loading-row"><div class="spinner"></div> AI 分析中...</div>`;
-  doAnalyze(t).then(() => { if (currentTender?.id === t.id && currentTab === 1) renderTabAI(); updateStats(); renderTable(); });
-}
-
-async function doAnalyze(t) {
-  const apiKey = document.getElementById('api-key').value.trim();
-  const history = t.history || [];
-  const histText = history.length
-    ? history.map(h => `  ${h.year}年：得標廠商「${h.winner}」，決標金額 ${h.award_price}`).join('\n')
-    : '  查無前兩年決標記錄';
-  const prompt = `你是台灣政府採購老手，用繁體中文回答，語氣直接像跟同事說話，不要廢話。
-嚴格按照以下格式回答，每個項目最多2句：
-
-【投標建議】建議投標 / 不建議投標 / 審慎評估（三選一）
-【預算評估】預算夠不夠用？合不合理？
-【得標廠商觀察】誰在得標？新廠商有沒有機會？
-【值得投的理由】
-・理由1
-・理由2
-【要小心的地方】
-・風險1
-・風險2
-
-名稱：${t.title}
-機關：${t.org}（${t.town}）
-預算：NT$ ${t.budget}
-公告：${t.date || '—'} 截止：${t.deadline || '—'}
-歷史得標：
-${histText}`;
-  try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-      body: JSON.stringify({ model: 'claude-sonnet-4-20250514', max_tokens: 800, messages: [{ role: 'user', content: prompt }] })
-    });
-    const data = await res.json();
-    if (data.error) throw new Error(data.error.message);
-    const text = data.content?.[0]?.text || '（回覆為空）';
-    tokenTotal += (data.usage?.input_tokens || 0) + (data.usage?.output_tokens || 0);
-    document.getElementById('token-pill').style.display = '';
-    document.getElementById('token-pill').textContent = `Token：${tokenTotal.toLocaleString()}`;
-    aiResults[t.id] = parseAnalysis(text);
-    document.getElementById('s-done').textContent = Object.keys(aiResults).length;
-    document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
-  } catch(e) {
-    aiResults[t.id] = { text: `分析失敗：${e.message}`, label: '無法判斷', verdict: 'maybe' };
-  }
-}
-
-async function analyzeSelected() {
-  const toAnalyze = [...selected].filter(id => !aiResults[id]);
-  if (!toAnalyze.length) { alert('所選標案皆已分析完成'); return; }
-  const apiKey = document.getElementById('api-key').value.trim();
-  if (!apiKey || !apiKey.startsWith('sk-ant-')) { alert('請先輸入 Claude API Key'); return; }
-  document.getElementById('btn-bulk').disabled = true;
-  document.getElementById('btn-bulk').textContent = '分析中...';
-  for (const id of toAnalyze) { const t = ALL.find(x => x.id === id); if (t) await doAnalyze(t); }
-  updateStats(); renderSpotlight(); renderTable();
-  document.getElementById('btn-bulk').disabled = false;
-  document.getElementById('btn-bulk').textContent = '批次 AI 分析 ↗';
+  document.getElementById('panel-body').innerHTML = `<div class="analysis-block" style="color:var(--text3)">本標案尚未分析。\n\n請交由 Claude Code 或 Codex 在本機讀取 data.json 後進行分析。為了保護憑證，這個靜態網頁不接受 API Key。</div>`;
 }
 
 function toggleSidebar() {
@@ -828,18 +751,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth <= 768 && e.target.closest('.nav-item')) closeSidebar();
   });
 });
-function saveKey() {
-  const v = document.getElementById('api-key').value.trim();
-  if (v) localStorage.setItem('claude_api_key', v);
-  updateApiStatus();
-}
-function updateApiStatus() {
-  const v = document.getElementById('api-key').value.trim();
-  const el = document.getElementById('api-status');
-  if (!v) { el.textContent = ''; return; }
-  if (v.startsWith('sk-ant-')) { el.style.color = 'var(--green)'; el.textContent = '✓ Key 格式正確'; }
-  else { el.style.color = 'var(--red)'; el.textContent = '⚠ 格式有誤'; }
-}
 /* === Refresh button === */
 let _refreshStart = 0;
 
@@ -909,9 +820,6 @@ function showProgress(pct, msg, state) {
   pctEl.className = 'pp-pct' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
   // 預估剩餘時間
   timeEl.textContent = estimateTime(pct, state);
-  // AI 階段提示（73–92%）
-  const hint = document.getElementById('pp-hint');
-  if (hint) hint.classList.toggle('visible', pct >= 73 && pct < 92 && state === 'running');
 }
 
 function estimateTime(pct, state) {
