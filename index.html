@@ -179,10 +179,6 @@ tbody td.td-urge { padding: 0; }
 .panel-tab.active { color: var(--blue); border-bottom-color: var(--blue); font-weight: 600; }
 .panel-body { flex: 1; overflow-y: auto; padding: 16px 18px; }
 
-.verdict-banner { border-radius: 9px; padding: 11px 15px; margin-bottom: 14px; font-size: 13px; font-weight: 600; }
-.verdict-yes { background: var(--green-bg); color: var(--green); border: 1px solid rgba(40,216,124,.22); }
-.verdict-no { background: var(--red-bg); color: var(--red); border: 1px solid rgba(240,72,96,.22); }
-.verdict-maybe { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(240,168,48,.22); }
 
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 14px; }
 .info-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 7px; padding: 9px 12px; }
@@ -197,7 +193,6 @@ tbody td.td-urge { padding: 0; }
 .history-table tr:last-child td { border-bottom: none; }
 .history-empty { padding: 12px 14px; font-size: 12px; color: var(--text3); font-style: italic; }
 
-.analysis-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 9px; padding: 14px 16px; font-size: 12px; line-height: 1.9; white-space: pre-wrap; color: var(--text); }
 .ext-link { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; color: var(--blue); text-decoration: none; margin-top: 10px; }
 .ext-link:hover { text-decoration: underline; }
 
@@ -329,14 +324,13 @@ tbody td.td-urge { padding: 0; }
       <div class="nav-group-label">檢視</div>
       <div class="nav-item active" id="nav-all" onclick="setView('all')"><span class="nav-dot"></span>全部標案<span class="nav-count" id="nc-all">0</span></div>
       <div class="nav-item" id="nav-activity" onclick="setView('activity')"><span class="nav-dot"></span>活動相關<span class="nav-count" id="nc-activity">0</span></div>
-      <div class="nav-item" id="nav-analyzed" onclick="setView('analyzed')"><span class="nav-dot"></span>已分析<span class="nav-count" id="nc-analyzed">0</span></div>
     </div>
     <div class="nav-group">
       <div class="nav-group-label">鄉鎮</div>
       <div id="town-nav"></div>
     </div>
     <div class="sidebar-footer">
-      <p>AI 分析請交由 Claude Code 或 Codex 在本機執行。請勿在網頁中輸入 API Key。</p>
+      <p>資料來源：政府電子採購網（PCC）</p>
     </div>
   </aside>
 
@@ -357,7 +351,6 @@ tbody td.td-urge { padding: 0; }
         <div class="stat"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div><div class="sub">可投標</div></div>
         <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">≤ 3 天</div></div>
         <div class="stat"><div class="lbl">已勾選</div><div class="val" id="s-sel">0</div><div class="sub">筆</div></div>
-        <div class="stat"><div class="lbl">已 AI 分析</div><div class="val" id="s-done">0</div><div class="sub">筆</div></div>
       </div>
 
       <!-- Spotlight: 活動相關標案 -->
@@ -403,7 +396,6 @@ tbody td.td-urge { padding: 0; }
               <th>預算金額</th>
               <th>截止倒數</th>
               <th>類型</th>
-              <th>AI 分析</th>
               <th></th>
             </tr>
           </thead>
@@ -433,14 +425,13 @@ tbody td.td-urge { padding: 0; }
   </div>
   <div class="panel-tabs">
     <div class="panel-tab active" onclick="switchTab(0)">標案資訊</div>
-    <div class="panel-tab" onclick="switchTab(1)">AI 分析</div>
-    <div class="panel-tab" onclick="switchTab(2)">歷史得標</div>
+    <div class="panel-tab" onclick="switchTab(1)">歷史得標</div>
   </div>
   <div class="panel-body" id="panel-body"></div>
 </div>
 
 <script>
-let ALL=[], selected=new Set(), aiResults={}, currentView='all', currentTown='', currentTender=null, currentTab=0;
+let ALL=[], selected=new Set(), currentView='all', currentTown='', currentTender=null, currentTab=0;
 let MAX_BUDGET = 1;
 
 /* === Urgency helpers === */
@@ -489,7 +480,6 @@ async function loadData() {
   try {
     const data = {"updated_at": "2026-06-10T10:06:58.827035", "total": 30, "activity_total": 8, "failed_orgs": [], "tenders": [{"id": "1152B30013", "title": "斗六市龍潭路暨雲林科技大學周邊興建地下停車場可行性評估", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,500,000", "date": "115/06/10", "deadline": "115/06/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDM5NzQ=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10076", "title": "Danas-D-05-01-13-北港文化中心災後復建工程委託規劃設計監造", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "212,310", "date": "115/06/09", "deadline": "115/06/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDMyMjA=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152E10025", "title": "(更正公告) 雲林縣擴大獨居老人服務計畫", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "87,040,000", "date": "115/06/09", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjM1NTU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B10023", "title": "雲林縣公園綠地無障礙環境督導計畫委託專業服務", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,495,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzk1ODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152M10010", "title": "建築使用執照存根掃描保存系統建置", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "800,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkyODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40010", "title": "雲林芒果大道公車轉運站及貨櫃市集新建工程委託規劃設計監造等工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,569,200", "date": "115/06/04", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkyNjc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40016", "title": "大義崙大排大義四號橋及大義崙橋改建工程規劃設計及監造工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "12,463,268", "date": "115/06/03", "deadline": "115/06/23", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgzNjc=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152B40015", "title": "(更正公告) 雲198線(仁義路至縣道154乙線)拓寬工程委託可行性研究規劃設計等工作", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "10,106,777", "date": "115/06/03", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMjcyNzE=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152F10018", "title": "2026雲林滷肉飯節", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,500,000", "date": "115/06/01", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzU3MDk=", "history": [], "analysis": "", "is_activity": false}, {"id": "1152H10056", "title": "「115年度台灣好行-雲林四線」行銷推廣案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,945,000", "date": "115/05/29", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzQ5MTY=", "history": [{"year": 2025, "title": "1142H10029 「114年度台灣好行-雲林四線」行銷推廣案", "winner": "喜丞創意股份有限公司", "award_price": "2,250,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1132H10047 「113年度台灣好行-雲林三線」行銷推廣案", "winner": "喜丞創意股份有限公司", "award_price": "2,750,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1152F10019", "title": "115年雲林縣永續食農教育扎根共學行動計畫委託案", "org": "雲林縣政府", "town": "雲林縣", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "2,300,000", "date": "115/05/29", "deadline": "115/06/12", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzQ3MzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150507", "title": "115年度雲林縣虎尾鎮公所國外考察", "org": "雲林縣虎尾鎮公所", "town": "虎尾鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,050,000", "date": "115/06/04", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgxMzk=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-36", "title": "西螺鎮115年度公立墳墓景觀維護(預估)勞務採購", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,000,000", "date": "115/06/10", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDQzMjY=", "history": [], "analysis": "", "is_activity": false}, {"id": "115--35", "title": "街長宿舍展覽暨藝文活動採購案", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "1,680,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDA3MDA=", "history": [{"year": 2025, "title": "11403-202 彰化縣歷史建築鹿港街長宿舍修復工程委託監造技術服務及工作報告書製作", "winner": "趙金城建築師事務所", "award_price": "1,184,500元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "1122H10103 詔安客家『西螺街長宿舍』修復及再利用工程委託監造(含因應計畫)暨工作報告書", "winner": "呂政道建築師事務所", "award_price": "3,600,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "115-29", "title": "「115年度廁所清潔維護工作」委外勞務採購", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "公開招標", "budget": "300,000", "date": "115/06/05", "deadline": "115/06/10", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDA1NDA=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-34", "title": "「115年度輔導農村社區辦理在地食材推廣-2026西螺秋平安．四時里香傳」勞務採購案", "org": "雲林縣西螺鎮公所", "town": "西螺鎮", "type": "勞務", "recruit_type": "經公開評選或公開徵求之限制性招標", "budget": "3,300,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDAyMTY=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-0032", "title": "「115年土庫鎮歡慶中秋暨農畜產品推廣計畫」委託專業服務", "org": "雲林縣土庫鎮公所", "town": "土庫鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "650,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzAwNDg=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-0030", "title": "(更正公告) 「雲林縣土庫鎮馬公厝順安宮廁所暨周邊景觀改善工程」委託規劃設計監造技術服務", "org": "雲林縣土庫鎮公所", "town": "土庫鎮", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,146,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzAwMzY=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-02-001", "title": "雲林縣林內鄉2026年謝水節暨感恩音樂會", "org": "雲林縣林內鄉公所", "town": "林內鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,020,000", "date": "115/06/09", "deadline": "115/06/16", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDMxMDQ=", "history": [], "analysis": "", "is_activity": true}, {"id": "11523", "title": "雲林縣二崙鄉都市計畫內公共設施保留地4、9、10-11道路用地委託撤銷徵收作業", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "450,000", "date": "115/06/10", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDQ0MzM=", "history": [], "analysis": "", "is_activity": false}, {"id": "11522", "title": "二崙鄉大同社區活動中心修繕及周邊環境改善工程規劃設計監造", "org": "雲林縣二崙鄉公所", "town": "二崙鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "157,657", "date": "115/06/10", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDQ0MDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-48", "title": "115年度環保業務觀摩活動（預估）", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,130,000", "date": "115/06/08", "deadline": "115/06/17", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDIxMTk=", "history": [{"year": 2025, "title": "114-67 114年度環保業務觀摩活動（預估）", "winner": "八川旅行社有限公司", "award_price": "1,130,000元", "bidder_count": "2", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "H113-3 113年資源回收及環保業務觀摩", "winner": "路元旅行社有限公司", "award_price": "349,832元", "bidder_count": "2", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "115-47", "title": "115年雲林縣麥寮鄉社教園區環境綠美化工程【委託設計及監造】", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "460,000", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDExMzc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-42", "title": "115年度全鄉路燈更新設計及汰換工程(預估)委託設計監造", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "273,735", "date": "115/06/05", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDAwODI=", "history": [], "analysis": "", "is_activity": false}, {"id": "115-46", "title": "115年暑期特展設計暨製作委託服務", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,480,000", "date": "115/06/04", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkzODM=", "history": [], "analysis": "", "is_activity": true}, {"id": "115-45", "title": "115年幼兒園環境教育暨藝文觀摩活動", "org": "雲林縣麥寮鄉公所", "town": "麥寮鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "325,000", "date": "115/06/03", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzcxNDE=", "history": [{"year": 2025, "title": "C11503 115年度幼兒園環境清潔維護委外勞務採購案", "winner": "鈦強環保科技有限公司", "award_price": "220,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}, {"year": 2024, "title": "C11404 114年度幼兒園環境清潔維護委外勞務採購案", "winner": "鈦強環保科技有限公司", "award_price": "480,000元", "bidder_count": "1", "base_price": "未公開", "budget": ""}], "analysis": "", "is_activity": true}, {"id": "1150608", "title": "115年度第二期臺西鄉AC路面修護改善工程(開口契約)委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "818,651", "date": "115/06/09", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDI4MzU=", "history": [], "analysis": "", "is_activity": false}, {"id": "1150602", "title": "臺西鄉普令厝段1621地號排水路改善工程等4件委託設計監造技術服務案", "org": "雲林縣臺西鄉公所", "town": "臺西鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "628,175", "date": "115/06/03", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzc0ODc=", "history": [], "analysis": "", "is_activity": false}, {"id": "115W05", "title": "四湖鄉轄內村里道路LED路燈燈泡汰換工程委託規劃設計監造服務", "org": "雲林縣四湖鄉公所", "town": "四湖鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "1,345,400", "date": "115/06/08", "deadline": "115/06/15", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDE1MDU=", "history": [], "analysis": "", "is_activity": false}, {"id": "115031", "title": "水林鄉蘇秦村豐德宮廁所及周邊設施修繕工程委託規劃設計監造技術服務", "org": "雲林縣水林鄉公所", "town": "水林鄉", "type": "勞務", "recruit_type": "公開取得報價單或企劃書", "budget": "304,640", "date": "115/06/03", "deadline": "115/06/11", "status": "招標中", "winner": "", "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzczOTc=", "history": [], "analysis": "", "is_activity": false}]};
     ALL = data.tenders || [];
-    ALL.forEach(t => { if (t.analysis) aiResults[t.id] = parseAnalysis(t.analysis); });
     MAX_BUDGET = Math.max(1, ...ALL.map(t => parseBudget(t.budget)));
     const dt = new Date(data.updated_at);
     const updatedEl = document.getElementById('updated-at');
@@ -506,26 +496,15 @@ async function loadData() {
   document.getElementById('app').style.display = 'flex';
 }
 
-function parseAnalysis(text) {
-  if (!text) return null;
-  const m = text.match(/【投標建議】\s*(.+)/) || text.match(/【競標建議】\s*(.+)/);
-  const label = m ? m[1].trim() : '審慎評估';
-  const verdict = label.includes('不建議') ? 'no' : label.includes('建議投標') ? 'yes' : 'maybe';
-  return { text, label, verdict };
-}
-
 function parseBudget(s) { if (!s) return 0; return parseInt(s.replace(/[^0-9]/g, '')) || 0; }
 
 /* === Spotlight === */
 function renderSpotlight() {
   const actives = ALL.filter(t => t.is_activity);
   const wrap = document.getElementById('spotlight-wrap');
-  if (!actives.length || (currentView === 'analyzed')) { wrap.style.display = 'none'; return; }
+  if (!actives.length) { wrap.style.display = 'none'; return; }
   wrap.style.display = '';
   const cards = actives.map(t => {
-    const ai = aiResults[t.id];
-    const verdict = ai ? ai.verdict : 'none';
-    const verdictLabel = ai ? ai.label : '未分析';
     const days = daysUntil(t.deadline);
     const uk = urgencyKey(days);
     const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
@@ -533,8 +512,7 @@ function renderSpotlight() {
     const budgetShort = parseBudget(t.budget) >= 1000000
       ? (parseBudget(t.budget) / 1000000).toFixed(1) + '百萬'
       : 'NT$ ' + t.budget;
-    return `<div class="scard v-${verdict}" onclick="openPanel('${t.id}')">
-      <div class="scard-verdict">${verdictLabel}</div>
+    return `<div class="scard u-${uk}" onclick="openPanel('${t.id}')">
       <div class="scard-title">${t.title}</div>
       <div class="scard-meta">
         <span class="scard-budget">${budgetShort}</span>
@@ -552,7 +530,6 @@ function getFiltered() {
   const fb = document.getElementById('f-budget').value;
   return ALL.filter(t => {
     if (currentView === 'activity' && !t.is_activity) return false;
-    if (currentView === 'analyzed' && !aiResults[t.id]) return false;
     if (currentTown && t.town !== currentTown) return false;
     if (ft && t.town !== ft) return false;
     if (kw && !t.title.toLowerCase().includes(kw) && !t.org.includes(kw)) return false;
@@ -581,7 +558,7 @@ function filterTown(town) {
   renderSpotlight(); updateViewTitle(); renderTable();
 }
 function updateViewTitle() {
-  const titles = { all: '全部勞務標案', activity: '活動相關標案', analyzed: '已 AI 分析' };
+  const titles = { all: '全部勞務標案', activity: '活動相關標案' };
   document.getElementById('view-title').textContent = currentTown ? currentTown + ' 標案' : (titles[currentView] || '全部標案');
 }
 
@@ -592,11 +569,10 @@ function renderTable() {
   document.getElementById('sel-bar').style.display = ALL.length ? 'flex' : 'none';
   document.getElementById('view-sub').textContent = `顯示 ${rows.length} 筆`;
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state">${ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py'}</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="8"><div class="empty-state">${ALL.length ? '無符合條件的標案' : '尚無資料，請執行 pcc_crawler.py'}</div></td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map(t => {
-    const ai = aiResults[t.id];
     const isChk = selected.has(t.id);
     const days = daysUntil(t.deadline);
     const uk = urgencyKey(days);
@@ -604,7 +580,6 @@ function renderTable() {
     const barW = Math.max(4, Math.round(parseBudget(t.budget) / MAX_BUDGET * 100));
     const histTag = (t.history && t.history.length > 0) ? `<span class="hist-tag">${t.history.length}年記錄</span>` : '';
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
-    const aiBadge = ai ? `<span class="badge badge-${ai.verdict}">${ai.label}</span>` : '<span style="color:var(--text3);font-size:11px">—</span>';
     return `<tr class="u-${uk}" onclick="openPanel('${t.id}')">
       <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
       <td onclick="event.stopPropagation()"><input type="checkbox" class="chk" ${isChk?'checked':''} onchange="toggleSel('${t.id}',this.checked)"></td>
@@ -613,7 +588,6 @@ function renderTable() {
       <td class="td-budget"><div class="budget-val">NT$ ${t.budget}</div><div class="budget-bar-wrap"><div class="budget-bar-fill" style="width:${barW}%"></div></div></td>
       <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
       <td>${actBadge}</td>
-      <td>${aiBadge}</td>
       <td onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
     </tr>`;
   }).join('');
@@ -635,12 +609,10 @@ function updateStats() {
   document.getElementById('s-total').textContent = ALL.length;
   document.getElementById('s-activity').textContent = ALL.filter(t => t.is_activity).length;
   document.getElementById('s-urgent').textContent = urgentCount;
-  document.getElementById('s-done').textContent = Object.keys(aiResults).length;
   const urgentCard = document.getElementById('stat-urgent');
   urgentCard.classList.toggle('has-urgent', urgentCount > 0);
   document.getElementById('nc-all').textContent = ALL.length;
   document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
-  document.getElementById('nc-analyzed').textContent = Object.keys(aiResults).length;
 }
 
 function buildTownFilter() {
@@ -675,17 +647,14 @@ function switchTab(idx) {
   document.querySelectorAll('.panel-tab').forEach((el, i) => el.classList.toggle('active', i === idx));
   if (!currentTender) return;
   if (idx === 0) renderTabInfo();
-  else if (idx === 1) renderTabAI();
   else renderTabHistory();
 }
 function renderTabInfo() {
   const t = currentTender;
-  const ai = aiResults[t.id];
   const days = daysUntil(t.deadline);
   const uk = urgencyKey(days);
   const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
   document.getElementById('panel-body').innerHTML = `
-    ${ai ? `<div class="verdict-banner verdict-${ai.verdict}">${ai.label}</div>` : ''}
     <div class="info-grid">
       <div class="info-item"><div class="lbl">機關</div><div class="val">${t.org}</div></div>
       <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${t.town}</div></div>
@@ -697,8 +666,7 @@ function renderTabInfo() {
     </div>
     <a class="ext-link" href="${t.url}" target="_blank">↗ 在採購網查看原始標案</a>
     <div style="margin-top:14px;display:flex;gap:8px">
-      <button class="btn btn-primary" style="flex:1" onclick="switchTab(1)">${ai ? '查看 AI 分析報告' : '查看分析狀態'}</button>
-      <button class="btn" style="flex:1" onclick="switchTab(2)">查看歷史得標</button>
+      <button class="btn btn-primary" style="flex:1" onclick="switchTab(1)">查看歷史得標</button>
     </div>`;
 }
 function renderTabHistory() {
@@ -721,19 +689,6 @@ function renderTabHistory() {
     </div>
     <p style="font-size:11px;color:var(--text3);margin-top:8px">資料來源：政府採購網決標公告</p>`;
 }
-function renderTabAI() {
-  const t = currentTender;
-  const ai = aiResults[t.id];
-  if (ai) {
-    document.getElementById('panel-body').innerHTML = `
-      <div class="verdict-banner verdict-${ai.verdict}">${ai.label}</div>
-      <div class="section-lbl" style="margin-top:0">分析報告</div>
-      <div class="analysis-block">${ai.text}</div>`;
-    return;
-  }
-  document.getElementById('panel-body').innerHTML = `<div class="analysis-block" style="color:var(--text3)">本標案尚未分析。\n\n請交由 Claude Code 或 Codex 在本機讀取 data.json 後進行分析。為了保護憑證，這個靜態網頁不接受 API Key。</div>`;
-}
-
 function toggleSidebar() {
   const sidebar = document.querySelector('.sidebar');
   const backdrop = document.getElementById('sidebar-backdrop');
