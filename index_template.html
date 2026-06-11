@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雲林縣採購監控</title>
+<meta name="description" content="雲林縣政府與各鄉鎮市公所勞務標案監控">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f4ed;
+  --surface: #fffdf8;
+  --surface2: #f1ede3;
+  --surface3: #e9e4d6;
+  --border: #e5dfd1;
+  --border2: #d3cbb8;
+  --text: #36342e;
+  --text2: #7d776a;
+  --text3: #aaa395;
+  --gold: #4a6c5d;
+  --gold-soft: #5d8272;
+  --gold-bg: rgba(74,108,93,.09);
+  --amber: #b98a3a;
+  --amber-bg: rgba(185,138,58,.12);
+  --green: #6f9272;
+  --green-bg: rgba(111,146,114,.12);
+  --red: #c25e5e;
+  --red-bg: rgba(194,94,94,.1);
+  --shadow: 0 8px 28px rgba(96,86,62,.13);
+  --z-progress: 40;
+  --z-backdrop: 50;
+  --z-panel: 60;
+  --z-toast: 70;
+  --z-lock: 100;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  background: var(--bg); color: var(--text);
+  font-size: 14px; line-height: 1.55; min-height: 100dvh;
+}
+/* 紙紋噪點，破除數位平面感 */
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: .022;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.num { font-variant-numeric: tabular-nums; }
+button { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px; }
+
+/* === 頂部導航 === */
+.masthead {
+  position: sticky; top: 0; z-index: 30;
+  background: linear-gradient(to bottom, rgba(247,244,237,.97), rgba(247,244,237,.92));
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.masthead-inner {
+  max-width: 1280px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.brand { display: flex; align-items: baseline; gap: 10px; flex: 1; min-width: 0; }
+.brand-title { font-family: 'Noto Serif TC', serif; font-size: 19px; font-weight: 900; letter-spacing: .02em; white-space: nowrap; }
+.brand-title em { font-style: normal; color: var(--gold); }
+.brand-sub { font-size: 11px; color: var(--text3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand-sub.stale { color: var(--red); font-weight: 600; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px;
+  border-radius: 8px; font-size: 13px; cursor: pointer;
+  border: 1px solid var(--border2); background: var(--surface2); color: var(--text2);
+  transition: background .2s, color .2s, transform .15s, border-color .2s;
+}
+.btn:hover { background: var(--surface3); color: var(--text); border-color: var(--gold-soft); }
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--gold); border-color: var(--gold); color: #fdfcf8; font-weight: 600; }
+.btn-primary:hover { background: var(--gold-soft); border-color: var(--gold-soft); color: #fdfcf8; }
+.btn-primary:disabled { opacity: .35; pointer-events: none; }
+
+/* === 主內容 === */
+.wrap { max-width: 1280px; margin: 0 auto; padding: 22px 24px 80px; position: relative; z-index: 2; }
+
+/* === 統計列 === */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
+.stat { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px 12px; }
+.stat .lbl { font-size: 11px; color: var(--text3); margin-bottom: 6px; font-weight: 500; }
+.stat .val { font-family: 'Noto Serif TC', serif; font-size: 32px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .sub { font-size: 11px; color: var(--text3); margin-top: 5px; }
+.stat-urgent.has-urgent { background: var(--red-bg); border-color: rgba(224,92,92,.3); }
+.stat-urgent.has-urgent .val { color: var(--red); }
+.stat-activity .val { color: var(--gold); }
+
+/* === 活動標案焦點區 === */
+.spotlight { margin-bottom: 30px; }
+.section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.section-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; }
+.section-title::before { content: '◆'; color: var(--gold); margin-right: 8px; font-size: 11px; }
+.section-note { font-size: 11px; color: var(--text3); }
+.scards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
+.scard {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 15px 17px 13px; cursor: pointer; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 9px;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.scard:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--border2); }
+.scard:active { transform: translateY(0); }
+.scard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+.scard.u-urgent::before { background: var(--red); }
+.scard.u-warning::before { background: var(--amber); }
+.scard.u-safe::before { background: var(--green); }
+.scard.u-expired::before, .scard.u-none::before { background: var(--border2); }
+.scard-title { font-size: 13.5px; font-weight: 600; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-wrap: pretty; }
+.scard-org { font-size: 11px; color: var(--text3); margin-top: -4px; }
+.scard-meta { display: flex; align-items: center; gap: 10px; }
+.scard-budget { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
+.dl-chip { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 5px; margin-left: auto; white-space: nowrap; }
+.dl-chip.d-urgent { background: var(--red-bg); color: var(--red); }
+.dl-chip.d-warning { background: var(--amber-bg); color: var(--amber); }
+.dl-chip.d-safe { background: var(--green-bg); color: var(--green); }
+.dl-chip.d-expired { background: var(--surface3); color: var(--text3); }
+.scard-hist { font-size: 11.5px; color: var(--text2); border-top: 1px dashed var(--border2); padding-top: 8px; line-height: 1.7; }
+.scard-hist strong { color: var(--gold-soft); font-weight: 600; }
+.scard-hist.none { color: var(--text3); }
+
+/* === 篩選列 === */
+.toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.seg { display: inline-flex; background: var(--surface); border: 1px solid var(--border); border-radius: 9px; padding: 3px; }
+.seg button {
+  border: 0; background: transparent; color: var(--text2); font-size: 12.5px;
+  padding: 6px 14px; border-radius: 7px; cursor: pointer; transition: background .2s, color .2s;
+}
+.seg button:hover { color: var(--text); }
+.seg button.active { background: var(--gold); color: #fdfcf8; font-weight: 600; }
+.toolbar input[type=text], .toolbar select {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 9px;
+  color: var(--text); font-family: inherit; font-size: 12.5px; padding: 8px 12px;
+  transition: border-color .2s;
+}
+.toolbar input[type=text] { flex: 1; min-width: 160px; }
+.toolbar input[type=text]:focus, .toolbar select:focus { border-color: var(--gold-soft); outline: none; }
+.toolbar input::placeholder { color: var(--text3); }
+
+/* === 表格 === */
+.table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+table { width: 100%; border-collapse: collapse; }
+thead th {
+  text-align: left; font-size: 11px; font-weight: 500; color: var(--text3);
+  padding: 10px 14px; border-bottom: 1px solid var(--border); background: var(--surface2);
+  white-space: nowrap;
+}
+tbody tr { cursor: pointer; transition: background .15s; }
+tbody tr:hover { background: var(--surface2); }
+tbody td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+tbody tr:last-child td { border-bottom: 0; }
+.td-urge { width: 3px; padding: 0 !important; }
+.urge-bar { display: block; width: 3px; height: 100%; min-height: 44px; }
+.urge-urgent { background: var(--red); }
+.urge-warning { background: var(--amber); }
+.urge-safe { background: var(--green); }
+.urge-expired, .urge-none { background: transparent; }
+.td-name .name { font-weight: 500; line-height: 1.5; text-wrap: pretty; }
+.td-name .name.is-activity { color: var(--gold); }
+.td-name .org { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.hist-tag { display: inline-block; font-size: 10px; color: var(--gold-soft); border: 1px solid var(--border2); border-radius: 4px; padding: 0 5px; margin-left: 7px; vertical-align: 1px; }
+.td-town { font-size: 12px; color: var(--text2); white-space: nowrap; }
+.td-budget { white-space: nowrap; }
+.budget-val { font-variant-numeric: tabular-nums; font-weight: 600; }
+.td-dl { white-space: nowrap; }
+.dl-days { font-size: 12px; font-weight: 600; }
+.dl-date { font-size: 11px; color: var(--text3); margin-top: 1px; font-variant-numeric: tabular-nums; }
+.d-urgent { color: var(--red); }
+.d-warning { color: var(--amber); }
+.d-safe { color: var(--green); }
+.d-expired { color: var(--text3); }
+.badge { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 5px; white-space: nowrap; }
+.badge-activity { background: var(--gold-bg); color: var(--gold); }
+.badge-other { background: var(--surface3); color: var(--text3); }
+.empty-state { padding: 56px 20px; text-align: center; color: var(--text3); font-size: 13px; }
+
+/* === 詳情面板 === */
+.overlay { position: fixed; inset: 0; background: rgba(10,8,5,.6); opacity: 0; pointer-events: none; transition: opacity .25s; z-index: var(--z-backdrop); }
+.overlay.open { opacity: 1; pointer-events: auto; }
+.panel {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(480px, 100vw);
+  background: var(--surface); border-left: 1px solid var(--border2);
+  transform: translateX(102%); transition: transform .28s cubic-bezier(.3,.9,.3,1);
+  z-index: var(--z-panel); display: flex; flex-direction: column;
+}
+.panel.open { transform: translateX(0); }
+.panel-head { padding: 20px 22px 14px; border-bottom: 1px solid var(--border); position: relative; }
+.panel-head h2 { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; line-height: 1.5; padding-right: 34px; text-wrap: pretty; }
+.panel-head .meta { font-size: 12px; color: var(--text2); margin-top: 6px; }
+.panel-head .close {
+  position: absolute; top: 16px; right: 16px; width: 30px; height: 30px;
+  border: 1px solid var(--border2); border-radius: 7px; background: var(--surface2);
+  color: var(--text2); cursor: pointer; font-size: 13px; transition: background .2s, color .2s;
+}
+.panel-head .close:hover { background: var(--surface3); color: var(--text); }
+.panel-tabs { display: flex; border-bottom: 1px solid var(--border); padding: 0 22px; gap: 4px; }
+.panel-tab {
+  padding: 10px 14px; font-size: 13px; color: var(--text3); cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color .2s;
+}
+.panel-tab:hover { color: var(--text2); }
+.panel-tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
+.panel-body { flex: 1; overflow-y: auto; padding: 20px 22px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; margin-bottom: 18px; }
+.info-item .lbl { font-size: 11px; color: var(--text3); margin-bottom: 3px; }
+.info-item .val { font-size: 13.5px; font-variant-numeric: tabular-nums; }
+.ext-link { display: inline-block; font-size: 13px; color: var(--gold); text-decoration: none; border-bottom: 1px dashed var(--gold-soft); padding-bottom: 1px; }
+.ext-link:hover { color: #e3b357; }
+.section-lbl { font-size: 11px; color: var(--text3); margin: 18px 0 8px; font-weight: 600; }
+.history-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.history-table th { text-align: left; font-size: 11px; font-weight: 500; color: var(--text3); padding: 7px 10px; border-bottom: 1px solid var(--border); }
+.history-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+.history-empty { padding: 28px 16px; text-align: center; color: var(--text3); font-size: 12.5px; background: var(--surface2); border-radius: 9px; }
+
+/* === 進度列 === */
+#progress-panel {
+  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(120%);
+  width: min(520px, calc(100vw - 32px));
+  background: var(--surface2); border: 1px solid var(--border2); border-radius: 12px;
+  padding: 13px 17px; box-shadow: var(--shadow); transition: transform .3s; z-index: var(--z-progress);
+}
+#progress-panel.visible { transform: translateX(-50%) translateY(0); }
+.pp-bar-track { height: 5px; background: var(--surface3); border-radius: 3px; overflow: hidden; margin-bottom: 9px; }
+.pp-bar-fill { height: 100%; width: 0; background: var(--gold); border-radius: 3px; transition: width .5s; }
+.pp-bar-fill.pp-done { background: var(--green); }
+.pp-bar-fill.pp-error { background: var(--red); }
+.pp-info { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+.pp-pct { font-weight: 700; color: var(--gold); min-width: 36px; font-variant-numeric: tabular-nums; }
+.pp-pct.pp-done { color: var(--green); }
+.pp-pct.pp-error { color: var(--red); }
+.pp-msg { flex: 1; color: var(--text2); }
+.pp-time { color: var(--text3); font-size: 11px; white-space: nowrap; }
+
+/* === Toast === */
+#toast {
+  position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%) translateY(16px);
+  background: var(--surface3); border: 1px solid var(--border2); color: var(--text);
+  border-radius: 10px; padding: 12px 18px; font-size: 12.5px; white-space: pre-line;
+  opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s;
+  box-shadow: var(--shadow); z-index: var(--z-toast); max-width: min(480px, calc(100vw - 32px));
+}
+#toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* === 載入畫面 === */
+.page-loading { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; background: var(--bg); z-index: 20; }
+.page-loading .sp { width: 30px; height: 30px; border: 3px solid var(--border2); border-top-color: var(--gold); border-radius: 50%; animation: spin .8s linear infinite; }
+.page-loading p { color: var(--text3); font-size: 13px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* === 入場動畫 === */
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.stats, .spotlight, .toolbar, .table-wrap { animation: rise .45s cubic-bezier(.2,.7,.3,1) backwards; }
+.spotlight { animation-delay: .06s; }
+.toolbar { animation-delay: .12s; }
+.table-wrap { animation-delay: .16s; }
+
+/* === 手機版 === */
+@media (max-width: 720px) {
+  .masthead-inner { padding: 12px 16px; }
+  .brand-sub { display: none; }
+  .wrap { padding: 16px 14px 70px; }
+  .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat .val { font-size: 26px; }
+  .scards { grid-template-columns: 1fr; }
+  /* 表格轉卡片 */
+  thead { display: none; }
+  table, tbody, tr, td { display: block; }
+  .table-wrap { background: transparent; border: 0; border-radius: 0; }
+  tbody tr {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 11px;
+    margin-bottom: 10px; padding: 13px 15px; position: relative; overflow: hidden;
+  }
+  tbody td { padding: 0; border: 0; }
+  .td-urge { position: absolute; left: 0; top: 0; bottom: 0; }
+  .urge-bar { height: 100%; }
+  .td-name { margin-bottom: 8px; padding-left: 6px !important; }
+  .td-town, .td-budget, .td-dl, .td-type { display: inline-block; margin-right: 14px; padding-left: 6px !important; }
+  .td-dl .dl-date { display: inline; margin-left: 5px; }
+  .td-view { display: none; }
+}
+.btn-view { padding: 5px 12px; border-radius: 7px; border: 1px solid var(--border2); background: transparent; color: var(--text2); font-size: 12px; cursor: pointer; transition: all .2s; }
+.btn-view:hover { border-color: var(--gold-soft); color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- 密碼鎖 -->
+<div id="lock-screen" style="position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:var(--z-lock);">
+  <div style="background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:38px 40px;width:330px;text-align:center;box-shadow:var(--shadow)">
+    <div style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:900;margin-bottom:2px">雲林<em style="font-style:normal;color:var(--gold)">採購監控</em></div>
+    <div style="font-size:12px;color:var(--text3);margin-bottom:24px">請輸入密碼進入</div>
+    <input id="pw-input" type="password" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()"
+      style="width:100%;padding:11px 14px;border:1px solid var(--border2);border-radius:9px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;box-sizing:border-box;margin-bottom:8px">
+    <div id="pw-error" style="font-size:12px;color:var(--red);margin-bottom:10px;min-height:16px"></div>
+    <button onclick="checkPw()" style="width:100%;padding:11px;background:var(--gold);border:none;border-radius:9px;color:#fdfcf8;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer">進入</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const HASH = '56116e9ca720684c714b68f1420dde3bc1a492e9b61f58c1a036d4d2d1c12df1';
+  function sha256(str) {
+    const buf = new TextEncoder().encode(str);
+    return crypto.subtle.digest('SHA-256', buf).then(h =>
+      Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('')
+    );
+  }
+  function checkPw() {
+    const pw = document.getElementById('pw-input').value;
+    sha256(pw).then(hash => {
+      if (hash === HASH) {
+        sessionStorage.setItem('auth', '1');
+        document.getElementById('lock-screen').style.display = 'none';
+      } else {
+        document.getElementById('pw-error').textContent = '密碼錯誤，請再試一次';
+        document.getElementById('pw-input').value = '';
+        document.getElementById('pw-input').focus();
+      }
+    });
+  }
+  window.checkPw = checkPw;
+  if (sessionStorage.getItem('auth') !== '1') {
+    document.addEventListener('DOMContentLoaded', () => document.getElementById('pw-input').focus());
+  } else {
+    document.addEventListener('DOMContentLoaded', () => document.getElementById('lock-screen').style.display = 'none');
+  }
+})();
+</script>
+
+<div class="page-loading" id="pg-loading"><div class="sp"></div><p>載入標案資料中...</p></div>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <div class="brand-title">雲林<em>採購監控</em></div>
+      <div class="brand-sub" id="updated-at">載入中...</div>
+    </div>
+    <button class="btn btn-primary" id="btn-refresh" onclick="triggerRefresh()">↺ 更新標案</button>
+  </div>
+</header>
+
+<main class="wrap" id="app" style="display:none">
+
+  <div class="stats">
+    <div class="stat"><div class="lbl">等標期內標案</div><div class="val" id="s-total">0</div><div class="sub">勞務類</div></div>
+    <div class="stat stat-activity"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div><div class="sub">可評估投標</div></div>
+    <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">3 天內</div></div>
+    <div class="stat"><div class="lbl">一週內截止</div><div class="val" id="s-week">0</div><div class="sub">7 天內</div></div>
+  </div>
+
+  <section class="spotlight" id="spotlight-wrap" style="display:none">
+    <div class="section-head">
+      <h2 class="section-title">活動相關標案</h2>
+      <span class="section-note">依截止日排序・卡片含前兩年得標記錄</span>
+    </div>
+    <div class="scards" id="spotlight-cards"></div>
+  </section>
+
+  <div class="toolbar">
+    <div class="seg">
+      <button id="seg-all" class="active" onclick="setView('all')">全部 <span class="num" id="nc-all">0</span></button>
+      <button id="seg-activity" onclick="setView('activity')">活動 <span class="num" id="nc-activity">0</span></button>
+    </div>
+    <input type="text" id="kw" placeholder="搜尋標案名稱或機關..." oninput="renderTable()">
+    <select id="f-town" onchange="renderTable()"><option value="">所有鄉鎮</option></select>
+    <select id="f-budget" onchange="renderTable()">
+      <option value="">所有預算</option>
+      <option value="100">100萬以下</option>
+      <option value="500">100–500萬</option>
+      <option value="1000">500萬–1000萬</option>
+      <option value="9999">1000萬以上</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:3px;padding:0"></th>
+          <th>標案名稱</th>
+          <th>鄉鎮</th>
+          <th>預算金額</th>
+          <th>截止倒數</th>
+          <th>類型</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <p style="font-size:11px;color:var(--text3);margin-top:14px">資料來源：政府電子採購網（PCC）・依截止日由近至遠排序</p>
+</main>
+
+<div id="progress-panel">
+  <div class="pp-bar-track"><div class="pp-bar-fill" id="pp-bar"></div></div>
+  <div class="pp-info">
+    <span class="pp-pct" id="pp-pct">0%</span>
+    <span class="pp-msg" id="pp-msg">準備中...</span>
+    <span class="pp-time" id="pp-time"></span>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" onclick="closePanel()"></div>
+<div class="panel" id="panel">
+  <div class="panel-head">
+    <button class="close" onclick="closePanel()">✕</button>
+    <h2 id="p-title"></h2>
+    <div class="meta" id="p-meta"></div>
+  </div>
+  <div class="panel-tabs">
+    <div class="panel-tab active" onclick="switchTab(0)">標案資訊</div>
+    <div class="panel-tab" onclick="switchTab(1)">歷史得標</div>
+  </div>
+  <div class="panel-body" id="panel-body"></div>
+</div>
+
+<script>
+let ALL=[], currentView='all', currentTender=null, currentTab=0;
+
+/* === 截止日工具 === */
+function parseMinguoDate(str) {
+  if (!str) return null;
+  const p = str.split('/');
+  if (p.length !== 3) return null;
+  return new Date(parseInt(p[0]) + 1911, parseInt(p[1]) - 1, parseInt(p[2]));
+}
+function daysUntil(dateStr) {
+  const d = parseMinguoDate(dateStr);
+  if (!d) return null;
+  const today = new Date(); today.setHours(0,0,0,0);
+  return Math.floor((d - today) / 86400000);
+}
+function urgencyKey(days) {
+  if (days === null) return 'none';
+  if (days < 0) return 'expired';
+  if (days <= 3) return 'urgent';
+  if (days <= 7) return 'warning';
+  return 'safe';
+}
+function deadlineLabel(days) {
+  if (days === null) return '—';
+  if (days < 0) return `已截止 ${Math.abs(days)}天前`;
+  if (days === 0) return '今天截止';
+  if (days === 1) return '明天截止';
+  return `${days} 天後`;
+}
+function formatMDDate(str) {
+  if (!str) return '—';
+  const p = str.split('/');
+  if (p.length !== 3) return str;
+  return `${p[1]}/${p[2]}`;
+}
+/* 依截止日排序：近的在前，已截止與無日期排最後 */
+function byDeadline(a, b) {
+  const da = daysUntil(a.deadline), db = daysUntil(b.deadline);
+  const ka = (da === null || da < 0) ? 9999 + (da === null ? 1 : 0) : da;
+  const kb = (db === null || db < 0) ? 9999 + (db === null ? 1 : 0) : db;
+  return ka - kb;
+}
+
+/* === 載入資料 === */
+window.addEventListener('DOMContentLoaded', loadData);
+
+async function loadData() {
+  document.getElementById('pg-loading').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+  try {
+    const data = __DATA_PLACEHOLDER__;
+    ALL = (data.tenders || []).slice().sort(byDeadline);
+    const dt = new Date(data.updated_at);
+    const updatedEl = document.getElementById('updated-at');
+    updatedEl.textContent = '更新於 ' + dt.toLocaleDateString('zh-TW') + ' ' + dt.toLocaleTimeString('zh-TW', {hour:'2-digit', minute:'2-digit'});
+    const staleDays = Math.floor((Date.now() - dt.getTime()) / 86400000);
+    if (staleDays >= 1) {
+      updatedEl.textContent += `（已 ${staleDays} 天未更新）`;
+      updatedEl.classList.add('stale');
+    }
+    if (data.failed_orgs && data.failed_orgs.length) {
+      showToast('注意：上次更新有機關查詢失敗，資料可能不完整：\n' + data.failed_orgs.join('、'), 8000);
+    }
+    buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
+  } catch(e) { ALL = []; document.getElementById('updated-at').textContent = '⚠ 載入失敗'; }
+  document.getElementById('pg-loading').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+
+function parseBudget(s) { if (!s) return 0; return parseInt(s.replace(/[^0-9]/g, '')) || 0; }
+function fmtBudget(s) {
+  const b = parseBudget(s);
+  if (!b) return s || '—';
+  if (b >= 10000) return (b / 10000).toLocaleString('zh-TW', {maximumFractionDigits: 1}) + ' 萬';
+  return 'NT$ ' + s;
+}
+
+/* === 活動標案卡片 === */
+function histSummary(t) {
+  const h = t.history || [];
+  if (!h.length) return '<div class="scard-hist none">查無前兩年得標記錄</div>';
+  const lines = h.map(x => `${x.year - 1911}年 <strong>${x.winner}</strong>・${x.award_price}`).join('<br>');
+  return `<div class="scard-hist">${lines}</div>`;
+}
+function renderSpotlight() {
+  const actives = ALL.filter(t => t.is_activity);
+  const wrap = document.getElementById('spotlight-wrap');
+  if (!actives.length) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  document.getElementById('spotlight-cards').innerHTML = actives.map(t => {
+    const days = daysUntil(t.deadline);
+    const uk = urgencyKey(days);
+    return `<div class="scard u-${uk}" onclick="openPanel('${t.id}')">
+      <div class="scard-title">${t.title}</div>
+      <div class="scard-org">${t.org}</div>
+      <div class="scard-meta">
+        <span class="scard-budget">${fmtBudget(t.budget)}</span>
+        <span class="dl-chip d-${uk === 'none' ? 'expired' : uk}">${deadlineLabel(days)}</span>
+      </div>
+      ${histSummary(t)}
+    </div>`;
+  }).join('');
+}
+
+/* === 篩選 === */
+function getFiltered() {
+  const kw = document.getElementById('kw').value.trim().toLowerCase();
+  const ft = document.getElementById('f-town').value;
+  const fb = document.getElementById('f-budget').value;
+  return ALL.filter(t => {
+    if (currentView === 'activity' && !t.is_activity) return false;
+    if (ft && t.town !== ft) return false;
+    if (kw && !t.title.toLowerCase().includes(kw) && !t.org.includes(kw)) return false;
+    if (fb) {
+      const b = parseBudget(t.budget);
+      if (fb === '100' && b > 1000000) return false;
+      if (fb === '500' && (b <= 1000000 || b > 5000000)) return false;
+      if (fb === '1000' && (b <= 5000000 || b > 10000000)) return false;
+      if (fb === '9999' && b <= 10000000) return false;
+    }
+    return true;
+  });
+}
+
+function setView(v) {
+  currentView = v;
+  document.getElementById('seg-all').classList.toggle('active', v === 'all');
+  document.getElementById('seg-activity').classList.toggle('active', v === 'activity');
+  renderTable();
+}
+
+/* === 表格 === */
+function renderTable() {
+  const rows = getFiltered();
+  const tbody = document.getElementById('tbody');
+  if (!rows.length) {
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">${ALL.length ? '沒有符合條件的標案' : '尚無資料，按右上「更新標案」抓取'}</div></td></tr>`;
+    return;
+  }
+  tbody.innerHTML = rows.map(t => {
+    const days = daysUntil(t.deadline);
+    const uk = urgencyKey(days);
+    const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
+    const histTag = (t.history && t.history.length > 0) ? `<span class="hist-tag">${t.history.length} 年記錄</span>` : '';
+    const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
+    return `<tr onclick="openPanel('${t.id}')">
+      <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
+      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${t.title}${histTag}</div><div class="org">${t.org}</div></td>
+      <td class="td-town">${t.town}</td>
+      <td class="td-budget"><div class="budget-val">NT$ ${t.budget}</div></td>
+      <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
+      <td class="td-type">${actBadge}</td>
+      <td class="td-view" onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
+    </tr>`;
+  }).join('');
+}
+
+function updateStats() {
+  const dl = t => daysUntil(t.deadline);
+  const urgentCount = ALL.filter(t => { const d = dl(t); return d !== null && d >= 0 && d <= 3; }).length;
+  const weekCount = ALL.filter(t => { const d = dl(t); return d !== null && d >= 0 && d <= 7; }).length;
+  document.getElementById('s-total').textContent = ALL.length;
+  document.getElementById('s-activity').textContent = ALL.filter(t => t.is_activity).length;
+  document.getElementById('s-urgent').textContent = urgentCount;
+  document.getElementById('s-week').textContent = weekCount;
+  document.getElementById('stat-urgent').classList.toggle('has-urgent', urgentCount > 0);
+  document.getElementById('nc-all').textContent = ALL.length;
+  document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
+}
+
+function buildTownFilter() {
+  const towns = [...new Set(ALL.map(t => t.town))].sort();
+  const sel = document.getElementById('f-town');
+  towns.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; sel.appendChild(o); });
+}
+
+/* === 詳情面板 === */
+function openPanel(id) {
+  currentTender = ALL.find(t => t.id === id);
+  if (!currentTender) return;
+  document.getElementById('p-title').textContent = currentTender.title;
+  const days = daysUntil(currentTender.deadline);
+  const dlInfo = days !== null ? `　截止：${currentTender.deadline}（${deadlineLabel(days)}）` : '';
+  document.getElementById('p-meta').textContent = currentTender.org + dlInfo;
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('panel').classList.add('open');
+  switchTab(0);
+}
+function closePanel() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('panel').classList.remove('open');
+}
+function switchTab(idx) {
+  currentTab = idx;
+  document.querySelectorAll('.panel-tab').forEach((el, i) => el.classList.toggle('active', i === idx));
+  if (!currentTender) return;
+  if (idx === 0) renderTabInfo();
+  else renderTabHistory();
+}
+function renderTabInfo() {
+  const t = currentTender;
+  const days = daysUntil(t.deadline);
+  const uk = urgencyKey(days);
+  const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
+  document.getElementById('panel-body').innerHTML = `
+    <div class="info-grid">
+      <div class="info-item"><div class="lbl">機關</div><div class="val">${t.org}</div></div>
+      <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${t.town}</div></div>
+      <div class="info-item"><div class="lbl">預算金額</div><div class="val">NT$ ${t.budget}</div></div>
+      <div class="info-item"><div class="lbl">公告日期</div><div class="val">${t.date || '—'}</div></div>
+      <div class="info-item"><div class="lbl">截止投標</div><div class="val"><span class="${dlClass}" style="font-weight:600">${t.deadline || '—'}</span>${days !== null ? `　<span class="${dlClass}" style="font-size:11px">${deadlineLabel(days)}</span>` : ''}</div></div>
+      <div class="info-item"><div class="lbl">類型</div><div class="val">${t.is_activity ? '◆ 活動相關' : '一般勞務'}</div></div>
+      <div class="info-item" style="grid-column:1/-1"><div class="lbl">招標方式</div><div class="val">${t.recruit_type || '—'}</div></div>
+    </div>
+    <a class="ext-link" href="${t.url}" target="_blank" rel="noopener">↗ 在採購網查看原始標案</a>
+    <div style="margin-top:18px">
+      <button class="btn" style="width:100%;justify-content:center" onclick="switchTab(1)">查看歷史得標記錄</button>
+    </div>`;
+}
+function renderTabHistory() {
+  const t = currentTender;
+  const history = t.history || [];
+  if (!history.length) {
+    document.getElementById('panel-body').innerHTML = `
+      <div class="section-lbl" style="margin-top:0">歷史得標記錄</div>
+      <div class="history-empty">查無前兩年決標記錄（可能為新標案，或標案名稱有變動）</div>`;
+    return;
+  }
+  const rows = history.map(h => `<tr><td><strong>${h.year}年</strong></td><td>${h.winner || '—'}</td><td>${h.award_price || '—'}</td><td>${h.bidder_count || '—'}</td></tr>`).join('');
+  document.getElementById('panel-body').innerHTML = `
+    <div class="section-lbl" style="margin-top:0">前兩年歷史得標記錄</div>
+    <table class="history-table">
+      <thead><tr><th>年份</th><th>得標廠商</th><th>決標金額</th><th>投標家數</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p style="font-size:11px;color:var(--text3);margin-top:10px">資料來源：政府採購網決標公告</p>`;
+}
+
+/* === 更新按鈕 === */
+let _refreshStart = 0;
+
+async function triggerRefresh() {
+  const btn = document.getElementById('btn-refresh');
+  const isServer = window.location.protocol === 'http:' && window.location.hostname === 'localhost';
+  if (!isServer) {
+    showToast('這是靜態頁面，無法直接觸發爬蟲。\n請在 Mac 上開啟 http://localhost:8080 再按更新。', 8000);
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = '啟動中...';
+  try {
+    const r = await fetch('/api/refresh', { method: 'POST' });
+    if (!r.ok && r.status !== 409) throw new Error('HTTP ' + r.status);
+    _refreshStart = Date.now();
+    showProgress(2, '連線 PCC 中...');
+    pollStatus();
+  } catch(e) {
+    btn.disabled = false;
+    btn.textContent = '↺ 更新標案';
+    showToast('無法連接伺服器：' + e.message);
+  }
+}
+
+function pollStatus() {
+  const btn = document.getElementById('btn-refresh');
+  const iv = setInterval(async () => {
+    try {
+      const r = await fetch('/api/status');
+      const s = await r.json();
+      const pct = s.progress || 0;
+      const msg = s.message || '執行中...';
+      if (s.started_at && s.started_at > 0) _refreshStart = s.started_at * 1000;
+      showProgress(pct, msg, s.state);
+      btn.textContent = pct > 0 ? `${pct}% 抓取中...` : '執行中...';
+
+      if (s.state === 'done') {
+        clearInterval(iv);
+        showProgress(100, s.message, 'done');
+        btn.textContent = '✓ 完成，重新載入中...';
+        setTimeout(() => window.location.reload(), 2000);
+      } else if (s.state === 'error') {
+        clearInterval(iv);
+        hideProgress();
+        btn.disabled = false;
+        btn.textContent = '↺ 更新標案';
+        showToast('更新失敗：\n' + s.message, 8000);
+      }
+    } catch(e) { /* 繼續輪詢 */ }
+  }, 2000);
+}
+
+function showProgress(pct, msg, state) {
+  const panel = document.getElementById('progress-panel');
+  const bar   = document.getElementById('pp-bar');
+  const pctEl = document.getElementById('pp-pct');
+  const msgEl = document.getElementById('pp-msg');
+  const timeEl = document.getElementById('pp-time');
+  panel.classList.add('visible');
+  bar.style.width = pct + '%';
+  pctEl.textContent = pct + '%';
+  msgEl.textContent = msg;
+  bar.className = 'pp-bar-fill' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
+  pctEl.className = 'pp-pct' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
+  timeEl.textContent = estimateTime(pct, state);
+}
+
+function estimateTime(pct, state) {
+  if (state === 'done') return '已完成';
+  if (state === 'error') return '';
+  if (pct <= 0) return '估算中...';
+  const elapsed = (Date.now() - _refreshStart) / 1000;
+  if (elapsed < 5) return '估算中...';
+  const estimatedTotal = elapsed / (pct / 100);
+  const remaining = Math.max(0, estimatedTotal - elapsed);
+  if (remaining < 10) return '即將完成';
+  const m = Math.floor(remaining / 60);
+  const s = Math.round(remaining % 60);
+  return m > 0 ? `預計還需 ${m} 分 ${s} 秒` : `預計還需 ${s} 秒`;
+}
+
+function hideProgress() {
+  document.getElementById('progress-panel').classList.remove('visible');
+}
+
+function showToast(msg, duration=4000) {
+  let t = document.getElementById('toast');
+  if (!t) {
+    t = document.createElement('div');
+    t.id = 'toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), duration);
+}
+</script>
+</body>
+</html>

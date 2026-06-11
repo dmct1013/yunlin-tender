@@ -1,0 +1,41 @@
+name: 更新採購資料
+
+on:
+  schedule:
+    - cron: '0 1 * * *'  # 每天台北時間 09:00（UTC 01:00）
+  workflow_dispatch:      # 允許手動觸發
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 設定 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安裝依賴
+        run: |
+          pip install playwright
+          playwright install chromium
+          playwright install-deps chromium
+
+      - name: 執行爬蟲
+        run: python pcc_crawler.py
+
+      - name: 產生 index.html
+        run: python build_index.py
+
+      - name: 提交更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html data.json
+          git diff --staged --quiet || git commit -m "update: $(TZ=Asia/Taipei date +'%Y-%m-%d %H:%M') (Taipei)"
+          git push
