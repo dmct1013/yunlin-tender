@@ -28,7 +28,6 @@
   --red: #c25e5e;
   --red-bg: rgba(194,94,94,.1);
   --shadow: 0 8px 28px rgba(96,86,62,.13);
-  --z-progress: 40;
   --z-backdrop: 50;
   --z-panel: 60;
   --z-toast: 70;
@@ -217,24 +216,6 @@ tbody tr:last-child td { border-bottom: 0; }
 .history-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
 .history-empty { padding: 28px 16px; text-align: center; color: var(--text3); font-size: 12.5px; background: var(--surface2); border-radius: 9px; }
 
-/* === 進度列 === */
-#progress-panel {
-  position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%) translateY(120%);
-  width: min(520px, calc(100vw - 32px));
-  background: var(--surface2); border: 1px solid var(--border2); border-radius: 12px;
-  padding: 13px 17px; box-shadow: var(--shadow); transition: transform .3s; z-index: var(--z-progress);
-}
-#progress-panel.visible { transform: translateX(-50%) translateY(0); }
-.pp-bar-track { height: 5px; background: var(--surface3); border-radius: 3px; overflow: hidden; margin-bottom: 9px; }
-.pp-bar-fill { height: 100%; width: 0; background: var(--gold); border-radius: 3px; transition: width .5s; }
-.pp-bar-fill.pp-done { background: var(--green); }
-.pp-bar-fill.pp-error { background: var(--red); }
-.pp-info { display: flex; align-items: center; gap: 10px; font-size: 12px; }
-.pp-pct { font-weight: 700; color: var(--gold); min-width: 36px; font-variant-numeric: tabular-nums; }
-.pp-pct.pp-done { color: var(--green); }
-.pp-pct.pp-error { color: var(--red); }
-.pp-msg { flex: 1; color: var(--text2); }
-.pp-time { color: var(--text3); font-size: 11px; white-space: nowrap; }
 
 /* === Toast === */
 #toast {
@@ -340,7 +321,6 @@ tbody tr:last-child td { border-bottom: 0; }
       <div class="brand-title">雲林<em>採購監控</em></div>
       <div class="brand-sub" id="updated-at">載入中...</div>
     </div>
-    <button class="btn btn-primary" id="btn-refresh" onclick="triggerRefresh()">↺ 更新標案</button>
   </div>
 </header>
 
@@ -396,14 +376,6 @@ tbody tr:last-child td { border-bottom: 0; }
   <p style="font-size:11px;color:var(--text3);margin-top:14px">資料來源：政府電子採購網（PCC）・依截止日由近至遠排序</p>
 </main>
 
-<div id="progress-panel">
-  <div class="pp-bar-track"><div class="pp-bar-fill" id="pp-bar"></div></div>
-  <div class="pp-info">
-    <span class="pp-pct" id="pp-pct">0%</span>
-    <span class="pp-msg" id="pp-msg">準備中...</span>
-    <span class="pp-time" id="pp-time"></span>
-  </div>
-</div>
 
 <div class="overlay" id="overlay" onclick="closePanel()"></div>
 <div class="panel" id="panel">
@@ -556,7 +528,7 @@ function renderTable() {
   const rows = getFiltered();
   const tbody = document.getElementById('tbody');
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">${ALL.length ? '沒有符合條件的標案' : '尚無資料，按右上「更新標案」抓取'}</div></td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">${ALL.length ? '沒有符合條件的標案' : '尚無資料'}</div></td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map(t => {
@@ -658,91 +630,6 @@ function renderTabHistory() {
     <p style="font-size:11px;color:var(--text3);margin-top:10px">資料來源：政府採購網決標公告</p>`;
 }
 
-/* === 更新按鈕 === */
-let _refreshStart = 0;
-
-async function triggerRefresh() {
-  const btn = document.getElementById('btn-refresh');
-  const isServer = window.location.protocol === 'http:' && window.location.hostname === 'localhost';
-  if (!isServer) {
-    showToast('這是靜態頁面，無法直接觸發爬蟲。\n請在 Mac 上開啟 http://localhost:8080 再按更新。', 8000);
-    return;
-  }
-  btn.disabled = true;
-  btn.textContent = '啟動中...';
-  try {
-    const r = await fetch('/api/refresh', { method: 'POST' });
-    if (!r.ok && r.status !== 409) throw new Error('HTTP ' + r.status);
-    _refreshStart = Date.now();
-    showProgress(2, '連線 PCC 中...');
-    pollStatus();
-  } catch(e) {
-    btn.disabled = false;
-    btn.textContent = '↺ 更新標案';
-    showToast('無法連接伺服器：' + e.message);
-  }
-}
-
-function pollStatus() {
-  const btn = document.getElementById('btn-refresh');
-  const iv = setInterval(async () => {
-    try {
-      const r = await fetch('/api/status');
-      const s = await r.json();
-      const pct = s.progress || 0;
-      const msg = s.message || '執行中...';
-      if (s.started_at && s.started_at > 0) _refreshStart = s.started_at * 1000;
-      showProgress(pct, msg, s.state);
-      btn.textContent = pct > 0 ? `${pct}% 抓取中...` : '執行中...';
-
-      if (s.state === 'done') {
-        clearInterval(iv);
-        showProgress(100, s.message, 'done');
-        btn.textContent = '✓ 完成，重新載入中...';
-        setTimeout(() => window.location.reload(), 2000);
-      } else if (s.state === 'error') {
-        clearInterval(iv);
-        hideProgress();
-        btn.disabled = false;
-        btn.textContent = '↺ 更新標案';
-        showToast('更新失敗：\n' + s.message, 8000);
-      }
-    } catch(e) { /* 繼續輪詢 */ }
-  }, 2000);
-}
-
-function showProgress(pct, msg, state) {
-  const panel = document.getElementById('progress-panel');
-  const bar   = document.getElementById('pp-bar');
-  const pctEl = document.getElementById('pp-pct');
-  const msgEl = document.getElementById('pp-msg');
-  const timeEl = document.getElementById('pp-time');
-  panel.classList.add('visible');
-  bar.style.width = pct + '%';
-  pctEl.textContent = pct + '%';
-  msgEl.textContent = msg;
-  bar.className = 'pp-bar-fill' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
-  pctEl.className = 'pp-pct' + (state === 'done' ? ' pp-done' : state === 'error' ? ' pp-error' : '');
-  timeEl.textContent = estimateTime(pct, state);
-}
-
-function estimateTime(pct, state) {
-  if (state === 'done') return '已完成';
-  if (state === 'error') return '';
-  if (pct <= 0) return '估算中...';
-  const elapsed = (Date.now() - _refreshStart) / 1000;
-  if (elapsed < 5) return '估算中...';
-  const estimatedTotal = elapsed / (pct / 100);
-  const remaining = Math.max(0, estimatedTotal - elapsed);
-  if (remaining < 10) return '即將完成';
-  const m = Math.floor(remaining / 60);
-  const s = Math.round(remaining % 60);
-  return m > 0 ? `預計還需 ${m} 分 ${s} 秒` : `預計還需 ${s} 秒`;
-}
-
-function hideProgress() {
-  document.getElementById('progress-panel').classList.remove('visible');
-}
 
 function showToast(msg, duration=4000) {
   let t = document.getElementById('toast');
