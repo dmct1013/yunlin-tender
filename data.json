@@ -1,9 +1,25 @@
 {
-  "updated_at": "2026-06-12T06:06:55.085423",
+  "updated_at": "2026-06-13T05:37:05.125861",
   "total": 32,
   "activity_total": 8,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152B40016",
+      "title": "(更正公告) 大義崙大排大義四號橋及大義崙橋改建工程規劃設計及監造工作",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "12,463,268",
+      "date": "115/06/15",
+      "deadline": "115/06/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgzNjc=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152H10063",
       "title": "「雲林布袋戲館委託經營管理」勞務採購",
@@ -53,18 +69,18 @@
         {
           "year": 2025,
           "title": "114AA0021 2025年TAKAO豐潮系列活動-高雄市原住民族聯合豐年節規劃執行勞務採購案",
-          "winner": "民間全民電視股份有限公司",
-          "award_price": "3,220,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113AA0026 2024年TAKAO豐潮系列活動-高雄市原住民族聯合豐年節規劃執行勞務採購案",
-          "winner": "建邑國際行銷股份有限公司",
-          "award_price": "2,990,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -148,22 +164,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzkyNjc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152B40016",
-      "title": "大義崙大排大義四號橋及大義崙橋改建工程規劃設計及監造工作",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "12,463,268",
-      "date": "115/06/03",
-      "deadline": "115/06/23",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyMzgzNjc=",
       "history": [],
       "is_activity": false
     },
@@ -264,18 +264,18 @@
         {
           "year": 2025,
           "title": "11403-202 彰化縣歷史建築鹿港街長宿舍修復工程委託監造技術服務及工作報告書製作",
-          "winner": "趙金城建築師事務所",
-          "award_price": "1,184,500元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1122H10103 詔安客家『西螺街長宿舍』修復及再利用工程委託監造(含因應計畫)暨工作報告書",
-          "winner": "呂政道建築師事務所",
-          "award_price": "3,600,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -427,9 +427,9 @@
         {
           "year": 2025,
           "title": "114-63 雲林縣麥寮鄉村鄰長慶生文康暨環境保護教育活動",
-          "winner": "瑞文筵席外燴",
-          "award_price": "290,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -453,18 +453,18 @@
         {
           "year": 2025,
           "title": "114-67 114年度環保業務觀摩活動（預估）",
-          "winner": "八川旅行社有限公司",
-          "award_price": "1,130,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "H113-3 113年資源回收及環保業務觀摩",
-          "winner": "路元旅行社有限公司",
-          "award_price": "349,832元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -520,18 +520,18 @@
         {
           "year": 2025,
           "title": "C11503 115年度幼兒園環境清潔維護委外勞務採購案",
-          "winner": "鈦強環保科技有限公司",
-          "award_price": "220,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "C11404 114年度幼兒園環境清潔維護委外勞務採購案",
-          "winner": "鈦強環保科技有限公司",
-          "award_price": "480,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
