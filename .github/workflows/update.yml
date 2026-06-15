@@ -2,7 +2,7 @@ name: 更新採購資料
 
 on:
   schedule:
-    - cron: '0 1 * * *'  # 每天台北時間 09:00（UTC 01:00）
+    - cron: '30 0 * * *'  # 每天台北時間 08:30（UTC 00:30）
   workflow_dispatch:      # 允許手動觸發
 
 jobs:
