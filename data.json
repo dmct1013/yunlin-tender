@@ -1,9 +1,44 @@
 {
-  "updated_at": "2026-06-16T05:52:08.747660",
-  "total": 20,
-  "activity_total": 7,
+  "updated_at": "2026-06-17T05:34:08.611182",
+  "total": 25,
+  "activity_total": 9,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152H10073",
+      "title": "2026雲林詔安客家文化節開幕式委託規劃執行案",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,000,000",
+      "date": "115/06/17",
+      "deadline": "115/07/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTEzMDY=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1142H10036 「2025雲林詔安客家文化節」開幕式委託規劃執行案",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1132H10070 2024雲林詔安客家文化節開幕委託執行案",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
     {
       "id": "1152H10071",
       "title": "布袋戲旗艦計畫行銷宣傳暨活動硬體設備租借專業委託案",
@@ -236,6 +271,22 @@
       "is_activity": false
     },
     {
+      "id": "1150603",
+      "title": "虎尾鎮埒內里道路改善工程委託技術服務",
+      "org": "雲林縣虎尾鎮公所",
+      "town": "虎尾鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "275,520",
+      "date": "115/06/17",
+      "deadline": "115/06/25",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTA1Mjc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "1150602",
       "title": "115年虎尾鎮里鄰政令宣導研習活動餐會採購",
       "org": "雲林縣虎尾鎮公所",
@@ -260,6 +311,22 @@
         }
       ],
       "is_activity": true
+    },
+    {
+      "id": "115-36",
+      "title": "西螺鎮115年度公立墳墓景觀維護(預估)勞務採購",
+      "org": "雲林縣西螺鎮公所",
+      "town": "西螺鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,000,000",
+      "date": "115/06/17",
+      "deadline": "115/06/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTA5MjA=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "115C030-01",
@@ -294,15 +361,47 @@
       "is_activity": false
     },
     {
+      "id": "115-02-001",
+      "title": "雲林縣林內鄉2026年謝水節暨感恩音樂會",
+      "org": "雲林縣林內鄉公所",
+      "town": "林內鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,020,000",
+      "date": "115/06/17",
+      "deadline": "115/06/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTAzMjU=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "11523",
+      "title": "雲林縣二崙鄉都市計畫內公共設施保留地4、9、10-11道路用地委託撤銷徵收作業",
+      "org": "雲林縣二崙鄉公所",
+      "town": "二崙鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "450,000",
+      "date": "115/06/17",
+      "deadline": "115/06/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTA3Mjg=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "11527",
-      "title": "二崙鄉荷苞嶼公墓周邊環境改善工程設計監造",
+      "title": "(更正公告) 二崙鄉荷苞嶼公墓周邊環境改善工程設計監造",
       "org": "雲林縣二崙鄉公所",
       "town": "二崙鄉",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
       "budget": "814,393",
-      "date": "115/06/16",
-      "deadline": "115/06/29",
+      "date": "115/06/17",
+      "deadline": "115/07/01",
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkzMjM=",
