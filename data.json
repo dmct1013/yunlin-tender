@@ -1,9 +1,76 @@
 {
-  "updated_at": "2026-06-17T05:34:08.611182",
-  "total": 25,
-  "activity_total": 9,
+  "updated_at": "2026-06-18T05:25:04.489258",
+  "total": 26,
+  "activity_total": 10,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152H10069",
+      "title": "115年度「雲林縣社區營造及村落文化發展計畫－雲林縣社區營造中心」",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "9,100,000",
+      "date": "115/06/18",
+      "deadline": "115/07/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMwMzU=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "114024 114年度社區營造及村落文化發展計畫-崙背鄉社區營造推動委託專業服務",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
+      "id": "1152H10082",
+      "title": "雲林縣歷史建築原雲林縣警察局修復再利用工程委託工作報告書",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,787,146",
+      "date": "115/06/18",
+      "deadline": "115/06/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTIzMzk=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1152D10018",
+      "title": "斗六市後庄埤南側公園改善工程委託規劃設計監造",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,489,000",
+      "date": "115/06/18",
+      "deadline": "115/07/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTE3NjQ=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152H10073",
       "title": "2026雲林詔安客家文化節開幕式委託規劃執行案",
@@ -156,41 +223,6 @@
       "is_activity": false
     },
     {
-      "id": "1152L10010",
-      "title": "2026年雲林縣原住民族聯合豐年祭活動",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "800,000",
-      "date": "115/06/11",
-      "deadline": "115/06/18",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDYwOTY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114AA0021 2025年TAKAO豐潮系列活動-高雄市原住民族聯合豐年節規劃執行勞務採購案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113AA0026 2024年TAKAO豐潮系列活動-高雄市原住民族聯合豐年節規劃執行勞務採購案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1152B30013",
       "title": "斗六市龍潭路暨雲林科技大學周邊興建地下停車場可行性評估",
       "org": "雲林縣政府",
@@ -313,6 +345,22 @@
       "is_activity": true
     },
     {
+      "id": "115-34",
+      "title": "「115年度輔導農村社區辦理在地食材推廣-2026西螺秋平安．四時里香傳」勞務採購案",
+      "org": "雲林縣西螺鎮公所",
+      "town": "西螺鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,300,000",
+      "date": "115/06/18",
+      "deadline": "115/06/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTE4NjM=",
+      "history": [],
+      "is_activity": true
+    },
+    {
       "id": "115-36",
       "title": "西螺鎮115年度公立墳墓景觀維護(預估)勞務採購",
       "org": "雲林縣西螺鎮公所",
@@ -329,36 +377,30 @@
       "is_activity": false
     },
     {
-      "id": "115C030-01",
-      "title": "莿桐鄉和平路47號旁8M計畫道路開闢工程委託規劃設計監造技術服務案",
-      "org": "雲林縣莿桐鄉公所",
-      "town": "莿桐鄉",
+      "id": "1150617",
+      "title": "2026古坑竹筍節系列活動-【饗筍宴】在地旬味 × 綠色農村活動規劃執行案",
+      "org": "雲林縣古坑鄉公所",
+      "town": "古坑鄉",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
-      "budget": "520,088",
-      "date": "115/06/12",
-      "deadline": "115/06/17",
+      "budget": "1,490,000",
+      "date": "115/06/18",
+      "deadline": "115/06/23",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDc2NDE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115C035",
-      "title": "115年度莿桐鄉立幼兒園業務觀摩暨環境教育體驗",
-      "org": "雲林縣莿桐鄉公所",
-      "town": "莿桐鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "400,000",
-      "date": "115/06/11",
-      "deadline": "115/06/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDQ1MzM=",
-      "history": [],
-      "is_activity": false
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMxOTI=",
+      "history": [
+        {
+          "year": 2024,
+          "title": "113061302 2024古坑竹筍節規劃執行案",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
     },
     {
       "id": "115-02-001",
@@ -375,6 +417,22 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTAzMjU=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "11526",
+      "title": "(更正公告) 二崙鄉都市計畫內多功能活動中心南側10米道路工程用地徵收案委託專業服務",
+      "org": "雲林縣二崙鄉公所",
+      "town": "二崙鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "950,000",
+      "date": "115/06/18",
+      "deadline": "115/07/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkyNjc=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "11523",
@@ -409,22 +467,6 @@
       "is_activity": false
     },
     {
-      "id": "11526",
-      "title": "二崙鄉都市計畫內多功能活動中心南側10米道路工程用地徵收案委託專業服務",
-      "org": "雲林縣二崙鄉公所",
-      "town": "二崙鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "950,000",
-      "date": "115/06/16",
-      "deadline": "115/06/29",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkyNjc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115-49",
       "title": "雲林縣麥寮鄉村鄰長慶生文康暨業務聯繫活動",
       "org": "雲林縣麥寮鄉公所",
@@ -441,41 +483,6 @@
         {
           "year": 2025,
           "title": "114-63 雲林縣麥寮鄉村鄰長慶生文康暨環境保護教育活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "115-48",
-      "title": "115年度環保業務觀摩活動（預估）",
-      "org": "雲林縣麥寮鄉公所",
-      "town": "麥寮鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,130,000",
-      "date": "115/06/08",
-      "deadline": "115/06/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDIxMTk=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-67 114年度環保業務觀摩活動（預估）",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "H113-3 113年資源回收及環保業務觀摩",
           "winner": "查無資料",
           "award_price": "查無資料",
           "bidder_count": "查無資料",
