@@ -111,6 +111,12 @@ button { font-family: inherit; }
 .scard.u-safe::before { background: var(--green); }
 .scard.u-expired::before, .scard.u-none::before { background: var(--border2); }
 .scard-title { font-size: 13.5px; font-weight: 600; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-wrap: pretty; }
+.new-tender-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; margin-right: 6px; border-radius: 50%;
+  background: var(--amber-bg); color: var(--amber); font-size: 11px;
+  font-weight: 700; line-height: 1; vertical-align: 1px; flex: 0 0 auto;
+}
 .scard-org { font-size: 11px; color: var(--text3); margin-top: -4px; }
 .scard-meta { display: flex; align-items: center; gap: 10px; }
 .scard-budget { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
@@ -427,6 +433,21 @@ function formatMDDate(str) {
   if (p.length !== 3) return str;
   return `${p[1]}/${p[2]}`;
 }
+function isPublishedToday(dateStr) {
+  if (!dateStr) return false;
+  const p = dateStr.split('/').map(Number);
+  if (p.length !== 3 || p.some(Number.isNaN)) return false;
+  const tenderDate = `${p[0] + 1911}-${String(p[1]).padStart(2, '0')}-${String(p[2]).padStart(2, '0')}`;
+  const taipeiToday = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Taipei', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).format(new Date());
+  return tenderDate === taipeiToday;
+}
+function newTenderIcon(t) {
+  return isPublishedToday(t.date)
+    ? '<span class="new-tender-icon" title="今日新上標" aria-label="今日新上標">✦</span>'
+    : '';
+}
 /* 依截止日排序：近的在前，已截止與無日期排最後 */
 function byDeadline(a, b) {
   const da = daysUntil(a.deadline), db = daysUntil(b.deadline);
@@ -485,7 +506,7 @@ function renderSpotlight() {
     const days = daysUntil(t.deadline);
     const uk = urgencyKey(days);
     return `<div class="scard u-${uk}" onclick="openPanel('${t.id}')">
-      <div class="scard-title">${t.title}</div>
+      <div class="scard-title">${newTenderIcon(t)}${t.title}</div>
       <div class="scard-org">${t.org}</div>
       <div class="scard-meta">
         <span class="scard-budget">${fmtBudget(t.budget)}</span>
@@ -539,7 +560,7 @@ function renderTable() {
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
     return `<tr onclick="openPanel('${t.id}')">
       <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
-      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${t.title}${histTag}</div><div class="org">${t.org}</div></td>
+      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${t.title}${histTag}</div><div class="org">${t.org}</div></td>
       <td class="td-town">${t.town}</td>
       <td class="td-budget"><div class="budget-val">NT$ ${t.budget}</div></td>
       <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
