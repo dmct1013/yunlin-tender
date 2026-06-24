@@ -1,9 +1,41 @@
 {
-  "updated_at": "2026-06-23T04:51:40.548163",
-  "total": 30,
-  "activity_total": 11,
+  "updated_at": "2026-06-24T08:47:07.051472",
+  "total": 36,
+  "activity_total": 14,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152Q10022",
+      "title": "2026年雲林形象商圈專題製播行銷宣傳案",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "600,000",
+      "date": "115/06/24",
+      "deadline": "115/06/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTY5MTE=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "1152B30013",
+      "title": "斗六市龍潭路暨雲林科技大學周邊興建地下停車場可行性評估",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,500,000",
+      "date": "115/06/24",
+      "deadline": "115/07/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTY3NjQ=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152H10067",
       "title": "2027北港燈會策展規劃暨整合行銷案",
@@ -21,18 +53,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "加加福整合行銷有限公司",
+          "award_price": "1,800,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132L10019 114年北港燈會宗教燈區",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "埴鈁藝術有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -152,18 +184,18 @@
         {
           "year": 2025,
           "title": "114024 114年度社區營造及村落文化發展計畫-崙背鄉社區營造推動委託專業服務",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "國立雲林科技大學",
+          "award_price": "633,334元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "南曦文創股份有限公司",
+          "award_price": "515,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -219,18 +251,18 @@
         {
           "year": 2025,
           "title": "1142H10036 「2025雲林詔安客家文化節」開幕式委託規劃執行案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "上宏活動行銷有限公司",
+          "award_price": "1,960,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132H10070 2024雲林詔安客家文化節開幕委託執行案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "上宏活動行銷有限公司",
+          "award_price": "1,450,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -270,9 +302,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "北鄉營造有限公司",
+          "award_price": "1,250,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -296,9 +328,9 @@
         {
           "year": 2025,
           "title": "FANCAK-1140426 「2026臺灣竹博覽會活動影音記錄」",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人台灣經濟研究院",
+          "award_price": "1,415,230元",
+          "bidder_count": "5",
           "base_price": "未公開",
           "budget": ""
         }
@@ -354,18 +386,18 @@
         {
           "year": 2025,
           "title": "1140527 「114年斗六文旦節」系列活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "大木創造股份有限公司",
+          "award_price": "1,496,250元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130730 「113年斗六文旦節」系列活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "樂福國際開發有限公司",
+          "award_price": "1,494,999元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -373,18 +405,18 @@
       "is_activity": true
     },
     {
-      "id": "115035",
-      "title": "115年度雲林縣斗南鎮自行車道(莒光街)景觀證明改善計畫委託設計監造技術服務",
+      "id": "115041",
+      "title": "115年度雲林縣斗南鎮自行車道(莒光街)景觀照明改善計畫委託設計監造技術服務",
       "org": "雲林縣斗南鎮公所",
       "town": "斗南鎮",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
       "budget": "780,034",
-      "date": "115/06/12",
-      "deadline": "115/06/25",
+      "date": "115/06/24",
+      "deadline": "115/07/09",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDc1MjE=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTYyOTI=",
       "history": [],
       "is_activity": false
     },
@@ -417,6 +449,38 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTA1Mjc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115-34",
+      "title": "「115年度輔導農村社區辦理在地食材推廣-2026西螺秋平安．四時里香傳」勞務採購案",
+      "org": "雲林縣西螺鎮公所",
+      "town": "西螺鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,300,000",
+      "date": "115/06/24",
+      "deadline": "115/07/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTY2NjQ=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115C040",
+      "title": "115年度莿桐鄉五華、四合及六合等村道路改善工程委託規劃設計監造技術服務案",
+      "org": "雲林縣莿桐鄉公所",
+      "town": "莿桐鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "279,872",
+      "date": "115/06/24",
+      "deadline": "115/06/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTUzMzc=",
       "history": [],
       "is_activity": false
     },
@@ -467,6 +531,22 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkzMjM=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "115-52",
+      "title": "115年暑期特展設計暨製作委託服務",
+      "org": "雲林縣麥寮鄉公所",
+      "town": "麥寮鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,480,000",
+      "date": "115/06/24",
+      "deadline": "115/07/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTYyMjk=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "115-51",
@@ -533,9 +613,9 @@
         {
           "year": 2025,
           "title": "114-63 雲林縣麥寮鄉村鄰長慶生文康暨環境保護教育活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "瑞文筵席外燴",
+          "award_price": "290,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -555,6 +635,22 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDU5Njg=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1150623",
+      "title": "115年度臺西鄉第二期災害搶險搶修(開口契約)委託監造技術服務案",
+      "org": "雲林縣臺西鄉公所",
+      "town": "臺西鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "460,000",
+      "date": "115/06/24",
+      "deadline": "115/06/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTY2ODI=",
       "history": [],
       "is_activity": false
     },
