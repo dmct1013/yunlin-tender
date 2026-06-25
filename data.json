@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-25T08:46:14.070650",
-  "total": 35,
+  "updated_at": "2026-06-25T04:56:04.224337",
+  "total": 33,
   "activity_total": 13,
   "failed_orgs": [],
   "tenders": [
@@ -53,18 +53,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "加加福整合行銷有限公司",
-          "award_price": "1,800,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132L10019 114年北港燈會宗教燈區",
-          "winner": "埴鈁藝術有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -184,18 +184,18 @@
         {
           "year": 2025,
           "title": "114024 114年度社區營造及村落文化發展計畫-崙背鄉社區營造推動委託專業服務",
-          "winner": "國立雲林科技大學",
-          "award_price": "633,334元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "南曦文創股份有限公司",
-          "award_price": "515,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -251,18 +251,18 @@
         {
           "year": 2025,
           "title": "1142H10036 「2025雲林詔安客家文化節」開幕式委託規劃執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,960,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132H10070 2024雲林詔安客家文化節開幕委託執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,450,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -302,9 +302,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "北鄉營造有限公司",
-          "award_price": "1,250,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -328,9 +328,9 @@
         {
           "year": 2025,
           "title": "FANCAK-1140426 「2026臺灣竹博覽會活動影音記錄」",
-          "winner": "財團法人台灣經濟研究院",
-          "award_price": "1,415,230元",
-          "bidder_count": "5",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -386,18 +386,18 @@
         {
           "year": 2025,
           "title": "1140527 「114年斗六文旦節」系列活動",
-          "winner": "大木創造股份有限公司",
-          "award_price": "1,496,250元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130730 「113年斗六文旦節」系列活動",
-          "winner": "樂福國際開發有限公司",
-          "award_price": "1,494,999元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -417,38 +417,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTYyOTI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115036",
-      "title": "雲林縣斗南鎮斗南高中及周邊道路人行環境品質提升計畫委託設計監造技術服務",
-      "org": "雲林縣斗南鎮公所",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "581,021",
-      "date": "115/06/12",
-      "deadline": "115/06/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDY2NjE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150603",
-      "title": "虎尾鎮埒內里道路改善工程委託技術服務",
-      "org": "雲林縣虎尾鎮公所",
-      "town": "虎尾鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "275,520",
-      "date": "115/06/17",
-      "deadline": "115/06/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTA1Mjc=",
       "history": [],
       "is_activity": false
     },
