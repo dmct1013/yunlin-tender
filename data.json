@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-24T05:02:08.086641",
-  "total": 36,
-  "activity_total": 14,
+  "updated_at": "2026-06-25T08:46:14.070650",
+  "total": 35,
+  "activity_total": 13,
   "failed_orgs": [],
   "tenders": [
     {
@@ -595,32 +595,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTM3MTQ=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115-49",
-      "title": "雲林縣麥寮鄉村鄰長慶生文康暨業務聯繫活動",
-      "org": "雲林縣麥寮鄉公所",
-      "town": "麥寮鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "234,000",
-      "date": "115/06/12",
-      "deadline": "115/06/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDcxMTY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-63 雲林縣麥寮鄉村鄰長慶生文康暨環境保護教育活動",
-          "winner": "瑞文筵席外燴",
-          "award_price": "290,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "115-F015",
