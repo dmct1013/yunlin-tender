@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-06-26T05:05:33.285598",
-  "total": 34,
+  "updated_at": "2026-06-27T08:46:57.363039",
+  "total": 33,
   "activity_total": 14,
   "failed_orgs": [],
   "tenders": [
@@ -391,6 +391,15 @@
           "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1130730 「113年斗六文旦節」系列活動",
+          "winner": "樂福國際開發有限公司",
+          "award_price": "1,494,999元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
         }
       ],
       "is_activity": true
@@ -568,22 +577,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ5ODk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-42",
-      "title": "115年度全鄉路燈更新設計及汰換工程(預估)委託設計監造",
-      "org": "雲林縣麥寮鄉公所",
-      "town": "麥寮鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "273,735",
-      "date": "115/06/22",
-      "deadline": "115/06/26",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTM3MTQ=",
       "history": [],
       "is_activity": false
     },
