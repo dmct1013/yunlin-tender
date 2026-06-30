@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-06-30T08:41:15.900928",
-  "total": 27,
-  "activity_total": 7,
+  "updated_at": "2026-06-30T04:51:12.008135",
+  "total": 26,
+  "activity_total": 6,
   "failed_orgs": [],
   "tenders": [
     {
@@ -37,9 +37,9 @@
         {
           "year": 2024,
           "title": "1132H10101 「台灣觀光100亮點-糖都嘉年華」委託規劃執行案",
-          "winner": "惟信行銷有限公司",
-          "award_price": "1,400,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -143,18 +143,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "加加福整合行銷有限公司",
-          "award_price": "1,800,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132L10019 114年北港燈會宗教燈區",
-          "winner": "埴鈁藝術有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -242,18 +242,18 @@
         {
           "year": 2025,
           "title": "114024 114年度社區營造及村落文化發展計畫-崙背鄉社區營造推動委託專業服務",
-          "winner": "國立雲林科技大學",
-          "award_price": "633,334元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "南曦文創股份有限公司",
-          "award_price": "515,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -293,18 +293,18 @@
         {
           "year": 2025,
           "title": "1142H10036 「2025雲林詔安客家文化節」開幕式委託規劃執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,960,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132H10070 2024雲林詔安客家文化節開幕委託執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,450,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -486,22 +486,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjA0OTc=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "11506-5",
-      "title": "115年度口湖鄉「爸氣十足・幸福躍馬」模範父親暨好人好事代表表揚活動",
-      "org": "雲林縣口湖鄉公所",
-      "town": "口湖鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "673,000",
-      "date": "115/06/23",
-      "deadline": "115/06/30",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTUwMjY=",
-      "history": [],
-      "is_activity": true
     }
   ]
 }
