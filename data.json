@@ -1,9 +1,60 @@
 {
-  "updated_at": "2026-07-01T05:11:37.765752",
-  "total": 29,
-  "activity_total": 7,
+  "updated_at": "2026-07-02T08:42:28.245439",
+  "total": 31,
+  "activity_total": 8,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152H10075",
+      "title": "115年雲林縣政府文化觀光處館藏品數位化及權利盤點計畫",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,000,000",
+      "date": "115/07/02",
+      "deadline": "115/07/17",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQzOTY=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "1152H10081",
+      "title": "115年虎尾眷村聚落建築群數位營運管理中心營運計畫案",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "7,500,000",
+      "date": "115/07/02",
+      "deadline": "115/07/17",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM1NzQ=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1142H10065 114年虎尾眷村聚落建築群數位營運管理中心營運計畫",
+          "winner": "森樹下整合設計有限公司",
+          "award_price": "7,500,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1132H10081 虎尾眷村聚落建築群-建國一二村環境清理",
+          "winner": "綠地環保事業股份有限公司",
+          "award_price": "4,200,000元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
     {
       "id": "1152H10086",
       "title": "「115年第二十二屆雲林文化藝術獎」頒獎典禮委託規劃執行案",
@@ -261,53 +312,18 @@
       "is_activity": false
     },
     {
-      "id": "1152H10069",
-      "title": "115年度「雲林縣社區營造及村落文化發展計畫－雲林縣社區營造中心」",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
+      "id": "1150709-2",
+      "title": "斗六市公所115年新加坡公務考察",
+      "org": "雲林縣斗六市公所",
+      "town": "斗六市",
       "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "9,100,000",
-      "date": "115/06/18",
-      "deadline": "115/07/02",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "581,000",
+      "date": "115/07/02",
+      "deadline": "115/07/09",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMwMzU=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114024 114年度社區營造及村落文化發展計畫-崙背鄉社區營造推動委託專業服務",
-          "winner": "國立雲林科技大學",
-          "award_price": "633,334元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "南曦文創股份有限公司",
-          "award_price": "515,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "1152D10018",
-      "title": "斗六市後庄埤南側公園改善工程委託規劃設計監造",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,489,000",
-      "date": "115/06/18",
-      "deadline": "115/07/02",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTE3NjQ=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQ2MDc=",
       "history": [],
       "is_activity": false
     },
@@ -360,6 +376,22 @@
       "is_activity": false
     },
     {
+      "id": "1150702",
+      "title": "雲林縣虎尾鎮西安街及文化路等道路改善工程委託技術服務",
+      "org": "雲林縣虎尾鎮公所",
+      "town": "虎尾鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "277,200",
+      "date": "115/07/02",
+      "deadline": "115/07/09",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM1MDQ=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "1150716",
       "title": "冷鏈物流專區營運設施設備第二期計畫「全區AC刨除重新鋪設及出入口擴寬工程」設計監造",
       "org": "雲林縣西螺鎮公所",
@@ -374,22 +406,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjI0MzQ=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115-34",
-      "title": "「115年度輔導農村社區辦理在地食材推廣-2026西螺秋平安．四時里香傳」勞務採購案",
-      "org": "雲林縣西螺鎮公所",
-      "town": "西螺鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,300,000",
-      "date": "115/06/24",
-      "deadline": "115/07/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTY2NjQ=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "115B005",
@@ -408,34 +424,18 @@
       "is_activity": false
     },
     {
-      "id": "11526",
-      "title": "(更正公告) 二崙鄉都市計畫內多功能活動中心南側10米道路工程用地徵收案委託專業服務",
-      "org": "雲林縣二崙鄉公所",
-      "town": "二崙鄉",
+      "id": "115C043",
+      "title": "莿桐鄉四合村12號觀測站下排水溝改善工程委託規劃設計監造技術服務案",
+      "org": "雲林縣莿桐鄉公所",
+      "town": "莿桐鄉",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
-      "budget": "950,000",
-      "date": "115/06/18",
-      "deadline": "115/07/01",
+      "budget": "350,358",
+      "date": "115/07/02",
+      "deadline": "115/07/10",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkyNjc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11527",
-      "title": "(更正公告) 二崙鄉荷苞嶼公墓周邊環境改善工程設計監造",
-      "org": "雲林縣二崙鄉公所",
-      "town": "二崙鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "814,393",
-      "date": "115/06/17",
-      "deadline": "115/07/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDkzMjM=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM0MDE=",
       "history": [],
       "is_activity": false
     },
@@ -454,6 +454,22 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ5ODk=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "115-F019",
+      "title": "褒忠鄉公所115年度資深村鄰長及資深鄰長家庭戶暨績優調解委員表揚活動勞務委託採購案",
+      "org": "雲林縣褒忠鄉公所",
+      "town": "褒忠鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "325,000",
+      "date": "115/07/02",
+      "deadline": "115/07/08",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQzNjI=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "1150630",
@@ -534,6 +550,22 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjI4Nzg=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "115032",
+      "title": "「雲林縣水林鄉水燦林國小步道環境改善計畫」委託規劃設計及監造技術服務",
+      "org": "雲林縣水林鄉公所",
+      "town": "水林鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,523,400",
+      "date": "115/07/02",
+      "deadline": "115/07/16",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM1ODE=",
+      "history": [],
+      "is_activity": false
     }
   ]
 }
