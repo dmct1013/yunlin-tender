@@ -1,9 +1,25 @@
 {
-  "updated_at": "2026-07-02T04:49:02.846720",
+  "updated_at": "2026-07-03T08:42:25.814044",
   "total": 31,
   "activity_total": 8,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152H10088",
+      "title": "台西海螺結構補強暨地標裝修規劃設計監造",
+      "org": "雲林縣政府",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,498,532",
+      "date": "115/07/03",
+      "deadline": "115/07/10",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjUwNjU=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152H10075",
       "title": "115年雲林縣政府文化觀光處館藏品數位化及權利盤點計畫",
@@ -37,18 +53,18 @@
         {
           "year": 2025,
           "title": "1142H10065 114年虎尾眷村聚落建築群數位營運管理中心營運計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "森樹下整合設計有限公司",
+          "award_price": "7,500,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132H10081 虎尾眷村聚落建築群-建國一二村環境清理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "綠地環保事業股份有限公司",
+          "award_price": "4,200,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -72,18 +88,18 @@
         {
           "year": 2025,
           "title": "swjh1140901 114學年度（第二十二屆）畢業紀念冊採購",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "昇揚印刷事業有限公司",
+          "award_price": "344,100元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "wda1130012 第二十二屆金展獎表揚計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "太乙廣告行銷股份有限公司",
+          "award_price": "5,741,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -139,9 +155,9 @@
         {
           "year": 2024,
           "title": "1132H10101 「台灣觀光100亮點-糖都嘉年華」委託規劃執行案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "惟信行銷有限公司",
+          "award_price": "1,400,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -229,18 +245,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "加加福整合行銷有限公司",
+          "award_price": "1,800,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132L10019 114年北港燈會宗教燈區",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "埴鈁藝術有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -260,54 +276,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ2Nzg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152H10079",
-      "title": "雲林縣歷史建築原雲林縣警察局修復再利用工程委託監造(含因應計畫)",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,800,000",
-      "date": "115/06/22",
-      "deadline": "115/07/03",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQwODQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152R10029",
-      "title": "雲林品牌建構、設計治理路徑及碳盤查數位管理輔導計畫",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,400,000",
-      "date": "115/06/22",
-      "deadline": "115/07/03",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQwMDM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152E10010",
-      "title": "115年雲林縣麥寮鄉多功能社會福利大樓公設民營托嬰中心委託經營管理",
-      "org": "雲林縣政府",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,719,000",
-      "date": "115/06/22",
-      "deadline": "115/07/03",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTM0NjM=",
       "history": [],
       "is_activity": false
     },
@@ -436,6 +404,38 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM0MDE=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "11526",
+      "title": "二崙鄉都市計畫內多功能活動中心南側10米道路工程用地徵收案委託專業服務",
+      "org": "雲林縣二崙鄉公所",
+      "town": "二崙鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "950,000",
+      "date": "115/07/03",
+      "deadline": "115/07/13",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjUxNTQ=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115-56",
+      "title": "115年度全鄉鋸樹計畫（開口契約）",
+      "org": "雲林縣麥寮鄉公所",
+      "town": "麥寮鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "600,000",
+      "date": "115/07/03",
+      "deadline": "115/07/07",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjU0MjU=",
       "history": [],
       "is_activity": false
     },
