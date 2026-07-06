@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-雲林縣活動採購案爬蟲（純手動模式，無自動排程）
+中彰雲嘉南活動採購案爬蟲（雲林、台中、彰化、嘉義、台南）
 執行方式：
-  1. 網頁按鈕：http://localhost:8080 →「↺ 重新獲取最新標案」
-  2. 終端機：python3 pcc_crawler.py
+  1. 自動：scheduled_update.py 由 launchd 觸發
+  2. 手動：python3 pcc_crawler.py
 """
 
 import re
@@ -15,6 +15,13 @@ import datetime
 import os
 import time
 from playwright.async_api import async_playwright
+
+try:
+    from zoneinfo import ZoneInfo
+    TAIPEI = ZoneInfo("Asia/Taipei")
+except Exception:
+    # Windows 可能沒裝 tzdata；台灣無夏令時間，固定 +08:00 等價
+    TAIPEI = datetime.timezone(datetime.timedelta(hours=8))
 
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 STATUS_FILE = os.path.join(os.path.dirname(__file__), ".status.json")
@@ -36,24 +43,22 @@ ACTIVITY_KEYWORDS = [
     "活動", "節慶", "慶典", "祭典", "嘉年華", "晚會", "博覽會", "園遊會",
     "運動會", "競賽", "競技", "馬拉松", "論壇", "頒獎",
     "行銷", "宣傳", "推廣", "宣導",
-    "文化", "藝術", "音樂", "交流",
+    "文化", "藝術", "音樂", "交流", "藝文",
     "社區", "社造", "社區營造", "培力", "地方創生",
     "文史", "口述", "人文保存", "眷村", "部落",
+    "古蹟日", "燈會", "市集", "導覽", "工作坊", "研習", "講座", "展售",
+    "燈籠", "彩繪",
+    "農村再生", "社區規劃", "關懷據點", "樂齡", "長者", "共餐", "志工",
+    "食農", "環境教育", "客庄", "客家", "原住民",
 ]
+
+# 標題裡的機關名／路名本身含「文化」等字，比對前先剔除，避免誤判成活動案
+ORG_NOISE = ["文化觀光處", "文化處", "文化局", "文化路"]
 
 # 標題含這些詞的多半是工程設計監造案，不是活動標案
 EXCLUDE_KEYWORDS = [
     "監造", "修繕", "汰換", "新建工程", "改善工程", "改建工程", "開闢工程",
     "道路工程", "公園工程", "排水工程", "停車場",
-]
-
-ORGS = [
-    "雲林縣政府",
-    "斗六市公所", "斗南鎮公所", "虎尾鎮公所", "西螺鎮公所",
-    "土庫鎮公所", "北港鎮公所", "古坑鄉公所", "大埤鄉公所",
-    "莿桐鄉公所", "林內鄉公所", "二崙鄉公所", "崙背鄉公所",
-    "麥寮鄉公所", "東勢鄉公所", "褒忠鄉公所", "臺西鄉公所",
-    "元長鄉公所", "四湖鄉公所", "口湖鄉公所", "水林鄉公所",
 ]
 
 YUNLIN_TOWNS = [
@@ -63,26 +68,81 @@ YUNLIN_TOWNS = [
     "口湖鄉", "水林鄉"
 ]
 
-TOWNS_PATTERN = r'^(雲林縣政府|雲林縣|斗六市|斗南鎮|虎尾鎮|西螺鎮|土庫鎮|北港鎮|古坑鄉|大埤鄉|莿桐鄉|林內鄉|二崙鄉|崙背鄉|麥寮鄉|東勢鄉|褒忠鄉|臺西鄉|元長鄉|四湖鄉|口湖鄉|水林鄉)'
+CHANGHUA_TOWNS = [
+    "彰化市", "員林市", "和美鎮", "鹿港鎮", "溪湖鎮", "二林鎮",
+    "田中鎮", "北斗鎮", "花壇鄉", "芬園鄉", "大村鄉", "永靖鄉",
+    "伸港鄉", "線西鄉", "福興鄉", "秀水鄉", "埔心鄉", "埔鹽鄉",
+    "大城鄉", "芳苑鄉", "竹塘鄉", "社頭鄉", "二水鄉", "田尾鄉",
+    "埤頭鄉", "溪州鄉"
+]
+
+CHIAYI_TOWNS = [
+    "太保市", "朴子市", "布袋鎮", "大林鎮", "民雄鄉", "溪口鄉",
+    "新港鄉", "六腳鄉", "東石鄉", "義竹鄉", "鹿草鄉", "水上鄉",
+    "中埔鄉", "竹崎鄉", "梅山鄉", "番路鄉", "大埔鄉", "阿里山鄉"
+]
+
+# 各區域的監控機關；直轄市（台中、台南）用市政府前綴涵蓋所有局處，
+# 彰化、嘉義依 DAVID 指示連鄉鎮市公所一起監控（2026-07-04）
+REGIONS = {
+    "雲林": {
+        "orgs": ["雲林縣政府"] + [t + "公所" for t in YUNLIN_TOWNS],
+        "towns": YUNLIN_TOWNS,
+        "fallback": "雲林縣",
+    },
+    "台中": {"orgs": ["臺中市政府"], "towns": [], "fallback": "台中市"},
+    "彰化": {
+        "orgs": ["彰化縣政府"] + [t + "公所" for t in CHANGHUA_TOWNS],
+        "towns": CHANGHUA_TOWNS,
+        "fallback": "彰化縣",
+    },
+    "嘉義": {
+        "orgs": ["嘉義縣政府", "嘉義市政府"] + [t + "公所" for t in CHIAYI_TOWNS],
+        "towns": CHIAYI_TOWNS + ["嘉義市"],
+        "fallback": "嘉義縣",
+    },
+    "台南": {"orgs": ["臺南市政府"], "towns": [], "fallback": "台南市"},
+}
+
+_PLACE_WORDS = sorted(
+    set(
+        ["雲林縣政府", "雲林縣", "臺中市政府", "臺中市", "台中市",
+         "彰化縣政府", "彰化縣", "嘉義縣政府", "嘉義市政府", "嘉義縣", "嘉義市",
+         "臺南市政府", "臺南市", "台南市"]
+        + YUNLIN_TOWNS + CHANGHUA_TOWNS + CHIAYI_TOWNS
+    ),
+    key=len, reverse=True,
+)
+TOWNS_PATTERN = r'^(' + '|'.join(_PLACE_WORDS) + r')'
 
 
 def is_activity(title):
-    if any(kw in title for kw in EXCLUDE_KEYWORDS):
+    t = title
+    for w in ORG_NOISE:
+        t = t.replace(w, "")
+    if any(kw in t for kw in EXCLUDE_KEYWORDS):
         return False
-    return any(kw in title for kw in ACTIVITY_KEYWORDS)
+    return any(kw in t for kw in ACTIVITY_KEYWORDS)
 
 
-def town_from_org(org):
-    for t in YUNLIN_TOWNS:
+def town_from_org(org, region):
+    cfg = REGIONS[region]
+    for t in cfg["towns"]:
         if t in org:
             return t
-    return "雲林縣"
+    return cfg["fallback"]
+
+
+# 「第二十二屆」這類屆次詞每年都變，且會讓縮短後的關鍵字撈到不相干的案子
+ORDINAL_RE = r'第[0-9一二三四五六七八九十百]+屆'
 
 
 def extract_keyword(title):
     """從標案名稱提取搜尋關鍵字"""
     kw = re.sub(r'\d{3,4}年度?|20\d{2}', '', title).strip()
-    kw = re.sub(r'委託執行案|執行案|計畫案|案$', '', kw).strip()
+    kw = re.sub(ORDINAL_RE, '', kw).strip()
+    kw = re.sub(r'委託.*|勞務採購.*', '', kw).strip()
+    kw = re.sub(r'執行案|計畫案|案$', '', kw).strip()
     kw = kw.replace('「', '').replace('」', '').strip()
     kw = re.sub(TOWNS_PATTERN, '', kw).strip()
     # 「暨」後面是副標題，截掉
@@ -92,8 +152,11 @@ def extract_keyword(title):
 
 
 def normalize_for_match(title):
-    """去除年份以利比對"""
-    t = re.sub(r'\d{3,4}年度?|20\d{2}', '', title).strip()
+    """去除標案編號、年份、屆次、委託尾綴等雜訊以利比對"""
+    t = re.sub(r'^[0-9A-Za-z\-]+\s+', '', title).strip()  # 決標列表的標案編號前綴
+    t = re.sub(r'\d{3,4}年度?|20\d{2}', '', t).strip()
+    t = re.sub(ORDINAL_RE, '', t).strip()
+    t = re.sub(r'委託.*|勞務採購.*', '', t).strip()
     t = t.replace('「', '').replace('」', '').strip()
     return t
 
@@ -101,6 +164,9 @@ def normalize_for_match(title):
 def titles_similar(a, b, threshold=0.55):
     """標題相似度比對，容忍年度、機關前綴等差異"""
     na, nb = normalize_for_match(a), normalize_for_match(b)
+    # 正規化後互為子字串（如「糖都嘉年華」⊂「台灣觀光100亮點-糖都嘉年華」）視為同案
+    if len(na) >= 4 and len(nb) >= 4 and (na in nb or nb in na):
+        return True
     return difflib.SequenceMatcher(None, na, nb).ratio() >= threshold
 
 
@@ -195,8 +261,9 @@ async def search_history_year(page, context, title, keyword, year):
         row_title = texts[3] if len(texts) > 3 else ""
         award_date = texts[5] if len(texts) > 5 else ""
 
-        # 關鍵字直接命中，或整體標題夠相似（容忍年度、用詞微調）
-        if keyword not in normalize_for_match(row_title) and not titles_similar(title, row_title):
+        # 關鍵字須命中，且整體標題也要夠相似——兩者都過才算同一案，
+        # 避免「第二十二屆」這類碎詞撈到畢業紀念冊、金展獎等不相干決標
+        if keyword not in normalize_for_match(row_title) or not titles_similar(title, row_title):
             continue
         if "無法決標" in award_date:
             continue
@@ -270,7 +337,7 @@ async def make_context(playwright):
     return browser, context
 
 
-async def query_one_org(page, org_name):
+async def query_one_org(page, org_name, region):
     results = []
     try:
         await page.goto(PCC_URL, timeout=30000)
@@ -314,7 +381,8 @@ async def query_one_org(page, org_name):
                     "id": tender_id or hashlib.md5((title + org_name).encode("utf-8")).hexdigest()[:12],
                     "title": title,
                     "org": org or org_name,
-                    "town": town_from_org(org_name),
+                    "region": region,
+                    "town": town_from_org(org_name, region),
                     "type": "勞務",
                     "recruit_type": recruit_type,
                     "budget": budget,
@@ -336,10 +404,10 @@ async def query_one_org(page, org_name):
     return results
 
 
-async def query_org_with_retry(page, org_name, retries=1):
+async def query_org_with_retry(page, org_name, region, retries=1):
     """查詢失敗時自動重試，全部失敗回傳 None"""
     for attempt in range(retries + 1):
-        results = await query_one_org(page, org_name)
+        results = await query_one_org(page, org_name, region)
         if results is not None:
             return results
         if attempt < retries:
@@ -350,28 +418,29 @@ async def query_org_with_retry(page, org_name, retries=1):
 
 async def main():
     print("=" * 52)
-    print("  雲林縣採購案爬蟲")
-    print(f"  時間：{datetime.datetime.now().strftime('%Y-%m-%d %H:%M')}")
+    print("  中彰雲嘉南採購案爬蟲")
+    print(f"  時間：{datetime.datetime.now(TAIPEI).strftime('%Y-%m-%d %H:%M')}")
     print("=" * 52)
 
     all_tenders = {}
+    all_orgs = [(region, org) for region, cfg in REGIONS.items() for org in cfg["orgs"]]
 
     async with async_playwright() as p:
         browser, context = await make_context(p)
         page = await context.new_page()
 
-        report_progress(5, f"查詢 {len(ORGS)} 個機關...")
-        print(f"\n查詢 {len(ORGS)} 個機關（等標期內勞務標案）...")
+        report_progress(5, f"查詢 {len(all_orgs)} 個機關...")
+        print(f"\n查詢 {len(all_orgs)} 個機關（等標期內勞務標案）...")
 
         failed_orgs = []
-        for i, org in enumerate(ORGS):
-            print(f"  [{i+1:02d}/{len(ORGS)}] {org}...", end=" ", flush=True)
-            results = await query_org_with_retry(page, org)
+        for i, (region, org) in enumerate(all_orgs):
+            print(f"  [{i+1:02d}/{len(all_orgs)}] [{region}] {org}...", end=" ", flush=True)
+            results = await query_org_with_retry(page, org, region)
 
             if results is None:
                 failed_orgs.append(org)
                 print("查詢失敗（重試後仍失敗）")
-                report_progress(5 + int((i + 1) / len(ORGS) * 50), f"查詢 {org} 失敗（{i+1}/{len(ORGS)}）")
+                report_progress(5 + int((i + 1) / len(all_orgs) * 50), f"查詢 {org} 失敗（{i+1}/{len(all_orgs)}）")
                 await asyncio.sleep(2)
                 continue
 
@@ -381,7 +450,7 @@ async def main():
 
             activity_count = sum(1 for t in results if t.get("is_activity"))
             print(f"共 {len(results)} 筆，活動相關 {activity_count} 筆")
-            report_progress(5 + int((i + 1) / len(ORGS) * 50), f"查詢 {org}（{i+1}/{len(ORGS)}）")
+            report_progress(5 + int((i + 1) / len(all_orgs) * 50), f"查詢 {org}（{i+1}/{len(all_orgs)}）")
             await asyncio.sleep(2)
 
         all_list = list(all_tenders.values())
@@ -411,7 +480,7 @@ async def main():
 
     print("\n活動相關標案清單：")
     for t in activity_list:
-        print(f"  ★ [{t['town']}] {t['title']} | 預算 {t['budget']}")
+        print(f"  ★ [{t['region']}·{t['town']}] {t['title']} | 預算 {t['budget']}")
 
     report_progress(90, "儲存資料...")
     existing = {}
@@ -429,7 +498,8 @@ async def main():
                 t["history"] = existing[t["id"]]["history"]
 
     output = {
-        "updated_at": datetime.datetime.now().isoformat(),
+        # 帶時區的台北時間；GitHub Actions 在 UTC 執行，沒帶時區前端會顯示錯 8 小時
+        "updated_at": datetime.datetime.now(TAIPEI).isoformat(),
         "total": len(all_list),
         "activity_total": len(activity_list),
         "failed_orgs": failed_orgs,
@@ -462,6 +532,8 @@ async def main():
             print(result.stdout.strip())
         if result.stderr:
             print(result.stderr.strip())
+        if result.returncode != 0:
+            raise SystemExit("GitHub Pages 上傳失敗")
 
 
 if __name__ == "__main__":

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>雲林縣採購監控</title>
-<meta name="description" content="雲林縣政府與各鄉鎮市公所勞務標案監控">
+<title>中彰雲嘉南採購監控</title>
+<meta name="description" content="雲林、台中、彰化、嘉義、台南政府勞務標案監控">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -79,6 +79,24 @@ button { font-family: inherit; }
 
 /* === 主內容 === */
 .wrap { max-width: 1280px; margin: 0 auto; padding: 22px 24px 80px; position: relative; z-index: 2; }
+
+/* === 區域分頁 === */
+.region-tabs { display: flex; gap: 6px; margin-bottom: 18px; overflow-x: auto; padding-bottom: 2px; }
+.region-tab {
+  border: 1px solid var(--border); background: var(--surface); color: var(--text2);
+  font-family: 'Noto Serif TC', serif; font-size: 13.5px; font-weight: 700;
+  padding: 8px 16px; border-radius: 9px; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 7px; white-space: nowrap;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.region-tab:hover { border-color: var(--gold-soft); color: var(--text); }
+.region-tab.active { background: var(--gold); border-color: var(--gold); color: #fdfcf8; }
+.region-tab .cnt {
+  font-family: 'Noto Sans TC', sans-serif; font-size: 11px; font-weight: 600;
+  background: var(--gold-bg); color: var(--gold); border-radius: 10px; padding: 1px 8px;
+  font-variant-numeric: tabular-nums;
+}
+.region-tab.active .cnt { background: rgba(255,255,255,.18); color: #fdfcf8; }
 
 /* === 統計列 === */
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
@@ -215,7 +233,7 @@ tbody tr:last-child td { border-bottom: 0; }
 .info-item .lbl { font-size: 11px; color: var(--text3); margin-bottom: 3px; }
 .info-item .val { font-size: 13.5px; font-variant-numeric: tabular-nums; }
 .ext-link { display: inline-block; font-size: 13px; color: var(--gold); text-decoration: none; border-bottom: 1px dashed var(--gold-soft); padding-bottom: 1px; }
-.ext-link:hover { color: #e3b357; }
+.ext-link:hover { color: var(--gold-soft); }
 .section-lbl { font-size: 11px; color: var(--text3); margin: 18px 0 8px; font-weight: 600; }
 .history-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .history-table th { text-align: left; font-size: 11px; font-weight: 500; color: var(--text3); padding: 7px 10px; border-bottom: 1px solid var(--border); }
@@ -279,7 +297,7 @@ tbody tr:last-child td { border-bottom: 0; }
 <!-- 密碼鎖 -->
 <div id="lock-screen" style="position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:var(--z-lock);">
   <div style="background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:38px 40px;width:330px;text-align:center;box-shadow:var(--shadow)">
-    <div style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:900;margin-bottom:2px">雲林<em style="font-style:normal;color:var(--gold)">採購監控</em></div>
+    <div style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:900;margin-bottom:2px">中彰雲嘉南<em style="font-style:normal;color:var(--gold)">採購監控</em></div>
     <div style="font-size:12px;color:var(--text3);margin-bottom:24px">請輸入密碼進入</div>
     <input id="pw-input" type="password" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()"
       style="width:100%;padding:11px 14px;border:1px solid var(--border2);border-radius:9px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;box-sizing:border-box;margin-bottom:8px">
@@ -324,7 +342,7 @@ tbody tr:last-child td { border-bottom: 0; }
 <header class="masthead">
   <div class="masthead-inner">
     <div class="brand">
-      <div class="brand-title">雲林<em>採購監控</em></div>
+      <div class="brand-title">中彰雲嘉南<em>採購監控</em></div>
       <div class="brand-sub" id="updated-at">載入中...</div>
     </div>
   </div>
@@ -332,17 +350,19 @@ tbody tr:last-child td { border-bottom: 0; }
 
 <main class="wrap" id="app" style="display:none">
 
+  <nav class="region-tabs" id="region-tabs" aria-label="區域切換"></nav>
+
   <div class="stats">
     <div class="stat"><div class="lbl">等標期內標案</div><div class="val" id="s-total">0</div><div class="sub">勞務類</div></div>
     <div class="stat stat-activity"><div class="lbl">活動相關</div><div class="val" id="s-activity">0</div><div class="sub">可評估投標</div></div>
-    <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub">3 天內</div></div>
-    <div class="stat"><div class="lbl">一週內截止</div><div class="val" id="s-week">0</div><div class="sub">7 天內</div></div>
+    <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub" id="s-urgent-sub">3 天內活動案</div></div>
+    <div class="stat"><div class="lbl">一週內截止</div><div class="val" id="s-week">0</div><div class="sub" id="s-week-sub">7 天內活動案</div></div>
   </div>
 
   <section class="spotlight" id="spotlight-wrap" style="display:none">
     <div class="section-head">
       <h2 class="section-title">活動相關標案</h2>
-      <span class="section-note">依截止日排序・卡片含前兩年得標記錄</span>
+      <span class="section-note">依截止日排序・歷史得標為關鍵字模糊比對，投標前請以採購網原始公告為準</span>
     </div>
     <div class="scards" id="spotlight-cards"></div>
   </section>
@@ -399,6 +419,26 @@ tbody tr:last-child td { border-bottom: 0; }
 
 <script>
 let ALL=[], currentView='all', currentTender=null, currentTab=0;
+
+/* === 區域分頁 === */
+const REGION_LIST = ['雲林','台中','彰化','嘉義','台南'];
+let currentRegion = '雲林';
+/* 舊資料沒有 region 欄位，一律視為雲林 */
+const regionOf = t => t.region || '雲林';
+const REG = () => ALL.filter(t => regionOf(t) === currentRegion);
+
+function renderRegionTabs() {
+  document.getElementById('region-tabs').innerHTML = REGION_LIST.map(r => {
+    const acts = ALL.filter(t => regionOf(t) === r && t.is_activity).length;
+    return `<button class="region-tab${r === currentRegion ? ' active' : ''}" onclick="setRegion('${r}')">${r}<span class="cnt num">${acts}</span></button>`;
+  }).join('');
+}
+function setRegion(r) {
+  if (r === currentRegion) return;
+  currentRegion = r;
+  document.getElementById('f-town').value = '';
+  renderRegionTabs(); buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
+}
 
 /* === 截止日工具 === */
 function parseMinguoDate(str) {
@@ -476,7 +516,7 @@ async function loadData() {
     if (data.failed_orgs && data.failed_orgs.length) {
       showToast('注意：上次更新有機關查詢失敗，資料可能不完整：\n' + data.failed_orgs.join('、'), 8000);
     }
-    buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
+    renderRegionTabs(); buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
   } catch(e) { ALL = []; document.getElementById('updated-at').textContent = '⚠ 載入失敗'; }
   document.getElementById('pg-loading').style.display = 'none';
   document.getElementById('app').style.display = 'block';
@@ -498,7 +538,7 @@ function histSummary(t) {
   return `<div class="scard-hist">${lines}</div>`;
 }
 function renderSpotlight() {
-  const actives = ALL.filter(t => t.is_activity);
+  const actives = REG().filter(t => t.is_activity);
   const wrap = document.getElementById('spotlight-wrap');
   if (!actives.length) { wrap.style.display = 'none'; return; }
   wrap.style.display = '';
@@ -522,7 +562,7 @@ function getFiltered() {
   const kw = document.getElementById('kw').value.trim().toLowerCase();
   const ft = document.getElementById('f-town').value;
   const fb = document.getElementById('f-budget').value;
-  return ALL.filter(t => {
+  return REG().filter(t => {
     if (currentView === 'activity' && !t.is_activity) return false;
     if (ft && t.town !== ft) return false;
     if (kw && !t.title.toLowerCase().includes(kw) && !t.org.includes(kw)) return false;
@@ -549,7 +589,10 @@ function renderTable() {
   const rows = getFiltered();
   const tbody = document.getElementById('tbody');
   if (!rows.length) {
-    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">${ALL.length ? '沒有符合條件的標案' : '尚無資料'}</div></td></tr>`;
+    const msg = !ALL.length ? '尚無資料'
+      : !REG().length ? `${currentRegion}尚無資料（新增區域要等下次爬蟲更新後出現）`
+      : '沒有符合條件的標案';
+    tbody.innerHTML = `<tr><td colspan="7"><div class="empty-state">${msg}</div></td></tr>`;
     return;
   }
   tbody.innerHTML = rows.map(t => {
@@ -562,7 +605,7 @@ function renderTable() {
       <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
       <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${t.title}${histTag}</div><div class="org">${t.org}</div></td>
       <td class="td-town">${t.town}</td>
-      <td class="td-budget"><div class="budget-val">NT$ ${t.budget}</div></td>
+      <td class="td-budget"><div class="budget-val">${fmtBudget(t.budget)}</div></td>
       <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
       <td class="td-type">${actBadge}</td>
       <td class="td-view" onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
@@ -571,21 +614,29 @@ function renderTable() {
 }
 
 function updateStats() {
+  const list = REG();
   const dl = t => daysUntil(t.deadline);
-  const urgentCount = ALL.filter(t => { const d = dl(t); return d !== null && d >= 0 && d <= 3; }).length;
-  const weekCount = ALL.filter(t => { const d = dl(t); return d !== null && d >= 0 && d <= 7; }).length;
-  document.getElementById('s-total').textContent = ALL.length;
-  document.getElementById('s-activity').textContent = ALL.filter(t => t.is_activity).length;
-  document.getElementById('s-urgent').textContent = urgentCount;
-  document.getElementById('s-week').textContent = weekCount;
-  document.getElementById('stat-urgent').classList.toggle('has-urgent', urgentCount > 0);
-  document.getElementById('nc-all').textContent = ALL.length;
-  document.getElementById('nc-activity').textContent = ALL.filter(t => t.is_activity).length;
+  const within = (t, n) => { const d = dl(t); return d !== null && d >= 0 && d <= n; };
+  // 主數字用活動案口徑（DAVID 實際在意的），全部案數放在小字
+  const urgentAct = list.filter(t => t.is_activity && within(t, 3)).length;
+  const urgentAll = list.filter(t => within(t, 3)).length;
+  const weekAct = list.filter(t => t.is_activity && within(t, 7)).length;
+  const weekAll = list.filter(t => within(t, 7)).length;
+  document.getElementById('s-total').textContent = list.length;
+  document.getElementById('s-activity').textContent = list.filter(t => t.is_activity).length;
+  document.getElementById('s-urgent').textContent = urgentAct;
+  document.getElementById('s-week').textContent = weekAct;
+  document.getElementById('s-urgent-sub').textContent = `3 天內活動案・全部 ${urgentAll} 件`;
+  document.getElementById('s-week-sub').textContent = `7 天內活動案・全部 ${weekAll} 件`;
+  document.getElementById('stat-urgent').classList.toggle('has-urgent', urgentAct > 0);
+  document.getElementById('nc-all').textContent = list.length;
+  document.getElementById('nc-activity').textContent = list.filter(t => t.is_activity).length;
 }
 
 function buildTownFilter() {
-  const towns = [...new Set(ALL.map(t => t.town))].sort();
+  const towns = [...new Set(REG().map(t => t.town))].sort();
   const sel = document.getElementById('f-town');
+  sel.innerHTML = '<option value="">所有鄉鎮</option>';
   towns.forEach(t => { const o = document.createElement('option'); o.value = t; o.textContent = t; sel.appendChild(o); });
 }
 
@@ -638,7 +689,8 @@ function renderTabHistory() {
   if (!history.length) {
     document.getElementById('panel-body').innerHTML = `
       <div class="section-lbl" style="margin-top:0">歷史得標記錄</div>
-      <div class="history-empty">查無前兩年決標記錄（可能為新標案，或標案名稱有變動）</div>`;
+      <div class="history-empty">查無前兩年決標記錄（可能為新標案，或標案名稱有變動）</div>
+      <p style="font-size:11px;color:var(--text3);margin-top:10px">歷史記錄為關鍵字模糊比對結果，建議另至採購網以其他關鍵字確認</p>`;
     return;
   }
   const rows = history.map(h => `<tr><td><strong>${h.year}年</strong></td><td>${h.winner || '—'}</td><td>${h.award_price || '—'}</td><td>${h.bidder_count || '—'}</td></tr>`).join('');
@@ -648,7 +700,7 @@ function renderTabHistory() {
       <thead><tr><th>年份</th><th>得標廠商</th><th>決標金額</th><th>投標家數</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <p style="font-size:11px;color:var(--text3);margin-top:10px">資料來源：政府採購網決標公告</p>`;
+    <p style="font-size:11px;color:var(--text3);margin-top:10px">資料來源：政府採購網決標公告・關鍵字模糊比對結果，投標前請以原始公告為準</p>`;
 }
 
 
