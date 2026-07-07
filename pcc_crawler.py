@@ -55,10 +55,14 @@ ACTIVITY_KEYWORDS = [
 # 標題裡的機關名／路名本身含「文化」等字，比對前先剔除，避免誤判成活動案
 ORG_NOISE = ["文化觀光處", "文化處", "文化局", "文化路"]
 
-# 標題含這些詞的多半是工程設計監造案，不是活動標案
+# 標題含這些詞的多半是工程、修繕、設備或設施案，不是活動標案
 EXCLUDE_KEYWORDS = [
-    "監造", "修繕", "汰換", "新建工程", "改善工程", "改建工程", "開闢工程",
-    "道路工程", "公園工程", "排水工程", "停車場",
+    "工程", "監造", "修繕", "汰換", "整修", "新建", "改建", "增建", "興建",
+    "開闢", "道路", "橋梁", "水利", "排水", "下水道", "污水", "雨水",
+    "管線", "路面", "鋪面", "邊坡", "護岸", "堤防", "停車場",
+    "建築物", "公寓大廈", "校舍", "廳舍", "辦公廳舍", "活動中心",
+    "無障礙", "昇降設備", "電梯", "空調", "消防", "照明", "機電",
+    "水電", "屋頂", "防水", "耐震", "結構補強",
 ]
 
 YUNLIN_TOWNS = [
@@ -116,12 +120,19 @@ _PLACE_WORDS = sorted(
 TOWNS_PATTERN = r'^(' + '|'.join(_PLACE_WORDS) + r')'
 
 
-def is_activity(title):
+def is_excluded_tender(title):
     t = title
     for w in ORG_NOISE:
         t = t.replace(w, "")
-    if any(kw in t for kw in EXCLUDE_KEYWORDS):
+    return any(kw in t for kw in EXCLUDE_KEYWORDS)
+
+
+def is_activity(title):
+    if is_excluded_tender(title):
         return False
+    t = title
+    for w in ORG_NOISE:
+        t = t.replace(w, "")
     return any(kw in t for kw in ACTIVITY_KEYWORDS)
 
 
@@ -444,12 +455,17 @@ async def main():
                 await asyncio.sleep(2)
                 continue
 
+            original_count = len(results)
+            results = [t for t in results if not is_excluded_tender(t["title"])]
+            excluded_count = original_count - len(results)
+
             for t in results:
                 if t["id"] not in all_tenders:
                     all_tenders[t["id"]] = t
 
             activity_count = sum(1 for t in results if t.get("is_activity"))
-            print(f"共 {len(results)} 筆，活動相關 {activity_count} 筆")
+            exclude_note = f"，工程/設施排除 {excluded_count} 筆" if excluded_count else ""
+            print(f"共 {len(results)} 筆，活動相關 {activity_count} 筆{exclude_note}")
             report_progress(5 + int((i + 1) / len(all_orgs) * 50), f"查詢 {org}（{i+1}/{len(all_orgs)}）")
             await asyncio.sleep(2)
 
