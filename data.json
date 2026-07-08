@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-08T09:17:19.960616+08:00",
-  "total": 95,
-  "activity_total": 38,
+  "updated_at": "2026-07-08T12:39:36.143490+08:00",
+  "total": 93,
+  "activity_total": 36,
   "failed_orgs": [],
   "tenders": [
     {
@@ -1438,23 +1438,6 @@
       "is_activity": false
     },
     {
-      "id": "115191",
-      "title": "115年嘉義市地方創生指南與圓夢孵化支持計畫",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,000,000",
-      "date": "115/06/25",
-      "deadline": "115/07/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTc5NjY=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "1150550",
       "title": "115年度嘉義市巨大廢棄物雜質破碎清除處理計畫",
       "org": "嘉義市政府環境保護局",
@@ -1502,23 +1485,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk1ODQ=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "1150624",
-      "title": "「嘉義縣六腳鄉115年度模範父親暨好人好事代表表揚活動」辦桌餐會",
-      "org": "嘉義縣六腳鄉公所",
-      "region": "嘉義",
-      "town": "六腳鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "200,000",
-      "date": "115/07/02",
-      "deadline": "115/07/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjMzOTY=",
       "history": [],
       "is_activity": true
     },
