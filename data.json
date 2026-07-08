@@ -1,9 +1,53 @@
 {
-  "updated_at": "2026-07-07T09:17:25.440094+08:00",
-  "total": 109,
-  "activity_total": 39,
+  "updated_at": "2026-07-08T09:17:19.960616+08:00",
+  "total": 95,
+  "activity_total": 38,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152G10031",
+      "title": "2026雲林Holy High活動規劃執行委託專業服務案",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "15,000,000",
+      "date": "115/07/08",
+      "deadline": "115/07/28",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk2MTA=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "1152H10085",
+      "title": "「2026糖都嘉年華」委託專業服務案",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "700,000",
+      "date": "115/07/08",
+      "deadline": "115/07/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkyMjI=",
+      "history": [
+        {
+          "year": 2024,
+          "title": "1132H10101 「台灣觀光100亮點-糖都嘉年華」委託規劃執行案",
+          "winner": "惟信行銷有限公司",
+          "award_price": "1,400,000元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
     {
       "id": "1152F10024",
       "title": "「115年雲林縣國產水產品行銷推廣計畫」委託專業服務案",
@@ -153,42 +197,6 @@
       "is_activity": true
     },
     {
-      "id": "1152H10086",
-      "title": "「115年第二十二屆雲林文化藝術獎」頒獎典禮委託規劃執行案",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/07/01",
-      "deadline": "115/07/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjI4MjI=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1142H10068 「114年第二十一屆雲林文化藝術獎」頒獎典禮委託規劃執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,100,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1132H10092 「113年第二十屆雲林文化藝術獎」頒獎典禮委託規劃執行案",
-          "winner": "上宏活動行銷有限公司",
-          "award_price": "1,100,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1152H10087",
       "title": "2026雲林全國古蹟日規劃執行",
       "org": "雲林縣政府",
@@ -257,42 +265,6 @@
       "is_activity": false
     },
     {
-      "id": "1152H10067",
-      "title": "2027北港燈會策展規劃暨整合行銷案",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,480,000",
-      "date": "115/06/23",
-      "deadline": "115/07/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTUzODc=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "加加福整合行銷有限公司",
-          "award_price": "1,800,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1132H10056 2025北港燈會委託執行案",
-          "winner": "加加福整合行銷有限公司",
-          "award_price": "12,950,000元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1150709-2",
       "title": "斗六市公所115年新加坡公務考察",
       "org": "雲林縣斗六市公所",
@@ -306,76 +278,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQ2MDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115040",
-      "title": "2026雲林縣斗南鎮親子家庭日暨低碳永續節慶活動勞務採購案",
-      "org": "雲林縣斗南鎮公所",
-      "region": "雲林",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "6,000,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTg2NDU=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "115-39",
-      "title": "「2026西螺大橋觀光文化節活動」規劃與執行招標案",
-      "org": "雲林縣西螺鎮公所",
-      "region": "雲林",
-      "town": "西螺鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "6,315,000",
-      "date": "115/07/07",
-      "deadline": "115/07/21",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjgxMzg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-42 「2025西螺大橋觀光文化節」規劃與執行招標案",
-          "winner": "華楓文創行銷",
-          "award_price": "6,150,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113-38 「2024西螺大橋觀光文化節活動」規劃與執行招標案",
-          "winner": "星賞文創行銷",
-          "award_price": "5,400,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "115-56",
-      "title": "115年度全鄉鋸樹計畫（開口契約）",
-      "org": "雲林縣麥寮鄉公所",
-      "region": "雲林",
-      "town": "麥寮鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "600,000",
-      "date": "115/07/03",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjU0MjU=",
       "history": [],
       "is_activity": false
     },
@@ -429,6 +331,40 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjI4Nzg=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "TIPC115018",
+      "title": "臺中市政府原住民族事務委員會辦公室搬遷勞務採購案",
+      "org": "臺中市政府原住民族事務委員會",
+      "region": "台中",
+      "town": "台中市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,499,500",
+      "date": "115/07/08",
+      "deadline": "115/07/13",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjg4MzM=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "11506150145",
+      "title": "(更正公告) 臺中市生態檢核工作計畫(115-116年度)委託專業服務",
+      "org": "臺中市政府水利局",
+      "region": "台中",
+      "town": "台中市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,205,000",
+      "date": "115/07/08",
+      "deadline": "115/07/20",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDk0MjE=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "1150706010",
@@ -520,23 +456,6 @@
       "is_activity": true
     },
     {
-      "id": "11506150145",
-      "title": "(更正公告) 臺中市生態檢核工作計畫(115-116年度)委託專業服務",
-      "org": "臺中市政府水利局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "9,615,000",
-      "date": "115/07/06",
-      "deadline": "115/07/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDk0MjE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "B1150709",
       "title": "臺中市政府警察局烏日分局115年度推動警勤工作及表揚績優民防、義警人員聯誼活動聯合餐會",
       "org": "臺中市政府警察局烏日分局",
@@ -607,23 +526,6 @@
         }
       ],
       "is_activity": true
-    },
-    {
-      "id": "115D26",
-      "title": "115年「網站弱掃軟體授權續約更新」採購案",
-      "org": "臺中市政府衛生局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "630,000",
-      "date": "115/07/03",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQ5NDk=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "1150701110-18",
@@ -764,59 +666,6 @@
       "is_activity": false
     },
     {
-      "id": "115050",
-      "title": "臺中州廳文化園區啟用儀式暨整體行銷計畫委託專業服務案",
-      "org": "臺中市政府文化局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,000,000",
-      "date": "115/06/24",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTYyMjc=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "202606160947",
-      "title": "「2026臺中市政建設成果行銷」採購案",
-      "org": "臺中市政府新聞局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "11,000,000",
-      "date": "115/06/17",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTEyODE=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "202506050888 「2025臺中市政建設成果行銷」採購案",
-          "winner": "民間全民電視股份有限公司",
-          "award_price": "6,000,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "202405200819 「2024臺中市政建設成果行銷」採購案",
-          "winner": "聯利媒體股份有限公司",
-          "award_price": "5,500,000元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "11506121962",
       "title": "111年度土壤液化調查與風險評估計畫委託技術服務工作",
       "org": "臺中市政府都市發展局",
@@ -832,6 +681,78 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDg3OTM=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "115-161-040-325",
+      "title": "彰化縣「115年度借問站創新旅遊服務推廣」勞務採購案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "255,000",
+      "date": "115/07/08",
+      "deadline": "115/07/16",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkzMzE=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1140168 114年度借問站創新旅遊服務推廣委託專業服務案",
+          "winner": "網曜管理顧問有限公司",
+          "award_price": "430,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113205 嘉義市113年借問站創新旅遊服務推廣計畫案",
+          "winner": "嘉易創有限公司",
+          "award_price": "406,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
+      "id": "115-071-068-344",
+      "title": "彰化縣115年度社區照顧關懷據點成果展",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,800,000",
+      "date": "115/07/08",
+      "deadline": "115/07/21",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjg5NjM=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "SOSL114021 宜蘭縣114年度社區照顧關懷據點宣導品採購案",
+          "winner": "愛宴陶瓷餐廚用品館",
+          "award_price": "360,000元",
+          "bidder_count": "5",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "114-0020701-035-2-4 彰化縣114年社區照顧關懷據點服務優化方案",
+          "winner": "財團法人弘道老人福利基金會",
+          "award_price": "5,953,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
     },
     {
       "id": "115-071-071-325",
@@ -934,40 +855,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMxMzM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-011-013-325",
-      "title": "115下半年度外燴便餐勞務採購案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "248,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTk1Njk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-075-062-344",
-      "title": "115年度彰化縣田中公設民營托嬰中心暨育兒親子館委託營運管理",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,529,372",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTkxMTY=",
       "history": [],
       "is_activity": false
     },
@@ -1161,40 +1048,6 @@
       "is_activity": false
     },
     {
-      "id": "11506-203",
-      "title": "鹿港印記地標「地面海浪投影與聲光同步系統」專案",
-      "org": "彰化縣鹿港鎮公所",
-      "region": "彰化",
-      "town": "鹿港鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,480,000",
-      "date": "115/06/23",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTUxNzE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11506-202",
-      "title": "1784千帆館空間策展規劃執行委託專業服務案",
-      "org": "彰化縣鹿港鎮公所",
-      "region": "彰化",
-      "town": "鹿港鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,700,000",
-      "date": "115/06/23",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ3MDU=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "115033",
       "title": "2026溪湖鎮寵物嘉年華",
       "org": "彰化縣溪湖鎮公所",
@@ -1328,23 +1181,6 @@
       "is_activity": true
     },
     {
-      "id": "115048",
-      "title": "115年度永靖鄉公墓墓基廢棄物清運開口契約案",
-      "org": "彰化縣永靖鄉公所",
-      "region": "彰化",
-      "town": "永靖鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "750,000",
-      "date": "115/07/01",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjI5NDY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115030",
       "title": "115年度福興鄉濕地環境教育活動計畫",
       "org": "彰化縣福興鄉公所",
@@ -1398,40 +1234,6 @@
       "is_activity": true
     },
     {
-      "id": "115WH348",
-      "title": "「115年度工會幹部成長營計畫」勞務採購案",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,169,260",
-      "date": "115/06/25",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTgwMTg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115HL346",
-      "title": "嘉義縣115年度獨居身心障礙者緊急救援連線服務計畫",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "900,000",
-      "date": "115/06/25",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTgwMDg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115GL342",
       "title": "2026嘉義縣咖啡輔導與推廣整合計畫委託服務",
       "org": "嘉義縣政府",
@@ -1466,21 +1268,21 @@
       "is_activity": false
     },
     {
-      "id": "115QA339",
-      "title": "「115年嘉義縣商圈聯合購物節」委託專業服務採購案",
-      "org": "嘉義縣政府",
+      "id": "115A81",
+      "title": "「115年嘉義工藝走入街區推廣勞務委託」採購案",
+      "org": "嘉義市政府文化局",
       "region": "嘉義",
-      "town": "嘉義縣",
+      "town": "嘉義市",
       "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "7,000,000",
-      "date": "115/06/23",
-      "deadline": "115/07/07",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "800,000",
+      "date": "115/07/08",
+      "deadline": "115/07/14",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ0NjE=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk2ODE=",
       "history": [],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "115A80",
@@ -1602,23 +1404,6 @@
       "is_activity": false
     },
     {
-      "id": "115181",
-      "title": "115年精神病人及精神障礙者之同儕支持員職業訓練專班",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "390,000",
-      "date": "115/06/30",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjE3MDI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115A79",
       "title": "嘉義市立博物館葉王誕辰200周年主題展覽設計製作勞務委託案",
       "org": "嘉義市政府文化局",
@@ -1653,23 +1438,6 @@
       "is_activity": false
     },
     {
-      "id": "1150652",
-      "title": "115年嘉義市火災殘留物清除處理計畫開口契約",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "9,425,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTkyNDE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115191",
       "title": "115年嘉義市地方創生指南與圓夢孵化支持計畫",
       "org": "嘉義市政府",
@@ -1687,23 +1455,6 @@
       "is_activity": true
     },
     {
-      "id": "115190",
-      "title": "115年嘉義市店家數位AI轉型計畫委託專業服務案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "6,000,000",
-      "date": "115/06/25",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTc5MDE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1150550",
       "title": "115年度嘉義市巨大廢棄物雜質破碎清除處理計畫",
       "org": "嘉義市政府環境保護局",
@@ -1719,6 +1470,40 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMyNzI=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "2634",
+      "title": "「115年民雄鄉社區舞蹈比賽活動」委託專業服務案",
+      "org": "嘉義縣民雄鄉公所",
+      "region": "嘉義",
+      "town": "民雄鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "700,000",
+      "date": "115/07/08",
+      "deadline": "115/07/13",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk1ODY=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "2635",
+      "title": "「115年民雄鄉親子水樂園暨社區推展活動」委託專業服務案",
+      "org": "嘉義縣民雄鄉公所",
+      "region": "嘉義",
+      "town": "民雄鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "730,000",
+      "date": "115/07/08",
+      "deadline": "115/07/13",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk1ODQ=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "1150624",
@@ -1772,57 +1557,89 @@
       "is_activity": false
     },
     {
-      "id": "115062601",
-      "title": "西井村環保暨鄉政有關業務宣導聯誼餐會",
-      "org": "嘉義縣鹿草鄉公所",
-      "region": "嘉義",
-      "town": "鹿草鄉",
+      "id": "115A807",
+      "title": "115年度臺南市宜居成功、宜居仁愛、宜居小東社會住宅投保住宅火災及地震基本保險採購案",
+      "org": "臺南市政府都市發展局",
+      "region": "台南",
+      "town": "台南市",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
-      "budget": "238,500",
-      "date": "115/06/29",
-      "deadline": "115/07/07",
+      "budget": "900,800",
+      "date": "115/07/08",
+      "deadline": "115/07/13",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjAyMDk=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140801 西井村環保暨鄉政有關業務宣導聯誼餐會",
-          "winner": "聞香閣食品有限公司",
-          "award_price": "238,500元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130704 西井村環保暨鄉政有關業務宣導聯誼餐會",
-          "winner": "聞香閣食品有限公司",
-          "award_price": "238,500元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "1150078",
-      "title": "114年度中埔鄉幸福小黃營運後續增擴計畫",
-      "org": "嘉義縣中埔鄉公所",
-      "region": "嘉義",
-      "town": "中埔鄉",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,470,120",
-      "date": "115/06/30",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjEwMjQ=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkwNjY=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "1150123",
+      "title": "臺南市政府社會局委託辦理善化區蓮潭公設民營托嬰中心",
+      "org": "臺南市政府社會局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,400,000",
+      "date": "115/07/08",
+      "deadline": "115/07/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkwMjE=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "TC115C109",
+      "title": "「億載金城西側步道環境整備」勞務採購案",
+      "org": "臺南市政府文化局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,000,000",
+      "date": "115/07/08",
+      "deadline": "115/07/13",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkwMTg=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1150081922",
+      "title": "115年度全國毒品危害防制中心標竿學習暨共識營",
+      "org": "臺南市政府衛生局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,100,000",
+      "date": "115/07/08",
+      "deadline": "115/07/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjg1NzE=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115ECON57S2",
+      "title": "115年臺南市科技產業研討暨策展委託專業服務案",
+      "org": "臺南市政府經濟發展局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,250,000",
+      "date": "115/07/08",
+      "deadline": "115/07/21",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjg0Nzc=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "TC115C113",
@@ -2039,42 +1856,6 @@
       "is_activity": false
     },
     {
-      "id": "1150664180",
-      "title": "2026德元埤荷蘭村園區行銷活動案",
-      "org": "臺南市政府觀光旅遊局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "800,000",
-      "date": "115/06/30",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjE0Nzg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1141151355 2025德元埤荷蘭村園區行銷活動委託專業服務案",
-          "winner": "相成行銷傳播有限公司",
-          "award_price": "900,000元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1131180982 德元埤荷蘭村園區行銷暨本市露營產業推廣活動委託專業服務案",
-          "winner": "生命樹時創美學有限公司",
-          "award_price": "1,340,000元",
-          "bidder_count": "6",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "21150603",
       "title": "臺南市公有土方暫置場委外管理案",
       "org": "臺南市政府工務局",
@@ -2092,40 +1873,6 @@
       "is_activity": false
     },
     {
-      "id": "1150795530",
-      "title": "臺南市政府觀光旅遊局委託律師辦理訴願相關法律服務勞務採購案(開口契約)",
-      "org": "臺南市政府觀光旅遊局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "150,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTkzNDU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115ECON58S2",
-      "title": "2026臺南國際時尚產業展",
-      "org": "臺南市政府經濟發展局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTkxMjE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "wat115067",
       "title": "臺南市生態檢核工作計畫(115-116年度)",
       "org": "臺南市政府水利局",
@@ -2139,23 +1886,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTg5ODU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "211506032",
-      "title": "(更正公告) 建置土石方每日出收土數據統計系統",
-      "org": "臺南市政府工務局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "300,000",
-      "date": "115/06/26",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDc4MzQ=",
       "history": [],
       "is_activity": false
     },
@@ -2193,40 +1923,6 @@
           "budget": ""
         }
       ],
-      "is_activity": true
-    },
-    {
-      "id": "11530617",
-      "title": "115年臺南市碳匯潛勢場域調查暨減污移除評估計畫",
-      "org": "臺南市政府環境保護局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,500,000",
-      "date": "115/06/25",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTczOTI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150870410",
-      "title": "「臺南永續未來船舶展覽體驗活動」委託專業服務案",
-      "org": "臺南市政府觀光旅遊局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "600,000",
-      "date": "115/06/24",
-      "deadline": "115/07/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTU1OTU=",
-      "history": [],
       "is_activity": true
     }
   ]
