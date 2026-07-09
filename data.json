@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-09T09:18:47.030762+08:00",
-  "total": 100,
-  "activity_total": 38,
+  "updated_at": "2026-07-09T13:14:19.200377+08:00",
+  "total": 89,
+  "activity_total": 34,
   "failed_orgs": [],
   "tenders": [
     {
@@ -770,59 +770,6 @@
       "is_activity": false
     },
     {
-      "id": "115-061-032-344",
-      "title": "(更正公告) 「115年度彰化縣執行農地利用綜合規劃計畫」委託專業服務採購案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,700,000",
-      "date": "115/07/02",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjA5MjY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-092-063-344",
-      "title": "115年度彰化縣勞資健行活動",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,533,000",
-      "date": "115/06/29",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjA1MTI=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140317-1 114年臺中市勞資健行活動",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130719-1 113年臺中市勞資健行活動採購案",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,200,000元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "114-063-058-344",
       "title": "彰化漁港近程第二階段及中程計畫委託專案管理",
       "org": "彰化縣政府",
@@ -836,40 +783,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTMxMzM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-192-007-325",
-      "title": "「115年青年職場實習媒合計畫」勞務採購案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "824,326",
-      "date": "115/06/25",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTgyMzc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-124-010-344",
-      "title": "彰化縣政府115年度無線上網委外服務案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,892,160",
-      "date": "115/06/24",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTU5MzM=",
       "history": [],
       "is_activity": false
     },
@@ -908,59 +821,6 @@
       "is_activity": false
     },
     {
-      "id": "02115022",
-      "title": "員林市115年孝行楷模表揚暨祖父母節慶祝活動",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "369,500",
-      "date": "115/07/03",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjU4MDA=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "02114014 員林市114年孝行楷模表揚大會",
-          "winner": "齊天創意行銷股份有限公司",
-          "award_price": "341,170元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "02113018 員林市113年孝行楷模表揚活動",
-          "winner": "齊天創意行銷股份有限公司",
-          "award_price": "394,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "02115020",
-      "title": "員林市115年金婚、鑽石婚、白金婚表揚大會",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,000,000",
-      "date": "115/07/03",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjU2MjA=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "02115021",
       "title": "員林市鎮興段90地號土地容許使用規劃案",
       "org": "彰化縣員林市公所",
@@ -974,40 +834,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQ0NTI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "02115019",
-      "title": "員林市立幼兒園115學年度第1學期餐點採購",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,186,300",
-      "date": "115/07/01",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjIzNDY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "02115015",
-      "title": "(更正公告) 員林市公所115年新加坡工商業務考察採購案",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "300,000",
-      "date": "115/06/25",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTQ3ODc=",
       "history": [],
       "is_activity": false
     },
@@ -1125,59 +951,6 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjc3MjY=",
       "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "11520",
-      "title": "2026紅磚市場藝文市集活動規劃與執行",
-      "org": "彰化縣北斗鎮公所",
-      "region": "彰化",
-      "town": "北斗鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/06/30",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjE3MTc=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "115030",
-      "title": "115年度福興鄉濕地環境教育活動計畫",
-      "org": "彰化縣福興鄉公所",
-      "region": "彰化",
-      "town": "福興鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/06/26",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTg1NjU=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114N-039 濕地環境教育發展與在地培力計畫",
-          "winner": "環境友善種子股份有限公司",
-          "award_price": "2,200,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130223-A 113年海豐濕地環境教育場域營運管理計畫",
-          "winner": "技佳工程科技股份有限公司",
-          "award_price": "1,490,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
       "is_activity": true
     },
     {
@@ -1415,23 +1188,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjYyMTI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150755",
-      "title": "115年嘉義市機車行廢棄輪胎清運計畫",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "312,000",
-      "date": "115/07/02",
-      "deadline": "115/07/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjQyOTA=",
       "history": [],
       "is_activity": false
     },
