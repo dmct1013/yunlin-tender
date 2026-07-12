@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-12T09:24:15.523780+08:00",
+  "updated_at": "2026-07-12T13:01:34.795829+08:00",
   "total": 104,
   "activity_total": 46,
   "failed_orgs": [],
@@ -798,6 +798,15 @@
           "winner": "橙希創意行銷有限公司",
           "award_price": "8,370,000元",
           "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113-0020606-083-2-4 2025花在彰化活動規劃執行勞務採購案",
+          "winner": "橙希創意行銷有限公司",
+          "award_price": "6,000,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
