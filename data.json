@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T12:35:30.975702+08:00",
+  "updated_at": "2026-07-14T14:04:12.240911+08:00",
   "total": 97,
   "activity_total": 43,
   "failed_orgs": [],
@@ -1535,6 +1535,23 @@
       "is_activity": true
     },
     {
+      "id": "TC115C118",
+      "title": "(更正公告) 2026年南臺灣藝術管理人才培力計畫–藝術行政實作養成平台",
+      "org": "臺南市政府文化局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,300,000",
+      "date": "115/07/15",
+      "deadline": "115/07/20",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI5MjU=",
+      "history": [],
+      "is_activity": true
+    },
+    {
       "id": "TC115C119",
       "title": "岸內影視基地環境演員培訓工作坊第二期勞務採購案",
       "org": "臺南市政府文化局",
@@ -1654,23 +1671,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzMxNjM=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "TC115C118",
-      "title": "2026年南臺灣藝術管理人才培力計畫–藝術行政實作養成平台",
-      "org": "臺南市政府文化局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,300,000",
-      "date": "115/07/13",
-      "deadline": "115/07/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI5MjU=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "1150125",
