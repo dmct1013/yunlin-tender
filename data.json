@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-15T09:21:16.479717+08:00",
-  "total": 100,
-  "activity_total": 44,
+  "updated_at": "2026-07-15T12:33:12.303332+08:00",
+  "total": 95,
+  "activity_total": 41,
   "failed_orgs": [],
   "tenders": [
     {
@@ -1112,23 +1112,6 @@
       "is_activity": true
     },
     {
-      "id": "11519",
-      "title": "2026年北斗鎮推廣美食及產業市集",
-      "org": "彰化縣北斗鎮公所",
-      "region": "彰化",
-      "town": "北斗鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,100,000",
-      "date": "115/07/07",
-      "deadline": "115/07/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjc3MjY=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "115030",
       "title": "115年度福興鄉濕地環境教育活動計畫",
       "org": "彰化縣福興鄉公所",
@@ -1232,23 +1215,6 @@
           "budget": ""
         }
       ],
-      "is_activity": true
-    },
-    {
-      "id": "115-08141",
-      "title": "「115年度千人健行水上漂暨水資源教育及愛護河川宣導活動」",
-      "org": "彰化縣二水鄉公所",
-      "region": "彰化",
-      "town": "二水鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "600,000",
-      "date": "115/07/09",
-      "deadline": "115/07/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzAxMDg=",
-      "history": [],
       "is_activity": true
     },
     {
@@ -1596,6 +1562,40 @@
       "is_activity": true
     },
     {
+      "id": "TC115C118",
+      "title": "(更正公告) 2026年南臺灣藝術管理人才培力計畫–藝術行政實作養成平台",
+      "org": "臺南市政府文化局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,300,000",
+      "date": "115/07/16",
+      "deadline": "115/07/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI5MjU=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "wat115067",
+      "title": "(更正公告) 臺南市生態檢核工作計畫(115-116年度)",
+      "org": "臺南市政府水利局",
+      "region": "台南",
+      "town": "台南市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "30,833,000",
+      "date": "115/07/16",
+      "deadline": "115/07/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTg5ODU=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115B0027",
       "title": "115年臺南市原住民族微型保險勞務採購案",
       "org": "臺南市政府",
@@ -1629,23 +1629,6 @@
           "budget": ""
         }
       ],
-      "is_activity": true
-    },
-    {
-      "id": "TC115C118",
-      "title": "(更正公告) 2026年南臺灣藝術管理人才培力計畫–藝術行政實作養成平台",
-      "org": "臺南市政府文化局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,300,000",
-      "date": "115/07/15",
-      "deadline": "115/07/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI5MjU=",
-      "history": [],
       "is_activity": true
     },
     {
@@ -1840,23 +1823,6 @@
       "is_activity": true
     },
     {
-      "id": "1150084438",
-      "title": "長照3.0服務推廣影片製作計畫",
-      "org": "臺南市政府衛生局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "360,000",
-      "date": "115/07/10",
-      "deadline": "115/07/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzIyMDA=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "1150124",
       "title": "韌性重建、共好未來－臺南市風災社區復原關懷計畫成果發表會",
       "org": "臺南市政府社會局",
@@ -1872,23 +1838,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzE1NjY=",
       "history": [],
       "is_activity": true
-    },
-    {
-      "id": "11522",
-      "title": "AI智能OCR光學字元辨識模組建置案",
-      "org": "臺南市政府財政稅務局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "730,000",
-      "date": "115/07/10",
-      "deadline": "115/07/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzExODQ=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "TC115C116",
@@ -1938,23 +1887,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkwMjE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150081922",
-      "title": "115年度全國毒品危害防制中心標竿學習暨共識營",
-      "org": "臺南市政府衛生局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,100,000",
-      "date": "115/07/08",
-      "deadline": "115/07/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjg1NzE=",
       "history": [],
       "is_activity": false
     },
@@ -2040,23 +1972,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTk0MDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "wat115067",
-      "title": "臺南市生態檢核工作計畫(115-116年度)",
-      "org": "臺南市政府水利局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "30,833,000",
-      "date": "115/06/26",
-      "deadline": "115/07/30",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNTg5ODU=",
       "history": [],
       "is_activity": false
     },
