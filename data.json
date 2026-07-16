@@ -1,9 +1,26 @@
 {
-  "updated_at": "2026-07-16T09:21:28.679650+08:00",
-  "total": 99,
-  "activity_total": 43,
+  "updated_at": "2026-07-16T12:34:59.066701+08:00",
+  "total": 90,
+  "activity_total": 38,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152A10039",
+      "title": "(更正公告) (115-116年度)雲林縣生態檢核工作計畫委託技術服務案",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "29,268,000",
+      "date": "115/07/17",
+      "deadline": "115/08/04",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjcwMzA=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152H10092",
       "title": "115-116年雲林縣口湖牽水車藏（狀）新增保存者保存維護計畫",
@@ -47,23 +64,6 @@
         }
       ],
       "is_activity": true
-    },
-    {
-      "id": "1152A10039",
-      "title": "(115-116年度)雲林縣生態檢核工作計畫委託技術服務案",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "29,268,000",
-      "date": "115/07/15",
-      "deadline": "115/08/04",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjcwMzA=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "1152H10091",
@@ -483,6 +483,23 @@
       "is_activity": true
     },
     {
+      "id": "1150706010",
+      "title": "(更正公告) 2026年世界不動產聯合會國際貿易交流會案",
+      "org": "臺中市政府地政局",
+      "region": "台中",
+      "town": "台中市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "5,000,000",
+      "date": "115/07/17",
+      "deadline": "115/07/21",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjgwMTY=",
+      "history": [],
+      "is_activity": true
+    },
+    {
       "id": "TIPC115020",
       "title": "(更正公告) 115年臺中市原住民族傳統競技運動會暨116年全國原住民族運動會臺中市代表隊傳統種類選拔賽",
       "org": "臺中市政府原住民族事務委員會",
@@ -636,23 +653,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNDk0MjE=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "1150706010",
-      "title": "2026年世界不動產聯合會國際貿易交流會案",
-      "org": "臺中市政府地政局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "5,000,000",
-      "date": "115/07/07",
-      "deadline": "115/07/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjgwMTY=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "1150701110-18",
@@ -837,78 +837,6 @@
       "is_activity": true
     },
     {
-      "id": "115-092-063-344",
-      "title": "115年度彰化縣勞資健行活動",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,533,000",
-      "date": "115/07/10",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzE2ODY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140317-1 114年臺中市勞資健行活動",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130719-1 113年臺中市勞資健行活動採購案",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,200,000元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "115-161-040-325",
-      "title": "彰化縣「115年度借問站創新旅遊服務推廣」勞務採購案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "255,000",
-      "date": "115/07/08",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjkzMzE=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140168 114年度借問站創新旅遊服務推廣委託專業服務案",
-          "winner": "網曜管理顧問有限公司",
-          "award_price": "430,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113205 嘉義市113年借問站創新旅遊服務推廣計畫案",
-          "winner": "嘉易創有限公司",
-          "award_price": "406,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "115-071-068-344",
       "title": "彰化縣115年度社區照顧關懷據點成果展",
       "org": "彰化縣政府",
@@ -994,59 +922,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjY5OTQ=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "02115015",
-      "title": "員林市公所115年新加坡工商業務考察採購案",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "300,000",
-      "date": "115/07/10",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzE4MTU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "02115022",
-      "title": "員林市115年孝行楷模表揚暨祖父母節慶祝活動",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "369,500",
-      "date": "115/07/10",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzE3ODA=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "02114014 員林市114年孝行楷模表揚大會",
-          "winner": "齊天創意行銷股份有限公司",
-          "award_price": "341,170元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "02113018 員林市113年孝行楷模表揚活動",
-          "winner": "齊天創意行銷股份有限公司",
-          "award_price": "394,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "11507-201",
@@ -1165,42 +1040,6 @@
       "is_activity": true
     },
     {
-      "id": "115030",
-      "title": "115年度福興鄉濕地環境教育活動計畫",
-      "org": "彰化縣福興鄉公所",
-      "region": "彰化",
-      "town": "福興鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/07/10",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzIxOTg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114N-039 濕地環境教育發展與在地培力計畫",
-          "winner": "環境友善種子股份有限公司",
-          "award_price": "2,200,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130223-A 113年海豐濕地環境教育場域營運管理計畫",
-          "winner": "技佳工程科技股份有限公司",
-          "award_price": "1,490,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1150713",
       "title": "彰化縣埔心鄉2026中秋健行活動勞務採購",
       "org": "彰化縣埔心鄉公所",
@@ -1286,23 +1125,6 @@
         }
       ],
       "is_activity": true
-    },
-    {
-      "id": "115-26",
-      "title": "埤頭鄉115年鄉長盃三對三籃球賽",
-      "org": "彰化縣埤頭鄉公所",
-      "region": "彰化",
-      "town": "埤頭鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "380,000",
-      "date": "115/07/09",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk3ODk=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "115QM365",
@@ -1405,40 +1227,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzYxNDY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150755",
-      "title": "115年嘉義市機車行廢棄輪胎清運計畫",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "312,000",
-      "date": "115/07/13",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI3Nzc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150652",
-      "title": "115年嘉義市火災殘留物清除處理計畫開口契約",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "9,425,000",
-      "date": "115/07/10",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzExODM=",
       "history": [],
       "is_activity": false
     },
@@ -1594,23 +1382,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI4MTQ=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "1150624",
-      "title": "「嘉義縣六腳鄉115年度模範父親暨好人好事代表表揚活動」辦桌餐會",
-      "org": "嘉義縣六腳鄉公所",
-      "region": "嘉義",
-      "town": "六腳鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "200,000",
-      "date": "115/07/13",
-      "deadline": "115/07/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzE0MjQ=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "115062",
