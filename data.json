@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-23T09:16:15.458787+08:00",
-  "total": 93,
-  "activity_total": 36,
+  "updated_at": "2026-07-23T12:37:40.516567+08:00",
+  "total": 90,
+  "activity_total": 34,
   "failed_orgs": [],
   "tenders": [
     {
@@ -717,33 +717,6 @@
       "is_activity": false
     },
     {
-      "id": "115-193-005-344",
-      "title": "115年彰化青年創業嘉年華實施計畫",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,167,392",
-      "date": "115/07/15",
-      "deadline": "115/07/23",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzQ4NTA=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-193-005-344 114年彰化青年創業嘉年華實施計畫",
-          "winner": "地平線文化事業股份有限公司",
-          "award_price": "2,542,772元",
-          "bidder_count": "5",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "115-034-010-344",
       "title": "115-116年度彰化縣老宅延壽機能復新地方服務團",
       "org": "彰化縣政府",
@@ -952,42 +925,6 @@
       "is_activity": true
     },
     {
-      "id": "11535",
-      "title": "2026彰化社頭織襪芭樂觀光節暨社頭農遊季活動",
-      "org": "彰化縣社頭鄉公所",
-      "region": "彰化",
-      "town": "社頭鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "9,400,000",
-      "date": "115/07/10",
-      "deadline": "115/07/23",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzIxMjg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "11436 2025彰化社頭織襪芭樂觀光節暨社頭農遊季活動",
-          "winner": "藝多麥整合行銷有限公司",
-          "award_price": "6,698,600元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "11343 2024彰化社頭織襪芭樂觀光節暨社頭農遊季活動",
-          "winner": "攸麗雅國際有限公司",
-          "award_price": "4,750,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "115-27",
       "title": "埤頭鄉115年「月圓映中秋‧濃情在埤頭」中秋聯歡晚會",
       "org": "彰化縣埤頭鄉公所",
@@ -1153,6 +1090,23 @@
       "is_activity": false
     },
     {
+      "id": "115193",
+      "title": "(更正公告) 嘉義市先期交通轉運中心委託營運管理案",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "19,990,000",
+      "date": "115/07/24",
+      "deadline": "115/08/04",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk0Mzg=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115204",
       "title": "嘉義市綠地資源災後盤點整體規劃與分析委託專業服務案",
       "org": "嘉義市政府",
@@ -1217,23 +1171,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzg1NDI=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115193",
-      "title": "嘉義市先期交通轉運中心委託營運管理案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "19,990,000",
-      "date": "115/07/20",
-      "deadline": "115/08/04",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjk0Mzg=",
       "history": [],
       "is_activity": false
     },
@@ -1321,23 +1258,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjYyODQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150754",
-      "title": "115年嘉義市彌陀路資源回收場資收雜質清除處理計畫開口契約",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,375,000",
-      "date": "115/07/02",
-      "deadline": "115/07/23",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjM3NDc=",
       "history": [],
       "is_activity": false
     },
