@@ -1,8 +1,10 @@
 {
-  "updated_at": "2026-07-24T09:16:24.106806+08:00",
-  "total": 99,
-  "activity_total": 38,
-  "failed_orgs": [],
+  "updated_at": "2026-07-24T12:39:56.564399+08:00",
+  "total": 96,
+  "activity_total": 36,
+  "failed_orgs": [
+    "義竹鄉公所"
+  ],
   "tenders": [
     {
       "id": "1152E10010",
@@ -56,9 +58,9 @@
         {
           "year": 2025,
           "title": "114710430474 臺東百大文化基地整合串聯計畫委託專業服務案",
-          "winner": "玩美文創設計工作室",
-          "award_price": "2,900,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -134,18 +136,18 @@
         {
           "year": 2025,
           "title": "114932 ︱佳聲再現，琪情綿延︱那些年，我們一起唱過的民歌音樂會委託專業服務案",
-          "winner": "凱莉國際整合行銷有限公司",
-          "award_price": "3,688,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113089 新竹市秋韻民歌音樂會委託專業服務案",
-          "winner": "优秀文創整合行銷有限公司",
-          "award_price": "2,500,000元",
-          "bidder_count": "6",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -187,9 +189,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "北鄉營造有限公司",
-          "award_price": "1,250,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -265,18 +267,18 @@
         {
           "year": 2025,
           "title": "1141104-1 115年斗六市燈海節-萬顆燈籠慶元宵委託專業服務案",
-          "winner": "樂福國際開發有限公司",
-          "award_price": "4,000,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1131105 114年斗六市燈海節-萬顆燈籠慶元宵委託專業服務案",
-          "winner": "樂福國際開發有限公司",
-          "award_price": "2,500,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -386,23 +388,6 @@
       "is_activity": false
     },
     {
-      "id": "11506-3",
-      "title": "雲林縣口湖鄉公所115年度檔案應用與地方創生經驗交流計畫",
-      "org": "雲林縣口湖鄉公所",
-      "region": "雲林",
-      "town": "口湖鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "384,000",
-      "date": "115/07/15",
-      "deadline": "115/07/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzQ5MzU=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "TIPC115019",
       "title": "115年度臺中市原住民AI應用證照班勞務採購案",
       "org": "臺中市政府原住民族事務委員會",
@@ -454,18 +439,18 @@
         {
           "year": 2025,
           "title": "1140227 114年全國原住民族運動會桃園市代表隊慶功頒獎典禮餐宴採購案",
-          "winner": "海豐開發股份有限公司",
-          "award_price": "640,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113-016 「114年全國原住民族運動會」整體賽事陸上運輸服務案",
-          "winner": "高旗旅行社股份有限公司",
-          "award_price": "1,900,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -507,18 +492,18 @@
         {
           "year": 2025,
           "title": "1140826A 114年度新北市社區照顧關懷據點成果展",
-          "winner": "思源傳播有限公司",
-          "award_price": "2,500,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "sab113077 113年度新北市社區照顧關懷據點成果展",
-          "winner": "思源傳播有限公司",
-          "award_price": "1,490,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -696,18 +681,18 @@
         {
           "year": 2025,
           "title": "SOSL114021 宜蘭縣114年度社區照顧關懷據點宣導品採購案",
-          "winner": "愛宴陶瓷餐廚用品館",
-          "award_price": "360,000元",
-          "bidder_count": "5",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "114-0020701-035-2-4 彰化縣114年社區照顧關懷據點服務優化方案",
-          "winner": "財團法人弘道老人福利基金會",
-          "award_price": "5,953,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -732,18 +717,18 @@
         {
           "year": 2025,
           "title": "1140317-1 114年臺中市勞資健行活動",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130719-1 113年臺中市勞資健行活動採購案",
-          "winner": "高碲設計傳播有限公司",
-          "award_price": "1,200,000元",
-          "bidder_count": "4",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -870,18 +855,18 @@
         {
           "year": 2025,
           "title": "11412-201 2026鹿港四季紅-春來系列活動委託專業服務案",
-          "winner": "藝多麥整合行銷有限公司",
-          "award_price": "3,090,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "11311-203 2025鹿港四季紅-春來系列活動委託專業服務案",
-          "winner": "攸麗雅國際有限公司",
-          "award_price": "2,425,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -906,18 +891,18 @@
         {
           "year": 2025,
           "title": "1140016245 114年芬園鄉「芬園在地農村社區相關產業推廣計畫」活動之委外專業服務案",
-          "winner": "星熠創意行銷有限公司",
-          "award_price": "950,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "A024-1130727-1 2024屏東農村社區產業推廣計畫",
-          "winner": "博塔納設計行銷有限公司",
-          "award_price": "5,500,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -959,23 +944,6 @@
       "is_activity": true
     },
     {
-      "id": "1150011864",
-      "title": "115年度芳苑鄉公所公共建設、人文藝術與城鄉經濟發展出國考察",
-      "org": "彰化縣芳苑鄉公所",
-      "region": "彰化",
-      "town": "芳苑鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "400,000",
-      "date": "115/07/16",
-      "deadline": "115/07/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzY1MDQ=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "11537",
       "title": "2026彰化社頭織襪芭樂觀光節暨社頭農遊季活動交通接駁車勞務採購",
       "org": "彰化縣社頭鄉公所",
@@ -993,18 +961,18 @@
         {
           "year": 2025,
           "title": "11436 2025彰化社頭織襪芭樂觀光節暨社頭農遊季活動",
-          "winner": "藝多麥整合行銷有限公司",
-          "award_price": "6,698,600元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "11343 2024彰化社頭織襪芭樂觀光節暨社頭農遊季活動",
-          "winner": "攸麗雅國際有限公司",
-          "award_price": "4,750,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1046,18 +1014,18 @@
         {
           "year": 2025,
           "title": "1140625 彰化縣溪州鄉提拔泥活動委託專業服務",
-          "winner": "宜蓁實業有限公司",
-          "award_price": "2,100,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130704 彰化縣溪州鄉提拔泥活動委託專業服務",
-          "winner": "宜蓁實業有限公司",
-          "award_price": "2,100,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1150,9 +1118,9 @@
         {
           "year": 2024,
           "title": "1132E10028 114年度雲林縣身心障礙者社區式日間服務計畫",
-          "winner": "社團法人雲林縣身心障礙者重建協會",
-          "award_price": "2,965,523元",
-          "bidder_count": "4",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1313,18 +1281,18 @@
         {
           "year": 2025,
           "title": "113171-2 113年度台灣好行光林我嘉線行銷推廣案(後續擴充)",
-          "winner": "曠野創意整合有限公司",
-          "award_price": "3,500,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113171 113年度台灣好行光林我嘉線行銷推廣案",
-          "winner": "曠野創意整合有限公司",
-          "award_price": "3,500,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1345,23 +1313,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzczMDQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150759",
-      "title": "115年度嘉義市巨大廢棄物雜質破碎清除處理計畫（第2次）",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,908,000",
-      "date": "115/07/06",
-      "deadline": "115/07/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNjY2OTA=",
       "history": [],
       "is_activity": false
     },
@@ -1417,18 +1368,18 @@
         {
           "year": 2025,
           "title": "11410 2025嘉義縣布袋鎮海味嘉年華系列活動",
-          "winner": "欣榮藝術行銷有限公司",
-          "award_price": "1,095,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "11322 2024嘉義縣布袋鎮海味嘉年華系列活動",
-          "winner": "欣榮藝術行銷有限公司",
-          "award_price": "1,090,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1555,18 +1506,18 @@
         {
           "year": 2025,
           "title": "114B0048 2025幸福臺南˙耶誕點燈活動",
-          "winner": "領導力國際有限公司",
-          "award_price": "790,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113B0051 2024幸福臺南．耶誕點燈活動",
-          "winner": "領導力國際有限公司",
-          "award_price": "700,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1625,18 +1576,18 @@
         {
           "year": 2025,
           "title": "114001 114年度結合統一發票推行辦理地區性租稅教育及宣導之民歌演唱會活動委外服務案",
-          "winner": "卓見活動有限公司",
-          "award_price": "600,000元",
-          "bidder_count": "4",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113016 113年度結合統一發票推行辦理全國性租稅教育及宣導-大專租稅教育推廣「稅才爭霸」委外服務案",
-          "winner": "中華財政學會",
-          "award_price": "1,030,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1695,18 +1646,18 @@
         {
           "year": 2025,
           "title": "114069 『2025前進大南方論壇暨專題報導』委託專業服務案",
-          "winner": "今周行銷股份有限公司",
-          "award_price": "472,500元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113ECON63S1 2024前進大南方論壇廣宣案",
-          "winner": "今周文化事業股份有限公司",
-          "award_price": "380,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1765,18 +1716,18 @@
         {
           "year": 2025,
           "title": "11431016 114年度環境清潔改善參訪觀摩活動",
-          "winner": "全輪旅行社股份有限公司",
-          "award_price": "1,200,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "11330916 113年度環境清潔改善參訪觀摩活動",
-          "winner": "全輪旅行社股份有限公司",
-          "award_price": "720,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1869,18 +1820,18 @@
         {
           "year": 2025,
           "title": "1140423A 114年度新北市原住民族微型保險實施計畫勞務採購案",
-          "winner": "泰安產物保險股份有限公司桃園分公司",
-          "award_price": "5,152,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130523B 113年度新北市原住民族微型保險實施計畫勞務採購案(第2次修正後)",
-          "winner": "泰安產物保險股份有限公司桃園分公司",
-          "award_price": "5,736,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
