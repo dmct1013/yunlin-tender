@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-07-31T09:17:55.578264+08:00",
-  "total": 95,
-  "activity_total": 41,
+  "updated_at": "2026-07-31T12:47:22.415931+08:00",
+  "total": 93,
+  "activity_total": 39,
   "failed_orgs": [],
   "tenders": [
     {
@@ -1086,42 +1086,6 @@
       "is_activity": false
     },
     {
-      "id": "1150716",
-      "title": "彰化縣溪州鄉提拔泥活動委託專業服務",
-      "org": "彰化縣溪州鄉公所",
-      "region": "彰化",
-      "town": "溪州鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,600,000",
-      "date": "115/07/22",
-      "deadline": "115/07/31",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODEyOTY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140625 彰化縣溪州鄉提拔泥活動委託專業服務",
-          "winner": "宜蓁實業有限公司",
-          "award_price": "2,100,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130704 彰化縣溪州鄉提拔泥活動委託專業服務",
-          "winner": "宜蓁實業有限公司",
-          "award_price": "2,100,000元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "115GL390",
       "title": "2026高山茶都．嘉義產業區委託專業服務計畫",
       "org": "嘉義縣政府",
@@ -1222,33 +1186,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzk3Nzk=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115HM369",
-      "title": "115年度嘉義縣身心障礙者社區居住與生活服務計畫-大林服務據點",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,548,915",
-      "date": "115/07/17",
-      "deadline": "115/07/31",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzc3MzU=",
-      "history": [
-        {
-          "year": 2024,
-          "title": "1132E10028 114年度雲林縣身心障礙者社區式日間服務計畫",
-          "winner": "社團法人雲林縣身心障礙者重建協會",
-          "award_price": "2,965,523元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "115QM365",
@@ -1484,20 +1421,39 @@
       "is_activity": false
     },
     {
-      "id": "1150651",
-      "title": "115年嘉義市環保用地（湖美小段569地號）廢棄物篩分及處理計畫（第2次）開口契約",
-      "org": "嘉義市政府環境保護局",
+      "id": "1150716",
+      "title": "嘉義市末廣段三小段7地號等8筆市有非公用土地估價委託案",
+      "org": "嘉義市政府財政稅務局",
       "region": "嘉義",
       "town": "嘉義市",
       "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,988,800",
-      "date": "115/07/24",
-      "deadline": "115/07/31",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "315,000",
+      "date": "115/07/28",
+      "deadline": "115/08/03",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODI5NzQ=",
-      "history": [],
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODMwMTM=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1140625 彰化縣溪州鄉提拔泥活動委託專業服務",
+          "winner": "宜蓁實業有限公司",
+          "award_price": "2,100,000元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1130704 彰化縣溪州鄉提拔泥活動委託專業服務",
+          "winner": "宜蓁實業有限公司",
+          "award_price": "2,100,000元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": false
     },
     {
