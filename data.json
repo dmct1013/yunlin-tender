@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-05T09:12:20.536960+08:00",
-  "total": 91,
+  "updated_at": "2026-08-05T12:25:38.512729+08:00",
+  "total": 90,
   "activity_total": 35,
   "failed_orgs": [],
   "tenders": [
@@ -1468,23 +1468,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODkyMDE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150759",
-      "title": "115年度嘉義市巨大廢棄物雜質破碎清除處理計畫（第2次）",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,908,000",
-      "date": "115/07/28",
-      "deadline": "115/08/05",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODUyNDg=",
       "history": [],
       "is_activity": false
     },
