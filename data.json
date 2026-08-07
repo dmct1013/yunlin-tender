@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-07T09:16:01.864670+08:00",
-  "total": 92,
+  "updated_at": "2026-08-07T12:11:24.119719+08:00",
+  "total": 88,
   "activity_total": 39,
   "failed_orgs": [],
   "tenders": [
@@ -957,23 +957,6 @@
       "is_activity": true
     },
     {
-      "id": "02115019",
-      "title": "員林市立幼兒園115學年度第1學期餐點採購",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,680,140",
-      "date": "115/07/28",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODY4MDE=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "11507-203",
       "title": "2026鹿港四季紅-冬歡活動委託專業服務案",
       "org": "彰化縣鹿港鎮公所",
@@ -1182,23 +1165,6 @@
       "is_activity": false
     },
     {
-      "id": "115YL366",
-      "title": "嘉義縣AC刨除料暫置場用地變更委託專業服務案",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,000,000",
-      "date": "115/07/24",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODM4NzY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1151049",
       "title": "本局115年度數位鑑識及科技偵防工具軟體授權採購案",
       "org": "嘉義市政府警察局",
@@ -1250,23 +1216,6 @@
       "is_activity": false
     },
     {
-      "id": "1150730",
-      "title": "115年韓國釜山魚市場暨水產物流冷鏈管理考察",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "465,000",
-      "date": "115/07/31",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTA1Nzg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115211",
       "title": "115年度委外智慧科技應用類職前訓練",
       "org": "嘉義市政府",
@@ -1280,23 +1229,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTAyOTg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150754",
-      "title": "115年嘉義市彌陀路資源回收場資收雜質清除處理計畫開口契約（第2次）",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,375,000",
-      "date": "115/07/31",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTAwMTA=",
       "history": [],
       "is_activity": false
     },
