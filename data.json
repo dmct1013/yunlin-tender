@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-07T12:11:24.119719+08:00",
-  "total": 88,
+  "updated_at": "2026-08-08T09:16:16.289731+08:00",
+  "total": 86,
   "activity_total": 39,
   "failed_orgs": [],
   "tenders": [
@@ -673,23 +673,6 @@
       "is_activity": false
     },
     {
-      "id": "1150728012",
-      "title": "地政作業基金輔助系統改版案",
-      "org": "臺中市政府地政局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,435,500",
-      "date": "115/07/29",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODg0Nzg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "11507241969",
       "title": "115年臺中市都市計畫暨民眾申請許可平台整合維護案",
       "org": "臺中市政府都市發展局",
@@ -1178,23 +1161,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTMyOTY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115194",
-      "title": "115年動物救傷照護醫療工作",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,800,000",
-      "date": "115/08/03",
-      "deadline": "115/08/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTE2MTQ=",
       "history": [],
       "is_activity": false
     },
