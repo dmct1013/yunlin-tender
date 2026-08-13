@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-13T09:07:20.180218+08:00",
-  "total": 62,
-  "activity_total": 24,
+  "updated_at": "2026-08-13T11:40:56.534355+08:00",
+  "total": 58,
+  "activity_total": 22,
   "failed_orgs": [],
   "tenders": [
     {
@@ -127,42 +127,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTA1NzA=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115046",
-      "title": "115年度雲林縣斗南鎮社區營造輔導計畫",
-      "org": "雲林縣斗南鎮公所",
-      "region": "雲林",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,418,200",
-      "date": "115/08/05",
-      "deadline": "115/08/13",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTMyNzY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114051 114年度雲林縣斗南鎮社區營造輔導計畫",
-          "winner": "國立雲林科技大學",
-          "award_price": "1,300,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113028 113年度雲林縣斗南鎮社區營造輔導計畫",
-          "winner": "國立雲林科技大學",
-          "award_price": "1,200,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "1150804",
@@ -587,23 +551,6 @@
       "is_activity": false
     },
     {
-      "id": "115-161-042-344",
-      "title": "彰化縣115-116年「台灣觀光100亮點捲動國旅方案」委託服務案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,000,000",
-      "date": "115/08/04",
-      "deadline": "115/08/13",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTI5NTY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "A115-058",
       "title": "彰化市公所116年農民曆印製勞務採購案",
       "org": "彰化縣彰化市公所",
@@ -685,23 +632,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTI1OTU=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "11507-202",
-      "title": "(更正公告) 1784千帆館空間策展規劃執行委託專業服務案",
-      "org": "彰化縣鹿港鎮公所",
-      "region": "彰化",
-      "town": "鹿港鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,000,000",
-      "date": "115/07/30",
-      "deadline": "115/08/13",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyODc1OTM=",
       "history": [],
       "is_activity": true
     },
@@ -1296,23 +1226,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzgxMjQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11530709",
-      "title": "115年度智慧空氣品質預測預警及污染源追蹤系統建置計畫",
-      "org": "臺南市政府環境保護局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "35,760,000",
-      "date": "115/07/13",
-      "deadline": "115/08/13",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyNzI4Nzk=",
       "history": [],
       "is_activity": false
     }
