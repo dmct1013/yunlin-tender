@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-14T09:06:57.737919+08:00",
-  "total": 67,
-  "activity_total": 25,
+  "updated_at": "2026-08-14T11:42:09.148556+08:00",
+  "total": 65,
+  "activity_total": 24,
   "failed_orgs": [],
   "tenders": [
     {
@@ -479,23 +479,6 @@
       "is_activity": true
     },
     {
-      "id": "P1150713055",
-      "title": "115年臺中市廢家具拆除物委託處理或再利用計畫(開口契約)",
-      "org": "臺中市政府環境保護局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,700,000",
-      "date": "115/08/04",
-      "deadline": "115/08/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTIzNTk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "11507311970",
       "title": "115年度臺中市社區規劃師駐地輔導計畫成果展覽暨推廣案(含後續擴充)",
       "org": "臺中市政府都市發展局",
@@ -821,42 +804,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTUzNjM=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115GL394",
-      "title": "2026嘉義縣臺灣國際茶業博覽會及咖啡展委託專業服務",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/08/03",
-      "deadline": "115/08/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTE5MDU=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114GM171C1 2025嘉義縣臺灣國際茶業博覽會及咖啡展委託專業服務",
-          "winner": "佶歐國際設計有限公司",
-          "award_price": "3,400,000元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113GH431C1 2024嘉義縣臺灣國際茶業博覽會及咖啡展委託專業服務",
-          "winner": "佶歐國際設計有限公司",
-          "award_price": "7,450,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "115QM393",
