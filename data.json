@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-14T11:42:09.148556+08:00",
-  "total": 65,
-  "activity_total": 24,
+  "updated_at": "2026-08-15T09:04:57.064142+08:00",
+  "total": 62,
+  "activity_total": 21,
   "failed_orgs": [],
   "tenders": [
     {
@@ -479,42 +479,6 @@
       "is_activity": true
     },
     {
-      "id": "11507311970",
-      "title": "115年度臺中市社區規劃師駐地輔導計畫成果展覽暨推廣案(含後續擴充)",
-      "org": "臺中市政府都市發展局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,250,000",
-      "date": "115/08/04",
-      "deadline": "115/08/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTIyMjY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "S114037 「114年度高雄市社區規劃師駐地輔導計畫」",
-          "winner": "蓁明顧問有限公司",
-          "award_price": "7,350,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "11308191762 113年度臺中市社區規劃師駐地輔導計畫",
-          "winner": "弘光科技大學",
-          "award_price": "15,000,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "11507300045",
       "title": "臺中機場捷運(橘線)綜合規劃、環境影響評估等相關工作及基本設計委託技術服務",
       "org": "臺中市政府捷運工程局",
@@ -944,42 +908,6 @@
       "is_activity": false
     },
     {
-      "id": "115yz034",
-      "title": "115年度嘉義縣社區營造及村落文化發展計畫- 「義竹fun鬆．庄腳夢」委託專業服務案",
-      "org": "嘉義縣義竹鄉公所",
-      "region": "嘉義",
-      "town": "義竹鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "230,000",
-      "date": "115/08/07",
-      "deadline": "115/08/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTY3OTY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114yz023 「114年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "可卡因整合有限公司",
-          "award_price": "560,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113yz019 「113年度嘉義縣社區營造及村落文化發展計畫-義竹鄉玉米田裡的鱸魚故事」委託專業服務案",
-          "winner": "南曦文創股份有限公司",
-          "award_price": "515,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1150085",
       "title": "中埔鄉轄內公園等環境清潔管理開口契約(115)",
       "org": "嘉義縣中埔鄉公所",
@@ -998,14 +926,14 @@
     },
     {
       "id": "115B0033",
-      "title": "「115年度原住民族文化健康站活力健康操南區初賽活動」勞務採購案",
+      "title": "(更正公告) 「115年度原住民族文化健康站活力健康操南區初賽活動」勞務採購案",
       "org": "臺南市政府",
       "region": "台南",
       "town": "台南市",
       "type": "勞務",
       "recruit_type": "經公開評選或公開徵求之限制性招標",
       "budget": "3,224,000",
-      "date": "115/08/14",
+      "date": "115/08/17",
       "deadline": "115/08/31",
       "status": "招標中",
       "winner": "",
@@ -1192,23 +1120,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTY0NTM=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "TNS-1150720",
-      "title": "115年臺南曾文風箏嘉年華勞務採購案",
-      "org": "臺南市政府體育局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/08/06",
-      "deadline": "115/08/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTQ5ODQ=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "115ECON51S2",
