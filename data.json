@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-17T09:04:26.357115+08:00",
-  "total": 69,
+  "updated_at": "2026-08-17T10:35:41.168295+08:00",
+  "total": 68,
   "activity_total": 21,
   "failed_orgs": [],
   "tenders": [
@@ -834,23 +834,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTE3MjA=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1150651",
-      "title": "(更正公告) 115年嘉義市環保用地（湖美小段569地號）廢棄物篩分及處理計畫（第2次）開口契約",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "19,988,800",
-      "date": "115/08/11",
-      "deadline": "115/08/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTcxNTA=",
       "history": [],
       "is_activity": false
     },
