@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-20T09:01:38.704128+08:00",
-  "total": 60,
-  "activity_total": 19,
+  "updated_at": "2026-08-20T10:28:48.850577+08:00",
+  "total": 58,
+  "activity_total": 18,
   "failed_orgs": [],
   "tenders": [
     {
@@ -579,42 +579,6 @@
       "is_activity": false
     },
     {
-      "id": "115-071-080-325",
-      "title": "彰化縣115年度社區照顧關懷據點成果展",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,198,000",
-      "date": "115/08/13",
-      "deadline": "115/08/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDA4ODM=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "SOSL114021 宜蘭縣114年度社區照顧關懷據點宣導品採購案",
-          "winner": "愛宴陶瓷餐廚用品館",
-          "award_price": "360,000元",
-          "bidder_count": "5",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "114-0020701-035-2-4 彰化縣114年社區照顧關懷據點服務優化方案",
-          "winner": "財團法人弘道老人福利基金會",
-          "award_price": "5,953,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "115-066-048-344",
       "title": "2027花在彰化–溪州公園主題植栽景觀創作",
       "org": "彰化縣政府",
@@ -732,23 +696,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDUxMDM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-31",
-      "title": "彰化縣115年埤頭稻香鐵道自行車節",
-      "org": "彰化縣埤頭鄉公所",
-      "region": "彰化",
-      "town": "埤頭鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/08/12",
-      "deadline": "115/08/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTg4OTg=",
       "history": [],
       "is_activity": false
     },
