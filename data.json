@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-21T09:05:54.186223+08:00",
-  "total": 72,
-  "activity_total": 25,
+  "updated_at": "2026-08-21T10:39:38.164990+08:00",
+  "total": 71,
+  "activity_total": 24,
   "failed_orgs": [],
   "tenders": [
     {
@@ -244,23 +244,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDc1MjE=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "11507-4",
-      "title": "2026口湖鄉「海韻中秋•情聚口湖」中秋活動",
-      "org": "雲林縣口湖鄉公所",
-      "region": "雲林",
-      "town": "口湖鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,480,000",
-      "date": "115/08/12",
-      "deadline": "115/08/21",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTkyMDg=",
       "history": [],
       "is_activity": true
     },
