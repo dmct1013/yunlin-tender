@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-08-28T20:10:42.853971+08:00",
-  "total": 57,
-  "activity_total": 20,
+  "updated_at": "2026-08-29T09:11:59.519845+08:00",
+  "total": 51,
+  "activity_total": 29,
   "failed_orgs": [],
   "tenders": [
     {
@@ -99,24 +99,7 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDg2NzM=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152A10052",
-      "title": "濁水溪流域大義崙大排集水區逕流分擔計畫",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,200,000",
-      "date": "115/08/21",
-      "deadline": "115/09/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDcwNTQ=",
-      "history": [],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "1152H10099",
@@ -150,7 +133,7 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTEzOTY=",
       "history": [],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "1152D10028",
@@ -395,23 +378,6 @@
       "is_activity": false
     },
     {
-      "id": "11507300045",
-      "title": "(更正公告) 臺中機場捷運(橘線)綜合規劃、環境影響評估等相關工作及基本設計委託技術服務",
-      "org": "臺中市政府捷運工程局",
-      "region": "台中",
-      "town": "台中市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "980,000,000",
-      "date": "115/08/21",
-      "deadline": "115/08/31",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTEwNjc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115B-09",
       "title": "115年數位市民維運與功能增修案",
       "org": "臺中市政府數位發展局",
@@ -459,23 +425,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTU2ODg=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-174-141-325",
-      "title": "115年度鹿港文開抽水站貯存系統監測及申報工作",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "780,000",
-      "date": "115/08/28",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTI1MjE=",
       "history": [],
       "is_activity": false
     },
@@ -547,6 +496,40 @@
           "budget": ""
         }
       ],
+      "is_activity": true
+    },
+    {
+      "id": "A115-059",
+      "title": "田中、延平、建寶、阿夷等4處社區活動中心無障礙設施改善工程委託設計監造技術服務",
+      "org": "彰化縣彰化市公所",
+      "region": "彰化",
+      "town": "彰化市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,350,374",
+      "date": "115/08/26",
+      "deadline": "115/09/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTA3NDI=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115053",
+      "title": "(更正公告) 永靖鄉五汴社區活動中心拆除重建工程委託設計監造技術服務",
+      "org": "彰化縣永靖鄉公所",
+      "region": "彰化",
+      "town": "永靖鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,899,889",
+      "date": "115/08/27",
+      "deadline": "115/09/08",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTA1NTA=",
+      "history": [],
       "is_activity": true
     },
     {
@@ -688,23 +671,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTAzODY=",
       "history": [],
       "is_activity": true
-    },
-    {
-      "id": "115YM381",
-      "title": "嘉義縣共同管道系統第一次通盤檢討委託規劃設計服務案",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,212,475",
-      "date": "115/08/26",
-      "deadline": "115/09/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDk5MTk=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "115FM425",
@@ -850,7 +816,7 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTI4Mjc=",
       "history": [],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "TC115C131",
@@ -883,40 +849,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTA5MzU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "21150803",
-      "title": "臺南市公有土方暫置場監督服務計畫",
-      "org": "臺南市政府工務局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,100,000",
-      "date": "115/08/26",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTA4MzU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11530708",
-      "title": "115-116年度城西垃圾掩埋場陸上污染源廢（污）水排放於特定海域許可海域環境監測計畫",
-      "org": "臺南市政府環境保護局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,919,000",
-      "date": "115/08/26",
-      "deadline": "115/09/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTA2Mzg=",
       "history": [],
       "is_activity": false
     },
@@ -955,23 +887,6 @@
       "is_activity": false
     },
     {
-      "id": "115ECON64S2",
-      "title": "115年度新吉工業區環境綜合管理及環境監測計畫",
-      "org": "臺南市政府經濟發展局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "9,200,000",
-      "date": "115/08/21",
-      "deadline": "115/09/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDczNDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1150109619",
       "title": "115年度國民健康業務成果發表會",
       "org": "臺南市政府衛生局",
@@ -1005,7 +920,7 @@
           "budget": ""
         }
       ],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "11530812",
@@ -1075,24 +990,7 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDUzMzM=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "21150801",
-      "title": "115年度工務局資訊系統機房維護暨機房資訊設備更新及擴充案",
-      "org": "臺南市政府工務局",
-      "region": "台南",
-      "town": "台南市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,290,000",
-      "date": "115/08/17",
-      "deadline": "115/09/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTY2Mjg=",
-      "history": [],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "115B0033",
@@ -1136,7 +1034,7 @@
           "budget": ""
         }
       ],
-      "is_activity": false
+      "is_activity": true
     },
     {
       "id": "TC115C136",
@@ -1153,7 +1051,7 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTA2MDY=",
       "history": [],
-      "is_activity": false
+      "is_activity": true
     }
   ]
 }
