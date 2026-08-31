@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>中彰雲嘉南採購監控</title>
-<meta name="description" content="雲林、台中、彰化、嘉義、台南政府勞務標案監控">
+<title>起行採購監控</title>
+<meta name="description" content="雲林、彰化、嘉義政府勞務標案監控">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📋</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
@@ -31,7 +31,6 @@
   --z-backdrop: 50;
   --z-panel: 60;
   --z-toast: 70;
-  --z-lock: 100;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -108,44 +107,6 @@ button { font-family: inherit; }
 .stat-urgent.has-urgent .val { color: var(--red); }
 .stat-activity .val { color: var(--gold); }
 
-/* === 活動標案焦點區 === */
-.spotlight { margin-bottom: 30px; }
-.section-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
-.section-title { font-family: 'Noto Serif TC', serif; font-size: 16px; font-weight: 700; }
-.section-title::before { content: '◆'; color: var(--gold); margin-right: 8px; font-size: 11px; }
-.section-note { font-size: 11px; color: var(--text3); }
-.scards { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; }
-.scard {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-  padding: 15px 17px 13px; cursor: pointer; position: relative; overflow: hidden;
-  display: flex; flex-direction: column; gap: 9px;
-  transition: transform .2s, box-shadow .2s, border-color .2s;
-}
-.scard:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--border2); }
-.scard:active { transform: translateY(0); }
-.scard::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
-.scard.u-urgent::before { background: var(--red); }
-.scard.u-warning::before { background: var(--amber); }
-.scard.u-safe::before { background: var(--green); }
-.scard.u-expired::before, .scard.u-none::before { background: var(--border2); }
-.scard-title { font-size: 13.5px; font-weight: 600; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-wrap: pretty; }
-.new-tender-icon {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; margin-right: 6px; border-radius: 50%;
-  background: var(--amber-bg); color: var(--amber); font-size: 11px;
-  font-weight: 700; line-height: 1; vertical-align: 1px; flex: 0 0 auto;
-}
-.scard-org { font-size: 11px; color: var(--text3); margin-top: -4px; }
-.scard-meta { display: flex; align-items: center; gap: 10px; }
-.scard-budget { font-family: 'Noto Serif TC', serif; font-size: 17px; font-weight: 700; color: var(--text); font-variant-numeric: tabular-nums; }
-.dl-chip { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 5px; margin-left: auto; white-space: nowrap; }
-.dl-chip.d-urgent { background: var(--red-bg); color: var(--red); }
-.dl-chip.d-warning { background: var(--amber-bg); color: var(--amber); }
-.dl-chip.d-safe { background: var(--green-bg); color: var(--green); }
-.dl-chip.d-expired { background: var(--surface3); color: var(--text3); }
-.scard-hist { font-size: 11.5px; color: var(--text2); border-top: 1px dashed var(--border2); padding-top: 8px; line-height: 1.7; }
-.scard-hist strong { color: var(--gold-soft); font-weight: 600; }
-.scard-hist.none { color: var(--text3); }
 
 /* === 篩選列 === */
 .toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
@@ -259,8 +220,7 @@ tbody tr:last-child td { border-bottom: 0; }
 
 /* === 入場動畫 === */
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.stats, .spotlight, .toolbar, .table-wrap { animation: rise .45s cubic-bezier(.2,.7,.3,1) backwards; }
-.spotlight { animation-delay: .06s; }
+.stats, .toolbar, .table-wrap { animation: rise .45s cubic-bezier(.2,.7,.3,1) backwards; }
 .toolbar { animation-delay: .12s; }
 .table-wrap { animation-delay: .16s; }
 
@@ -271,7 +231,6 @@ tbody tr:last-child td { border-bottom: 0; }
   .wrap { padding: 16px 14px 70px; }
   .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .stat .val { font-size: 26px; }
-  .scards { grid-template-columns: 1fr; }
   /* 表格轉卡片 */
   thead { display: none; }
   table, tbody, tr, td { display: block; }
@@ -294,55 +253,12 @@ tbody tr:last-child td { border-bottom: 0; }
 </head>
 <body>
 
-<!-- 密碼鎖 -->
-<div id="lock-screen" style="position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:var(--z-lock);">
-  <div style="background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:38px 40px;width:330px;text-align:center;box-shadow:var(--shadow)">
-    <div style="font-family:'Noto Serif TC',serif;font-size:21px;font-weight:900;margin-bottom:2px">中彰雲嘉南<em style="font-style:normal;color:var(--gold)">採購監控</em></div>
-    <div style="font-size:12px;color:var(--text3);margin-bottom:24px">請輸入密碼進入</div>
-    <input id="pw-input" type="password" placeholder="密碼" onkeydown="if(event.key==='Enter')checkPw()"
-      style="width:100%;padding:11px 14px;border:1px solid var(--border2);border-radius:9px;font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);outline:none;box-sizing:border-box;margin-bottom:8px">
-    <div id="pw-error" style="font-size:12px;color:var(--red);margin-bottom:10px;min-height:16px"></div>
-    <button onclick="checkPw()" style="width:100%;padding:11px;background:var(--gold);border:none;border-radius:9px;color:#fdfcf8;font-size:14px;font-family:inherit;font-weight:600;cursor:pointer">進入</button>
-  </div>
-</div>
-
-<script>
-(function(){
-  const HASH = '56116e9ca720684c714b68f1420dde3bc1a492e9b61f58c1a036d4d2d1c12df1';
-  function sha256(str) {
-    const buf = new TextEncoder().encode(str);
-    return crypto.subtle.digest('SHA-256', buf).then(h =>
-      Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('')
-    );
-  }
-  function checkPw() {
-    const pw = document.getElementById('pw-input').value;
-    sha256(pw).then(hash => {
-      if (hash === HASH) {
-        sessionStorage.setItem('auth', '1');
-        document.getElementById('lock-screen').style.display = 'none';
-      } else {
-        document.getElementById('pw-error').textContent = '密碼錯誤，請再試一次';
-        document.getElementById('pw-input').value = '';
-        document.getElementById('pw-input').focus();
-      }
-    });
-  }
-  window.checkPw = checkPw;
-  if (sessionStorage.getItem('auth') !== '1') {
-    document.addEventListener('DOMContentLoaded', () => document.getElementById('pw-input').focus());
-  } else {
-    document.addEventListener('DOMContentLoaded', () => document.getElementById('lock-screen').style.display = 'none');
-  }
-})();
-</script>
-
 <div class="page-loading" id="pg-loading"><div class="sp"></div><p>載入標案資料中...</p></div>
 
 <header class="masthead">
   <div class="masthead-inner">
     <div class="brand">
-      <div class="brand-title">中彰雲嘉南<em>採購監控</em></div>
+      <div class="brand-title">起行<em>採購監控</em></div>
       <div class="brand-sub" id="updated-at">載入中...</div>
     </div>
   </div>
@@ -358,14 +274,6 @@ tbody tr:last-child td { border-bottom: 0; }
     <div class="stat stat-urgent" id="stat-urgent"><div class="lbl">緊急截止</div><div class="val" id="s-urgent">0</div><div class="sub" id="s-urgent-sub">3 天內活動案</div></div>
     <div class="stat"><div class="lbl">一週內截止</div><div class="val" id="s-week">0</div><div class="sub" id="s-week-sub">7 天內活動案</div></div>
   </div>
-
-  <section class="spotlight" id="spotlight-wrap" style="display:none">
-    <div class="section-head">
-      <h2 class="section-title">活動相關標案</h2>
-      <span class="section-note">依截止日排序・歷史得標為關鍵字模糊比對，投標前請以採購網原始公告為準</span>
-    </div>
-    <div class="scards" id="spotlight-cards"></div>
-  </section>
 
   <div class="toolbar">
     <div class="seg">
@@ -419,9 +327,19 @@ tbody tr:last-child td { border-bottom: 0; }
 
 <script>
 let ALL=[], currentView='all', currentTender=null, currentTab=0;
+const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, ch => ({
+  '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+}[ch]));
+const encodedId = value => encodeURIComponent(String(value ?? ''));
+function safePccUrl(value) {
+  try {
+    const url = new URL(String(value));
+    return url.protocol === 'https:' && url.hostname === 'web.pcc.gov.tw' ? url.href : '#';
+  } catch (_) { return '#'; }
+}
 
 /* === 區域分頁 === */
-const REGION_LIST = ['雲林','台中','彰化','嘉義','台南'];
+const REGION_LIST = ['雲林','彰化','嘉義'];
 let currentRegion = '雲林';
 /* 舊資料沒有 region 欄位，一律視為雲林 */
 const regionOf = t => t.region || '雲林';
@@ -437,7 +355,7 @@ function setRegion(r) {
   if (r === currentRegion) return;
   currentRegion = r;
   document.getElementById('f-town').value = '';
-  renderRegionTabs(); buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
+  renderRegionTabs(); buildTownFilter(); updateStats(); renderTable();
 }
 
 /* === 截止日工具 === */
@@ -516,7 +434,7 @@ async function loadData() {
     if (data.failed_orgs && data.failed_orgs.length) {
       showToast('注意：上次更新有機關查詢失敗，資料可能不完整：\n' + data.failed_orgs.join('、'), 8000);
     }
-    renderRegionTabs(); buildTownFilter(); updateStats(); renderSpotlight(); renderTable();
+    renderRegionTabs(); buildTownFilter(); updateStats(); renderTable();
   } catch(e) { ALL = []; document.getElementById('updated-at').textContent = '⚠ 載入失敗'; }
   document.getElementById('pg-loading').style.display = 'none';
   document.getElementById('app').style.display = 'block';
@@ -528,33 +446,6 @@ function fmtBudget(s) {
   if (!b) return s || '—';
   if (b >= 10000) return (b / 10000).toLocaleString('zh-TW', {maximumFractionDigits: 1}) + ' 萬';
   return 'NT$ ' + s;
-}
-
-/* === 活動標案卡片 === */
-function histSummary(t) {
-  const h = t.history || [];
-  if (!h.length) return '<div class="scard-hist none">查無前兩年得標記錄</div>';
-  const lines = h.map(x => `${x.year - 1911}年 <strong>${x.winner}</strong>・${x.award_price}`).join('<br>');
-  return `<div class="scard-hist">${lines}</div>`;
-}
-function renderSpotlight() {
-  const actives = REG().filter(t => t.is_activity);
-  const wrap = document.getElementById('spotlight-wrap');
-  if (!actives.length) { wrap.style.display = 'none'; return; }
-  wrap.style.display = '';
-  document.getElementById('spotlight-cards').innerHTML = actives.map(t => {
-    const days = daysUntil(t.deadline);
-    const uk = urgencyKey(days);
-    return `<div class="scard u-${uk}" onclick="openPanel('${t.id}')">
-      <div class="scard-title">${newTenderIcon(t)}${t.title}</div>
-      <div class="scard-org">${t.org}</div>
-      <div class="scard-meta">
-        <span class="scard-budget">${fmtBudget(t.budget)}</span>
-        <span class="dl-chip d-${uk === 'none' ? 'expired' : uk}">${deadlineLabel(days)}</span>
-      </div>
-      ${histSummary(t)}
-    </div>`;
-  }).join('');
 }
 
 /* === 篩選 === */
@@ -601,14 +492,14 @@ function renderTable() {
     const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
     const histTag = (t.history && t.history.length > 0) ? `<span class="hist-tag">${t.history.length} 年記錄</span>` : '';
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
-    return `<tr onclick="openPanel('${t.id}')">
+    return `<tr onclick="openPanel(decodeURIComponent('${encodedId(t.id)}'))">
       <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
-      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${t.title}${histTag}</div><div class="org">${t.org}</div></td>
-      <td class="td-town">${t.town}</td>
-      <td class="td-budget"><div class="budget-val">${fmtBudget(t.budget)}</div></td>
-      <td class="td-dl"><div class="dl-days ${dlClass}">${deadlineLabel(days)}</div><div class="dl-date">${formatMDDate(t.deadline)}</div></td>
+      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${escapeHTML(t.title)}${histTag}</div><div class="org">${escapeHTML(t.org)}</div></td>
+      <td class="td-town">${escapeHTML(t.town)}</td>
+      <td class="td-budget"><div class="budget-val">${escapeHTML(fmtBudget(t.budget))}</div></td>
+      <td class="td-dl"><div class="dl-days ${dlClass}">${escapeHTML(deadlineLabel(days))}</div><div class="dl-date">${escapeHTML(formatMDDate(t.deadline))}</div></td>
       <td class="td-type">${actBadge}</td>
-      <td class="td-view" onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel('${t.id}')">查看</button></td>
+      <td class="td-view" onclick="event.stopPropagation()"><button class="btn-view" onclick="openPanel(decodeURIComponent('${encodedId(t.id)}'))">查看</button></td>
     </tr>`;
   }).join('');
 }
@@ -670,15 +561,15 @@ function renderTabInfo() {
   const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
   document.getElementById('panel-body').innerHTML = `
     <div class="info-grid">
-      <div class="info-item"><div class="lbl">機關</div><div class="val">${t.org}</div></div>
-      <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${t.town}</div></div>
-      <div class="info-item"><div class="lbl">預算金額</div><div class="val">NT$ ${t.budget}</div></div>
-      <div class="info-item"><div class="lbl">公告日期</div><div class="val">${t.date || '—'}</div></div>
-      <div class="info-item"><div class="lbl">截止投標</div><div class="val"><span class="${dlClass}" style="font-weight:600">${t.deadline || '—'}</span>${days !== null ? `　<span class="${dlClass}" style="font-size:11px">${deadlineLabel(days)}</span>` : ''}</div></div>
+      <div class="info-item"><div class="lbl">機關</div><div class="val">${escapeHTML(t.org)}</div></div>
+      <div class="info-item"><div class="lbl">鄉鎮</div><div class="val">${escapeHTML(t.town)}</div></div>
+      <div class="info-item"><div class="lbl">預算金額</div><div class="val">NT$ ${escapeHTML(t.budget)}</div></div>
+      <div class="info-item"><div class="lbl">公告日期</div><div class="val">${escapeHTML(t.date || '—')}</div></div>
+      <div class="info-item"><div class="lbl">截止投標</div><div class="val"><span class="${dlClass}" style="font-weight:600">${escapeHTML(t.deadline || '—')}</span>${days !== null ? `　<span class="${dlClass}" style="font-size:11px">${escapeHTML(deadlineLabel(days))}</span>` : ''}</div></div>
       <div class="info-item"><div class="lbl">類型</div><div class="val">${t.is_activity ? '◆ 活動相關' : '一般勞務'}</div></div>
-      <div class="info-item" style="grid-column:1/-1"><div class="lbl">招標方式</div><div class="val">${t.recruit_type || '—'}</div></div>
+      <div class="info-item" style="grid-column:1/-1"><div class="lbl">招標方式</div><div class="val">${escapeHTML(t.recruit_type || '—')}</div></div>
     </div>
-    <a class="ext-link" href="${t.url}" target="_blank" rel="noopener">↗ 在採購網查看原始標案</a>
+    <a class="ext-link" href="${escapeHTML(safePccUrl(t.url))}" target="_blank" rel="noopener">↗ 在採購網查看原始標案</a>
     <div style="margin-top:18px">
       <button class="btn" style="width:100%;justify-content:center" onclick="switchTab(1)">查看歷史得標記錄</button>
     </div>`;
@@ -693,7 +584,7 @@ function renderTabHistory() {
       <p style="font-size:11px;color:var(--text3);margin-top:10px">歷史記錄為關鍵字模糊比對結果，建議另至採購網以其他關鍵字確認</p>`;
     return;
   }
-  const rows = history.map(h => `<tr><td><strong>${h.year}年</strong></td><td>${h.winner || '—'}</td><td>${h.award_price || '—'}</td><td>${h.bidder_count || '—'}</td></tr>`).join('');
+  const rows = history.map(h => `<tr><td><strong>${escapeHTML(h.year)}年</strong></td><td>${escapeHTML(h.winner || '—')}</td><td>${escapeHTML(h.award_price || '—')}</td><td>${escapeHTML(h.bidder_count || '—')}</td></tr>`).join('');
   document.getElementById('panel-body').innerHTML = `
     <div class="section-lbl" style="margin-top:0">前兩年歷史得標記錄</div>
     <table class="history-table">

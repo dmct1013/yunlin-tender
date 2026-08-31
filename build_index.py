@@ -13,7 +13,14 @@ output_path   = os.path.join(DIR, 'index.html')
 with open(data_path, encoding='utf-8') as f:
     data = json.load(f)
 
-data_js = json.dumps(data, ensure_ascii=False)
+data_js = (
+    json.dumps(data, ensure_ascii=False)
+    .replace('&', '\\u0026')
+    .replace('<', '\\u003c')
+    .replace('>', '\\u003e')
+    .replace('\u2028', '\\u2028')
+    .replace('\u2029', '\\u2029')
+)
 
 with open(template_path, encoding='utf-8') as f:
     html = f.read()

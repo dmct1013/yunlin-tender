@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-中彰雲嘉南活動採購案爬蟲（雲林、台中、彰化、嘉義、台南）
+起行採購監控爬蟲（雲林、彰化、嘉義）
 執行方式：
   1. 自動：scheduled_update.py 由 launchd 觸發
   2. 手動：python3 pcc_crawler.py
@@ -50,6 +50,10 @@ ACTIVITY_KEYWORDS = [
     "燈籠", "彩繪",
     "農村再生", "社區規劃", "關懷據點", "樂齡", "長者", "共餐", "志工",
     "食農", "環境教育", "客庄", "客家", "原住民",
+    # 2026-08-21 補：實查發現「虎尾毛巾節」「月津港燈節」因為清單只有「燈會」「節慶」而漏判
+    "燈節", "藝術節", "音樂節", "文化節", "電影節", "觀光節", "產業節",
+    "發表會", "成果展", "園遊", "踩街", "遶境", "進香", "走讀", "開幕",
+    "委外經營", "委託經營", "園區經營", "地方服務團", "社區規劃師", "老宅",
 ]
 
 # 標題裡的機關名／路名本身含「文化」等字，比對前先剔除，避免誤判成活動案
@@ -63,6 +67,11 @@ EXCLUDE_KEYWORDS = [
     "建築物", "公寓大廈", "校舍", "廳舍", "辦公廳舍", "活動中心",
     "無障礙", "昇降設備", "電梯", "空調", "消防", "照明", "機電",
     "水電", "屋頂", "防水", "耐震", "結構補強",
+    # 2026-08-21 補：實查 data.json 發現這些工程／設施案因字面差一字而漏擋
+    "大排", "管道", "鋪設", "地坪", "拆除", "污泥", "土方", "清淤", "疏濬",
+    "公共設施", "結構設施", "掩埋場", "水資源回收", "抽水站", "放流水",
+    "環境監測", "環境清潔", "樹木修剪", "墓基", "公墓", "機房", "專爐",
+    "環境影響評估", "基本設計", "廢家具",
 ]
 
 YUNLIN_TOWNS = [
@@ -86,15 +95,14 @@ CHIAYI_TOWNS = [
     "中埔鄉", "竹崎鄉", "梅山鄉", "番路鄉", "大埔鄉", "阿里山鄉"
 ]
 
-# 各區域的監控機關；直轄市（台中、台南）用市政府前綴涵蓋所有局處，
-# 彰化、嘉義依 DAVID 指示連鄉鎮市公所一起監控（2026-07-04）
+# 各區域的監控機關；三區都連鄉鎮市公所一起監控。
+# 2026-08-31 依 DAVID 指示縮回雲林、彰化、嘉義三區（原含台中、台南兩個直轄市）
 REGIONS = {
     "雲林": {
         "orgs": ["雲林縣政府"] + [t + "公所" for t in YUNLIN_TOWNS],
         "towns": YUNLIN_TOWNS,
         "fallback": "雲林縣",
     },
-    "台中": {"orgs": ["臺中市政府"], "towns": [], "fallback": "台中市"},
     "彰化": {
         "orgs": ["彰化縣政府"] + [t + "公所" for t in CHANGHUA_TOWNS],
         "towns": CHANGHUA_TOWNS,
@@ -105,14 +113,12 @@ REGIONS = {
         "towns": CHIAYI_TOWNS + ["嘉義市"],
         "fallback": "嘉義縣",
     },
-    "台南": {"orgs": ["臺南市政府"], "towns": [], "fallback": "台南市"},
 }
 
 _PLACE_WORDS = sorted(
     set(
-        ["雲林縣政府", "雲林縣", "臺中市政府", "臺中市", "台中市",
-         "彰化縣政府", "彰化縣", "嘉義縣政府", "嘉義市政府", "嘉義縣", "嘉義市",
-         "臺南市政府", "臺南市", "台南市"]
+        ["雲林縣政府", "雲林縣",
+         "彰化縣政府", "彰化縣", "嘉義縣政府", "嘉義市政府", "嘉義縣", "嘉義市"]
         + YUNLIN_TOWNS + CHANGHUA_TOWNS + CHIAYI_TOWNS
     ),
     key=len, reverse=True,
@@ -120,20 +126,38 @@ _PLACE_WORDS = sorted(
 TOWNS_PATTERN = r'^(' + '|'.join(_PLACE_WORDS) + r')'
 
 
-def is_excluded_tender(title):
+def _strip_noise(title):
+    """比對前的正規化：剔除機關名雜訊，並拿掉括號符號。
+
+    括號會把字串打斷，像「廢（污）水」就比不到「污水」，所以只移除括號
+    符號本身、保留裡面的字。
+    """
     t = title
     for w in ORG_NOISE:
         t = t.replace(w, "")
-    return any(kw in t for kw in EXCLUDE_KEYWORDS)
+    return re.sub(r'[（）()〔〕\[\]]', '', t)
 
 
 def is_activity(title):
-    if is_excluded_tender(title):
+    """活動判定優先於工程排除。
+
+    2026-08-21 改：原本第一行是「命中排除字就直接回 False」，等於排除規則
+    有一票否決權，像「耶誕嘉年華暨水岸光環境建置計畫」這種活動＋工程的
+    混合案會被整筆殺掉。改成活動關鍵字先判，命中就是活動案。
+    """
+    t = _strip_noise(title)
+    if any(kw in t for kw in ACTIVITY_KEYWORDS):
+        return True
+    # 有屆次（第十三屆…）的多半是年度性活動或賽事，例如「第十三屆虎尾毛巾節」
+    return bool(re.search(ORDINAL_RE, t))
+
+
+def is_excluded_tender(title):
+    """工程／設施／設備案排除。只對「完全沒有活動特徵」的案子生效。"""
+    if is_activity(title):
         return False
-    t = title
-    for w in ORG_NOISE:
-        t = t.replace(w, "")
-    return any(kw in t for kw in ACTIVITY_KEYWORDS)
+    t = _strip_noise(title)
+    return any(kw in t for kw in EXCLUDE_KEYWORDS)
 
 
 def town_from_org(org, region):
@@ -540,9 +564,9 @@ async def main():
 
     print("完成！")
 
-    report_progress(98, "上傳 GitHub Pages...")
     upload_script = os.path.join(os.path.dirname(__file__), "upload_github.py")
-    if os.path.exists(upload_script):
+    if os.environ.get("PCC_AUTO_PUBLISH") == "1" and os.path.exists(upload_script):
+        report_progress(98, "上傳 GitHub Pages...")
         result = subprocess.run([sys.executable, upload_script], capture_output=True, text=True)
         if result.stdout:
             print(result.stdout.strip())
@@ -550,6 +574,9 @@ async def main():
             print(result.stderr.strip())
         if result.returncode != 0:
             raise SystemExit("GitHub Pages 上傳失敗")
+    else:
+        report_progress(100, "資料已更新；GitHub 發佈需手動確認")
+        print("已略過 GitHub push。確認內容後再手動執行 upload_github.py。")
 
 
 if __name__ == "__main__":
