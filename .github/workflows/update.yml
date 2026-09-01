@@ -29,6 +29,27 @@ jobs:
       - name: 執行爬蟲
         run: python pcc_crawler.py
 
+      - name: 驗證資料完整性
+        run: |
+          python - <<'PY'
+          import json
+
+          with open("data.json", encoding="utf-8") as file:
+              data = json.load(file)
+
+          total = int(data.get("total") or 0)
+          failed = list(data.get("failed_orgs") or [])
+          org_count = int(data.get("org_count") or 0)
+
+          if total <= 0:
+              raise SystemExit("資料完整性檢查失敗：標案總數為 0，拒絕發布")
+          if org_count and len(failed) / org_count >= 0.5:
+              raise SystemExit(
+                  f"資料完整性檢查失敗：{len(failed)}/{org_count} 個機關失敗，拒絕發布"
+              )
+          print(f"資料完整性檢查通過：{total} 筆，失敗機關 {len(failed)} 個")
+          PY
+
       - name: 產生 index.html
         run: python build_index.py
 

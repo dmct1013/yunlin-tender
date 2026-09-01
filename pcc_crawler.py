@@ -25,6 +25,47 @@ except Exception:
 
 OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 STATUS_FILE = os.path.join(os.path.dirname(__file__), ".status.json")
+MAX_CONSECUTIVE_FAILURES = 3
+MAX_FAILURE_RATIO = 0.5
+
+PCC_BLOCK_MARKERS = (
+    "web page blocked",
+    "the url you requested has been blocked",
+    "attack id",
+)
+
+
+class PccBlockedError(RuntimeError):
+    """政府採購網回傳防護攔截頁，必須立即停止，不能再逐機關重試。"""
+
+
+async def detect_pcc_block(page):
+    """只回報攔截類型，不把 IP／Attack ID 等頁面細節寫進 log。"""
+    try:
+        title = await page.title()
+        body = await page.locator("body").inner_text(timeout=2000)
+    except Exception:
+        return None
+    content = f"{title}\n{body}".lower()
+    if any(marker in content for marker in PCC_BLOCK_MARKERS):
+        return "政府採購網回傳 Web Page Blocked 防護頁"
+    return None
+
+
+def validate_crawl_results(total_orgs, failed_count, tender_count, existing_count):
+    """拒絕用明顯異常的結果覆蓋上一份正常資料。"""
+    if total_orgs <= 0:
+        raise RuntimeError("監控機關清單為空，拒絕寫入資料")
+    if failed_count >= total_orgs:
+        raise RuntimeError(f"{total_orgs} 個機關全部查詢失敗，拒絕覆蓋舊資料")
+    if failed_count / total_orgs >= MAX_FAILURE_RATIO:
+        raise RuntimeError(
+            f"{failed_count}/{total_orgs} 個機關查詢失敗，超過安全門檻，拒絕覆蓋舊資料"
+        )
+    if tender_count == 0 and existing_count > 0:
+        raise RuntimeError(
+            f"本次抓到 0 筆，但現有資料有 {existing_count} 筆，拒絕用空資料覆蓋"
+        )
 
 
 def report_progress(pct, msg):
@@ -433,6 +474,9 @@ async def query_one_org(page, org_name, region):
                 continue
 
     except Exception as e:
+        block_reason = await detect_pcc_block(page)
+        if block_reason:
+            raise PccBlockedError(block_reason) from e
         print(f"✗ {e}", end=" ")
         return None  # 查詢失敗（與「查到 0 筆」區分），讓呼叫端重試
 
@@ -468,16 +512,32 @@ async def main():
         print(f"\n查詢 {len(all_orgs)} 個機關（等標期內勞務標案）...")
 
         failed_orgs = []
+        successful_org_count = 0
+        consecutive_failures = 0
         for i, (region, org) in enumerate(all_orgs):
             print(f"  [{i+1:02d}/{len(all_orgs)}] [{region}] {org}...", end=" ", flush=True)
-            results = await query_org_with_retry(page, org, region)
+            try:
+                results = await query_org_with_retry(page, org, region)
+            except PccBlockedError as exc:
+                report_progress(0, "政府採購網封鎖連線；保留上一份正常資料")
+                raise RuntimeError(f"{exc}；已停止本次更新並保留舊資料") from exc
 
             if results is None:
                 failed_orgs.append(org)
+                consecutive_failures += 1
                 print("查詢失敗（重試後仍失敗）")
                 report_progress(5 + int((i + 1) / len(all_orgs) * 50), f"查詢 {org} 失敗（{i+1}/{len(all_orgs)}）")
+                if consecutive_failures >= MAX_CONSECUTIVE_FAILURES:
+                    report_progress(0, "連續查詢失敗；保留上一份正常資料")
+                    raise RuntimeError(
+                        f"連續 {consecutive_failures} 個機關查詢失敗，"
+                        "疑似 PCC 封鎖或版型變更；已停止並保留舊資料"
+                    )
                 await asyncio.sleep(2)
                 continue
+
+            successful_org_count += 1
+            consecutive_failures = 0
 
             original_count = len(results)
             results = [t for t in results if not is_excluded_tender(t["title"])]
@@ -537,11 +597,20 @@ async def main():
             if not t.get("history"):
                 t["history"] = existing[t["id"]]["history"]
 
+    validate_crawl_results(
+        total_orgs=len(all_orgs),
+        failed_count=len(failed_orgs),
+        tender_count=len(all_list),
+        existing_count=len(existing),
+    )
+
     output = {
         # 帶時區的台北時間；GitHub Actions 在 UTC 執行，沒帶時區前端會顯示錯 8 小時
         "updated_at": datetime.datetime.now(TAIPEI).isoformat(),
         "total": len(all_list),
         "activity_total": len(activity_list),
+        "org_count": len(all_orgs),
+        "successful_org_count": successful_org_count,
         "failed_orgs": failed_orgs,
         "tenders": all_list
     }
