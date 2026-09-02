@@ -100,6 +100,13 @@ ACTIVITY_KEYWORDS = [
 # 標題裡的機關名／路名本身含「文化」等字，比對前先剔除，避免誤判成活動案
 ORG_NOISE = ["文化觀光處", "文化處", "文化局", "文化路"]
 
+# 場館名稱，不是活動訊號。「社區活動中心」同時命中「社區」與「活動」兩個活動
+# 關鍵字，會讓活動優先判定否決掉工程排除，使得社區活動中心的新建／修繕／監造案
+# 全部被當成活動案放行（2026-09-02 實查到 2 筆）。只在活動判定前剔除，不能放進
+# ORG_NOISE——「活動中心」本身是 EXCLUDE_KEYWORDS，剔掉會連排除規則一起失效。
+# 長字串排前面，避免先被短的吃掉。
+VENUE_NOISE = ["社區活動中心", "活動中心"]
+
 # 標題含這些詞的多半是工程、修繕、設備或設施案，不是活動標案
 EXCLUDE_KEYWORDS = [
     "工程", "監造", "修繕", "汰換", "整修", "新建", "改建", "增建", "興建",
@@ -187,6 +194,8 @@ def is_activity(title):
     混合案會被整筆殺掉。改成活動關鍵字先判，命中就是活動案。
     """
     t = _strip_noise(title)
+    for w in VENUE_NOISE:
+        t = t.replace(w, "")
     if any(kw in t for kw in ACTIVITY_KEYWORDS):
         return True
     # 有屆次（第十三屆…）的多半是年度性活動或賽事，例如「第十三屆虎尾毛巾節」
@@ -398,13 +407,37 @@ async def query_history(page, context, title, years=None):
 
 
 
+# 採購網會擋過舊的 Chrome UA（2026-09-02 實測寫死的 Chrome/120 必被防護頁攔下），
+# 也會擋 headless 預設的 HeadlessChrome。改成沿用實際安裝的 Chromium 版號，
+# 這樣升級 Playwright 就會自動跟上，不必再手動改版本。
+FALLBACK_UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
+               '(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36')
+MIN_CHROME_MAJOR = 140
+
+
+async def resolve_user_agent(browser):
+    """取實際 Chromium 的 UA，去掉 Headless 字樣；版本太舊或取不到就用備援 UA。"""
+    try:
+        probe_ctx = await browser.new_context()
+        probe_page = await probe_ctx.new_page()
+        ua = await probe_page.evaluate("navigator.userAgent")
+        await probe_ctx.close()
+    except Exception:
+        return FALLBACK_UA
+    ua = ua.replace("HeadlessChrome", "Chrome")
+    match = re.search(r"Chrome/(\d+)", ua)
+    if not match or int(match.group(1)) < MIN_CHROME_MAJOR:
+        return FALLBACK_UA
+    return ua
+
+
 async def make_context(playwright):
     browser = await playwright.chromium.launch(
         headless=True,
         args=['--disable-blink-features=AutomationControlled']
     )
     context = await browser.new_context(
-        user_agent='Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        user_agent=await resolve_user_agent(browser),
         viewport={'width': 1280, 'height': 800},
     )
     await context.add_init_script(
@@ -497,7 +530,7 @@ async def query_org_with_retry(page, org_name, region, retries=1):
 
 async def main():
     print("=" * 52)
-    print("  中彰雲嘉南採購案爬蟲")
+    print("  起行採購監控爬蟲（雲林、彰化、嘉義）")
     print(f"  時間：{datetime.datetime.now(TAIPEI).strftime('%Y-%m-%d %H:%M')}")
     print("=" * 52)
 
