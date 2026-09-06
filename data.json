@@ -1,10 +1,16 @@
 {
-  "updated_at": "2026-09-06T13:27:52.415503+08:00",
+  "updated_at": "2026-09-06T14:20:02.470965+08:00",
   "total": 37,
   "activity_total": 22,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 63,
+  "failed_orgs": [
+    "斗六市公所",
+    "朴子市公所",
+    "民雄鄉公所",
+    "東石鄉公所",
+    "義竹鄉公所"
+  ],
   "tenders": [
     {
       "id": "1152H10103",
@@ -75,9 +81,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "北鄉營造有限公司",
-          "award_price": "1,250,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
