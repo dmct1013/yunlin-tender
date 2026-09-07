@@ -1,16 +1,10 @@
 {
-  "updated_at": "2026-09-06T14:20:02.470965+08:00",
-  "total": 37,
+  "updated_at": "2026-09-07T09:50:56.939591+08:00",
+  "total": 39,
   "activity_total": 22,
   "org_count": 68,
-  "successful_org_count": 63,
-  "failed_orgs": [
-    "斗六市公所",
-    "朴子市公所",
-    "民雄鄉公所",
-    "東石鄉公所",
-    "義竹鄉公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152H10103",
@@ -81,9 +75,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "北鄉營造有限公司",
+          "award_price": "1,250,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -562,23 +556,6 @@
       "is_activity": true
     },
     {
-      "id": "115-25",
-      "title": "田尾鄉入口意象及導覽指標委託設置服務案",
-      "org": "彰化縣田尾鄉公所",
-      "region": "彰化",
-      "town": "田尾鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,000,000",
-      "date": "115/08/21",
-      "deadline": "115/09/07",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDgxMjg=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "1150827",
       "title": "彰化縣溪州鄉2026年「樂遊溪州 饗食森芭」宣傳晚會活動",
       "org": "彰化縣溪州鄉公所",
@@ -700,6 +677,23 @@
       "is_activity": false
     },
     {
+      "id": "11532",
+      "title": "115年度全災害防救應變整備強化方案專案管理勞務委託服務採購案",
+      "org": "嘉義市政府消防局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,000,000",
+      "date": "115/09/07",
+      "deadline": "115/09/18",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMTk=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115214",
       "title": "(更正公告) 115年嘉義市智慧交通數位應用暨安全提升計畫",
       "org": "嘉義市政府",
@@ -713,6 +707,40 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTg1OTY=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115yz038",
+      "title": "115年度嘉義縣義竹鄉養殖漁業及農漁產業行銷推廣活動委託專業服務案",
+      "org": "嘉義縣義竹鄉公所",
+      "region": "嘉義",
+      "town": "義竹鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "850,000",
+      "date": "115/09/07",
+      "deadline": "115/09/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTk1MDk=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115090401",
+      "title": "115年鹿草農業六級化產銷深化委託專業服務計畫",
+      "org": "嘉義縣鹿草鄉公所",
+      "region": "嘉義",
+      "town": "鹿草鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,875,000",
+      "date": "115/09/07",
+      "deadline": "115/09/17",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMDc=",
       "history": [],
       "is_activity": false
     },
