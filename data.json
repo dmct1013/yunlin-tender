@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-08T09:34:56.940008+08:00",
-  "total": 30,
-  "activity_total": 18,
+  "updated_at": "2026-09-08T13:25:01.764922+08:00",
+  "total": 28,
+  "activity_total": 16,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
@@ -344,59 +344,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTg3Mjg=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "11507",
-      "title": "2026秀出幸福．豐收聚場活動委託專業執行服務案",
-      "org": "彰化縣秀水鄉公所",
-      "region": "彰化",
-      "town": "秀水鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,330,000",
-      "date": "115/08/24",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDg4NDg=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "115-10519",
-      "title": "2026二水國際跑水節活動委託專業服務案",
-      "org": "彰化縣二水鄉公所",
-      "region": "彰化",
-      "town": "二水鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,100,000",
-      "date": "115/08/28",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTMwNTk=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-11233 2025二水國際跑水節-農村文化特色餐盒活動委託專業服務案",
-          "winner": "登逸資訊有限公司",
-          "award_price": "600,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113-09844 「2024二水國際跑水節-千人健行水上漂活動」",
-          "winner": "樂活資訊服務股份有限公司",
-          "award_price": "530,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "1150827",
