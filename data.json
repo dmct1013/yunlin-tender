@@ -1,11 +1,28 @@
 {
-  "updated_at": "2026-09-08T13:25:01.764922+08:00",
-  "total": 28,
+  "updated_at": "2026-09-09T09:45:52.648830+08:00",
+  "total": 33,
   "activity_total": 16,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152C20002",
+      "title": "雲林縣政府取得地籍測量複丈無人飛行載具操作證照教育訓練",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,500,000",
+      "date": "115/09/09",
+      "deadline": "115/09/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI4MjU=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152R10036",
       "title": "115-116年度雲林縣政府網路設備和所屬機關防火牆設備維護案",
@@ -119,6 +136,23 @@
       "is_activity": true
     },
     {
+      "id": "115-50",
+      "title": "115年度西螺大橋東側高灘地暨瓜仔市環境景觀維護開口契約招標案",
+      "org": "雲林縣西螺鎮公所",
+      "region": "雲林",
+      "town": "西螺鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "5,000,000",
+      "date": "115/09/09",
+      "deadline": "115/09/21",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjMwOTQ=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115C055",
       "title": "「足愛莿桐」-濁水溪多元文化生活圈共生計畫勞務採購案",
       "org": "雲林縣莿桐鄉公所",
@@ -155,23 +189,6 @@
       "is_activity": true
     },
     {
-      "id": "115-71",
-      "title": "115年麥寮鄉城鄉運動公園啟用暨畜牧產業展",
-      "org": "雲林縣麥寮鄉公所",
-      "region": "雲林",
-      "town": "麥寮鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/09/04",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTgxOTQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1150903",
       "title": "(更正公告) 「臺西海風嬉水趣」-共融公園親水嘉年華活動勞務採購案",
       "org": "雲林縣臺西鄉公所",
@@ -204,6 +221,40 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTUwODI=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "115-066-052-331",
+      "title": "2027花在彰化-免費接駁專車勞務採購案（開口契約）",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "1,078,020",
+      "date": "115/09/09",
+      "deadline": "115/09/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI3NjI=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115-182-020-344",
+      "title": "彰化AI淨零創新產業學院委託專業服務案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "6,000,000",
+      "date": "115/09/09",
+      "deadline": "115/09/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI2MDI=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "115-074-064-344",
@@ -346,6 +397,23 @@
       "is_activity": false
     },
     {
+      "id": "115048",
+      "title": "115年福興鄉黄金地瓜文化祭暨農村產業文化推廣活動",
+      "org": "彰化縣福興鄉公所",
+      "region": "彰化",
+      "town": "福興鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,000,000",
+      "date": "115/09/09",
+      "deadline": "115/09/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI2MjE=",
+      "history": [],
+      "is_activity": true
+    },
+    {
       "id": "1150827",
       "title": "彰化縣溪州鄉2026年「樂遊溪州 饗食森芭」宣傳晚會活動",
       "org": "彰化縣溪州鄉公所",
@@ -361,6 +429,23 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTc3Nzc=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "115TH428",
+      "title": "116年移動式抽水機維護保養及運輸操作等委託專業服務",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "30,290,000",
+      "date": "115/09/09",
+      "deadline": "115/10/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTI0ODc=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "115YL438",
@@ -433,6 +518,23 @@
       "is_activity": true
     },
     {
+      "id": "115219",
+      "title": "嘉義市AI智能客服系統建置暨既有翻譯設備維運案",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,500,000",
+      "date": "115/09/09",
+      "deadline": "115/09/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjIzMTY=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "11532",
       "title": "115年度全災害防救應變整備強化方案專案管理勞務委託服務採購案",
       "org": "嘉義市政府消防局",
@@ -499,23 +601,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMDc=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115C17",
-      "title": "「2026水上萬聖糖果節活動」委託專業服務案",
-      "org": "嘉義縣水上鄉公所",
-      "region": "嘉義",
-      "town": "水上鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/09/02",
-      "deadline": "115/09/08",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTU1NTI=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "115C16",
