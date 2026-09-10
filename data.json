@@ -1,11 +1,28 @@
 {
-  "updated_at": "2026-09-09T13:26:23.416362+08:00",
-  "total": 33,
+  "updated_at": "2026-09-10T09:42:13.748562+08:00",
+  "total": 31,
   "activity_total": 16,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152E10039",
+      "title": "116年度雲林縣大型復康巴士營運服務計畫",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "968,000",
+      "date": "115/09/10",
+      "deadline": "115/09/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjQwMjA=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152C20002",
       "title": "雲林縣政府取得地籍測量複丈無人飛行載具操作證照教育訓練",
@@ -75,33 +92,6 @@
       "is_activity": false
     },
     {
-      "id": "1152H10096",
-      "title": "115年度北港1911好庫文化產業園區環境清潔計畫",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,500,000",
-      "date": "115/08/27",
-      "deadline": "115/09/10",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTIxMjQ=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "北鄉營造有限公司",
-          "award_price": "1,250,000元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1152H10094",
       "title": "北港糖廠11號倉庫沉浸式互動策展執行案",
       "org": "雲林縣政府",
@@ -153,42 +143,6 @@
       "is_activity": false
     },
     {
-      "id": "115C055",
-      "title": "「足愛莿桐」-濁水溪多元文化生活圈共生計畫勞務採購案",
-      "org": "雲林縣莿桐鄉公所",
-      "region": "雲林",
-      "town": "莿桐鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "550,000",
-      "date": "115/09/02",
-      "deadline": "115/09/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTUyNjk=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114C055 「足愛莿桐」-濁水溪多元文化生活圈共生計畫勞務採購案",
-          "winner": "社團法人台灣生態城市暨國土規劃學會",
-          "award_price": "960,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113C032 「足愛莿桐-濁水溪多元文化生活圈系列計畫」勞務採購案",
-          "winner": "社團法人台灣生態城市暨國土規劃學會",
-          "award_price": "918,800元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1150903",
       "title": "(更正公告) 「臺西海風嬉水趣」-共融公園親水嘉年華活動勞務採購案",
       "org": "雲林縣臺西鄉公所",
@@ -220,6 +174,42 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTUwODI=",
       "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115-161-044-325",
+      "title": "彰化縣政府115年度觀光志工志願服務觀摩研習活動",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "224,000",
+      "date": "115/09/10",
+      "deadline": "115/09/17",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjM3MTY=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "114-161-044-325 彰化縣政府114年度觀光志工志願服務觀摩研習活動",
+          "winner": "世勤誠旅行社有限公司",
+          "award_price": "480,000元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113-0022106-055-2-6 彰化縣政府113年度觀光志工志願服務觀摩研習活動",
+          "winner": "世勤誠旅行社有限公司",
+          "award_price": "468,600元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": true
     },
     {
@@ -364,35 +354,18 @@
     },
     {
       "id": "11509-201",
-      "title": "鹿港鎮公所115年廣場光環境營造採購案",
+      "title": "(更正公告) 鹿港鎮公所115年廣場光環境營造採購案",
       "org": "彰化縣鹿港鎮公所",
       "region": "彰化",
       "town": "鹿港鎮",
       "type": "勞務",
       "recruit_type": "公開取得報價單或企劃書",
       "budget": "800,000",
-      "date": "115/09/03",
-      "deadline": "115/09/10",
+      "date": "115/09/10",
+      "deadline": "115/09/15",
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTcwMzM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-14761",
-      "title": "「115年大村鄉亮點建設暨觀光展」勞務採購案",
-      "org": "彰化縣大村鄉公所",
-      "region": "彰化",
-      "town": "大村鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "800,000",
-      "date": "115/09/04",
-      "deadline": "115/09/10",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTg3Mjg=",
       "history": [],
       "is_activity": false
     },
@@ -411,6 +384,42 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI2MjE=",
       "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115-11210",
+      "title": "2026二水農特產品促銷與草地音樂會暨愛護河川宣導活動委託專業服務案",
+      "org": "彰化縣二水鄉公所",
+      "region": "彰化",
+      "town": "二水鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,400,000",
+      "date": "115/09/10",
+      "deadline": "115/09/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjM2MzM=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "114-10367 2025二水農特產品促銷與草地音樂會暨愛護河川宣導活動委託專業服務案",
+          "winner": "禾果子創意股份有限公司",
+          "award_price": "1,100,000元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113-10603 2024二水農特產品促銷與草地音樂會暨愛護河川宣導活動委託專業服務案",
+          "winner": "禾果子創意股份有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": true
     },
     {
@@ -599,40 +608,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115C16",
-      "title": "115年度清潔人員健康檢查",
-      "org": "嘉義縣水上鄉公所",
-      "region": "嘉義",
-      "town": "水上鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "167,500",
-      "date": "115/08/31",
-      "deadline": "115/09/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTQwMDk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115C15",
-      "title": "「2026年嘉義水上仙草柔軟節-黑色柔軟 水上幽默」委託專業服務案",
-      "org": "嘉義縣水上鄉公所",
-      "region": "嘉義",
-      "town": "水上鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/08/26",
-      "deadline": "115/09/09",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMDk4MjA=",
       "history": [],
       "is_activity": false
     },
