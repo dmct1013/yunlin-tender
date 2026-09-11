@@ -1,11 +1,55 @@
 {
-  "updated_at": "2026-09-10T13:28:08.814803+08:00",
-  "total": 31,
-  "activity_total": 16,
+  "updated_at": "2026-09-11T09:36:37.418635+08:00",
+  "total": 34,
+  "activity_total": 17,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152H10096",
+      "title": "115年度北港1911好庫文化產業園區環境清潔計畫",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,500,000",
+      "date": "115/09/11",
+      "deadline": "115/09/18",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjU4NjE=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
+          "winner": "北鄉營造有限公司",
+          "award_price": "1,250,000元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
+      "id": "1152H10062",
+      "title": "雲林縣歷史建築北港神社社務所暨齋館及附屬修復及再利用計畫暨規劃設計(含因應計畫)",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,200,000",
+      "date": "115/09/11",
+      "deadline": "115/09/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjUyMzI=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152E10039",
       "title": "116年度雲林縣大型復康巴士營運服務計畫",
@@ -109,23 +153,6 @@
       "is_activity": true
     },
     {
-      "id": "115053",
-      "title": "光耀斗南門戶—火車站前廣場耶誕光環境暨在地觀光振興計畫活動",
-      "org": "雲林縣斗南鎮公所",
-      "region": "雲林",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,000,000",
-      "date": "115/08/31",
-      "deadline": "115/09/11",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTM0MDE=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "115-50",
       "title": "115年度西螺大橋東側高灘地暨瓜仔市環境景觀維護開口契約招標案",
       "org": "雲林縣西螺鎮公所",
@@ -174,6 +201,42 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTUwODI=",
       "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115-073-079-325",
+      "title": "115年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,400,000",
+      "date": "115/09/11",
+      "deadline": "115/09/22",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjUyODg=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "114-073-038-325 114年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
+          "winner": "彰化縣公益福利促進協會",
+          "award_price": "1,200,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113-0020704-137-2-6 113年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
+          "winner": "彰化縣公益福利促進協會",
+          "award_price": "1,200,000元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": true
     },
     {
@@ -440,6 +503,23 @@
       "is_activity": true
     },
     {
+      "id": "115YL434",
+      "title": "嘉義縣115年場外空難演習委託專業服務採購案",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,000,000",
+      "date": "115/09/11",
+      "deadline": "115/09/18",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjUxMDQ=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115TH428",
       "title": "116年移動式抽水機維護保養及運輸操作等委託專業服務",
       "org": "嘉義縣政府",
@@ -455,40 +535,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTI0ODc=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115YL438",
-      "title": "布袋轉運站都市計畫個案變更委託技術服務",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/09/03",
-      "deadline": "115/09/11",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTczOTY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115HH372",
-      "title": "115年度嘉義縣梅山社區公共托育家園委託營運計畫",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "7,900,000",
-      "date": "115/09/02",
-      "deadline": "115/09/11",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTU5ODU=",
-      "history": [],
-      "is_activity": true
     },
     {
       "id": "115QA435",
@@ -578,6 +624,23 @@
       "is_activity": false
     },
     {
+      "id": "2641",
+      "title": "第三屆民雄打貓盃星光3對3籃球嘉年華",
+      "org": "嘉義縣民雄鄉公所",
+      "region": "嘉義",
+      "town": "民雄鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "351,000",
+      "date": "115/09/11",
+      "deadline": "115/09/15",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjQ5ODE=",
+      "history": [],
+      "is_activity": true
+    },
+    {
       "id": "115yz038",
       "title": "115年度嘉義縣義竹鄉養殖漁業及農漁產業行銷推廣活動委託專業服務案",
       "org": "嘉義縣義竹鄉公所",
@@ -608,6 +671,23 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMDc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1150087",
+      "title": "嘉義縣中埔鄉澐水村竹頭崎段391地號土地地表廢棄物清除",
+      "org": "嘉義縣中埔鄉公所",
+      "region": "嘉義",
+      "town": "中埔鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "9,000,000",
+      "date": "115/09/11",
+      "deadline": "115/09/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjQ2MTk=",
       "history": [],
       "is_activity": false
     },
