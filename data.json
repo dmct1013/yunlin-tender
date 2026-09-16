@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-16T09:43:44.264329+08:00",
-  "total": 31,
+  "updated_at": "2026-09-16T13:26:00.414152+08:00",
+  "total": 30,
   "activity_total": 11,
   "org_count": 68,
   "successful_org_count": 68,
@@ -605,23 +605,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMTk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115214",
-      "title": "(更正公告) 115年嘉義市智慧交通數位應用暨安全提升計畫",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "25,035,000",
-      "date": "115/09/07",
-      "deadline": "115/09/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEyOTg1OTY=",
       "history": [],
       "is_activity": false
     },
