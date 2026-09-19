@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-18T13:49:08.932100+08:00",
-  "total": 40,
+  "updated_at": "2026-09-19T13:15:34.320408+08:00",
+  "total": 39,
   "activity_total": 13,
   "org_count": 68,
   "successful_org_count": 68,
@@ -801,23 +801,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjIzMTY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11532",
-      "title": "115年度全災害防救應變整備強化方案專案管理勞務委託服務採購案",
-      "org": "嘉義市政府消防局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/09/07",
-      "deadline": "115/09/18",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMTkyMTk=",
       "history": [],
       "is_activity": false
     },
