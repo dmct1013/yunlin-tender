@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-09-22T09:01:52.226066+08:00",
-  "total": 61,
-  "activity_total": 19,
+  "updated_at": "2026-09-22T13:41:38.580344+08:00",
+  "total": 56,
+  "activity_total": 16,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
@@ -397,23 +397,6 @@
       "is_activity": true
     },
     {
-      "id": "1150905",
-      "title": "「2026虎尾美人樹觀光推廣活動」委託專業服務",
-      "org": "雲林縣虎尾鎮公所",
-      "region": "雲林",
-      "town": "虎尾鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/09/17",
-      "deadline": "115/09/22",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjk0MzA=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "1152SA33",
       "title": "雲林縣北港鎮116年金鑽婚表揚活動",
       "org": "雲林縣北港鎮公所",
@@ -556,59 +539,6 @@
           "title": "113-0022106-055-2-6 彰化縣政府113年度觀光志工志願服務觀摩研習活動",
           "winner": "世勤誠旅行社有限公司",
           "award_price": "468,600元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "115-046-027-325",
-      "title": "115學年度彰化縣轄屬非營利幼兒園財務會計查核與簽證服務",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,488,000",
-      "date": "115/09/17",
-      "deadline": "115/09/22",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjk1NDk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-073-079-325",
-      "title": "115年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,400,000",
-      "date": "115/09/11",
-      "deadline": "115/09/22",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjUyODg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114-073-038-325 114年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
-          "winner": "彰化縣公益福利促進協會",
-          "award_price": "1,200,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113-0020704-137-2-6 113年度彰化縣國際身心障礙者日園遊會暨特殊教育表揚大會",
-          "winner": "彰化縣公益福利促進協會",
-          "award_price": "1,200,000元",
           "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
@@ -788,23 +718,6 @@
           "budget": ""
         }
       ],
-      "is_activity": true
-    },
-    {
-      "id": "1150908",
-      "title": "溪州鄉水尾村115年度重陽敬老聯歡晚會餐敘活動",
-      "org": "彰化縣溪州鄉公所",
-      "region": "彰化",
-      "town": "溪州鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "500,000",
-      "date": "115/09/16",
-      "deadline": "115/09/22",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjgwODE=",
-      "history": [],
       "is_activity": true
     },
     {
@@ -1197,23 +1110,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjg0ODk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115219",
-      "title": "嘉義市AI智能客服系統建置暨既有翻譯設備維運案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,500,000",
-      "date": "115/09/09",
-      "deadline": "115/09/22",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjIzMTY=",
       "history": [],
       "is_activity": false
     },
