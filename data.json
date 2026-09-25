@@ -1,13 +1,10 @@
 {
-  "updated_at": "2026-09-25T10:23:51.312637+08:00",
-  "total": 65,
-  "activity_total": 19,
+  "updated_at": "2026-09-25T13:45:15.712553+08:00",
+  "total": 70,
+  "activity_total": 22,
   "org_count": 68,
-  "successful_org_count": 66,
-  "failed_orgs": [
-    "斗六市公所",
-    "斗南鎮公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152E10057",
@@ -112,9 +109,9 @@
         {
           "year": 2025,
           "title": "1142H10071 「2025雲林文創聯合徵選競賽暨雲林設計週」委託規劃執行案",
-          "winner": "國立雲林科技大學",
-          "award_price": "3,990,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -190,18 +187,18 @@
         {
           "year": 2025,
           "title": "M1404243 114年度「成人藥癮者家庭支持服務及資源培力輔導計畫」",
-          "winner": "社團法人台灣照顧管理協會",
-          "award_price": "3,410,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "M1304316 113年度「成人藥癮者家庭支持服務及資源培力輔導計畫」",
-          "winner": "社團法人台灣照顧管理協會",
-          "award_price": "3,100,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -277,18 +274,18 @@
         {
           "year": 2025,
           "title": "AG1140020133 2026花蓮年貨大街展售活動",
-          "winner": "亞洛伊國際有限公司",
-          "award_price": "4,500,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113234 2025嘉義市年貨大街展售活動",
-          "winner": "地平線文化事業股份有限公司",
-          "award_price": "3,000,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -313,18 +310,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "加加福整合行銷有限公司",
-          "award_price": "1,800,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1122H10099 113年北港燈會執行委託案",
-          "winner": "無限靈感有限公司",
-          "award_price": "9,800,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -381,6 +378,91 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjYwMzI=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "1151001-2",
+      "title": "斗六市115年地方公職人員選舉票印製採購案",
+      "org": "雲林縣斗六市公所",
+      "region": "雲林",
+      "town": "斗六市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "819,000",
+      "date": "115/09/22",
+      "deadline": "115/10/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzM3NDM=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1150929-1",
+      "title": "「雲林斗六御鼎鵝膳勇闖膨鼠島-民歌感恩餐會」活動委託專業服務案",
+      "org": "雲林縣斗六市公所",
+      "region": "雲林",
+      "town": "斗六市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,200,000",
+      "date": "115/09/18",
+      "deadline": "115/09/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzE3MzA=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115057",
+      "title": "116年度斗南鎮幸福巴士服務計畫勞務採購案",
+      "org": "雲林縣斗南鎮公所",
+      "region": "雲林",
+      "town": "斗南鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,807,465",
+      "date": "115/09/23",
+      "deadline": "115/10/07",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQ3NDc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115058",
+      "title": "115年度雲林縣斗南鎮後火車站文化綠廊營造計畫委託設計監造技術服務",
+      "org": "雲林縣斗南鎮公所",
+      "region": "雲林",
+      "town": "斗南鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "696,310",
+      "date": "115/09/23",
+      "deadline": "115/10/07",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQzMjQ=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115059",
+      "title": "2026斗南國際鐵道節計畫活動",
+      "org": "雲林縣斗南鎮公所",
+      "region": "雲林",
+      "town": "斗南鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,000,000",
+      "date": "115/09/21",
+      "deadline": "115/10/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzIwNzY=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "1150905",
@@ -485,9 +567,9 @@
         {
           "year": 2025,
           "title": "114A066 雲林縣莿桐鄉長青食堂中央廚房新建工程",
-          "winner": "進弘營造有限公司",
-          "award_price": "10,128,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -563,18 +645,18 @@
         {
           "year": 2025,
           "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,956,240元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,192,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -701,18 +783,18 @@
         {
           "year": 2025,
           "title": "1140822 114年度溪州鄉公益支出改善計畫-溪州光環境藝術計畫",
-          "winner": "鑫鑫工程有限公司",
-          "award_price": "1,205,604元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130813 113年度溪州鄉公益支出改善計畫-溪州老街周邊光環境改善計畫",
-          "winner": "于容創意有限公司",
-          "award_price": "1,064,268元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1145,18 +1227,18 @@
         {
           "year": 2025,
           "title": "114266 嘉義市115年身心障礙兒童及少年代表培力計畫",
-          "winner": "崑山科技大學",
-          "award_price": "1,100,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130122 臺南市身心障礙兒童及少年代表培力計畫",
-          "winner": "臺南市社會工作師公會",
-          "award_price": "247,000元",
-          "bidder_count": "1",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
