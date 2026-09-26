@@ -1,10 +1,14 @@
 {
-  "updated_at": "2026-09-26T13:55:36.071623+08:00",
-  "total": 70,
-  "activity_total": 22,
+  "updated_at": "2026-09-26T21:26:58.361820+08:00",
+  "total": 67,
+  "activity_total": 20,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 65,
+  "failed_orgs": [
+    "土庫鎮公所",
+    "鹿港鎮公所",
+    "花壇鄉公所"
+  ],
   "tenders": [
     {
       "id": "1152E10057",
@@ -109,9 +113,9 @@
         {
           "year": 2025,
           "title": "1142H10071 「2025雲林文創聯合徵選競賽暨雲林設計週」委託規劃執行案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "國立雲林科技大學",
+          "award_price": "3,990,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -187,18 +191,18 @@
         {
           "year": 2025,
           "title": "M1404243 114年度「成人藥癮者家庭支持服務及資源培力輔導計畫」",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人台灣照顧管理協會",
+          "award_price": "3,410,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "M1304316 113年度「成人藥癮者家庭支持服務及資源培力輔導計畫」",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人台灣照顧管理協會",
+          "award_price": "3,100,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -272,20 +276,11 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjc2MzE=",
       "history": [
         {
-          "year": 2025,
-          "title": "AG1140020133 2026花蓮年貨大街展售活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
           "year": 2024,
           "title": "113234 2025嘉義市年貨大街展售活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "地平線文化事業股份有限公司",
+          "award_price": "3,000,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -310,18 +305,18 @@
         {
           "year": 2025,
           "title": "1142H10094 2026北港燈會整合行銷案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "加加福整合行銷有限公司",
+          "award_price": "1,800,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1122H10099 113年北港燈會執行委託案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "無限靈感有限公司",
+          "award_price": "9,800,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
@@ -567,9 +562,9 @@
         {
           "year": 2025,
           "title": "114A066 雲林縣莿桐鄉長青食堂中央廚房新建工程",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "進弘營造有限公司",
+          "award_price": "10,128,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -607,76 +602,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzIyMzY=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "02115029",
-      "title": "員林市公所115年彰化縣基層建設改善村里設施實施計畫-彩繪工程採購",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "327,000",
-      "date": "115/09/24",
-      "deadline": "115/10/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzU2MTk=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "02115028",
-      "title": "115年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,472,500",
-      "date": "115/09/18",
-      "deadline": "115/09/29",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzA3NzU=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
-      "id": "02115027",
-      "title": "「116年員林市蜀葵花田種植與養護計畫」勞務採購案",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,180,000",
-      "date": "115/09/17",
-      "deadline": "115/10/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjkyODU=",
       "history": [],
       "is_activity": false
     },
@@ -783,18 +708,18 @@
         {
           "year": 2025,
           "title": "1140822 114年度溪州鄉公益支出改善計畫-溪州光環境藝術計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "鑫鑫工程有限公司",
+          "award_price": "1,205,604元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130813 113年度溪州鄉公益支出改善計畫-溪州老街周邊光環境改善計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "于容創意有限公司",
+          "award_price": "1,064,268元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1227,18 +1152,18 @@
         {
           "year": 2025,
           "title": "114266 嘉義市115年身心障礙兒童及少年代表培力計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "崑山科技大學",
+          "award_price": "1,100,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130122 臺南市身心障礙兒童及少年代表培力計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "臺南市社會工作師公會",
+          "award_price": "247,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
