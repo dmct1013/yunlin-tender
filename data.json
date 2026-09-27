@@ -1,14 +1,10 @@
 {
-  "updated_at": "2026-09-26T21:26:58.361820+08:00",
-  "total": 67,
-  "activity_total": 20,
+  "updated_at": "2026-09-27T14:04:54.193134+08:00",
+  "total": 70,
+  "activity_total": 22,
   "org_count": 68,
-  "successful_org_count": 65,
-  "failed_orgs": [
-    "土庫鎮公所",
-    "鹿港鎮公所",
-    "花壇鄉公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152E10057",
@@ -275,6 +271,15 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjc2MzE=",
       "history": [
+        {
+          "year": 2025,
+          "title": "AG1140020133 2026花蓮年貨大街展售活動",
+          "winner": "亞洛伊國際有限公司",
+          "award_price": "4,500,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
         {
           "year": 2024,
           "title": "113234 2025嘉義市年貨大街展售活動",
@@ -602,6 +607,76 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzIyMzY=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "02115029",
+      "title": "員林市公所115年彰化縣基層建設改善村里設施實施計畫-彩繪工程採購",
+      "org": "彰化縣員林市公所",
+      "region": "彰化",
+      "town": "員林市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "327,000",
+      "date": "115/09/24",
+      "deadline": "115/10/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzU2MTk=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "02115028",
+      "title": "115年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
+      "org": "彰化縣員林市公所",
+      "region": "彰化",
+      "town": "員林市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,472,500",
+      "date": "115/09/18",
+      "deadline": "115/09/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzA3NzU=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
+          "winner": "這間旅行社有限公司",
+          "award_price": "1,956,240元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
+          "winner": "這間旅行社有限公司",
+          "award_price": "1,192,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
+      "id": "02115027",
+      "title": "「116年員林市蜀葵花田種植與養護計畫」勞務採購案",
+      "org": "彰化縣員林市公所",
+      "region": "彰化",
+      "town": "員林市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,180,000",
+      "date": "115/09/17",
+      "deadline": "115/10/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjkyODU=",
       "history": [],
       "is_activity": false
     },
