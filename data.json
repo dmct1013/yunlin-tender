@@ -1,10 +1,16 @@
 {
-  "updated_at": "2026-09-27T14:04:54.193134+08:00",
-  "total": 70,
-  "activity_total": 22,
+  "updated_at": "2026-09-27T22:11:20.541168+08:00",
+  "total": 67,
+  "activity_total": 20,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 63,
+  "failed_orgs": [
+    "虎尾鎮公所",
+    "林內鄉公所",
+    "崙背鄉公所",
+    "口湖鄉公所",
+    "和美鎮公所"
+  ],
   "tenders": [
     {
       "id": "1152E10057",
@@ -465,40 +471,6 @@
       "is_activity": true
     },
     {
-      "id": "1150905",
-      "title": "「2026虎尾美人樹觀光推廣活動」委託專業服務",
-      "org": "雲林縣虎尾鎮公所",
-      "region": "雲林",
-      "town": "虎尾鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,200,000",
-      "date": "115/09/24",
-      "deadline": "115/10/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzYwMDY=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "1151001",
-      "title": "虎尾藝術展覽館室內裝修計畫委託設計監造技術服務案",
-      "org": "雲林縣虎尾鎮公所",
-      "region": "雲林",
-      "town": "虎尾鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "825,309",
-      "date": "115/09/24",
-      "deadline": "115/10/06",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzU1NTc=",
-      "history": [],
-      "is_activity": true
-    },
-    {
       "id": "1152SA33",
       "title": "雲林縣北港鎮116年金鑽婚表揚活動",
       "org": "雲林縣北港鎮公所",
@@ -677,23 +649,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjkyODU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "16006B",
-      "title": "和美鎮116年「春節街景佈置設計規劃施作」",
-      "org": "彰化縣和美鎮公所",
-      "region": "彰化",
-      "town": "和美鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,600,000",
-      "date": "115/09/17",
-      "deadline": "115/10/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjkyMjc=",
       "history": [],
       "is_activity": false
     },
