@@ -1,12 +1,10 @@
 {
-  "updated_at": "2026-09-30T09:49:17.676403+08:00",
-  "total": 70,
-  "activity_total": 18,
+  "updated_at": "2026-09-30T14:17:39.467531+08:00",
+  "total": 68,
+  "activity_total": 17,
   "org_count": 68,
-  "successful_org_count": 67,
-  "failed_orgs": [
-    "六腳鄉公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152E10071",
@@ -1134,59 +1132,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzAzMjU=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115228",
-      "title": "嘉義市116年身心障礙者同步聽打服務",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,083,000",
-      "date": "115/09/17",
-      "deadline": "115/09/30",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjk0MTk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115227",
-      "title": "嘉義市116年身心障礙兒童及少年代表培力計畫",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,100,000",
-      "date": "115/09/17",
-      "deadline": "115/09/30",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjkzMTQ=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114266 嘉義市115年身心障礙兒童及少年代表培力計畫",
-          "winner": "崑山科技大學",
-          "award_price": "1,100,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130122 臺南市身心障礙兒童及少年代表培力計畫",
-          "winner": "臺南市社會工作師公會",
-          "award_price": "247,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "1165001",
