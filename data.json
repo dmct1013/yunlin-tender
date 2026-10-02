@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-02T09:47:19.530564+08:00",
-  "total": 60,
+  "updated_at": "2026-10-02T14:27:13.506290+08:00",
+  "total": 58,
   "activity_total": 18,
   "org_count": 68,
   "successful_org_count": 68,
@@ -895,23 +895,6 @@
       "is_activity": false
     },
     {
-      "id": "115237",
-      "title": "嘉義市116年兒童及少年生活狀況及福利需求調查",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/09/22",
-      "deadline": "115/10/02",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzI3MDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115221",
       "title": "嘉義市116年身心障礙者復康巴士委託營運服務",
       "org": "嘉義市政府",
@@ -993,23 +976,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzE1NDU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115230",
-      "title": "嘉義市116年度手語翻譯服務中心委託服務案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,297,000",
-      "date": "115/09/17",
-      "deadline": "115/10/02",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzAzMjU=",
       "history": [],
       "is_activity": false
     },
