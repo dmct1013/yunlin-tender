@@ -1,10 +1,20 @@
 {
-  "updated_at": "2026-10-06T15:09:42.493441+08:00",
-  "total": 58,
-  "activity_total": 20,
+  "updated_at": "2026-10-07T10:26:08.862483+08:00",
+  "total": 57,
+  "activity_total": 19,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 59,
+  "failed_orgs": [
+    "大埤鄉公所",
+    "林內鄉公所",
+    "二崙鄉公所",
+    "口湖鄉公所",
+    "二林鎮公所",
+    "東石鄉公所",
+    "中埔鄉公所",
+    "番路鄉公所",
+    "阿里山鄉公所"
+  ],
   "tenders": [
     {
       "id": "1152G10032",
@@ -58,18 +68,18 @@
         {
           "year": 2025,
           "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
-          "winner": "社團法人苗栗縣特殊教育關懷協會",
-          "award_price": "3,264,786元",
-          "bidder_count": "4",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
-          "winner": "社團法人身心障礙福利協進會",
-          "award_price": "3,105,475元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -92,20 +102,11 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQ5MTc=",
       "history": [
         {
-          "year": 2025,
-          "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
-          "winner": "社團法人苗栗縣特殊教育關懷協會",
-          "award_price": "3,264,786元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
           "year": 2024,
           "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
-          "winner": "社團法人身心障礙福利協進會",
-          "award_price": "3,105,475元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -157,9 +158,9 @@
         {
           "year": 2025,
           "title": "1142K10008 115年雲林縣元旦升旗活動",
-          "winner": "起行整合有限公司",
-          "award_price": "1,000,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         },
@@ -191,20 +192,11 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzE0MDY=",
       "history": [
         {
-          "year": 2025,
-          "title": "114229 115年苗栗縣身心障礙者多元社區居住與生活服務計畫",
-          "winner": "財團法人苗栗縣私立幼安教養院",
-          "award_price": "7,898,000元",
-          "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
           "year": 2024,
           "title": "113213 114年苗栗縣身心障礙者多元社區居住與生活服務",
-          "winner": "財團法人苗栗縣私立幼安教養院",
-          "award_price": "5,120,000元",
-          "bidder_count": "3",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -342,15 +334,15 @@
     },
     {
       "id": "115057",
-      "title": "(更正公告) 116年度斗南鎮幸福巴士服務計畫勞務採購案",
+      "title": "116年度斗南鎮幸福巴士服務計畫勞務採購案",
       "org": "雲林縣斗南鎮公所",
       "region": "雲林",
       "town": "斗南鎮",
       "type": "勞務",
       "recruit_type": "經公開評選或公開徵求之限制性招標",
       "budget": "4,807,465",
-      "date": "115/10/07",
-      "deadline": "115/10/14",
+      "date": "115/09/23",
+      "deadline": "115/10/07",
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQ3NDc=",
@@ -371,6 +363,23 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQzMjQ=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "1151001",
+      "title": "虎尾藝術展覽館室內裝修計畫委託設計監造技術服務案",
+      "org": "雲林縣虎尾鎮公所",
+      "region": "雲林",
+      "town": "虎尾鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "825,309",
+      "date": "115/09/24",
+      "deadline": "115/10/06",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzU1NTc=",
       "history": [],
       "is_activity": true
     },
@@ -441,42 +450,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDM4MzE=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "02115028",
-      "title": "115年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,472,500",
-      "date": "115/10/06",
-      "deadline": "115/10/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDM4Mzc=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,956,240元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,192,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "115-081",
@@ -1099,23 +1072,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzk4NzE=",
-      "history": [],
-      "is_activity": true
-    },
-    {
-      "id": "11534",
-      "title": "(更正公告) 115年度特色農產品行銷推廣嘉年華活動--新港五夠讚活動委託執行企劃案",
-      "org": "嘉義縣新港鄉公所",
-      "region": "嘉義",
-      "town": "新港鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,000,000",
-      "date": "115/09/24",
-      "deadline": "115/10/06",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzUwNjg=",
       "history": [],
       "is_activity": true
     },
