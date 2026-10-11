@@ -1,10 +1,12 @@
 {
-  "updated_at": "2026-10-11T14:35:48.724991+08:00",
-  "total": 59,
+  "updated_at": "2026-10-11T16:42:55.225166+08:00",
+  "total": 58,
   "activity_total": 20,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 67,
+  "failed_orgs": [
+    "斗南鎮公所"
+  ],
   "tenders": [
     {
       "id": "1152E10071",
@@ -58,9 +60,9 @@
         {
           "year": 2025,
           "title": "1142E10030 115年度布建雲林縣身心障礙者社區式日間照顧服務-山線",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人雲林縣小天使發展協會",
+          "award_price": "3,112,023元",
+          "bidder_count": "4",
           "base_price": "未公開",
           "budget": ""
         }
@@ -119,18 +121,18 @@
         {
           "year": 2025,
           "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人苗栗縣特殊教育關懷協會",
+          "award_price": "3,264,786元",
+          "bidder_count": "4",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人身心障礙福利協進會",
+          "award_price": "3,105,475元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -155,18 +157,18 @@
         {
           "year": 2025,
           "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人苗栗縣特殊教育關懷協會",
+          "award_price": "3,264,786元",
+          "bidder_count": "4",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人身心障礙福利協進會",
+          "award_price": "3,105,475元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -191,9 +193,9 @@
         {
           "year": 2025,
           "title": "1142H10099 114年度北港1911好庫文化產業園區環境清潔計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "北鄉營造有限公司",
+          "award_price": "1,250,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -218,18 +220,18 @@
         {
           "year": 2025,
           "title": "1142K10008 115年雲林縣元旦升旗活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "起行整合有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1132K10014 2025年雲林縣元旦升旗活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "起行整合有限公司",
+          "award_price": "800,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -254,18 +256,18 @@
         {
           "year": 2025,
           "title": "114229 115年苗栗縣身心障礙者多元社區居住與生活服務計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人苗栗縣私立幼安教養院",
+          "award_price": "7,898,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113213 114年苗栗縣身心障礙者多元社區居住與生活服務",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人苗栗縣私立幼安教養院",
+          "award_price": "5,120,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -290,9 +292,9 @@
         {
           "year": 2025,
           "title": "1142E10030 115年度布建雲林縣身心障礙者社區式日間照顧服務-山線",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人雲林縣小天使發展協會",
+          "award_price": "3,112,023元",
+          "bidder_count": "4",
           "base_price": "未公開",
           "budget": ""
         }
@@ -398,23 +400,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDYwMzc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115057",
-      "title": "(更正公告) 116年度斗南鎮幸福巴士服務計畫勞務採購案",
-      "org": "雲林縣斗南鎮公所",
-      "region": "雲林",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,807,465",
-      "date": "115/10/07",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQ3NDc=",
       "history": [],
       "is_activity": false
     },
@@ -572,18 +557,18 @@
         {
           "year": 2025,
           "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "這間旅行社有限公司",
+          "award_price": "1,956,240元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "這間旅行社有限公司",
+          "award_price": "1,192,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1145,9 +1130,9 @@
         {
           "year": 2024,
           "title": "113-52 竹東鎮客庄生活交流中心規劃設計案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "林志成建築師事務所",
+          "award_price": "5,800,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
