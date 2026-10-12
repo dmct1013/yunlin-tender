@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-12T09:54:01.275602+08:00",
-  "total": 69,
+  "updated_at": "2026-10-12T14:48:32.179946+08:00",
+  "total": 68,
   "activity_total": 23,
   "org_count": 68,
   "successful_org_count": 68,
@@ -1194,23 +1194,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjQyNTA=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115240",
-      "title": "116年推動嘉義市實物銀行服務計畫",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "8,375,000",
-      "date": "115/09/23",
-      "deadline": "115/10/12",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQxMDI=",
       "history": [],
       "is_activity": false
     },
