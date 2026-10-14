@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-14T10:01:28.947036+08:00",
-  "total": 67,
+  "updated_at": "2026-10-14T13:36:56.428373+08:00",
+  "total": 65,
   "activity_total": 18,
   "org_count": 68,
   "successful_org_count": 68,
@@ -770,6 +770,33 @@
       "is_activity": false
     },
     {
+      "id": "115FM473",
+      "title": "(更正公告) 「嘉義縣116年全國中等學校運動會奪金精進計畫」委託專業服務採購案",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,000,000",
+      "date": "115/10/15",
+      "deadline": "115/10/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDI2NzY=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "hhps1141028s 115年全國中等學校運動會住宿及接送勞務採購",
+          "winner": "總倫旅行社股份有限公司",
+          "award_price": "14,049,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
       "id": "115TL454",
       "title": "115年度嘉義縣營建產出物跨部會推動計畫",
       "org": "嘉義縣政府",
@@ -819,33 +846,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDc5ODc=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "115FM473",
-      "title": "(更正公告) 「嘉義縣116年全國中等學校運動會奪金精進計畫」委託專業服務採購案",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/10/07",
-      "deadline": "115/10/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDI2NzY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "hhps1141028s 115年全國中等學校運動會住宿及接送勞務採購",
-          "winner": "總倫旅行社股份有限公司",
-          "award_price": "14,049,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     },
     {
       "id": "115244",
@@ -1207,23 +1207,6 @@
       "is_activity": false
     },
     {
-      "id": "115223",
-      "title": "嘉義市116年身心障礙者自立生活支持服務中心",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "16,268,000",
-      "date": "115/09/23",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjQyNTA=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "115221",
       "title": "嘉義市116年身心障礙者復康巴士委託營運服務",
       "org": "嘉義市政府",
@@ -1237,23 +1220,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjM2OTU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115220",
-      "title": "嘉義市116年輔具資源中心服務案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "20,498,900",
-      "date": "115/09/21",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjI4OTk=",
       "history": [],
       "is_activity": false
     },
