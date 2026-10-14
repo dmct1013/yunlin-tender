@@ -1,11 +1,45 @@
 {
-  "updated_at": "2026-10-13T15:26:05.077036+08:00",
-  "total": 62,
-  "activity_total": 17,
+  "updated_at": "2026-10-14T10:01:28.947036+08:00",
+  "total": 67,
+  "activity_total": 18,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152E10067",
+      "title": "116年雲林縣兒童及少年保護個案家庭處遇服務暨返家追蹤服務方案",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "7,432,601",
+      "date": "115/10/14",
+      "deadline": "115/11/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDE2NTk=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1152L10014",
+      "title": "雲林縣116年租用車輛(含役男入營輸送、兵役體檢、探視在營役男或備役召集後備軍人)標案",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,488,000",
+      "date": "115/10/14",
+      "deadline": "115/10/28",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTE2NTA=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152E10063",
       "title": "(更正公告) 116年度雲林縣身心障礙者家庭托顧服務",
@@ -209,23 +243,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDY0NDM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152P10003",
-      "title": "115學年度雲林縣轄屬非營利幼兒園財務會計查核與簽證服務採購案",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "700,000",
-      "date": "115/10/07",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDU2NDc=",
       "history": [],
       "is_activity": false
     },
@@ -443,23 +460,6 @@
       "is_activity": false
     },
     {
-      "id": "115057",
-      "title": "(更正公告) 116年度斗南鎮幸福巴士服務計畫勞務採購案",
-      "org": "雲林縣斗南鎮公所",
-      "region": "雲林",
-      "town": "斗南鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,807,465",
-      "date": "115/10/07",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzQ3NDc=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1151006",
       "title": "虎尾鎮115年地方公職人員選舉選舉票及選舉公報印製",
       "org": "雲林縣虎尾鎮公所",
@@ -475,6 +475,42 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDcxMjY=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "115-52",
+      "title": "「2027西螺大橋蝴蝶公園藝術燈節」策劃暨執行案",
+      "org": "雲林縣西螺鎮公所",
+      "region": "雲林",
+      "town": "西螺鎮",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "6,450,000",
+      "date": "115/10/14",
+      "deadline": "115/10/27",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTIwNjE=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "114-36 「2026西螺大橋蝴蝶公園藝術燈節」策劃暨執行案",
+          "winner": "星賞文創行銷",
+          "award_price": "6,713,000元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113-71 「2025西螺大橋蝴蝶公園藝術燈節」策劃暨執行案",
+          "winner": "華楓文創行銷",
+          "award_price": "6,020,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
     },
     {
       "id": "1151023",
@@ -507,6 +543,23 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTA0NjU=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "116-102-003-344",
+      "title": "彰化縣政府116年保全勤務採購案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,189,538",
+      "date": "115/10/14",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTIxMjk=",
       "history": [],
       "is_activity": false
     },
@@ -717,6 +770,23 @@
       "is_activity": false
     },
     {
+      "id": "115TL454",
+      "title": "115年度嘉義縣營建產出物跨部會推動計畫",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "5,800,000",
+      "date": "115/10/14",
+      "deadline": "115/10/20",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTE0NzU=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115HH484",
       "title": "116年度嘉義縣兒童及少年家庭寄養服務方案",
       "org": "嘉義縣政府",
@@ -776,6 +846,40 @@
         }
       ],
       "is_activity": true
+    },
+    {
+      "id": "115244",
+      "title": "116年度委託辦理嘉義市西區公共托嬰中心",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "14,000,000",
+      "date": "115/10/14",
+      "deadline": "115/10/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzczNjE=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115246",
+      "title": "116年度委託辦理嘉義市林森公共托嬰中心",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "10,500,000",
+      "date": "115/10/14",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzgzNTA=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "115250",
@@ -1154,23 +1258,6 @@
       "is_activity": false
     },
     {
-      "id": "1165001",
-      "title": "116年羊年福包設計印製執行勞務採購案",
-      "org": "嘉義市政府警察局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "1,875,000",
-      "date": "115/09/16",
-      "deadline": "115/10/13",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMjg0ODk=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "11523",
       "title": "嘉義縣朴子市公所115年度公共造產業務出國考察活動(捷克地區)",
       "org": "嘉義縣朴子市公所",
@@ -1186,6 +1273,23 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDc5ODI=",
       "history": [],
       "is_activity": true
+    },
+    {
+      "id": "115yz040",
+      "title": "116年度嘉義縣義竹鄉幸福小黃營運計畫",
+      "org": "嘉義縣義竹鄉公所",
+      "region": "嘉義",
+      "town": "義竹鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,778,617",
+      "date": "115/10/14",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTE2NDU=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "11518333",
