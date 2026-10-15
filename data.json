@@ -1,11 +1,28 @@
 {
-  "updated_at": "2026-10-14T13:36:56.428373+08:00",
-  "total": 65,
-  "activity_total": 18,
+  "updated_at": "2026-10-15T09:56:40.491323+08:00",
+  "total": 70,
+  "activity_total": 19,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
   "tenders": [
+    {
+      "id": "1152E10076",
+      "title": "116年度雲林縣身心障礙福利服務中心清潔衛生維護勞務委託",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "780,000",
+      "date": "115/10/15",
+      "deadline": "115/10/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTM0MTM=",
+      "history": [],
+      "is_activity": false
+    },
     {
       "id": "1152E10067",
       "title": "116年雲林縣兒童及少年保護個案家庭處遇服務暨返家追蹤服務方案",
@@ -460,19 +477,19 @@
       "is_activity": false
     },
     {
-      "id": "1151006",
-      "title": "虎尾鎮115年地方公職人員選舉選舉票及選舉公報印製",
-      "org": "雲林縣虎尾鎮公所",
+      "id": "115057",
+      "title": "116年度斗南鎮幸福巴士服務計畫勞務採購案",
+      "org": "雲林縣斗南鎮公所",
       "region": "雲林",
-      "town": "虎尾鎮",
+      "town": "斗南鎮",
       "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,077,000",
-      "date": "115/10/08",
-      "deadline": "115/10/15",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,807,465",
+      "date": "115/10/15",
+      "deadline": "115/10/22",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDcxMjY=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTMxOTY=",
       "history": [],
       "is_activity": false
     },
@@ -528,6 +545,23 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDUzMjk=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "1151006",
+      "title": "臺西鄉泉州村及富琦村集會所活動中心興建工程公共藝術教育推廣活動",
+      "org": "雲林縣臺西鄉公所",
+      "region": "雲林",
+      "town": "臺西鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "359,258",
+      "date": "115/10/07",
+      "deadline": "115/10/19",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDUxMTE=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "11508-15",
@@ -594,23 +628,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDI2NjU=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "116-192-001-344",
-      "title": "「116年彰化縣推動青年職涯輔導服務計畫」勞務採購案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,282,773",
-      "date": "115/10/01",
-      "deadline": "115/10/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzk0MzI=",
       "history": [],
       "is_activity": false
     },
@@ -683,42 +700,6 @@
       "is_activity": true
     },
     {
-      "id": "02115028",
-      "title": "115年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-      "org": "彰化縣員林市公所",
-      "region": "彰化",
-      "town": "員林市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,472,500",
-      "date": "115/10/06",
-      "deadline": "115/10/15",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDM4Mzc=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "02114021 114年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,956,240元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "02113024 113年度清潔隊員工環境衛生暨資源回收業務觀摩活動",
-          "winner": "這間旅行社有限公司",
-          "award_price": "1,192,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
-    },
-    {
       "id": "1152007",
       "title": "彰化縣伸港鄉116年度「溪頭.活力.健步走」交通接送",
       "org": "彰化縣伸港鄉公所",
@@ -753,6 +734,59 @@
       "is_activity": false
     },
     {
+      "id": "115055",
+      "title": "城鄉發展地區第二類之三（彰化縣福興鄉新訂都市計畫）先期測量與基礎資料調查委託技術服務案",
+      "org": "彰化縣福興鄉公所",
+      "region": "彰化",
+      "town": "福興鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "8,000,000",
+      "date": "115/10/15",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTMyOTE=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1150017083",
+      "title": "芳苑鄉116年度村鄰長業務研習暨文康活動",
+      "org": "彰化縣芳苑鄉公所",
+      "region": "彰化",
+      "town": "芳苑鄉",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "2,800,000",
+      "date": "115/10/15",
+      "deadline": "115/10/28",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTM4NDc=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1140018103 芳苑鄉115年度村鄰長業務研習暨文康活動",
+          "winner": "世勤誠旅行社有限公司",
+          "award_price": "2,460,000元",
+          "bidder_count": "2",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1130019922 芳苑鄉114年度村鄰長業務研習暨文康活動",
+          "winner": "世勤誠旅行社有限公司",
+          "award_price": "6,000元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
       "id": "115-31",
       "title": "田尾園藝特定區計畫公園用地『公一』整體空間發展規劃及多目標申請委託專業服務案",
       "org": "彰化縣田尾鄉公所",
@@ -768,6 +802,23 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDQzMDY=",
       "history": [],
       "is_activity": false
+    },
+    {
+      "id": "115IM489",
+      "title": "嘉義縣政府新聞行銷處新置副處長辦公室及會議室整修採購案",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "241,500",
+      "date": "115/10/15",
+      "deadline": "115/10/20",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTI2OTE=",
+      "history": [],
+      "is_activity": true
     },
     {
       "id": "115FM473",
@@ -844,6 +895,57 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDc5ODc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115265",
+      "title": "嘉義市116年度發展遲緩兒童早期療育服務計畫",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "6,120,000",
+      "date": "115/10/15",
+      "deadline": "115/11/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTM5NTI=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1151070",
+      "title": "116年度嘉義市固定污染源管制計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "5,000,000",
+      "date": "115/10/15",
+      "deadline": "115/11/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTMxOTg=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "115243",
+      "title": "116年度委託辦理嘉義市東區公共托嬰中心",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "14,000,000",
+      "date": "115/10/15",
+      "deadline": "115/10/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzczMjc=",
       "history": [],
       "is_activity": false
     },
@@ -1256,33 +1358,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTE2NDU=",
       "history": [],
       "is_activity": false
-    },
-    {
-      "id": "11518333",
-      "title": "竹崎鄉客庄生活交流中心-HAKKA POWER滿竹充電庄規劃設計案",
-      "org": "嘉義縣竹崎鄉公所",
-      "region": "嘉義",
-      "town": "竹崎鄉",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/10/01",
-      "deadline": "115/10/14",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzk1NzM=",
-      "history": [
-        {
-          "year": 2024,
-          "title": "113-52 竹東鎮客庄生活交流中心規劃設計案",
-          "winner": "林志成建築師事務所",
-          "award_price": "5,800,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
     }
   ]
 }
