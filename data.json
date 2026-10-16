@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T09:57:58.023758+08:00",
-  "total": 69,
+  "updated_at": "2026-10-16T13:16:00.659702+08:00",
+  "total": 68,
   "activity_total": 18,
   "org_count": 68,
   "successful_org_count": 68,
@@ -1273,23 +1273,6 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzg5MDg=",
       "history": [],
       "is_activity": true
-    },
-    {
-      "id": "115245",
-      "title": "116年度委託辦理嘉義市精忠公共托嬰中心",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "8,200,000",
-      "date": "115/09/29",
-      "deadline": "115/10/16",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzc3NDA=",
-      "history": [],
-      "is_activity": false
     },
     {
       "id": "11523",
