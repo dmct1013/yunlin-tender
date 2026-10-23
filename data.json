@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-23T10:23:22.374360+08:00",
+  "updated_at": "2026-10-23T13:39:49.018970+08:00",
   "total": 79,
   "activity_total": 23,
   "org_count": 68,
@@ -340,7 +340,26 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDgzNTE=",
-      "history": [],
+      "history": [
+        {
+          "year": 2025,
+          "title": "1142E10045 雲林縣家庭暴力防治緊急庇護家園安置業務",
+          "winner": "社團法人雲林縣婦女保護會",
+          "award_price": "4,467,656元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1122E10043-1 雲林縣家庭暴力防治緊急庇護家園安置業務",
+          "winner": "社團法人雲林縣婦女保護會",
+          "award_price": "4,810,100元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": true
     },
     {
@@ -435,7 +454,26 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzI0MTY=",
-      "history": [],
+      "history": [
+        {
+          "year": 2025,
+          "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
+          "winner": "社團法人苗栗縣特殊教育關懷協會",
+          "award_price": "3,264,786元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
+          "winner": "社團法人身心障礙福利協進會",
+          "award_price": "3,105,475元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
       "is_activity": true
     },
     {
