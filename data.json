@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-10-22T13:37:49.094904+08:00",
-  "total": 70,
-  "activity_total": 20,
+  "updated_at": "2026-10-23T10:23:22.374360+08:00",
+  "total": 79,
+  "activity_total": 23,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
@@ -340,26 +340,7 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDgzNTE=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1142E10045 雲林縣家庭暴力防治緊急庇護家園安置業務",
-          "winner": "社團法人雲林縣婦女保護會",
-          "award_price": "4,467,656元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1122E10043-1 雲林縣家庭暴力防治緊急庇護家園安置業務",
-          "winner": "社團法人雲林縣婦女保護會",
-          "award_price": "4,810,100元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
+      "history": [],
       "is_activity": true
     },
     {
@@ -454,26 +435,7 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzMzI0MTY=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
-          "winner": "社團法人苗栗縣特殊教育關懷協會",
-          "award_price": "3,264,786元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
-          "winner": "社團法人身心障礙福利協進會",
-          "award_price": "3,105,475元",
-          "bidder_count": "3",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
+      "history": [],
       "is_activity": true
     },
     {
@@ -627,19 +589,36 @@
       "is_activity": false
     },
     {
-      "id": "A115-072",
-      "title": "彰化市116年度鄰長團體傷害保險",
-      "org": "彰化縣彰化市公所",
-      "region": "彰化",
-      "town": "彰化市",
+      "id": "1151006",
+      "title": "臺西鄉泉州村及富琦村集會所活動中心興建工程公共藝術教育推廣活動",
+      "org": "雲林縣臺西鄉公所",
+      "region": "雲林",
+      "town": "臺西鄉",
       "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "1,500,000",
-      "date": "115/10/07",
-      "deadline": "115/10/22",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "359,258",
+      "date": "115/10/23",
+      "deadline": "115/11/02",
       "status": "招標中",
       "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDUyNzQ=",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjIxMDE=",
+      "history": [],
+      "is_activity": true
+    },
+    {
+      "id": "115-073-088-325",
+      "title": "116年度彰化縣高照顧負荷家庭緊急救援服務方案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,008,000",
+      "date": "115/10/23",
+      "deadline": "115/11/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjE1ODc=",
       "history": [],
       "is_activity": false
     },
@@ -748,6 +727,23 @@
       "is_activity": true
     },
     {
+      "id": "1152007",
+      "title": "彰化縣伸港鄉116年度「溪頭.活力.健步走」交通接送",
+      "org": "彰化縣伸港鄉公所",
+      "region": "彰化",
+      "town": "伸港鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,296,000",
+      "date": "115/10/23",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEyMDI=",
+      "history": [],
+      "is_activity": false
+    },
+    {
       "id": "115055",
       "title": "城鄉發展地區第二類之三（彰化縣福興鄉新訂都市計畫）先期測量與基礎資料調查委託技術服務案",
       "org": "彰化縣福興鄉公所",
@@ -798,6 +794,23 @@
           "budget": ""
         }
       ],
+      "is_activity": true
+    },
+    {
+      "id": "11553",
+      "title": "2026彰化社頭織襪芭樂觀光節停車場整地勞務開口契約",
+      "org": "彰化縣社頭鄉公所",
+      "region": "彰化",
+      "town": "社頭鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "750,000",
+      "date": "115/10/23",
+      "deadline": "115/11/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEyMjg=",
+      "history": [],
       "is_activity": true
     },
     {
@@ -994,6 +1007,127 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNDc5ODc=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1161002",
+      "title": "本局116年度義警、民防及義交1年期團體福利壽險採購案",
+      "org": "嘉義市政府警察局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "260,700",
+      "date": "115/10/23",
+      "deadline": "115/11/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjE1OTk=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1161001",
+      "title": "本局116年度義警、民防、義交及守望相助隊人身意外保險需求採購案",
+      "org": "嘉義市政府警察局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "376,650",
+      "date": "115/10/23",
+      "deadline": "115/11/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjE1OTY=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1151078",
+      "title": "116年毒性及關注化學物質源頭管理計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "1,625,000",
+      "date": "115/10/23",
+      "deadline": "115/11/06",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEyMjQ=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1151077",
+      "title": "116年嘉義市淨零排放推動計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "7,900,000",
+      "date": "115/10/23",
+      "deadline": "115/11/06",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjExNDI=",
+      "history": [],
+      "is_activity": false
+    },
+    {
+      "id": "1151076",
+      "title": "116年嘉義市節電夥伴節能治理與推廣計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "5,200,000",
+      "date": "115/10/23",
+      "deadline": "115/11/05",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEwOTc=",
+      "history": [
+        {
+          "year": 2025,
+          "title": "1140408006G 南投縣114年節電夥伴節能治理與推廣計畫委託專業服務案",
+          "winner": "祥威環境科技股份有限公司",
+          "award_price": "4,930,000元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113CY77 113年嘉義縣節電夥伴節能行動計畫",
+          "winner": "方達科技股份有限公司",
+          "award_price": "2,930,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true
+    },
+    {
+      "id": "1151075",
+      "title": "116年度嘉義市空品物聯網與智慧科技監測應用計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,000,000",
+      "date": "115/10/23",
+      "deadline": "115/11/10",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEwNjM=",
       "history": [],
       "is_activity": false
     },
