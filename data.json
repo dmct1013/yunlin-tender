@@ -1,12 +1,10 @@
 {
-  "updated_at": "2026-10-24T10:29:55.625134+08:00",
-  "total": 78,
+  "updated_at": "2026-10-24T13:24:18.582068+08:00",
+  "total": 79,
   "activity_total": 23,
   "org_count": 68,
-  "successful_org_count": 67,
-  "failed_orgs": [
-    "斗六市公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152H10119",
@@ -513,6 +511,23 @@
         }
       ],
       "is_activity": true
+    },
+    {
+      "id": "1151020-1",
+      "title": "116年度辦公大樓（含調解會大樓、斗六廳）、市民代表會、多功能社會福利大樓、繪本館、中山分館清潔維護",
+      "org": "雲林縣斗六市公所",
+      "region": "雲林",
+      "town": "斗六市",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "2,830,000",
+      "date": "115/10/21",
+      "deadline": "115/10/29",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTg0NDQ=",
+      "history": [],
+      "is_activity": false
     },
     {
       "id": "1151023",
