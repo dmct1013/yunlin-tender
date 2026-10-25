@@ -1,10 +1,13 @@
 {
-  "updated_at": "2026-10-24T13:24:18.582068+08:00",
-  "total": 79,
+  "updated_at": "2026-10-25T11:23:37.385176+08:00",
+  "total": 78,
   "activity_total": 23,
   "org_count": 68,
-  "successful_org_count": 68,
-  "failed_orgs": [],
+  "successful_org_count": 66,
+  "failed_orgs": [
+    "斗六市公所",
+    "斗南鎮公所"
+  ],
   "tenders": [
     {
       "id": "1152H10119",
@@ -513,23 +516,6 @@
       "is_activity": true
     },
     {
-      "id": "1151020-1",
-      "title": "116年度辦公大樓（含調解會大樓、斗六廳）、市民代表會、多功能社會福利大樓、繪本館、中山分館清潔維護",
-      "org": "雲林縣斗六市公所",
-      "region": "雲林",
-      "town": "斗六市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,830,000",
-      "date": "115/10/21",
-      "deadline": "115/10/29",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTg0NDQ=",
-      "history": [],
-      "is_activity": false
-    },
-    {
       "id": "1151023",
       "title": "(更正公告) 雲林縣西螺農產品果菜批發市場-冷鏈物流專區營運設施設備第二期計畫「通風設備暨冷鏈設施電力系統」勞務採購",
       "org": "雲林縣西螺鎮公所",
@@ -687,9 +673,9 @@
         {
           "year": 2024,
           "title": "02113030 「114年新春揮毫贈春聯活動」委託專業服務案",
-          "winner": "齊天創意行銷股份有限公司",
-          "award_price": "445,000元",
-          "bidder_count": "2",
+          "winner": "查無資料",
+          "award_price": "查無資料",
+          "bidder_count": "查無資料",
           "base_price": "未公開",
           "budget": ""
         }
@@ -819,15 +805,6 @@
           "winner": "世勤誠旅行社有限公司",
           "award_price": "2,460,000元",
           "bidder_count": "2",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1130019922 芳苑鄉114年度村鄰長業務研習暨文康活動",
-          "winner": "世勤誠旅行社有限公司",
-          "award_price": "6,000元",
-          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1131,15 +1108,6 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEwOTc=",
       "history": [
-        {
-          "year": 2025,
-          "title": "1140408006G 南投縣114年節電夥伴節能治理與推廣計畫委託專業服務案",
-          "winner": "祥威環境科技股份有限公司",
-          "award_price": "4,930,000元",
-          "bidder_count": "4",
-          "base_price": "未公開",
-          "budget": ""
-        },
         {
           "year": 2024,
           "title": "113CY77 113年嘉義縣節電夥伴節能行動計畫",
