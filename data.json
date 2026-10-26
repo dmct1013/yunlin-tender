@@ -1,12 +1,10 @@
 {
-  "updated_at": "2026-10-26T12:39:35.123769+08:00",
+  "updated_at": "2026-10-26T13:40:06.437991+08:00",
   "total": 79,
   "activity_total": 23,
   "org_count": 68,
-  "successful_org_count": 67,
-  "failed_orgs": [
-    "古坑鄉公所"
-  ],
+  "successful_org_count": 68,
+  "failed_orgs": [],
   "tenders": [
     {
       "id": "1152H10119",
@@ -1134,6 +1132,15 @@
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjEwOTc=",
       "history": [
         {
+          "year": 2025,
+          "title": "1140408006G 南投縣114年節電夥伴節能治理與推廣計畫委託專業服務案",
+          "winner": "祥威環境科技股份有限公司",
+          "award_price": "4,930,000元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
           "year": 2024,
           "title": "113CY77 113年嘉義縣節電夥伴節能行動計畫",
           "winner": "方達科技股份有限公司",
@@ -1284,9 +1291,9 @@
         {
           "year": 2024,
           "title": "113215 「2025東京國際食品展」嘉義市特色產業行銷推廣計畫委託專業服務案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "博塔納設計行銷有限公司",
+          "award_price": "2,000,000元",
+          "bidder_count": "7",
           "base_price": "未公開",
           "budget": ""
         }
@@ -1473,9 +1480,9 @@
         {
           "year": 2024,
           "title": "112329 嘉義市113年度「嘉有社企·城市新活力」社會創新及社會企業培力服務方案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人臺灣全齡世代合作協會",
+          "award_price": "3,500,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
