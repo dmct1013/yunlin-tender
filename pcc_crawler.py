@@ -586,6 +586,30 @@ async def main():
             report_progress(5 + int((i + 1) / len(all_orgs) * 50), f"查詢 {org}（{i+1}/{len(all_orgs)}）")
             await asyncio.sleep(2)
 
+        # 補查：開機剛醒網路未通等暫時性失敗，等一下再試一次
+        if failed_orgs:
+            print(f"\n{len(failed_orgs)} 個機關查詢失敗，30 秒後補查...")
+            await asyncio.sleep(30)
+            org_region = {org: region for region, org in all_orgs}
+            still_failed = []
+            for org in failed_orgs:
+                print(f"  [補查] [{org_region[org]}] {org}...", end=" ", flush=True)
+                try:
+                    results = await query_org_with_retry(page, org, org_region[org])
+                except PccBlockedError:
+                    results = None
+                if results is None:
+                    still_failed.append(org)
+                    print("仍失敗")
+                    continue
+                successful_org_count += 1
+                results = [t for t in results if not is_excluded_tender(t["title"])]
+                for t in results:
+                    all_tenders.setdefault(t["id"], t)
+                print(f"共 {len(results)} 筆")
+                await asyncio.sleep(2)
+            failed_orgs = still_failed
+
         all_list = list(all_tenders.values())
         activity_list = [t for t in all_list if t.get("is_activity")]
 
