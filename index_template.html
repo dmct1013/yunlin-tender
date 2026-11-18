@@ -147,6 +147,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .td-name .name { font-weight: 500; line-height: 1.5; text-wrap: pretty; }
 .td-name .name.is-activity { color: var(--gold); }
 .td-name .org { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.stale-tag { display: inline-block; font-size: 10px; color: var(--red); border: 1px solid var(--red); border-radius: 4px; padding: 0 5px; margin-left: 7px; vertical-align: 1px; }
+.fail-banner { background: var(--surface2); border-bottom: 1px solid var(--red); color: var(--red); font-size: 12.5px; padding: 8px 16px; text-align: center; }
 .hist-tag { display: inline-block; font-size: 10px; color: var(--gold-soft); border: 1px solid var(--border2); border-radius: 4px; padding: 0 5px; margin-left: 7px; vertical-align: 1px; }
 .td-town { font-size: 12px; color: var(--text2); white-space: nowrap; }
 .td-budget { white-space: nowrap; }
@@ -265,6 +267,7 @@ tbody tr:last-child td { border-bottom: 0; }
 </header>
 
 <main class="wrap" id="app" style="display:none">
+  <div class="fail-banner" id="fail-banner" style="display:none"></div>
 
   <nav class="region-tabs" id="region-tabs" aria-label="區域切換"></nav>
 
@@ -432,7 +435,9 @@ async function loadData() {
       updatedEl.classList.add('stale');
     }
     if (data.failed_orgs && data.failed_orgs.length) {
-      showToast('注意：上次更新有機關查詢失敗，資料可能不完整：\n' + data.failed_orgs.join('、'), 8000);
+      const fb = document.getElementById('fail-banner');
+      fb.textContent = '注意：上次更新有機關查詢失敗，資料可能不完整（失敗機關的案子沿用昨日資料）：' + data.failed_orgs.join('、');
+      fb.style.display = 'block';
     }
     renderRegionTabs(); buildTownFilter(); updateStats(); renderTable();
   } catch(e) { ALL = []; document.getElementById('updated-at').textContent = '⚠ 載入失敗'; }
@@ -491,10 +496,11 @@ function renderTable() {
     const uk = urgencyKey(days);
     const dlClass = `d-${uk === 'none' ? 'expired' : uk}`;
     const histTag = (t.history && t.history.length > 0) ? `<span class="hist-tag">${t.history.length} 年記錄</span>` : '';
+    const staleTag = t.stale ? '<span class="stale-tag">昨日資料</span>' : '';
     const actBadge = t.is_activity ? '<span class="badge badge-activity">活動</span>' : '<span class="badge badge-other">一般</span>';
     return `<tr onclick="openPanel(decodeURIComponent('${encodedId(t.id)}'))">
       <td class="td-urge"><span class="urge-bar urge-${uk}"></span></td>
-      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${escapeHTML(t.title)}${histTag}</div><div class="org">${escapeHTML(t.org)}</div></td>
+      <td class="td-name"><div class="name${t.is_activity?' is-activity':''}">${newTenderIcon(t)}${escapeHTML(t.title)}${histTag}${staleTag}</div><div class="org">${escapeHTML(t.org)}</div></td>
       <td class="td-town">${escapeHTML(t.town)}</td>
       <td class="td-budget"><div class="budget-val">${escapeHTML(fmtBudget(t.budget))}</div></td>
       <td class="td-dl"><div class="dl-days ${dlClass}">${escapeHTML(deadlineLabel(days))}</div><div class="dl-date">${escapeHTML(formatMDDate(t.deadline))}</div></td>

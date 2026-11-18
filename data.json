@@ -1,11 +1,58 @@
 {
-  "updated_at": "2026-11-17T16:52:45.259650+08:00",
-  "total": 137,
-  "activity_total": 32,
+  "updated_at": "2026-11-18T08:58:14.036656+08:00",
+  "total": 147,
+  "activity_total": 33,
   "org_count": 68,
   "successful_org_count": 68,
   "failed_orgs": [],
+  "stale_count": 0,
   "tenders": [
+    {
+      "id": "1152E10078",
+      "title": "116年雲林縣虎尾公設民營托嬰中心委託經營管理",
+      "org": "雲林縣政府",
+      "region": "雲林",
+      "town": "雲林縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "3,535,000",
+      "date": "115/11/18",
+      "deadline": "115/11/25",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODgzNjA=",
+      "history": [
+        {
+          "year": 2026,
+          "title": "1132E10052-01 115年雲林縣虎尾公設民營托嬰中心委託經營管理",
+          "winner": "社團法人中華民國文教產業發展暨補習服務品",
+          "award_price": "2,483,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2025,
+          "title": "1132E10052 114年雲林縣虎尾公設民營托嬰中心委託經營管理",
+          "winner": "社團法人中華民國文教產業發展暨補習服務品",
+          "award_price": "2,483,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "1112E10062-1 113年雲林縣虎尾公設民營托嬰中心委託經營管理",
+          "winner": "社團法人中華民國文教產業暨補習服務品保協",
+          "award_price": "2,254,500元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true,
+      "src_org": "雲林縣政府"
+    },
     {
       "id": "1152L10018",
       "title": "雲林縣第20屆縣長宣誓就職典禮",
@@ -20,8 +67,19 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc5OTI=",
-      "history": [],
-      "is_activity": true
+      "history": [
+        {
+          "year": 2026,
+          "title": "CVSL115020 宜蘭縣第20屆縣長宣誓就職及交接典禮",
+          "winner": "將丞廣告有限公司",
+          "award_price": "920,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152L10019",
@@ -41,14 +99,15 @@
         {
           "year": 2024,
           "title": "1132L10021 114年迎新納福賀新春活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "大木創造股份有限公司",
+          "award_price": "1,490,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10080",
@@ -65,7 +124,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc0NjA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10092",
@@ -82,7 +142,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzQzNTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10087",
@@ -102,14 +163,15 @@
         {
           "year": 2024,
           "title": "1132E10051 114年雲林縣西螺公設民營托嬰中心委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人中華民國文教產業發展暨補習服務品",
+          "award_price": "2,726,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10101",
@@ -126,7 +188,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYzNzY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10069",
@@ -143,7 +206,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjk0MzQ=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府",
+      "history_checked_at": "2026-11-17"
     },
     {
       "id": "1152E10100",
@@ -160,7 +225,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU4NDI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152L10017",
@@ -177,7 +243,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU3NjA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10086",
@@ -194,7 +261,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjk0MTQ=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152M10014",
@@ -211,7 +279,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODUyNjA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10085",
@@ -231,23 +300,24 @@
         {
           "year": 2025,
           "title": "1132E10074 114年雲林縣麥寮公設民營托嬰中心委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人中華民國文教產業發展暨補習服務品",
+          "award_price": "2,483,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1122E10051 113年雲林縣麥寮公設民營托嬰中心委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人中華民國文教產業發展暨補習服務品",
+          "award_price": "2,098,500元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10083",
@@ -267,14 +337,15 @@
         {
           "year": 2024,
           "title": "1132E10049 114年雲林縣北港社區公共托育家園委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "社團法人嘉義市希望種子兒童暨青少年成長協",
+          "award_price": "2,800,250元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152B10044",
@@ -291,7 +362,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI1NTg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152H10116",
@@ -311,14 +383,15 @@
         {
           "year": 2025,
           "title": "1142H10071 「2025雲林文創聯合徵選競賽暨雲林設計週」委託規劃執行案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "國立雲林科技大學",
+          "award_price": "3,990,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152M10015",
@@ -335,7 +408,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODA5Njc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10097",
@@ -352,7 +426,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzkyNDc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10090",
@@ -369,7 +444,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzkxNDY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10079",
@@ -386,7 +462,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzkwOTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152H10123",
@@ -406,14 +483,15 @@
         {
           "year": 2024,
           "title": "1132201019E 考古遺址教育推廣影片拍攝計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "國立雲林科技大學",
+          "award_price": "1,477,000元",
+          "bidder_count": "6",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152E10089",
@@ -430,7 +508,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY0MTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152B30017",
@@ -447,7 +526,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzYxMjY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152B20050",
@@ -464,43 +544,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjUxNDI=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "1152E10084",
-      "title": "116年雲林縣水林社區公共托育家園委託經營管理",
-      "org": "雲林縣政府",
-      "region": "雲林",
-      "town": "雲林縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "3,374,000",
-      "date": "115/11/06",
-      "deadline": "115/11/18",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU0NjA=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1132E10036 114年雲林縣水林社區公共托育家園委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        },
-        {
-          "year": 2024,
-          "title": "1112E10048-1 113年雲林縣水林社區公共托育家園委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152F10030",
@@ -517,7 +562,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTg0NDg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "雲林縣政府"
     },
     {
       "id": "1152P10004",
@@ -534,7 +580,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTcwODM=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府",
+      "history_checked_at": "2026-11-17"
     },
     {
       "id": "1152P10002",
@@ -551,7 +599,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTkxODA=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "雲林縣政府",
+      "history_checked_at": "2026-11-17"
     },
     {
       "id": "1151124-1",
@@ -568,7 +618,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU2MjE=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "斗六市公所",
+      "history_checked_at": "2026-11-17"
     },
     {
       "id": "1151119",
@@ -585,7 +637,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE5ODk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "西螺鎮公所"
     },
     {
       "id": "1152CA38",
@@ -605,14 +658,15 @@
         {
           "year": 2024,
           "title": "1132CA02 雲林縣北港鎮元宵慶花燈設計、展出及演出活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "妙員文化藝術團",
+          "award_price": "1,200,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "北港鎮公所"
     },
     {
       "id": "115B008",
@@ -629,7 +683,98 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQ0OTY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "大埤鄉公所"
+    },
+    {
+      "id": "116-094-016-344",
+      "title": "116年度彰化縣身心障礙者支持性就業服務計畫",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "7,430,490",
+      "date": "115/11/18",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODk0Nzk=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
+    },
+    {
+      "id": "116-124-001-344",
+      "title": "彰化縣政府暨所屬機關公文整合及電子交換系統116年度維運案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "15,162,832",
+      "date": "115/11/18",
+      "deadline": "115/12/08",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODkzOTA=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
+    },
+    {
+      "id": "116-075-041-325",
+      "title": "彰化縣116年度委託辦理提升少年自立生活適應協助服務量能計畫",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,444,445",
+      "date": "115/11/18",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODkzMjk=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
+    },
+    {
+      "id": "116-062-002-331",
+      "title": "116年度彰化縣政府苗圃勞務委託案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "8,827,599",
+      "date": "115/11/18",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODg5MzY=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
+    },
+    {
+      "id": "116-066-005-331",
+      "title": "116年國家花卉園區景觀植栽維護管理及清潔勞務案",
+      "org": "彰化縣政府",
+      "region": "彰化",
+      "town": "彰化縣",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "5,753,364",
+      "date": "115/11/18",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODg4OTQ=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-077-028-344",
@@ -646,7 +791,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODgwMDE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-077-003-344",
@@ -666,23 +812,24 @@
         {
           "year": 2025,
           "title": "114-077-041-344 115年度彰化縣新住民社區服務據點委託營運管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人彰化縣私立慈恩老人養護中心",
+          "award_price": "1,655,935元",
+          "bidder_count": "5",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "114-0020707-029-2-4 114年度彰化縣新住民社區服務據點委託營運管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人伊甸社會福利基金會",
+          "award_price": "1,734,931元",
+          "bidder_count": "4",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-014-344",
@@ -699,7 +846,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc5MDg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-174-001-331",
@@ -716,7 +864,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc4NDQ=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-132-001-325",
@@ -733,7 +882,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc1MjU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-009-344",
@@ -750,7 +900,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc0MjQ=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-034-008-344",
@@ -767,7 +918,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODcwMTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-112-001-325",
@@ -784,7 +936,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYyMTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-071-026-344",
@@ -800,18 +953,9 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYyMDE=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "115-071-011-344 彰化縣115年辦理老人及身心障礙者裝置假牙審查服務",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
+      "history": [],
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-183-022-321",
@@ -828,7 +972,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU3NDE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-017-001-331",
@@ -845,7 +990,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU2ODQ=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-011-344",
@@ -862,7 +1008,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU1OTg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-092-012-325",
@@ -879,7 +1026,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU1MjE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-010-344",
@@ -896,7 +1044,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU1MjA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-072-094-344",
@@ -916,23 +1065,24 @@
         {
           "year": 2025,
           "title": "114-072-067-344 115年度彰化縣社區資源中心營運服務方案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "僑光科技大學",
+          "award_price": "4,680,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113-0020702-177-2-4 114年度彰化縣社區資源中心營運服務方案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "僑光科技大學",
+          "award_price": "4,680,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-002-344",
@@ -949,7 +1099,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODUzNzU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-008-344",
@@ -966,7 +1117,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODUzMDI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-020-344",
@@ -983,7 +1135,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQ5MjU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-076-103-344",
@@ -1000,7 +1153,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQ4NzU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-076-004-344",
@@ -1017,7 +1171,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQ4MDM=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-077-015-344",
@@ -1034,7 +1189,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQ2Mzg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-077-025-344",
@@ -1051,7 +1207,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQyMTE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-094-011-344",
@@ -1068,7 +1225,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQxODY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-073-024-344",
@@ -1085,7 +1243,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQwMjY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-066-003-331",
@@ -1102,7 +1261,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQwMTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-043-005-331",
@@ -1119,7 +1279,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODM4MzM=",
       "history": [],
-      "is_activity": true
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-073-105-344",
@@ -1136,7 +1297,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY2MjI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-073-090-344",
@@ -1153,7 +1315,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI4ODU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-193-002-344",
@@ -1173,23 +1336,24 @@
         {
           "year": 2025,
           "title": "114-0022503-001-2-4 114年彰化縣青年創業陪伴輔導暨成果推廣計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "彰化縣商業會",
+          "award_price": "2,746,379元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "112-0022503-022-2-4 113年彰化縣青年創業陪伴輔導暨成果推廣計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "彰化縣商業會",
+          "award_price": "1,853,267元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-102-017-331",
@@ -1206,7 +1370,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI2MjQ=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-174-008-331",
@@ -1223,7 +1388,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE2Mzg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-102-011-331",
@@ -1240,7 +1406,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE1Nzk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-073-101-325",
@@ -1257,7 +1424,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODEyMjg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-094-006-344",
@@ -1274,7 +1442,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODExODg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "115-182-024-344",
@@ -1291,7 +1460,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzg5NTE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "116-066-001-331",
@@ -1308,41 +1478,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzYxNDc=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "116-063-004-344",
-      "title": "116年度彰化縣轄漁港清潔維護勞務案",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,979,067",
-      "date": "115/11/05",
-      "deadline": "115/11/19",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzM0MzM=",
-      "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "115-201-025-344",
-      "title": "116年度彰化縣公車動態系統維運計畫",
-      "org": "彰化縣政府",
-      "region": "彰化",
-      "town": "彰化縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,600,000",
-      "date": "115/11/04",
-      "deadline": "115/11/19",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzEzMjY=",
-      "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "彰化縣政府"
     },
     {
       "id": "02115036",
@@ -1359,7 +1496,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU5Njg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "員林市公所"
     },
     {
       "id": "16012B",
@@ -1379,14 +1517,15 @@
         {
           "year": 2025,
           "title": "14028B 2025和美鎮道東書院系列活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "作好活動有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "和美鎮公所"
     },
     {
       "id": "11511-204",
@@ -1403,7 +1542,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU4MDA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "鹿港鎮公所"
     },
     {
       "id": "11511-203",
@@ -1420,7 +1560,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE2NDI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "鹿港鎮公所"
     },
     {
       "id": "11511-202",
@@ -1437,7 +1578,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE1MDI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "鹿港鎮公所"
     },
     {
       "id": "115047",
@@ -1454,7 +1596,26 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzg3NTU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "溪湖鎮公所"
+    },
+    {
+      "id": "1150015289",
+      "title": "芬園鄉116年度-117年度鄉民團體意外身故保險",
+      "org": "彰化縣芬園鄉公所",
+      "region": "彰化",
+      "town": "芬園鄉",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "2,500,000",
+      "date": "115/11/18",
+      "deadline": "115/11/23",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODkzMjM=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "芬園鄉公所"
     },
     {
       "id": "150015661",
@@ -1471,7 +1632,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODMwMzc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "芬園鄉公所"
     },
     {
       "id": "1152010",
@@ -1488,7 +1650,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODM1Mjc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "伸港鄉公所"
     },
     {
       "id": "115111001",
@@ -1505,7 +1668,27 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODA2MTA=",
       "history": [],
-      "is_activity": false
+      "is_activity": true,
+      "src_org": "線西鄉公所",
+      "history_checked_at": "2026-11-18"
+    },
+    {
+      "id": "11509",
+      "title": "彰化縣秀水鄉116年度鄉民團體傷害保險",
+      "org": "彰化縣秀水鄉公所",
+      "region": "彰化",
+      "town": "秀水鄉",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "7,000,000",
+      "date": "115/11/18",
+      "deadline": "115/12/03",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODkyMjQ=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "秀水鄉公所"
     },
     {
       "id": "1151113",
@@ -1522,7 +1705,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU4NTE=",
       "history": [],
-      "is_activity": false
+      "is_activity": true,
+      "src_org": "埔心鄉公所",
+      "history_checked_at": "2026-11-18"
     },
     {
       "id": "1151110",
@@ -1558,7 +1743,8 @@
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "埔心鄉公所"
     },
     {
       "id": "1150019054",
@@ -1574,18 +1760,9 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc5ODg=",
-      "history": [
-        {
-          "year": 2025,
-          "title": "1140011957 芳苑鄉慈慧堂殯儀館靈堂佈置委託經營管理(開口契約)",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true
+      "history": [],
+      "is_activity": false,
+      "src_org": "芳苑鄉公所"
     },
     {
       "id": "1150018951",
@@ -1602,7 +1779,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI0NDY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "芳苑鄉公所"
     },
     {
       "id": "11558",
@@ -1619,7 +1797,173 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY1MDg=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "社頭鄉公所",
+      "history_checked_at": "2026-11-17"
+    },
+    {
+      "id": "115KH572",
+      "title": "116年度「嘉義縣政府施政成果暨縣政發展民意調查」",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "700,000",
+      "date": "115/11/18",
+      "deadline": "115/11/25",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODk4NDA=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "115HM533",
+      "title": "116年度嘉義縣布建身心障礙者社區式日間照顧服務計畫",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "18,581,000",
+      "date": "115/11/18",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU5OTQ=",
+      "history": [
+        {
+          "year": 2026,
+          "title": "A056-1141103-1 屏東縣布建身心障礙者社區式日間照顧服務計畫(屏北區)",
+          "winner": "財團法人屏東縣牧智社會福利基金會",
+          "award_price": "8,469,673元",
+          "bidder_count": "5",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2025,
+          "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
+          "winner": "社團法人苗栗縣特殊教育關懷協會",
+          "award_price": "3,264,786元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113202 114年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第二區)",
+          "winner": "社團法人苗栗縣身心障礙福利協進會",
+          "award_price": "3,038,023元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "115QM457",
+      "title": "嘉義縣「112年度土壤液化調查與風險評估計畫」委託技術服務案",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "52,644,000",
+      "date": "115/11/18",
+      "deadline": "115/11/25",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODg5ODc=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "115HH536",
+      "title": "116年度嘉義縣身心障礙者社區日間作業設施服務計畫",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "19,875,345",
+      "date": "115/11/18",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY0Mjg=",
+      "history": [
+        {
+          "year": 2026,
+          "title": "115206 115年苗栗縣身心障礙者社區日間作業設施(小作所)服務計畫(第九據點)",
+          "winner": "財團法人苗栗縣私立幼安教養院",
+          "award_price": "2,035,728元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2025,
+          "title": "114244 115年度苗栗縣布建身心障礙者社區式日間照顧服務計畫(第一區)",
+          "winner": "社團法人苗栗縣特殊教育關懷協會",
+          "award_price": "3,264,786元",
+          "bidder_count": "4",
+          "base_price": "未公開",
+          "budget": ""
+        },
+        {
+          "year": 2024,
+          "title": "113200 114年苗栗縣擴增身心障礙者社區日間作業設施(小作所)服務計畫(第二區)",
+          "winner": "社團法人身心障礙福利協進會",
+          "award_price": "3,105,475元",
+          "bidder_count": "3",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "115HA539",
+      "title": "嘉義縣116年度輔具資源中心服務計畫",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "28,956,000",
+      "date": "115/11/18",
+      "deadline": "115/12/08",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY3Mzk=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "115KM521",
+      "title": "嘉義縣政府116年度資通設備維護暨資安人力及安全性檢測服務案",
+      "org": "嘉義縣政府",
+      "region": "嘉義",
+      "town": "嘉義縣",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "9,400,000",
+      "date": "115/11/18",
+      "deadline": "115/12/02",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODg1NTk=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115FL522",
@@ -1636,7 +1980,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzMyMDc=",
       "history": [],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義縣政府",
+      "history_checked_at": "2026-11-17"
     },
     {
       "id": "115KM565",
@@ -1653,7 +1999,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODY5OTA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115WA563",
@@ -1673,14 +2020,15 @@
         {
           "year": 2025,
           "title": "1141008009G 「2025南投縣青年市集活動」委託專業服務案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "須彌攝影設計有限公司",
+          "award_price": "1,000,000元",
+          "bidder_count": "5",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HM557",
@@ -1697,7 +2045,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODM0NDk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HL550",
@@ -1714,7 +2063,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI2MTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115KM529",
@@ -1731,7 +2081,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODI0MzM=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HA551",
@@ -1748,7 +2099,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODIzNjI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115YL514",
@@ -1765,7 +2117,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE2MDc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HL546",
@@ -1782,7 +2135,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE0OTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HA543",
@@ -1799,7 +2153,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzkxNTg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HM537",
@@ -1816,7 +2171,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY1MzE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115CA535",
@@ -1836,23 +2192,24 @@
         {
           "year": 2025,
           "title": "114-12-3 「115年度宜蘭縣都會區原住民族家庭服務中心」社會福利服務採購",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "宜蘭縣原住民文教促進會",
+          "award_price": "1,742,071元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "113-12-1 「114年度宜蘭縣都會區原住民族家庭服務中心」社會福利服務採購",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人台灣基督教福利會",
+          "award_price": "3,264,385元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HA531",
@@ -1869,7 +2226,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU5NTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115HH532",
@@ -1886,7 +2244,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU5NDA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
     },
     {
       "id": "115TH488",
@@ -1903,7 +2262,62 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTczNDk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義縣政府"
+    },
+    {
+      "id": "11511105",
+      "title": "116年嘉義市廢玻璃委託處理計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "3,456,000",
+      "date": "115/11/18",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODk1Nzc=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義市政府"
+    },
+    {
+      "id": "11511104",
+      "title": "116年度嘉義市因應氣候變遷減緩及調適計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "6,250,000",
+      "date": "115/11/18",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODkyMzc=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義市政府"
+    },
+    {
+      "id": "115264",
+      "title": "(更正公告) 愛嘉義AI人本交通安全與智慧治理計畫行人安全主動防護系統建置維運案",
+      "org": "嘉義市政府",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "14,200,000",
+      "date": "115/11/18",
+      "deadline": "115/11/20",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTMwNTk=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "11511102",
@@ -1920,7 +2334,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYyODE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115309",
@@ -1937,7 +2352,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYyMjE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "11602",
@@ -1954,7 +2370,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODYyMDk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115A107",
@@ -1971,7 +2388,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU3NDY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115308",
@@ -1991,14 +2409,15 @@
         {
           "year": 2025,
           "title": "113283 嘉義市114年優先採購推廣暨身障政策宣導設計案",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "財團法人台灣省私立王李社會福利慈善事業基",
+          "award_price": "1,450,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115A111",
@@ -2015,7 +2434,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODUxODU=",
       "history": [],
-      "is_activity": true
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115302",
@@ -2051,7 +2471,8 @@
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115301",
@@ -2087,24 +2508,8 @@
           "budget": ""
         }
       ],
-      "is_activity": true
-    },
-    {
-      "id": "115264",
-      "title": "(更正公告) 愛嘉義AI人本交通安全與智慧治理計畫行人安全主動防護系統建置維運案",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "14,200,000",
-      "date": "115/11/16",
-      "deadline": "115/11/20",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTMwNTk=",
-      "history": [],
-      "is_activity": false
+      "is_activity": true,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1161006",
@@ -2121,7 +2526,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODQzOTc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "11511101",
@@ -2138,7 +2544,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODM4MDE=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "11511100",
@@ -2155,7 +2562,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODM1NTc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151197",
@@ -2175,14 +2583,15 @@
         {
           "year": 2024,
           "title": "1131053 114年大溪厝水環境教育園區操作維護管理暨環境教育推動計畫",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "志欣環保工程有限公司",
+          "award_price": "5,320,000元",
+          "bidder_count": "1",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151196",
@@ -2199,7 +2608,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE1MTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115306",
@@ -2216,7 +2626,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODA3MTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115A109",
@@ -2233,7 +2644,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODEyMzM=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115307",
@@ -2250,24 +2662,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODEyMTQ=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "A115036",
-      "title": "116年度電腦維護案",
-      "org": "嘉義市政府衛生局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,214,000",
-      "date": "115/11/11",
-      "deadline": "115/11/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODAxMTA=",
-      "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115303",
@@ -2287,14 +2683,15 @@
         {
           "year": 2024,
           "title": "113279 114年有事青年實驗室委託經營管理",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "城市透鏡文化有限公司",
+          "award_price": "6,500,000元",
+          "bidder_count": "3",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151193",
@@ -2311,7 +2708,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzg0NTg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151194",
@@ -2328,7 +2726,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzg0MTg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115298",
@@ -2345,7 +2744,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY2Nzg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115300",
@@ -2362,7 +2762,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzYzOTY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151191",
@@ -2379,7 +2780,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU3OTk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151190",
@@ -2396,7 +2798,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU3NzA=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151189",
@@ -2413,7 +2816,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzU3NDI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115292",
@@ -2430,7 +2834,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzM0ODY=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151183",
@@ -2447,7 +2852,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjk2OTM=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115295",
@@ -2464,24 +2870,9 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzM2MTg=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "A115035",
-      "title": "116年度嘉義市政府衛生局辦公室清潔委外採購案",
-      "org": "嘉義市政府衛生局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "1,000,000",
-      "date": "115/11/04",
-      "deadline": "115/11/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzA1MzU=",
-      "history": [],
-      "is_activity": false
+      "is_activity": true,
+      "src_org": "嘉義市政府",
+      "history_checked_at": "2026-11-18"
     },
     {
       "id": "1151185",
@@ -2498,7 +2889,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzA1MDk=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115283",
@@ -2515,7 +2907,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjk5ODg=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151182",
@@ -2532,7 +2925,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNjk2MTI=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "1151071",
@@ -2549,24 +2943,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTkxMTg=",
       "history": [],
-      "is_activity": false
-    },
-    {
-      "id": "11514",
-      "title": "116年度嘉義縣布袋鎮幸福巴士營運計畫",
-      "org": "嘉義縣布袋鎮公所",
-      "region": "嘉義",
-      "town": "布袋鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,447,800",
-      "date": "115/11/12",
-      "deadline": "115/11/17",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE4NDU=",
-      "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115-D001",
@@ -2583,7 +2961,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODA4NTc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "溪口鄉公所"
     },
     {
       "id": "115062",
@@ -2600,7 +2979,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODY2MzU=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "東石鄉公所"
     },
     {
       "id": "11520760",
@@ -2620,23 +3000,24 @@
         {
           "year": 2025,
           "title": "1140611-4 竹南鎮114年觀光文化季活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "燿舞揚威整合行銷有限公司",
+          "award_price": "1,568,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         },
         {
           "year": 2024,
           "title": "1130401-4 竹南鎮113年觀光文化季活動",
-          "winner": "查無資料",
-          "award_price": "查無資料",
-          "bidder_count": "查無資料",
+          "winner": "貝茲曲線整合行銷有限公司",
+          "award_price": "1,580,000元",
+          "bidder_count": "2",
           "base_price": "未公開",
           "budget": ""
         }
       ],
-      "is_activity": true
+      "is_activity": true,
+      "src_org": "竹崎鄉公所"
     },
     {
       "id": "115111301",
@@ -2653,7 +3034,8 @@
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU0MTc=",
       "history": [],
-      "is_activity": false
+      "is_activity": false,
+      "src_org": "大埔鄉公所"
     }
   ]
 }

@@ -14,6 +14,7 @@ import json
 import datetime
 import os
 import time
+import fcntl
 from playwright.async_api import async_playwright
 
 try:
@@ -27,6 +28,12 @@ OUTPUT_FILE = os.path.join(os.path.dirname(__file__), "data.json")
 STATUS_FILE = os.path.join(os.path.dirname(__file__), ".status.json")
 MAX_CONSECUTIVE_FAILURES = 3
 MAX_FAILURE_RATIO = 0.5
+LOCK_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".crawler.lock")
+# 關鍵機關查詢失敗時，資料照常寫入與發布，但 exit code 回 2，讓排程重跑
+CRITICAL_ORGS = ["雲林縣政府"]
+EXIT_CRITICAL_FAILED = 2
+# 查過但查無歷史的活動案，這麼多天內不重查
+HISTORY_RECHECK_DAYS = 7
 
 PCC_BLOCK_MARKERS = (
     "web page blocked",
@@ -79,23 +86,38 @@ PCC_URL = f"{PCC_BASE}/prkms/tender/common/basic/indexTenderBasic"
 PCC_FULLTEXT_URL = f"{PCC_BASE}/prkms/tender/common/bulletion/indexBulletion"
 PCC_DETAIL_BASE = f"{PCC_BASE}/tps/atm/AtmAwardWithoutSso/QueryAtmAwardDetail"
 
-ACTIVITY_KEYWORDS = [
-    "表演", "演出", "演唱", "舞蹈", "戲劇", "展覽", "特展", "策展", "裝置",
+# 2026-11-17 活動判定改成「強訊號／弱訊號／服務類否決字」三層（見 100_Todo/projects/2026-11-17_採購活動判定_新規則提案.md）：
+# - 強訊號：標題有就是活動案，不會被排除字或否決字推翻（保住「耶誕嘉年華暨水岸光環境建置計畫」這類混合案）
+# - 弱訊號：只靠它成立的案子，若同時命中否決字或工程排除字就不算活動（擋掉「志工團體意外保險」「靈堂佈置委託經營」）
+# - 漏掉活動案比多收幾筆嚴重：弱訊號沒有否決字時仍算活動
+# - 比對前先移除所有空白（「培 力」「(1 年期 )」這類排版空白不能讓判定失效）
+STRONG_ACTIVITY_KEYWORDS = [
+    "表演", "演出", "演唱", "舞蹈", "戲劇", "展覽", "特展", "策展",
     "活動", "節慶", "慶典", "祭典", "嘉年華", "晚會", "博覽會", "園遊會",
     "運動會", "競賽", "競技", "馬拉松", "論壇", "頒獎",
-    "行銷", "宣傳", "推廣", "宣導",
-    "文化", "藝術", "音樂", "交流", "藝文",
-    "社區", "社造", "社區營造", "培力", "地方創生",
-    "文史", "口述", "人文保存", "眷村", "部落",
-    "古蹟日", "燈會", "市集", "導覽", "工作坊", "研習", "講座", "展售",
-    "燈籠", "彩繪",
+    "燈會", "燈節", "藝術節", "音樂節", "文化節", "電影節", "觀光節", "產業節",
+    "市集", "踩街", "遶境", "進香", "走讀", "開幕", "典禮", "發表會", "成果展", "園遊",
+    "工作坊", "講座", "研習", "展售", "導覽", "啟用", "新春", "元宵", "中秋", "跨年", "耶誕", "聖誕",
+    "藝文", "古蹟日", "社區營造", "社造", "地方創生", "文史", "口述", "人文保存",
+    "地方服務團", "社區規劃師",
+]
+WEAK_ACTIVITY_KEYWORDS = [
+    "裝置", "行銷", "宣傳", "推廣", "宣導", "文化", "藝術", "音樂", "交流",
+    "社區", "培力", "眷村", "部落", "燈籠", "彩繪",
     "農村再生", "社區規劃", "關懷據點", "樂齡", "長者", "共餐", "志工",
     "食農", "環境教育", "客庄", "客家", "原住民",
-    # 2026-08-21 補：實查發現「虎尾毛巾節」「月津港燈節」因為清單只有「燈會」「節慶」而漏判
-    "燈節", "藝術節", "音樂節", "文化節", "電影節", "觀光節", "產業節",
-    "發表會", "成果展", "園遊", "踩街", "遶境", "進香", "走讀", "開幕",
-    "委外經營", "委託經營", "園區經營", "地方服務團", "社區規劃師", "老宅",
+    "委外經營", "委託經營", "園區經營", "老宅",
+    # 平面設計／印刷類（DAVID 本業）：單獨出現算弱訊號
+    "設計", "印刷", "視覺", "海報", "文宣", "美編", "年曆", "門聯",
 ]
+# 一般行政服務類字眼：只對「只靠弱訊號成立」的案子生效，不能否決強訊號
+SERVICE_VETO_KEYWORDS = [
+    "保險", "清潔", "保全", "審查", "重劃", "殯儀", "靈堂", "假牙", "清運", "清除", "垃圾",
+    "資訊系統", "健檢", "疫苗", "採血", "保養", "消毒", "檢驗", "供餐", "午餐",
+    "租賃", "影印", "車輛", "印表機", "文具",
+]
+# 舊名保留（其他程式或舊測試可能 import）
+ACTIVITY_KEYWORDS = STRONG_ACTIVITY_KEYWORDS + WEAK_ACTIVITY_KEYWORDS
 
 # 標題裡的機關名／路名本身含「文化」等字，比對前先剔除，避免誤判成活動案
 ORG_NOISE = ["文化觀光處", "文化處", "文化局", "文化路"]
@@ -186,27 +208,34 @@ def _strip_noise(title):
     return re.sub(r'[（）()〔〕\[\]]', '', t)
 
 
-def is_activity(title):
-    """活動判定優先於工程排除。
-
-    2026-08-21 改：原本第一行是「命中排除字就直接回 False」，等於排除規則
-    有一票否決權，像「耶誕嘉年華暨水岸光環境建置計畫」這種活動＋工程的
-    混合案會被整筆殺掉。改成活動關鍵字先判，命中就是活動案。
-    """
-    t = _strip_noise(title)
+def _compact(title):
+    """比對用字串：去更正公告前綴、機關名雜訊、括號符號、場館名，並移除所有空白。"""
+    t = _strip_noise(strip_correction_prefix(title))
     for w in VENUE_NOISE:
         t = t.replace(w, "")
-    if any(kw in t for kw in ACTIVITY_KEYWORDS):
+    return re.sub(r"\s+", "", t)
+
+
+def is_activity(title):
+    """活動判定（2026-11-17 改為強弱訊號）：
+    強訊號（或第N屆）→ 活動；弱訊號 → 沒有否決字也沒有工程排除字才算活動；都沒有 → 非活動。
+    活動判定優先於工程排除的順序不變（見 is_excluded_tender）。
+    """
+    t = _compact(title)
+    if any(kw in t for kw in STRONG_ACTIVITY_KEYWORDS) or re.search(ORDINAL_RE, t):
         return True
-    # 有屆次（第十三屆…）的多半是年度性活動或賽事，例如「第十三屆虎尾毛巾節」
-    return bool(re.search(ORDINAL_RE, t))
+    if not any(kw in t for kw in WEAK_ACTIVITY_KEYWORDS):
+        return False
+    if any(kw in t for kw in SERVICE_VETO_KEYWORDS):
+        return False
+    return not any(kw in t for kw in EXCLUDE_KEYWORDS)
 
 
 def is_excluded_tender(title):
     """工程／設施／設備案排除。只對「完全沒有活動特徵」的案子生效。"""
     if is_activity(title):
         return False
-    t = _strip_noise(title)
+    t = re.sub(r"\s+", "", _strip_noise(strip_correction_prefix(title)))
     return any(kw in t for kw in EXCLUDE_KEYWORDS)
 
 
@@ -222,8 +251,17 @@ def town_from_org(org, region):
 ORDINAL_RE = r'第[0-9一二三四五六七八九十百]+屆'
 
 
+CORRECTION_PREFIX_RE = r'^[（(]更正公告[）)]\s*'
+
+
+def strip_correction_prefix(title):
+    """去掉標題開頭的「(更正公告)」，避免被當成關鍵字或比對雜訊。"""
+    return re.sub(CORRECTION_PREFIX_RE, '', title.strip())
+
+
 def extract_keyword(title):
     """從標案名稱提取搜尋關鍵字"""
+    title = strip_correction_prefix(title)
     kw = re.sub(r'\d{3,4}年度?|20\d{2}', '', title).strip()
     kw = re.sub(ORDINAL_RE, '', kw).strip()
     kw = re.sub(r'委託.*|勞務採購.*', '', kw).strip()
@@ -238,7 +276,9 @@ def extract_keyword(title):
 
 def normalize_for_match(title):
     """去除標案編號、年份、屆次、委託尾綴等雜訊以利比對"""
+    title = strip_correction_prefix(title)
     t = re.sub(r'^[0-9A-Za-z\-]+\s+', '', title).strip()  # 決標列表的標案編號前綴
+    t = strip_correction_prefix(t)
     t = re.sub(r'\d{3,4}年度?|20\d{2}', '', t).strip()
     t = re.sub(ORDINAL_RE, '', t).strip()
     t = re.sub(r'委託.*|勞務採購.*', '', t).strip()
@@ -274,6 +314,7 @@ async def get_winner_from_detail(context, pk):
     award_price = ""
     bidder_count = ""
     base_price = ""
+    detail_page = None
     try:
         detail_page = await context.new_page()
         await detail_page.goto(detail_url, timeout=20000)
@@ -311,10 +352,14 @@ async def get_winner_from_detail(context, pk):
                 if line == '得標廠商' and i + 1 < len(lines):
                     winner = clean_winner(lines[i+1])
                     break
-
-        await detail_page.close()
     except Exception:
         pass
+    finally:
+        if detail_page is not None:
+            try:
+                await detail_page.close()
+            except Exception:
+                pass
 
     return winner, award_price, bidder_count, base_price
 
@@ -372,12 +417,21 @@ async def search_history_year(page, context, title, keyword, year):
     return None
 
 
+def taipei_today():
+    return datetime.datetime.now(TAIPEI).date()
+
+
+def history_years(today=None):
+    """歷史查詢年度（民國年）：今年、去年、前年。以台北時區為準。"""
+    today = today or taipei_today()
+    roc_year = today.year - 1911
+    return [roc_year, roc_year - 1, roc_year - 2]
+
+
 async def query_history(page, context, title, years=None):
-    """用全文檢索查詢前兩年歷史得標。先用 6 字關鍵字查，查無時退用 4 字再查一次。"""
+    """用全文檢索查詢今年、去年、前年歷史得標。先用 6 字關鍵字查，查無時退用 4 字再查一次。"""
     if years is None:
-        today = datetime.date.today()
-        roc_year = today.year - 1911
-        years = [roc_year - 1, roc_year - 2]
+        years = history_years()
 
     history = []
     keyword = extract_keyword(title)
@@ -450,8 +504,7 @@ async def query_one_org(page, org_name, region):
     results = []
     try:
         await page.goto(PCC_URL, timeout=30000)
-        await page.wait_for_timeout(8000)
-        await page.wait_for_selector('input[name="orgName"]', timeout=10000)
+        await page.wait_for_selector('input[name="orgName"]', timeout=15000)
 
         await page.fill('input[name="orgName"]', org_name)
         await page.click('label[for="level_22"]')
@@ -502,6 +555,7 @@ async def query_one_org(page, org_name, region):
                     "url": url,
                     "history": [],
                     "is_activity": is_activity(title),
+                    "src_org": org_name,
                 })
             except Exception:
                 continue
@@ -528,12 +582,145 @@ async def query_org_with_retry(page, org_name, region, retries=1):
     return None
 
 
+def tender_key(t):
+    """去重鍵：機關名＋案號（案號是各機關自編，不同機關可能撞號）。"""
+    return (t.get("org", ""), t.get("id", ""))
+
+
+def add_tender(bucket, t):
+    """加入 bucket（dict，鍵為 tender_key）；已有同機關同案號就略過。回傳是否新增。"""
+    key = tender_key(t)
+    if key in bucket:
+        return False
+    bucket[key] = t
+    return True
+
+
+def ensure_unique_ids(tenders):
+    """輸出的 id 要在整份資料內唯一：撞號時，後出現的在 id 後面加機關名短雜湊。"""
+    seen = set()
+    for t in tenders:
+        base = t["id"]
+        if base in seen:
+            suffix = hashlib.md5(t.get("org", "").encode("utf-8")).hexdigest()[:4]
+            new_id = f"{base}-{suffix}"
+            n = 2
+            while new_id in seen:
+                new_id = f"{base}-{suffix}{n}"
+                n += 1
+            t["id"] = new_id
+        seen.add(t["id"])
+    return tenders
+
+
+def load_existing(path=None):
+    """讀舊 data.json，回傳 {(org, id): tender}。讀不到回傳空 dict。"""
+    path = path or OUTPUT_FILE
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            old = json.load(f)
+        return {tender_key(t): t for t in old.get("tenders", [])}
+    except Exception:
+        return {}
+
+
+def history_recently_checked(old, today, days=HISTORY_RECHECK_DAYS):
+    """舊資料記錄「查過但查無」的日期，days 天內不重查。"""
+    checked = (old or {}).get("history_checked_at")
+    if not checked:
+        return False
+    try:
+        d = datetime.date.fromisoformat(checked)
+    except ValueError:
+        return False
+    return 0 <= (today - d).days < days
+
+
+def plan_history_queries(activity_list, existing, today=None):
+    """決定哪些活動案要查歷史。回傳 (需查詢清單, 略過清單)。
+
+    舊資料已有 history 的直接沿用；查過但查無的 7 天內不重查。
+    沿用時會把舊的 history / history_checked_at 寫回該筆。
+    """
+    today = today or taipei_today()
+    to_query, skipped = [], []
+    for t in activity_list:
+        old = existing.get(tender_key(t))
+        if old and old.get("history"):
+            t["history"] = old["history"]
+            if old.get("history_checked_at"):
+                t["history_checked_at"] = old["history_checked_at"]
+            skipped.append(t)
+        elif history_recently_checked(old, today):
+            t["history"] = []
+            t["history_checked_at"] = old["history_checked_at"]
+            skipped.append(t)
+        else:
+            to_query.append(t)
+    return to_query, skipped
+
+
+def parse_roc_date(text):
+    """'115/11/26' → date；格式不符回傳 None。"""
+    m = re.match(r'^\s*(\d{2,3})/(\d{1,2})/(\d{1,2})', text or "")
+    if not m:
+        return None
+    try:
+        return datetime.date(int(m.group(1)) + 1911, int(m.group(2)), int(m.group(3)))
+    except ValueError:
+        return None
+
+
+def carry_stale_tenders(failed_orgs, existing, current_keys, today=None):
+    """失敗機關沿用舊資料：該機關、截止日還沒過的案子帶進來，加 stale: true。
+
+    current_keys：本次已抓到的 (org, id)，避免重複。
+    比對機關：舊資料有 src_org 就用它；沒有就看 org 欄位是否以機關名開頭。
+    """
+    today = today or taipei_today()
+    carried = []
+    for t in existing.values():
+        src = t.get("src_org")
+        if src:
+            if src not in failed_orgs:
+                continue
+        elif not any(t.get("org", "").startswith(o) for o in failed_orgs):
+            continue
+        if tender_key(t) in current_keys:
+            continue
+        deadline = parse_roc_date(t.get("deadline"))
+        if deadline is None or deadline < today:
+            continue
+        t = dict(t)
+        t["stale"] = True
+        carried.append(t)
+    return carried
+
+
+def critical_failed(failed_orgs):
+    return [o for o in failed_orgs if o in CRITICAL_ORGS]
+
+
+def acquire_lock():
+    """防撞鎖：拿不到回傳 None（代表另一份爬蟲正在跑）。"""
+    fh = open(LOCK_FILE, "w")
+    try:
+        fcntl.flock(fh, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    except OSError:
+        fh.close()
+        return None
+    return fh
+
+
 async def main():
     print("=" * 52)
     print("  起行採購監控爬蟲（雲林、彰化、嘉義）")
     print(f"  時間：{datetime.datetime.now(TAIPEI).strftime('%Y-%m-%d %H:%M')}")
     print("=" * 52)
 
+    existing = load_existing()
     all_tenders = {}
     all_orgs = [(region, org) for region, cfg in REGIONS.items() for org in cfg["orgs"]]
 
@@ -577,8 +764,7 @@ async def main():
             excluded_count = original_count - len(results)
 
             for t in results:
-                if t["id"] not in all_tenders:
-                    all_tenders[t["id"]] = t
+                add_tender(all_tenders, t)
 
             activity_count = sum(1 for t in results if t.get("is_activity"))
             exclude_note = f"，工程/設施排除 {excluded_count} 筆" if excluded_count else ""
@@ -605,28 +791,41 @@ async def main():
                 successful_org_count += 1
                 results = [t for t in results if not is_excluded_tender(t["title"])]
                 for t in results:
-                    all_tenders.setdefault(t["id"], t)
+                    add_tender(all_tenders, t)
                 print(f"共 {len(results)} 筆")
                 await asyncio.sleep(2)
             failed_orgs = still_failed
 
-        all_list = list(all_tenders.values())
+        # 失敗機關沿用舊資料（截止日未過的），標 stale
+        if failed_orgs:
+            stale = carry_stale_tenders(failed_orgs, existing, set(all_tenders))
+            for t in stale:
+                add_tender(all_tenders, t)
+            if stale:
+                print(f"\n失敗機關沿用舊資料 {len(stale)} 筆（標示「昨日資料」）")
+
+        all_list = ensure_unique_ids(list(all_tenders.values()))
         activity_list = [t for t in all_list if t.get("is_activity")]
 
-        if activity_list:
-            report_progress(60, f"查詢 {len(activity_list)} 筆活動標案歷史記錄...")
-            print(f"\n查詢 {len(activity_list)} 筆活動標案的歷史得標記錄...")
-            for i, t in enumerate(activity_list):
+        to_query, skipped = plan_history_queries(activity_list, existing)
+        print(f"\n歷史得標：需查詢 {len(to_query)} 筆／略過 {len(skipped)} 筆")
+
+        if to_query:
+            report_progress(60, f"查詢 {len(to_query)} 筆活動標案歷史記錄...")
+            print(f"查詢 {len(to_query)} 筆活動標案的歷史得標記錄...")
+            for i, t in enumerate(to_query):
                 kw = extract_keyword(t["title"])
-                print(f"  [{i+1}/{len(activity_list)}] {t['title'][:25]}... (keyword: {kw})")
+                print(f"  [{i+1}/{len(to_query)}] {t['title'][:25]}... (keyword: {kw})")
                 history = await query_history(page, context, t["title"])
                 t["history"] = history
+                if not history:
+                    t["history_checked_at"] = taipei_today().isoformat()
                 if history:
                     for h in history:
                         print(f"    {h['year']}年 → {h['winner']} / {h['award_price']}")
                 else:
                     print(f"    查無歷史記錄")
-                report_progress(60 + int((i + 1) / len(activity_list) * 20), f"查詢歷史記錄（{i+1}/{len(activity_list)}）")
+                report_progress(60 + int((i + 1) / len(to_query) * 20), f"查詢歷史記錄（{i+1}/{len(to_query)}）")
                 await asyncio.sleep(2)
 
         await browser.close()
@@ -640,20 +839,6 @@ async def main():
         print(f"  ★ [{t['region']}·{t['town']}] {t['title']} | 預算 {t['budget']}")
 
     report_progress(90, "儲存資料...")
-    existing = {}
-    if os.path.exists(OUTPUT_FILE):
-        try:
-            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
-                old = json.load(f)
-            existing = {t["id"]: t for t in old.get("tenders", [])}
-        except Exception:
-            pass
-
-    for t in all_list:
-        if t["id"] in existing and existing[t["id"]].get("history"):
-            if not t.get("history"):
-                t["history"] = existing[t["id"]]["history"]
-
     validate_crawl_results(
         total_orgs=len(all_orgs),
         failed_count=len(failed_orgs),
@@ -669,6 +854,7 @@ async def main():
         "org_count": len(all_orgs),
         "successful_org_count": successful_org_count,
         "failed_orgs": failed_orgs,
+        "stale_count": sum(1 for t in all_list if t.get("stale")),
         "tenders": all_list
     }
 
@@ -704,6 +890,19 @@ async def main():
         report_progress(100, "資料已更新；GitHub 發佈需手動確認")
         print("已略過 GitHub push。確認內容後再手動執行 upload_github.py。")
 
+    critical = critical_failed(failed_orgs)
+    if critical:
+        print(f"⚠ 關鍵機關查詢失敗：{'、'.join(critical)}；exit {EXIT_CRITICAL_FAILED}，等排程重跑")
+        return EXIT_CRITICAL_FAILED
+    return 0
+
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    lock = acquire_lock()
+    if lock is None:
+        print("另一份爬蟲正在執行（.crawler.lock 被占用），本次略過")
+        raise SystemExit(0)
+    try:
+        raise SystemExit(asyncio.run(main()))
+    finally:
+        lock.close()
