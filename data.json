@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T11:43:33.473799+08:00",
-  "total": 151,
+  "updated_at": "2026-11-19T15:50:56.095840+08:00",
+  "total": 152,
   "activity_total": 37,
   "org_count": 68,
   "successful_org_count": 68,
@@ -666,6 +666,53 @@
       "is_activity": true,
       "src_org": "雲林縣政府",
       "history_checked_at": "2026-11-17"
+    },
+    {
+      "id": "1151124-1",
+      "title": "雲林縣斗六市第13屆市長暨里長宣誓就職典禮",
+      "org": "雲林縣斗六市公所",
+      "region": "雲林",
+      "town": "斗六市",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "228,600",
+      "date": "115/11/16",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU2MjE=",
+      "history": [],
+      "is_activity": true,
+      "src_org": "斗六市公所",
+      "history_checked_at": "2026-11-17"
+    },
+    {
+      "id": "1152CA38",
+      "title": "雲林縣北港鎮116年元宵慶花燈設計、展出及演出活動",
+      "org": "雲林縣北港鎮公所",
+      "region": "雲林",
+      "town": "北港鎮",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "1,400,000",
+      "date": "115/11/13",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODMyNjM=",
+      "history": [
+        {
+          "year": 2024,
+          "title": "1132CA02 雲林縣北港鎮元宵慶花燈設計、展出及演出活動",
+          "winner": "妙員文化藝術團",
+          "award_price": "1,200,000元",
+          "bidder_count": "1",
+          "base_price": "未公開",
+          "budget": ""
+        }
+      ],
+      "is_activity": true,
+      "src_org": "北港鎮公所"
     },
     {
       "id": "115-073-089-344",
@@ -3165,6 +3212,24 @@
       "src_org": "嘉義市政府"
     },
     {
+      "id": "1151071",
+      "title": "116年度嘉義市柴油車定檢及污染管制稽查暨機動車輛噪音管制計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "17,738,000",
+      "date": "115/10/21",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNTkxMTg=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義市政府"
+    },
+    {
       "id": "115-D001",
       "title": "116年度溪口鄉鄉民投保團體意外險",
       "org": "嘉義縣溪口鄉公所",
@@ -3272,53 +3337,6 @@
       "history": [],
       "is_activity": false,
       "src_org": "大埔鄉公所"
-    },
-    {
-      "id": "1151124-1",
-      "title": "雲林縣斗六市第13屆市長暨里長宣誓就職典禮",
-      "org": "雲林縣斗六市公所",
-      "region": "雲林",
-      "town": "斗六市",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "228,600",
-      "date": "115/11/16",
-      "deadline": "115/11/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU2MjE=",
-      "history": [],
-      "is_activity": true,
-      "src_org": "斗六市公所",
-      "history_checked_at": "2026-11-17"
-    },
-    {
-      "id": "1152CA38",
-      "title": "雲林縣北港鎮116年元宵慶花燈設計、展出及演出活動",
-      "org": "雲林縣北港鎮公所",
-      "region": "雲林",
-      "town": "北港鎮",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "1,400,000",
-      "date": "115/11/13",
-      "deadline": "115/12/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODMyNjM=",
-      "history": [
-        {
-          "year": 2024,
-          "title": "1132CA02 雲林縣北港鎮元宵慶花燈設計、展出及演出活動",
-          "winner": "妙員文化藝術團",
-          "award_price": "1,200,000元",
-          "bidder_count": "1",
-          "base_price": "未公開",
-          "budget": ""
-        }
-      ],
-      "is_activity": true,
-      "src_org": "北港鎮公所"
     }
   ]
 }
