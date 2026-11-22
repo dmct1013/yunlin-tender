@@ -1,13 +1,11 @@
 {
-  "updated_at": "2026-11-22T05:03:50.428734+08:00",
+  "updated_at": "2026-11-22T15:18:20.382078+08:00",
   "total": 163,
   "activity_total": 38,
   "org_count": 68,
-  "successful_org_count": 67,
-  "failed_orgs": [
-    "埔心鄉公所"
-  ],
-  "stale_count": 1,
+  "successful_org_count": 68,
+  "failed_orgs": [],
+  "stale_count": 0,
   "tenders": [
     {
       "id": "1152E10091",
@@ -2058,6 +2056,25 @@
       "src_org": "秀水鄉公所"
     },
     {
+      "id": "1151113",
+      "title": "彰化縣埔心鄉2026蜜果樂園啟用典禮暨蜜果樂園歡樂Go勞務採購",
+      "org": "彰化縣埔心鄉公所",
+      "region": "彰化",
+      "town": "埔心鄉",
+      "type": "勞務",
+      "recruit_type": "公開取得報價單或企劃書",
+      "budget": "850,000",
+      "date": "115/11/16",
+      "deadline": "115/11/24",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU4NTE=",
+      "history": [],
+      "is_activity": true,
+      "src_org": "埔心鄉公所",
+      "history_checked_at": "2026-11-18"
+    },
+    {
       "id": "1150019364",
       "title": "116年度芳苑鄉公所公共建設、人文藝術與城鄉經濟發展出國考察",
       "org": "彰化縣芳苑鄉公所",
@@ -3404,6 +3421,24 @@
       "src_org": "嘉義市政府"
     },
     {
+      "id": "11553",
+      "title": "嘉義縣太保市116年度太保市民團體意外保險",
+      "org": "嘉義縣太保市公所",
+      "region": "嘉義",
+      "town": "太保市",
+      "type": "勞務",
+      "recruit_type": "公開招標",
+      "budget": "2,000,000",
+      "date": "115/11/20",
+      "deadline": "115/11/30",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzOTQwMzc=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "太保市公所"
+    },
+    {
       "id": "115111902",
       "title": "大林鎮116年綠地維護勞務採購契約",
       "org": "嘉義縣大林鎮公所",
@@ -3510,44 +3545,6 @@
       "history": [],
       "is_activity": false,
       "src_org": "大埔鄉公所"
-    },
-    {
-      "id": "11553",
-      "title": "嘉義縣太保市116年度太保市民團體意外保險",
-      "org": "嘉義縣太保市公所",
-      "region": "嘉義",
-      "town": "太保市",
-      "type": "勞務",
-      "recruit_type": "公開招標",
-      "budget": "2,000,000",
-      "date": "115/11/20",
-      "deadline": "115/11/30",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzOTQwMzc=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "太保市公所"
-    },
-    {
-      "id": "1151113",
-      "title": "彰化縣埔心鄉2026蜜果樂園啟用典禮暨蜜果樂園歡樂Go勞務採購",
-      "org": "彰化縣埔心鄉公所",
-      "region": "彰化",
-      "town": "埔心鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "850,000",
-      "date": "115/11/16",
-      "deadline": "115/11/24",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODU4NTE=",
-      "history": [],
-      "is_activity": true,
-      "src_org": "埔心鄉公所",
-      "history_checked_at": "2026-11-18",
-      "stale": true
     }
   ]
 }
