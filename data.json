@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-25T09:05:10.196830+08:00",
-  "total": 157,
+  "updated_at": "2026-11-25T17:03:45.828074+08:00",
+  "total": 151,
   "activity_total": 41,
   "org_count": 68,
   "successful_org_count": 68,
@@ -1464,24 +1464,6 @@
       "src_org": "鹿港鎮公所"
     },
     {
-      "id": "11511-202",
-      "title": "116年彰化縣鹿港鎮公所生命所轄管環境及廁所清潔暨環保金爐代操作委外服務(總價決標)",
-      "org": "彰化縣鹿港鎮公所",
-      "region": "彰化",
-      "town": "鹿港鎮",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,000,000",
-      "date": "115/11/12",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODE1MDI=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "鹿港鎮公所"
-    },
-    {
       "id": "116-005",
       "title": "116年度里鄰長訓練暨藝文活動",
       "org": "彰化縣田中鎮公所",
@@ -1791,24 +1773,6 @@
         }
       ],
       "is_activity": true,
-      "src_org": "芳苑鄉公所"
-    },
-    {
-      "id": "1150019054",
-      "title": "116年芳苑鄉慈慧堂殯儀館靈堂佈置委託經營管理(開口契約)",
-      "org": "彰化縣芳苑鄉公所",
-      "region": "彰化",
-      "town": "芳苑鄉",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "0",
-      "date": "115/11/17",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODc5ODg=",
-      "history": [],
-      "is_activity": false,
       "src_org": "芳苑鄉公所"
     },
     {
@@ -2267,24 +2231,6 @@
       "src_org": "嘉義縣政府"
     },
     {
-      "id": "115KH572",
-      "title": "116年度「嘉義縣政府施政成果暨縣政發展民意調查」",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "公開取得報價單或企劃書",
-      "budget": "700,000",
-      "date": "115/11/18",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODk4NDA=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "嘉義縣政府"
-    },
-    {
       "id": "115HM533",
       "title": "116年度嘉義縣布建身心障礙者社區式日間照顧服務計畫",
       "org": "嘉義縣政府",
@@ -2328,24 +2274,6 @@
         }
       ],
       "is_activity": true,
-      "src_org": "嘉義縣政府"
-    },
-    {
-      "id": "115QM457",
-      "title": "嘉義縣「112年度土壤液化調查與風險評估計畫」委託技術服務案",
-      "org": "嘉義縣政府",
-      "region": "嘉義",
-      "town": "嘉義縣",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "52,644,000",
-      "date": "115/11/18",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODg5ODc=",
-      "history": [],
-      "is_activity": false,
       "src_org": "嘉義縣政府"
     },
     {
@@ -2448,6 +2376,24 @@
       "is_activity": true,
       "src_org": "嘉義縣政府",
       "history_checked_at": "2026-11-24"
+    },
+    {
+      "id": "11511106",
+      "title": "(更正公告) 116年嘉義市公廁維護管理暨蚊媒公共環境清理美質環境推動計畫",
+      "org": "嘉義市政府環境保護局",
+      "region": "嘉義",
+      "town": "嘉義市",
+      "type": "勞務",
+      "recruit_type": "經公開評選或公開徵求之限制性招標",
+      "budget": "4,000,000",
+      "date": "115/11/26",
+      "deadline": "115/12/01",
+      "status": "招標中",
+      "winner": "",
+      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzOTEyMjc=",
+      "history": [],
+      "is_activity": false,
+      "src_org": "嘉義市政府"
     },
     {
       "id": "115335",
@@ -2924,24 +2870,6 @@
       "src_org": "嘉義市政府"
     },
     {
-      "id": "11511106",
-      "title": "116年嘉義市公廁維護管理暨蚊媒公共環境清理美質環境推動計畫",
-      "org": "嘉義市政府環境保護局",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "4,000,000",
-      "date": "115/11/19",
-      "deadline": "115/12/01",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzOTEyMjc=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "嘉義市政府"
-    },
-    {
       "id": "115A112",
       "title": "116年度嘉義市政府文化局園區及各外館環境綠化及美化養護案",
       "org": "嘉義市政府文化局",
@@ -3150,24 +3078,6 @@
       "src_org": "嘉義市政府"
     },
     {
-      "id": "115306",
-      "title": "(更正公告) 116年度嘉義市居家托育服務中心計畫",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "7,180,000",
-      "date": "115/11/12",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzODA3MTk=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "嘉義市政府"
-    },
-    {
       "id": "115303",
       "title": "116年有事青年實驗室委託經營管理",
       "org": "嘉義市政府",
@@ -3209,24 +3119,6 @@
       "status": "招標中",
       "winner": "",
       "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzg0NTg=",
-      "history": [],
-      "is_activity": false,
-      "src_org": "嘉義市政府"
-    },
-    {
-      "id": "115298",
-      "title": "116年度委外生活美學服務類職前訓練",
-      "org": "嘉義市政府",
-      "region": "嘉義",
-      "town": "嘉義市",
-      "type": "勞務",
-      "recruit_type": "經公開評選或公開徵求之限制性招標",
-      "budget": "2,954,000",
-      "date": "115/11/09",
-      "deadline": "115/11/25",
-      "status": "招標中",
-      "winner": "",
-      "url": "https://web.pcc.gov.tw/prkms/urlSelector/common/tpam?pk=NzEzNzY2Nzg=",
       "history": [],
       "is_activity": false,
       "src_org": "嘉義市政府"
